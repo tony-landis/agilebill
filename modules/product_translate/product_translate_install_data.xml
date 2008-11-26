@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+  <product_translate>
+       <id>2</id>
+       <site_id>1</site_id>
+       <product_id>2</product_id>
+       <language_id>english</language_id>
+       <name>Sample Product</name>
+       <description_short><![CDATA[This is just a sample product, edit as needed or delete.<br />
+]]></description_short>
+       <description_full>This is just a sample product, edit as needed or delete.</description_full>
+  </product_translate>
+  <product_translate_id>
+       <id>2</id>
+  </product_translate_id>
+</install>

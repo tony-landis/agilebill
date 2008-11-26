@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+  <product>
+       <id>2</id>
+       <site_id>1</site_id>
+       <date_orig>1132443241</date_orig>
+       <date_last>1132443241</date_last>
+       <sku>SAMPLE1</sku>
+       <taxable>1</taxable>
+       <active>1</active>
+       <group_avail><![CDATA[a:1:{i:0;s:1:"0";}]]></group_avail>
+       <avail_category_id><![CDATA[a:1:{i:0;s:1:"1";}]]></avail_category_id>
+       <discount>0</discount>
+       <price_type>1</price_type>
+       <price_base>10</price_base>
+       <price_setup>10</price_setup>
+       <price_group><![CDATA[a:6:{i:0;a:3:{i:0;a:2:{s:10:"price_base";s:0:"";s:11:"price_setup";s:0:"";}i:2;a:2:{s:10:"price_base";s:0:"";s:11:"price_setup";s:0:"";}s:4:"show";s:1:"0";}i:1;a:3:{i:0;a:2:{s:10:"price_base";s:2:"10";s:11:"price_setup";s:2:"10";}i:2;a:2:{s:10:"price_base";s:2:"10";s:11:"price_setup";s:2:"10";}s:4:"show";s:1:"1";}i:2;a:3:{i:0;a:2:{s:10:"price_base";s:0:"";s:11:"price_setup";s:0:"";}i:2;a:2:{s:10:"price_base";s:0:"";s:11:"price_setup";s:0:"";}s:4:"show";s:1:"0";}i:3;a:3:{i:0;a:2:{s:10:"price_base";s:0:"";s:11:"price_setup";s:0:"";}i:2;a:2:{s:10:"price_base";s:0:"";s:11:"price_setup";s:0:"";}s:4:"show";s:1:"0";}i:4;a:3:{i:0;a:2:{s:10:"price_base";s:0:"";s:11:"price_setup";s:0:"";}i:2;a:2:{s:10:"price_base";s:0:"";s:11:"price_setup";s:0:"";}s:4:"show";s:1:"0";}i:5;a:3:{i:0;a:2:{s:10:"price_base";s:0:"";s:11:"price_setup";s:0:"";}i:2;a:2:{s:10:"price_base";s:0:"";s:11:"price_setup";s:0:"";}s:4:"show";s:1:"0";}}]]></price_group>
+       <price_recurr_default>1</price_recurr_default>
+       <price_recurr_type>0</price_recurr_type>
+       <price_recurr_weekday>1</price_recurr_weekday>
+       <price_recurr_week>1</price_recurr_week>
+  </product>
+  <product_id>
+       <id>2</id>
+  </product_id>
+</install>

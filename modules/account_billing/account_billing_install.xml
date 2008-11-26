@@ -1,0 +1,34 @@
+<install>
+	<module_properties>
+		<name>account_billing</name>
+		<parent>account_admin</parent>
+		<notes><![CDATA[This module contains the encrypted billing data.]]></notes>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<add>
+				<name>add</name>
+			</add>
+			<update>
+				<name>update</name>
+			</update>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<view>
+				<name>view</name>
+			</view>
+			<search>
+				<name>search</name>
+			</search>
+			<search_form>
+				<name>search_form</name>
+				<notes><![CDATA[Allow users to view the search form]]></notes>
+			</search_form>
+			<search_show>
+				<name>search_show</name>
+				<notes><![CDATA[Allow users to view the search results]]></notes>
+			</search_show>
+		</module_method>
+	</sql_inserts>
+</install>

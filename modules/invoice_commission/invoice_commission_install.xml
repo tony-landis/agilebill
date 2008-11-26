@@ -1,0 +1,12 @@
+<install>
+	<module_properties>
+		<name>invoice_commission</name>
+		<parent>invoice</parent>
+		<notes><![CDATA[Stores the affiliate commissions paid]]></notes>
+		<dependancy>invoice</dependancy>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+		</module_method>
+	</sql_inserts>
+</install>

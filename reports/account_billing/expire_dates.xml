@@ -1,0 +1,19 @@
+<report>
+<title>Card Expiration Dates</title>
+	<level>
+		<title>Summary by Month and Year</title>
+		<sql>SELECT count(id) as total, CONCAT( "20", card_exp_year, "-", card_exp_month) as expire from %%AGILE_DB_PREFIX%%account_billing A</sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+		<orderby>GROUP BY expire ORDER BY expire ASC</orderby>
+		<indent>0</indent> 
+		<column>
+			<display>Expire Year-Month</display>
+			<field>expire</field> 
+		</column>
+		<column>
+			<display>Total</display>
+			<field>total</field>
+			<total>true</total> 
+		</column> 
+	</level> 		
+</report>

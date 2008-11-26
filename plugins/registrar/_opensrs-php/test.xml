@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE OPS_envelope SYSTEM "ops.dtd">
+<OPS_envelope>
+ <header>
+  <version>0.9</version>
+  <msg_id>1.20522878598422</msg_id>
+  <msg_type>standard</msg_type>
+ </header>
+ <body>
+  <data_block>
+   <dt_assoc>
+    <item key="protocol">XCP</item>
+    <item key="action">LOOKUP</item>
+    <item key="object">DOMAIN</item>
+    <item key="registrant_ip">111.121.121.121</item>
+    <item key="attributes">
+     <dt_assoc>
+      <item key="domain">www.foobar.com</item>
+      <item key="affiliate_id">12121</item>
+     </dt_assoc>
+    </item>
+   </dt_assoc>
+  </data_block>
+ </body>
+</OPS_envelope>
+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>setup_email</name>
+	<!-- define the block title translations -->
+	<title_add>Add Email Setup</title_add>
+	<title_view>View Email Setups</title_view>
+	<!-- define the menu lable translations -->
+	<menu>Email Setup</menu>
+	<menu_add>Add</menu_add>
+	<menu_view>List</menu_view>
+	<!-- define the field translations -->
+	<field_account_id>Account</field_account_id>
+	<field_name>Email Setup Name</field_name>
+	<field_notes>Notes</field_notes>
+	<field_type>SMTP Account?</field_type>
+	<field_from_name>From Name</field_from_name>
+	<field_from_email>From Email</field_from_email>
+	<field_cc_list>CC List (cc@mail.com,ccme@mail.com)</field_cc_list>
+	<field_bcc_list>BCC List (bcc@mail.com,bccme@mail.com)</field_bcc_list>
+	<field_server>Server (required only for SMTP - smtp.srv1.com;mail.srv2.com)</field_server>
+	<field_username>Username (required only for SMTP)</field_username>
+	<field_password>Password (required only for SMTP)</field_password>
+	<field_piping>Message Retrieval Method</field_piping>
+	<field_piping_host>Host for Message Retrieval</field_piping_host>
+	<field_piping_username>Username</field_piping_username>
+	<field_piping_password>Password</field_piping_password>
+	<field_piping_action>Action after Message Retrieval</field_piping_action>
+	<field_queue>Queue E-mails?</field_queue>
+	<!-- define any custom resources -->
+	<smtp_help><![CDATA[If you select 'Yes', you will need to enter your SMTP server &amp; login details below. ]]></smtp_help>
+	<piping_action_leave>Leave message in mailbox</piping_action_leave>
+	<piping_action_delete>Delete message from mailbox</piping_action_delete>
+</translate>

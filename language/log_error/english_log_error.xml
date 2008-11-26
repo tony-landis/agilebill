@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>log_error</name>
+    <!-- define the block title translations -->
+    <title_view>View Error Logs</title_view>
+    <title_search>Search Error Logs</title_search>
+    <!-- define the menu lable translations -->
+    <menu>Error Logs</menu>
+    <menu_view>List</menu_view>
+    <menu_search>Search</menu_search>
+    <!-- define the field translations -->
+    <field_date_orig>Date of Creation</field_date_orig>
+    <field_account_id>Account</field_account_id>
+    <field_module>Module</field_module>
+    <field_method>Method</field_method>
+    <field_message>Error Message</field_message> 
+    <!-- define any custom resources -->
+    <statistics>Errors Logged by the System: %%count%%</statistics>
+</translate>

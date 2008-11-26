@@ -1,0 +1,48 @@
+**************************
+ Image_Canvas - Changelog
+**************************
+Version 0.2.4 [2005-Nov-08] - Jesper Veggerby <pear.nosey@veggerby.dk>
+    * Fixed a bug causing in Image_Canvas_SVG causing grouping to give a "Missing argument..." error (this rendered Image_Graph using SVG broken)
+    * Fixed a bug causing rectangles not being displayed, if points were given in the wrong order
+
+Version 0.2.3 [2005-Oct-28] - Jesper Veggerby <pear.nosey@veggerby.dk>
+    * Fixed Bug #5786 "Error in producing SVG"
+    * Fixed Bug #5805 "Canvas\Fonts\fontmap.txt is missing"    
+    
+Version 0.2.2 [2005-Sep-30] - Jesper Veggerby <pear.nosey@veggerby.dk>
+    * Added 'border' and 'cssclass' option to Image_Canvas_GD::toHtml()
+    * Added image support when using SVG (using embedded base64 encoding)
+    * Added link ("imagemap") support with SVG
+    * Made image loading in GD canvas use getimagesize() to determine type instead of relying on extension
+    * Fixed bug where 'htmltags' were not transferred to image mapping of polygon vertices
+    * Fixed bug in SVG where pie slices with some specific angles curled the wrong way
+    * Fixed bug in Image_Canvas_ImageMap::show() and Image_Canvas_ImageMap::save() calling non-existing method _toHtml()
+    * Fixed bug in Image_Canvas_SVG::polygon() not showing polygon if last point was a spline - addSpline()
+    * Fixed bug causing line ends not to show if color not exlicitly defined
+    * Fixed Bug #5066 "Reference Notices" (from Image_Graph)
+    * Fixed bug #5175 "Unable to define IMAGE_GRAPH_SYSTEM_FONT_PATH outside of Config.php"
+    * Fixed Bug #5325 "Image/Color.php compatibility with old PHP versions"
+
+Version 0.2.1 [2005-Aug-08] - Jesper Veggerby <pear.nosey@veggerby.dk>
+    * Added Request #4997 "HTML attributes and JS actions in imagemaps" - using 'htmltags' entry
+    * Fixed bug with fonts, now it's not required for the font to have a name
+    * Changed examples to use require_once instead of include/require
+    
+Version 0.2.0 [2005-Aug-01] - Jesper Veggerby <pear.nosey@veggerby.dk>
+    * First released package in PEAR
+    * Added support for image maps - a separate canvas (Image_Canvas_ImageMap) has been created to accomplish this
+    * Added support for antialiasing images when using GD (both using native GD method and Image_Graph own implementation)
+    * Added support for multi line texts    
+    * Added a toHtml() method for to easy facilitate including canvas in HTML (this includes the associated image map, if any)
+    * Added line ends - only supported in GD canvases currently and not on polygons (yet!)
+    
+Version 0.1.2 [2005-Jul-21] - Jesper Veggerby <pear.nosey@veggerby.dk>
+    * Changed write() to addText()
+    * Split done() into show() and save()
+    * Changed all methods with more than 1 parameter to use hashed array as parameters
+
+Version 0.1.1 [2005-Mar-21] - Jesper Veggerby <pear.nosey@veggerby.dk>
+    * Renamed package to Image_Canvas
+    
+Version 0.1.0 [2005-Feb-14] - Jesper Veggerby <pear.nosey@veggerby.dk>
+    * First "stand-alone" release ("outside" Image_Graph)

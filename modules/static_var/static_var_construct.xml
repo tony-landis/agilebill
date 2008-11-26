@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>static_var</module>
+    <!-- define the module table name -->
+    <table>static_var</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy/>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>name</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define database indexes -->
+    <index>
+        <name>name</name>
+    </index>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I4</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I4</type>
+            <index>1</index>
+        </site_id>
+        <name>
+            <type>C(255)</type>
+            <min_len>1</min_len>
+            <max_len>255</max_len>
+            <validate>any</validate>
+            <unique>1</unique>
+            <html>1</html>
+        </name>
+        <description>
+            <type>C2(255)</type>
+            <min_len>1</min_len>
+            <max_len>255</max_len>
+            <validate>any</validate>
+        </description>
+        <input_format>
+            <type>C(128)</type>
+        </input_format>
+        <validation_type>
+            <type>C(128)</type>
+        </validation_type>
+        <convert_type>
+            <type>C(128)</type>
+        </convert_type>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,name,description,input_format,validation_type,convert_type</add>
+        <update>id,site_id,name,description,input_format,validation_type,convert_type</update>
+        <delete>id,site_id,name,description,input_format,validation_type,convert_type</delete>
+        <view>id,site_id,name,description,input_format,validation_type,convert_type</view>
+        <search>id,site_id,name,description,input_format,validation_type,convert_type</search>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

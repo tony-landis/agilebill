@@ -1,0 +1,14 @@
+<install>
+	<module_properties>
+		<name>account</name>
+		<parent>account</parent>
+		<notes><![CDATA[This is the account module for all accounts...]]></notes>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<install>
+				<name>install</name>
+			</install>
+		</module_method>
+	</sql_inserts>
+</install>

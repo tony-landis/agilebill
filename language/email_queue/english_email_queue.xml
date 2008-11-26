@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>email_queue</name>
+	
+	<!-- define the block title translations -->
+    <title_add></title_add>
+    <title_update></title_update>
+    <title_delete></title_delete>
+    <title_view></title_view>
+    <title_search></title_search>
+	
+	<!-- define the menu lable translations -->
+        <menu>Email Queue</menu>
+    <menu_add></menu_add>
+    <menu_update></menu_update>
+    <menu_delete></menu_delete>
+    <menu_view></menu_view>
+    <menu_search></menu_search>
+    	
+	<!-- define the field translations -->	
+	<field_id></field_id>	
+	<field_site_id></field_site_id>	
+	<field_date_orig>Creation Date</field_date_orig>	
+	<field_date_last>Last Update</field_date_last>	
+	<field_status>E-mail Sent?</field_status>	
+	<field_account_id>Account</field_account_id>	
+	<field_email_template>Email Template</field_email_template>	
+	<field_sql1>SQL 1</field_sql1>	
+	<field_sql2>SQL 2</field_sql2>	
+	<field_sql3>SQL 3</field_sql3>	
+	<field_sql4>SQL 4</field_sql4>	
+	<field_sql5>SQL 5</field_sql5>	
+	<field_var>VARS</field_var>	       			
+</translate>

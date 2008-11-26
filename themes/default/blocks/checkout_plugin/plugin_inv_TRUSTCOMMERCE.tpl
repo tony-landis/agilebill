@@ -1,0 +1,1 @@
+{if $VAR.page == ""}{/if}

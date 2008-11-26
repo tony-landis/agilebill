@@ -1,0 +1,29 @@
+<install>
+	<module_properties>
+		<name>group_method</name>
+		<parent>group</parent>
+		<notes><![CDATA[Control the available methods for each group]]></notes>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<search>
+				<name>search</name>
+			</search>
+			<view>
+				<name>view</name>
+			</view>
+			<add>
+				<name>add</name>
+			</add>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<update>
+				<name>update</name>
+			</update>
+			<search_show>
+				<name>search_show</name>
+			</search_show>
+		</module_method>
+	</sql_inserts>
+</install>

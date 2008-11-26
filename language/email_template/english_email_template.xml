@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>email_template</name>
+    <!-- define the block title translations -->
+    <title_add>Add Email Template</title_add>
+    <title_update/>
+    <title_delete/>
+    <title_view>View Email Templates</title_view>
+    <title_search/>
+    <!-- define the menu lable translations -->
+    <menu>Email Templates</menu>
+    <menu_add>Add</menu_add>
+    <menu_view>List</menu_view>
+    <!-- define the field translations -->
+    <field_setup_email_id>Email Setup to Use</field_setup_email_id>
+    <field_name>Template Name</field_name>
+    <field_status>Enabled?</field_status>
+    <field_priority>High Priority?</field_priority>
+    <field_shortcuts>Available Shortcuts</field_shortcuts>
+    <field_notes>Notes</field_notes>
+    <field_sql_1>Custom SQL 1</field_sql_1>
+    <field_sql_2>Custom SQL 2</field_sql_2>
+    <field_sql_3>Custom SQL 3</field_sql_3> 
+    <!-- define any custom resources -->
+    <view_translations>View Translations for this email template</view_translations>
+    <add_translation>Add Translation for this email template</add_translation>
+</translate>

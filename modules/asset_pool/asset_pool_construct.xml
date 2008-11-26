@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct> 
+    <module>asset_pool</module> 
+    <name>asset_pool</name>
+    <table>asset_pool</table> 
+    <dependancy>asset</dependancy> 
+    <cache>0</cache> 
+    <order_by>name</order_by> 
+    <limit>35</limit>
+    <index>
+    	<main>id,site_id</main>
+    </index>
+    <field>
+        <id>
+            <type>I4</type> 
+            <unique>1</unique>
+        </id>
+        <site_id>
+            <type>I4</type> 
+        </site_id>
+        <name>
+            <type>C(32)</type> 
+        </name>
+     </field> 
+     <method>
+        <add>id,site_id,name</add>
+        <update>id,site_id,name</update>
+        <delete>id,site_id,name</delete>
+        <view>id,site_id,name</view>
+        <search>id,site_id,name</search>
+     </method> 
+     <trigger>0</trigger>
+</construct>

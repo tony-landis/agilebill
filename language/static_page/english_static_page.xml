@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>static_page</name>
+    <!-- define the block title translations -->
+    <title_add>Add Page</title_add>
+    <title_view>View Pages</title_view>
+    <title_search>Search Pages</title_search>
+    <!-- define the menu lable translations -->
+    <menu>Static Pages</menu>
+    <menu_add>Add</menu_add>
+    <menu_view>List</menu_view>
+    <menu_search>Search</menu_search>
+    <!-- define the field translations -->
+    <field_static_page_category_id>Show in Category</field_static_page_category_id>
+    <field_date_orig>Creation Date</field_date_orig>
+    <field_date_last>Date of Last Update</field_date_last>
+    <field_date_expire>Expiration Date</field_date_expire>
+    <field_status>Active?</field_status>
+    <field_name>Page Name</field_name>
+    <field_description>Page Description</field_description>
+    <field_date_start>Start Date</field_date_start>
+    <field_sort_order>Display Sort Order</field_sort_order>
+    <!-- define any custom resources -->
+    <view_all>View all translations for this page </view_all>
+    <add_translation>Add a translations for this page</add_translation>
+    <read_more>Read more ... </read_more>
+    <no_pages> Sorry, no pages were found in this category, or your account is not authorized for
+        this category. </no_pages>
+    <page_not_found> Sorry, the requested page was not found, or you do not have the required level
+        of authorization to view it. </page_not_found>
+    <preview>Preview page</preview>
+</translate>

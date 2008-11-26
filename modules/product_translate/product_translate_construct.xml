@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>product_translate</module>
+    <!-- define the module table name -->
+    <table>product_translate</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy>product</dependancy>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>product_id</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define database indexes -->
+    <index>
+        <product>product_id</product>
+        <language>language_id</language>
+        <name>name</name> 
+    </index>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I4</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I4</type>
+            <index>1</index>
+        </site_id>
+        <product_id>
+            <type>I4</type>
+            <asso_table>product</asso_table>
+            <asso_field>sku</asso_field>
+            <validate>any</validate>
+        </product_id>
+        <language_id>
+            <type>C(16)</type>
+        </language_id>
+        <name>
+            <type>C(128)</type>
+            <min_len>1</min_len>
+            <max_len>128</max_len>
+            <validate>any</validate>
+        </name>
+        <description_short>
+            <type>X2</type>
+            <html>1</html>
+        </description_short>
+        <description_full>
+            <type>X2</type>
+            <html>1</html>
+        </description_full>
+        <email_template>
+            <type>X2</type>
+        </email_template>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,product_id,language_id,name,description_short,description_full,email_template</add>
+        <update>id,site_id,product_id,language_id,name,description_short,description_full,email_template</update>
+        <delete>id,site_id,product_id,language_id,name,description_short,description_full,email_template</delete>
+        <view>id,site_id,product_id,language_id,name,description_short,description_full,email_template</view>
+        <search>id,site_id,product_id,language_id,name,description_short,description_full,email_template</search>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

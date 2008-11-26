@@ -1,0 +1,37 @@
+<report>
+<title>Customers by Network/Domain</title>  
+	<level> 
+		<htmlstyle>heading</htmlstyle> 
+		<sql>SELECT DISTINCT UCASE(substring_index(A.email,'@', -1)) as domain, count(A.id) as total, sum(B.billed_amt) as sales from %%AGILE_DB_PREFIX%%account A
+				join %%AGILE_DB_PREFIX%%invoice B on (A.id=B.account_id AND B.billing_status=1  )
+		</sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%% AND A.email!='' AND A.email IS NOT NULL</criteria>
+		<orderby>GROUP BY domain ORDER BY total DESC</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Domain</display>
+			<field>domain</field>
+			<aggregate>true</aggregate>
+			<width></width>
+			<format></format>
+			<group_children_by>true</group_children_by>
+			<visible>true</visible>
+			<hide_dups>false</hide_dups>
+			<sql></sql>
+			<sql_criteria></sql_criteria>
+			<condition></condition>
+			<total>false</total>
+			<total_format></total_format>
+			<link></link>
+		</column>		
+		<column>
+			<display>Total Customers: </display>
+			<field>total</field> 
+		</column>
+		<column>
+			<display>Total Sales: </display>
+			<field>sales</field> 
+			<format>dol,2</format> 
+		</column>		 
+	</level>		 
+</report>

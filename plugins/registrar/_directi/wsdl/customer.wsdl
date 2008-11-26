@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="com.logicboxes.foundation.sfnb.user.Customer" xmlns:impl="com.logicboxes.foundation.sfnb.user.Customer" xmlns:intf="com.logicboxes.foundation.sfnb.user.Customer" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+ <wsdl:types>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.apache.org/xml-soap">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="Vector">
+    <sequence>
+     <element name="item" minOccurs="0" maxOccurs="unbounded" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+   <element name="Vector" nillable="true" type="apachesoap:Vector"/>
+   <complexType name="Map">
+    <sequence>
+     <element name="item" minOccurs="0" maxOccurs="unbounded">
+      <complexType>
+       <all>
+        <element name="key" type="xsd:anyType"/>
+        <element name="value" type="xsd:anyType"/>
+       </all>
+      </complexType>
+     </element>
+    </sequence>
+   </complexType>
+   <element name="Map" nillable="true" type="apachesoap:Map"/>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="authenticateCustomerResponse">
+
+      <wsdl:part name="authenticateCustomerReturn" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="authenticateCustomerRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="username" type="xsd:string"/>
+
+      <wsdl:part name="passwd" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCustomerIdRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="customerUsername" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDetailsRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="customerId" type="xsd:int"/>
+
+      <wsdl:part name="option" type="apachesoap:Vector"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="modDetailsResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="getDetailsResponse">
+
+      <wsdl:part name="getDetailsReturn" type="apachesoap:Map"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="changePasswordRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="customerId" type="xsd:int"/>
+
+      <wsdl:part name="newPasswd" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCustomerIdResponse">
+
+      <wsdl:part name="getCustomerIdReturn" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="addCustomerResponse">
+
+      <wsdl:part name="addCustomerReturn" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="modDetailsRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="customerId" type="xsd:int"/>
+
+      <wsdl:part name="customerUserName" type="xsd:string"/>
+
+      <wsdl:part name="name" type="xsd:string"/>
+
+      <wsdl:part name="company" type="xsd:string"/>
+
+      <wsdl:part name="langPref" type="xsd:string"/>
+
+      <wsdl:part name="address1" type="xsd:string"/>
+
+      <wsdl:part name="address2" type="xsd:string"/>
+
+      <wsdl:part name="address3" type="xsd:string"/>
+
+      <wsdl:part name="city" type="xsd:string"/>
+
+      <wsdl:part name="state" type="xsd:string"/>
+
+      <wsdl:part name="country" type="xsd:string"/>
+
+      <wsdl:part name="zip" type="xsd:string"/>
+
+      <wsdl:part name="telNoCc" type="xsd:string"/>
+
+      <wsdl:part name="telNo" type="xsd:string"/>
+
+      <wsdl:part name="altTelNoCc" type="xsd:string"/>
+
+      <wsdl:part name="altTelNo" type="xsd:string"/>
+
+      <wsdl:part name="faxNoCc" type="xsd:string"/>
+
+      <wsdl:part name="faxNo" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="changePasswordResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="addCustomerRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="customerUserName" type="xsd:string"/>
+
+      <wsdl:part name="customerPassword" type="xsd:string"/>
+
+      <wsdl:part name="name" type="xsd:string"/>
+
+      <wsdl:part name="company" type="xsd:string"/>
+
+      <wsdl:part name="address1" type="xsd:string"/>
+
+      <wsdl:part name="address2" type="xsd:string"/>
+
+      <wsdl:part name="address3" type="xsd:string"/>
+
+      <wsdl:part name="city" type="xsd:string"/>
+
+      <wsdl:part name="state" type="xsd:string"/>
+
+      <wsdl:part name="country" type="xsd:string"/>
+
+      <wsdl:part name="zip" type="xsd:string"/>
+
+      <wsdl:part name="telNoCc" type="xsd:string"/>
+
+      <wsdl:part name="telNo" type="xsd:string"/>
+
+      <wsdl:part name="altTelNoCc" type="xsd:string"/>
+
+      <wsdl:part name="altTelNo" type="xsd:string"/>
+
+      <wsdl:part name="faxNoCc" type="xsd:string"/>
+
+      <wsdl:part name="faxNo" type="xsd:string"/>
+
+      <wsdl:part name="customerLangPref" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Customer">
+
+      <wsdl:operation name="addCustomer" parameterOrder="userName password role langpref parentid customerUserName customerPassword name company address1 address2 address3 city state country zip telNoCc telNo altTelNoCc altTelNo faxNoCc faxNo customerLangPref">
+
+         <wsdl:input name="addCustomerRequest" message="impl:addCustomerRequest"/>
+
+         <wsdl:output name="addCustomerResponse" message="impl:addCustomerResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modDetails" parameterOrder="userName password role langpref parentid customerId customerUserName name company langPref address1 address2 address3 city state country zip telNoCc telNo altTelNoCc altTelNo faxNoCc faxNo">
+
+         <wsdl:input name="modDetailsRequest" message="impl:modDetailsRequest"/>
+
+         <wsdl:output name="modDetailsResponse" message="impl:modDetailsResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="changePassword" parameterOrder="userName password role langpref parentid customerId newPasswd">
+
+         <wsdl:input name="changePasswordRequest" message="impl:changePasswordRequest"/>
+
+         <wsdl:output name="changePasswordResponse" message="impl:changePasswordResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDetails" parameterOrder="userName password role langpref parentid customerId option">
+
+         <wsdl:input name="getDetailsRequest" message="impl:getDetailsRequest"/>
+
+         <wsdl:output name="getDetailsResponse" message="impl:getDetailsResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerId" parameterOrder="userName password role langpref parentid customerUsername">
+
+         <wsdl:input name="getCustomerIdRequest" message="impl:getCustomerIdRequest"/>
+
+         <wsdl:output name="getCustomerIdResponse" message="impl:getCustomerIdResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="authenticateCustomer" parameterOrder="userName password role langpref parentid username passwd">
+
+         <wsdl:input name="authenticateCustomerRequest" message="impl:authenticateCustomerRequest"/>
+
+         <wsdl:output name="authenticateCustomerResponse" message="impl:authenticateCustomerResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="CustomerServiceSoapBinding" type="impl:Customer">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="addCustomer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addCustomerRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.user.Customer"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addCustomerResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.user.Customer"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modDetails">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="modDetailsRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.user.Customer"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="modDetailsResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.user.Customer"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="changePassword">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="changePasswordRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.user.Customer"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="changePasswordResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.user.Customer"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDetails">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDetailsRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.user.Customer"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDetailsResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.user.Customer"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCustomerIdRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.user.Customer"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCustomerIdResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.user.Customer"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="authenticateCustomer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="authenticateCustomerRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.user.Customer"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="authenticateCustomerResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.user.Customer"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="CustomerService">
+
+      <wsdl:port name="CustomerService" binding="impl:CustomerServiceSoapBinding">
+
+         <wsdlsoap:address location="http://prog.internal.directi.com:9090/anacreon/servlet/rpcrouter"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

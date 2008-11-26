@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>task_log</name>
+	<!-- define the block title translations -->
+	<title_view>View Task Logs</title_view>
+	<title_search>Search Task Logs</title_search>
+	<!-- define the menu lable translations -->
+	<menu>Task Logs</menu>
+	<menu_view>View Task Logs</menu_view>
+	<menu_search>Search Task Logs</menu_search>
+	<!-- define the field translations -->
+	<field_id/>
+	<field_site_id/>
+	<field_task_id>Task</field_task_id>
+	<field_date_orig>Date</field_date_orig>
+	<field_result>Success?</field_result>
+	<field_message>Task Message</field_message>
+	<!-- define any custom resources -->
+</translate>

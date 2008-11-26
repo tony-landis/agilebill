@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct> 
+    <module>voip_did_plugin</module> 
+    <table>voip_did_plugin</table> 
+    <dependancy>voip</dependancy> 
+    <cache>0</cache> 
+    <order_by>name</order_by> 
+    <limit>35</limit> 
+    <field>
+        <id>
+            <type>I4</type> 
+            <unique>1</unique>
+        </id>
+        <site_id>
+            <type>C(16)</type> 
+        </site_id>
+        <name>
+            <type>C(32)</type> 
+            <validate>any</validate> 
+            <unique>1</unique>
+        </name>
+        <plugin>
+            <type>C(32)</type> 
+            <validate>any</validate> 
+        </plugin>
+        <avail_countries>
+            <type>X2</type> 
+            <validate>any</validate>
+            <convert>array</convert>
+        </avail_countries>
+        <release_minutes>
+            <type>I4</type> 
+        </release_minutes>
+        <plugin_data>
+            <type>X2</type> 
+            <convert>array</convert>
+        </plugin_data>
+     </field> 
+     <method>
+        <add>id,site_id,name,plugin,avail_countries,release_minutes,plugin_data</add>
+        <update>id,site_id,name,plugin,avail_countries,release_minutes,plugin_data</update>
+        <delete>id,site_id,name,plugin,avail_countries,release_minutes,plugin_data</delete>
+        <view>id,site_id,name,plugin,avail_countries,release_minutes,plugin_data</view>
+        <search>id,site_id,name,plugin,avail_countries,release_minutes,plugin_data</search>
+     </method> 
+     <trigger>0</trigger>
+</construct>

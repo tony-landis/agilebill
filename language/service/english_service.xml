@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>service</name>
+	<!-- define the block title translations -->
+	<title_add>Add Service</title_add>
+	<title_view>View Service</title_view>
+	<title_search>Search Services</title_search>
+	<title_recurring>Recurring Details</title_recurring>
+	<title_group>Group Details</title_group>
+	<title_domain>Domain Details</title_domain>
+	<title_hosting>Hosting Details</title_hosting>
+	<title_product>Product Plugin</title_product>
+	<title_memo>Memos</title_memo>
+	<title_modify>Modify Service</title_modify>
+	<title_suspended_billing>Billing Suspended</title_suspended_billing>
+	
+	<!-- define the menu lable translations -->
+	<menu>Services</menu>
+	<menu_add>Add</menu_add>
+	<menu_view>List</menu_view>
+	<menu_search>Search</menu_search>
+	<!-- define the field translations -->
+	<field_id>Service Number</field_id>
+	<field_date_orig>Date Created</field_date_orig>
+	<field_date_last>Date Last Modified</field_date_last>
+	<field_parent_id>Parent Service</field_parent_id>
+	<field_invoice_id>Invoice Number</field_invoice_id>
+	<field_invoice_item_id>Invoice Item Number</field_invoice_item_id>
+	<field_account_id>Account</field_account_id>
+	<field_account_billing_id>Billing Details</field_account_billing_id>
+	<field_product_id>Product ID</field_product_id>
+	<field_sku>Product SKU</field_sku>
+	<field_active>Active?</field_active>
+	<field_bind>Bind Services</field_bind>
+	<field_type>Type</field_type>
+	<field_price>Price</field_price>
+	<field_price_type>Price Type</field_price_type>
+	<field_taxable>Taxable?</field_taxable>
+	<field_queue>Queue Status</field_queue>
+	<field_date_last_invoice>Last Invoiced</field_date_last_invoice>
+	<field_date_next_invoice>Next Invoice</field_date_next_invoice>
+	<field_recur_type>Recurring Type</field_recur_type>
+	<field_recur_schedule>Recurring Schedule</field_recur_schedule>
+	<field_recur_weekday>Recurring Day of Month</field_recur_weekday>
+	<field_recur_week>Recurring Week</field_recur_week>
+	<field_recur_schedule_change>User May Change Schedule?</field_recur_schedule_change>
+	<field_recur_cancel>User May Cancel</field_recur_cancel>
+	<field_recur_modify>User May Modify</field_recur_modify>
+	<field_group_grant>Associated Groups to Grant</field_group_grant>
+	<field_group_type>Group Access Type</field_group_type>
+	<field_group_days>Group Access Period (Days)</field_group_days>
+	<field_host_server_id>Host Server</field_host_server_id>
+	<field_host_provision_plugin_data>Host Provisioning Data</field_host_provision_plugin_data>
+	<field_host_ip>Hosting IP</field_host_ip>
+	<field_host_username>Host Username</field_host_username>
+	<field_host_password>Host Password</field_host_password>
+	<field_domain_name>Domain Name</field_domain_name>
+	<field_domain_tld>Domain TLD</field_domain_tld>
+	<field_domain_term>Domain Registration Term</field_domain_term>
+	<field_domain_type>Domain Type</field_domain_type>
+	<field_domain_date_expire>Date Domain Expires</field_domain_date_expire>
+	<field_domain_host_tld_id>Domain TLD</field_domain_host_tld_id>
+	<field_domain_host_registrar_id>Domain Registrar</field_domain_host_registrar_id>
+	<field_suspend_billing>Suspend Billing Activity?</field_suspend_billing> 
+	<field_service_did>Phone Number</field_service_did>
+	
+	<!-- define any custom resources -->
+	<host>Hosting</host>
+	<host_group>Hosting + Group Access</host_group>
+	<none>Recurring Only</none> 
+	<group>Group Access</group>
+	<domain>Domain Name</domain>
+	<product>Product Plugin</product>
+	<product_group>Group Access + Product Plugin</product_group>
+	
+	<new>Add New</new>
+	<active>Activate</active>
+	<inactive>Deactivate</inactive>
+	<delete>Delete</delete>
+	<edit>Edit/Update</edit> 
+	<queue_none>None</queue_none>
+	<force_queue>Force Current Queue</force_queue>
+	
+	<confirm_cancel>Are you sure you wish to cancel this service?</confirm_cancel>
+	<confirm_changeschedule>Are you sure you wish to change the billing scheudle of this service? If so, your subscription price will be modified accordingly and you will be billed at the new rate on your next invoice date.</confirm_changeschedule>
+	<changeservice_msg>Your request has been sent to our customer service department for review, thank you!</changeservice_msg>
+	<cancelservice_auth>Your account is not authorized to cancel this service.</cancelservice_auth>
+	<changeservice_auth>Your account is not authorized to change the billing schedule of this service.</changeservice_auth>
+	<resend_email>Resend hosting details e-mail</resend_email>
+	<hosting_email_sent>The hosting details have been resent to the customer's e-mail address on file.</hosting_email_sent>
+	<search_result_amount><![CDATA[The total amount of the Services dispayed on this page is <u>%%amount%%</u>.]]></search_result_amount>
+	<find_recur_invoices>Find Recurring Invoices</find_recur_invoices>
+	<cancel>Cancel This Subscription</cancel>
+	<product_plugin>Plugin</product_plugin>
+	<invoice_history>Retrieve all Invoices for service %%service%%...</invoice_history>
+	<modify_explain><![CDATA[
+		This service can be modified by selecting another product from our offering. <br>
+		This will allow you to effectively upgrade or downgrade your current service. <br>
+		To select another product, <b><a href="?_page=service:user_modify&service_id=%%id%%">please click here</a></b>.
+	]]></modify_explain>
+	<modify_select>Please select a product</modify_select>
+	<modify_submit>Modify My Service Now</modify_submit> 
+	<modify_service>Modify Service to Another Product</modify_service>
+	<reactivate>Reactivate This Service</reactivate>
+	<suspended_billing_explain>The billing for this service has been suspended and service will expire on </suspended_billing_explain>
+</translate>

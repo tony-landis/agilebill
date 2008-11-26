@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>htaccess</name>
+    <!-- define the block title translations -->
+    <title_add>Add Htaccess Group</title_add>
+    <title_view>View Htaccess Group</title_view>
+    <!-- define the menu lable translations -->
+    <menu>Htaccess Groups</menu>
+    <menu_add>Add</menu_add>
+    <menu_view>List</menu_view>
+    <!-- define the field translations -->
+    <field_date_start>Start Date</field_date_start>
+    <field_date_expire>Expiration Date</field_date_expire>
+    <field_name>Name</field_name>
+    <field_description>Description</field_description>
+    <field_status>Active?</field_status>
+    <field_group_avail>Available to Groups</field_group_avail> 
+    <!-- define any custom resources -->
+    <view_all>View All Directories for this Htaccess Group</view_all>
+    <add_directory>Add Directory to this Group</add_directory>
+    <link>Click Here to Enter</link>
+    <success_login> Thank you for logging in - you will be redirected to the protected area you were
+        attempting to access. If you do not wish to wait to be redirected, you may click the link
+        below now. </success_login>
+    <failed_login> Your account is not currently authorized for the protected area you were
+        attempting to access. Please verify that your billing information is correct, and that your
+        account does not have any overdue charges. This situation could also be caused by an expired
+        membership/subscription that may need to be renewed. If you have any questions, please
+        contact our customer service department. </failed_login>
+    <none_authorized> Your account is currently not authorized for any of our protected areas. </none_authorized>
+    <downloads>Downloads</downloads>
+</translate>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>var_relation</name>
+    <!-- define the block title translations -->
+    <title_add>Add Var Relationship</title_add>
+    <title_update>Update Var Relationship</title_update>
+    <title_view>View Var Relationships</title_view>
+    <title_search>Search Var Relationships</title_search>
+    <!-- define the menu lable translations -->
+    <menu>Relationships</menu>
+    <menu_add>Add</menu_add>
+    <menu_view>List</menu_view>
+    <menu_search>Search</menu_search>
+    <!-- define the field translations -->
+    <field_static_var_id>Static Var</field_static_var_id>
+    <field_module_id>Module</field_module_id>
+    <field_default_value>Default Value</field_default_value>
+    <field_description>Description</field_description>
+    <field_required>Required?</field_required>
+    <field_sort_order>Sort Order</field_sort_order> 
+    <!-- define any custom resources -->
+</translate>

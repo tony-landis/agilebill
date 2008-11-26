@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>htaccess_exclude</name>
+	<!-- define the block title translations -->
+	<title_add>Add File Type</title_add>
+	<title_view>View File Types</title_view>
+	<!-- define the menu lable translations -->
+	<menu>File Types</menu>
+	<menu_add>Add</menu_add>
+	<menu_view>List</menu_view>
+	<!-- define the field translations -->
+	<field_name>Name</field_name>
+	<field_extension>File Extension</field_extension> 
+	<!-- define any custom resources -->
+</translate>

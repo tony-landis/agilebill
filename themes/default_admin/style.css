@@ -1,0 +1,168 @@
+body        {
+                font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+                font-size: 11px
+            }
+
+.body       {
+                font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+                font-size: 11px
+            }
+            
+input,textarea,select
+			{ 
+				font-size: 12px; 
+                font-weight: normal;
+				background-color: #FFFFFF; 
+                border-width: 1px; 
+                border-color: #CCCCCC;
+                padding: 1px;  
+			}
+			
+input:focus, textarea:focus, select:focus
+			{ 
+				font-size: 12px; 
+                font-weight: normal;
+				background-color: #FFFFC1; 
+                border-width: 1px; 
+                border-color: #000000;
+                padding: 1px; 
+			} 		
+			
+ 
+
+#srchpage select { 
+                font-size: 11px; 
+                font-weight: bold;
+                color: #FFFFFF; 
+                border-color: #CCCCCC; 
+                background-color: #506DC7;
+                padding: 2px; 
+}
+
+#srchpage select:focus { 
+                font-size: 11px; 
+                font-weight: bold;
+                color: #FFFFFF; 
+                border-color: #CCCCCC; 
+                background-color: #506DC7;
+                padding: 2px; 
+}
+
+
+.form_field_error
+			{   
+				font-size: 12px; 
+                font-weight: normal;
+				background-color: #F9DEC6; 
+                border-width: 1px; 
+                border-color: #CCCCCC;                
+			} 	
+ 
+            
+.form_button 	
+			{ 
+				font-size: 11px;
+				background-color: #FCFCFC;
+				border-color: #333333;
+				border-width: 1px;
+				padding: 2px;
+			}
+			            
+.form_button_dead 	
+			{ 
+				font-size: 11px;
+				font-weight: normal;
+				background-color: #FFFFFF;
+				border-color: #FFFFFF;	
+				border-width: 0px;
+			}            
+ 		
+					
+.table_background 
+			{
+				background-color: #CCCCCC;
+			}
+
+.table_heading {font-weight: bold;
+				color: #FFFFFF;
+				font-size: 14px;
+				text-align: center;
+				vertical-align: middle;
+				height: 14px;
+				background-color: #999;
+				border-color: #FFFFFF;
+				padding: 3px;
+				border-style: solid;
+				border-width: 0px;
+			}
+
+.table_heading_txt { 
+				font-size: 12px;
+				height: 14px;
+				color: #FFFFFF;
+				padding: 1px;
+			}
+				
+.row1	 	{ 
+				font-size: 11px; 
+				background-color: #F9F9F9;
+				color: #000000;
+			}
+				
+.row2 		{  
+				font-size: 11px; 
+				background-color: #FCFCFC;
+				color: #000000;
+			}
+						
+.row_select
+			{ 
+				font-size: 11px; 
+				background-color: #C9EEFF;
+				color: #000000;
+			}
+				
+.row_mouse_over { 
+				font-size: 11px; 
+				background-color: #FFFFCC;
+				color: #000000;	
+			}
+				
+.row_mouse_over_select {  
+				font-size: 11px; 
+				background-color: #BEDFF1;
+				color: #000000;
+			}
+           
+a:link,a:active,a:visited { text-decoration: none;  } 
+a:hover {   text-decoration: underline; }
+ 
+div.auto_complete { width: 450px; background: #fff; }
+div.auto_complete ul { border:1px solid #888; margin:0; padding:0; width:100%; list-style-type:none; }
+div.auto_complete ul li { margin:0; padding:3px; }
+div.auto_complete ul li.selected {  background-color: #ffb;  }
+div.auto_complete ul strong.highlight {  color: #800;  margin:0; padding:0; }
+
+
+#calendar { border:1px solid #333; font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif; }
+#calendar TABLE { background-color:#DDD; padding:0; }
+#calendar TD { background-color:#DDD;  margin:0px; padding:0px; }
+#calendar TR { background-color:#FFF;  margin:0px; padding:0px; } 
+#calendar TD.title { background-color:#999; text-align:center; font-size:large; color:#fff; padding:5px; }
+#calendar TD.days { background-color:#BCECB7; text-align:center; border-bottom:1px solid #d1d1d1; border-top:1px solid #d1d1d1;}
+#calendar TD.disable { background-color:#F1F1F1; color:#999; }
+#calendar TD.display { background-color:#FFFFFF; color:#000; }
+#calendar TD div.date { font-size:12px;   
+						background-color:#f9f9f9;  
+						border-right:1px solid #ccc; 
+						border-bottom:1px solid #ccc; 
+						margin-right:2px; 
+						padding-right:3px; 
+						width:20px; 
+						text-align:right; } 
+#calendar TD div.item { background-color:#FDFEC7;
+						color:#333; 
+						font-size:10px;   
+						margin:4px;
+						padding-left:2px; }
+						

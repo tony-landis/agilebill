@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+  <setup_invoice>
+       <id>1</id>
+       <site_id>1</site_id>
+       <bill_to_company>1</bill_to_company>
+       <invoice_currency>$</invoice_currency>
+       <invoice_decimals>5</invoice_decimals>
+       <items_summary_max>16</items_summary_max>
+       <news></news>
+       <page_type>1</page_type>
+	   <invoice_delivery>0</invoice_delivery>
+	   <invoice_show_itemized>1</invoice_show_itemized>
+	   <invoice_grace>0</invoice_grace>
+	   <invoice_advance_gen>0</invoice_advance_gen>
+	   <invoice_terms>0</invoice_terms>
+	   <invoice_pdf_plugin>overview</invoice_pdf_plugin>
+  </setup_invoice>
+  <setup_invoice_id>
+       <id>2</id>
+  </setup_invoice_id>
+</install>

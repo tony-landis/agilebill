@@ -1,0 +1,40 @@
+<install>
+	<module_properties>
+		<name>module_method</name>
+		<parent>module</parent>
+		<notes><![CDATA[Control the available methods for each module]]></notes>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<search>
+				<name>search</name>
+			</search>
+			<view>
+				<name>view</name>
+			</view>
+			<add>
+				<name>add</name>
+			</add>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<update>
+				<name>update</name>
+			</update>
+			<search_form>
+				<name>search_form</name>
+			</search_form>
+			<search_show>
+				<name>search_show</name>
+				<notes><![CDATA[Allow users to view the search results]]></notes>
+			</search_show>
+			<view_methods>
+				<name>view_methods</name>
+				<notes><![CDATA[View the methods relationship form]]></notes>
+			</view_methods>
+			<update_relations>
+				<name>update_relations</name>
+			</update_relations>
+		</module_method>
+	</sql_inserts>
+</install>

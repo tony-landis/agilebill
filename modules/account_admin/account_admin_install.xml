@@ -1,0 +1,77 @@
+<install>
+	<module_properties>
+		<name>account_admin</name>
+		<parent>account_admin</parent>
+		<notes><![CDATA[Account Administration Module]]></notes>
+		<menu_display>1</menu_display>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<add>
+				<name>add</name>
+				<menu_display>1</menu_display>
+			</add>
+			<update>
+				<name>update</name>
+			</update>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<view>
+				<name>view</name>
+				<page><![CDATA[core:search&module=%%&_escape=1&_next_page_one=view]]></page>
+				<menu_display>1</menu_display>
+			</view>
+			<search>
+				<name>search</name>
+				<page><![CDATA[%%:search_form]]></page>
+				<menu_display>1</menu_display>
+			</search>
+			<search_form>
+				<name>search_form</name>
+			</search_form>
+			<search_show>
+				<name>search_show</name>
+			</search_show>
+			<search_export>
+				<name>search_export</name>
+			</search_export>
+			<update_account_groups>
+				<name>update_account_groups</name>
+				<notes><![CDATA[This method is triggered to add the account to the specified groups when added]]></notes>
+			</update_account_groups>
+			<send_verify_email>
+				<name>send_verify_email</name>
+				<notes><![CDATA[Sends the user the change password instructions]]></notes>
+			</send_verify_email>
+			<send_password_email>
+				<name>send_password_email</name>
+				<notes><![CDATA[Sends the user the change password instructions]]></notes>
+			</send_password_email>
+			<mail_multi>
+				<name>mail_multi</name>
+			</mail_multi>
+			<mail_one>
+				<name>mail_one</name>
+			</mail_one>
+			<autoselect>
+				<name>autoselect</name>
+			</autoselect>
+			<login>
+				<name>login</name>
+				<notes><![CDATA[Login as another user with equal or lesser group access]]></notes>
+			</login>
+			<merge>
+				<name>merge</name>
+			</merge>	 
+			
+			<group_search>
+				<name>group_search</name>
+			</group_search>
+			<product_search>
+				<name>product_search</name>
+			</product_search>
+						 
+		</module_method>
+	</sql_inserts>
+</install>

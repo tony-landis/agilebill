@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="com.logicboxes.foundation.sfnb.order.domus.DomUsContact" xmlns:impl="com.logicboxes.foundation.sfnb.order.domus.DomUsContact" xmlns:intf="com.logicboxes.foundation.sfnb.order.domus.DomUsContact" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+ <wsdl:types/>
+
+   <wsdl:message name="setContactDetailsRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="contactId" type="xsd:int"/>
+
+      <wsdl:part name="applicationPurpose" type="xsd:string"/>
+
+      <wsdl:part name="nexusCategory" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="setContactDetailsResponse">
+
+   </wsdl:message>
+
+   <wsdl:portType name="UsDomainContact">
+
+      <wsdl:operation name="setContactDetails" parameterOrder="userName password role langpref parentid contactId applicationPurpose nexusCategory">
+
+         <wsdl:input name="setContactDetailsRequest" message="impl:setContactDetailsRequest"/>
+
+         <wsdl:output name="setContactDetailsResponse" message="impl:setContactDetailsResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="UsDomainContactServiceSoapBinding" type="impl:UsDomainContact">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="setContactDetails">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setContactDetailsRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.domus.DomUsContact"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setContactDetailsResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.domus.DomUsContact"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="UsDomainContactService">
+
+      <wsdl:port name="UsDomainContactService" binding="impl:UsDomainContactServiceSoapBinding">
+
+         <wsdlsoap:address location="http://www.foundationapi.com:9090/anacreon/servlet/rpcrouter"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

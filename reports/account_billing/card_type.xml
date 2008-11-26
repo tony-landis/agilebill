@@ -1,0 +1,130 @@
+<report>
+<title>Revenue by Card Type</title>
+	<level>
+		<htmlstyle>heading</htmlstyle>
+		<sql>SELECT DISTINCT from_unixtime(date_orig,"%Y") as yearmonth from %%AGILE_DB_PREFIX%%invoice A
+				inner join %%AGILE_DB_PREFIX%%account_billing B on (A.account_billing_id=B.id) </sql>
+		<criteria>A.site_id=%%DEFAULT_SITE%% and A.billing_status=1 and (A.refund_status='' OR A.refund_status is null)</criteria>
+		<orderby>ORDER BY yearmonth ASC</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Year:</display>
+			<field>yearmonth</field>
+			<aggregate>true</aggregate>
+			<width></width>
+			<format></format>
+			<group_children_by>true</group_children_by>
+			<visible>true</visible>
+			<hide_dups>false</hide_dups>
+			<sql></sql>
+			<sql_criteria></sql_criteria>
+			<condition></condition>
+			<total>false</total>
+			<total_format></total_format>
+			<link></link>
+		</column>  
+		<level> 
+			<sql>select DISTINCT UCASE(B.card_type) as card_type, count(A.id) as quan, sum(A.total_amt) as amt, from_unixtime(A.date_orig,'%Y') as yearmonth from %%AGILE_DB_PREFIX%%invoice A 
+			inner join %%AGILE_DB_PREFIX%%account_billing B on (A.account_billing_id=B.id) </sql>
+			<criteria>A.site_id = %%DEFAULT_SITE%% and B.site_id = %%DEFAULT_SITE%% and (A.refund_status='' OR A.refund_status is null)</criteria>
+			<orderby>GROUP BY B.card_type ORDER BY amt ASC</orderby>
+			<indent>30</indent>
+			<column>
+				<display>Date</display>
+				<field>yearmonth</field>
+				<aggregate>false</aggregate>
+				<visible>false</visible>  
+			</column>
+			<column>
+				<display>Card Type</display>
+				<field>card_type</field> 
+			</column>
+			<column>
+				<display>Invoices</display>
+				<field>quan</field>
+				<total>true</total>
+			</column>
+			<column>
+				<display>Amount</display>
+				<field>amt</field>
+				<format>dol,2</format>
+				<total>true</total>
+				<total_format>dol,2</total_format>
+			</column>  
+		</level>   
+		<break />
+		<graph type="bar" title="" width="500" height="300">
+			<dataset>
+				<sql>select UCASE(B.card_type) as card_type, sum(A.total_amt) as amt, from_unixtime(A.date_orig,'%Y') as yearmonth from %%AGILE_DB_PREFIX%%invoice A 
+				inner join %%AGILE_DB_PREFIX%%account_billing B on (A.account_billing_id=B.id) </sql>
+				<criteria>A.site_id = %%DEFAULT_SITE%% and B.site_id = %%DEFAULT_SITE%% and (A.refund_status='' OR A.refund_status is null)</criteria>
+				<orderby>GROUP BY B.card_type ORDER BY amt ASC</orderby> 
+			</dataset>
+		</graph>	 
+	</level>
+	 
+	<break /> 
+	
+	<level>
+		<htmlstyle>heading</htmlstyle>
+		<sql>SELECT DISTINCT from_unixtime(date_orig,"%M, %Y") as yearmonth, from_unixtime(date_orig,"%Y-%m") as ordby from %%AGILE_DB_PREFIX%%invoice A
+				inner join %%AGILE_DB_PREFIX%%account_billing B on (A.account_billing_id=B.id) </sql>
+		<criteria>A.site_id=%%DEFAULT_SITE%% and A.billing_status=1 and (A.refund_status='' OR A.refund_status is null)</criteria>
+		<orderby>ORDER BY ordby ASC</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Month: </display>
+			<field>yearmonth</field>
+			<aggregate>true</aggregate>
+			<width></width>
+			<format></format>
+			<group_children_by>true</group_children_by>
+			<visible>true</visible>
+			<hide_dups>false</hide_dups>
+			<sql></sql>
+			<sql_criteria></sql_criteria>
+			<condition></condition>
+			<total>false</total>
+			<total_format></total_format>
+			<link></link>
+		</column> 
+		<level> 
+			<sql>select DISTINCT UCASE(B.card_type) as card_type, count(A.id) as quan, sum(A.total_amt) as amt, from_unixtime(A.date_orig,'%M, %Y') as yearmonth, from_unixtime(date_orig,"%Y-%m") as ordby  from %%AGILE_DB_PREFIX%%invoice A 
+			inner join %%AGILE_DB_PREFIX%%account_billing B on (A.account_billing_id=B.id) </sql>
+			<criteria>A.site_id = %%DEFAULT_SITE%% and B.site_id = %%DEFAULT_SITE%% and (A.refund_status='' OR A.refund_status is null)</criteria>
+			<orderby>GROUP BY B.card_type ORDER BY ordby</orderby>
+			<indent>30</indent>
+			<column>
+				<display>Date</display>
+				<field>yearmonth</field>
+				<aggregate>false</aggregate>
+				<visible>false</visible>  
+			</column>
+			<column>
+				<display>Card Type</display>
+				<field>card_type</field> 
+			</column>
+			<column>
+				<display>Invoices</display>
+				<field>quan</field>
+				<total>true</total>
+			</column>
+			<column>
+				<display>Amount</display>
+				<field>amt</field>
+				<format>dol,2</format>
+				<total>true</total>
+				<total_format>dol,2</total_format>
+			</column>  
+		</level>   
+		<break />
+		<graph type="bar" title="" width="500" height="300">
+			<dataset>
+				<sql>select UCASE(B.card_type) as card_type, sum(A.total_amt) as amt, from_unixtime(A.date_orig,'%M, %Y') as yearmonth from %%AGILE_DB_PREFIX%%invoice A 
+				inner join %%AGILE_DB_PREFIX%%account_billing B on (A.account_billing_id=B.id) </sql>
+				<criteria>A.site_id = %%DEFAULT_SITE%% and B.site_id = %%DEFAULT_SITE%% and (A.refund_status='' OR A.refund_status is null)</criteria>
+				<orderby>GROUP BY B.card_type ORDER BY amt</orderby> 
+			</dataset>
+		</graph>	 
+	</level> 
+</report>

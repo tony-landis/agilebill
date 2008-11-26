@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>product_img</name>
+    <!-- define the block title translations -->
+    <title_add>Add Product Image</title_add>
+    <title_view>View Product Image</title_view>
+    <title_delete>Delete This Image</title_delete>
+    <!-- define the field translations -->
+    <field_product_id>Product SKU</field_product_id>
+    <field_type>Image Type</field_type>
+    <field_url>URL</field_url>
+    <field_name>Name</field_name>
+    <!-- define any custom resources -->
+    <upload>Upload a file from your computer:</upload>
+    <url>...Or, enter the URL of the image: http://domain.com/image.gif</url>
+    <local>Saved Image</local>
+    <remote>Remote Image</remote>
+</translate>

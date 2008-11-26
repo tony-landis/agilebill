@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>campaign</name>
+    <!-- define the block title translations -->
+    <title_add>Add Campaign</title_add>
+    <title_view>View Campaigns</title_view>
+    <title_search>Search Campaigns</title_search>
+    <!-- define the menu lable translations -->
+    <menu>Campaigns</menu>
+    <menu_add>Add</menu_add>
+    <menu_view>List</menu_view>
+    <menu_search>Search</menu_search>
+    <!-- define the field translations -->
+    <field_date_orig>Creation Date</field_date_orig>
+    <field_date_last>Last Update</field_date_last>
+    <field_date_start>Start Date</field_date_start>
+    <field_date_expire>Expire Date</field_date_expire>
+    <field_status>Active?</field_status>
+    <field_name>Campaign</field_name>
+    <field_description>Campaign Description</field_description>
+    <field_budget>Cost for Campaign</field_budget>
+    <field_target_conversion>Target Conversion Rate</field_target_conversion>
+    <field_url>Campaign Destination Url (blank for home page)</field_url>
+    <!-- define any custom resources -->
+    <files> Select up to four banners, Flash, or HTML files to rotate through for this campaign. </files>
+    <conversion_tip>Example: enter 10 for 10 percent</conversion_tip>
+    <add_one>Advertisement One</add_one>
+    <add_two>Advertisement Two</add_two>
+    <add_three>Advertisement Three</add_three>
+    <add_four>Advertisement Four</add_four>
+    <add_five>Advertisement Five</add_five>
+    <add_six>Advertisement Six</add_six>
+    <add_seven>Advertisement Seven</add_seven>
+    <add_eight>Advertisement Eight</add_eight>
+    <add_nine>Advertisement Nine</add_nine>
+    <add_ten>Advertisement Ten</add_ten>
+    <add_eleven>Advertisement Eleven</add_eleven>
+    <add_twelve>Advertisement Twelve</add_twelve>
+    <impressions>Impressions</impressions>
+    <clicks>Clicks</clicks>
+    <cost>Cost</cost>
+    <conversion>CTR</conversion>
+    <delete_file>Delete this file from rotation</delete_file>
+    <random_code> Insert the random code below into your html file(s) where you would like the
+        advertisements to be displayed. All the advertisements for this campaign will be randomly
+        cycled... If you want to force a specfic advertisement, use the code below the advertisement
+        above in your html instead. </random_code>
+    <referred_invoices>Invoices Referred</referred_invoices>
+    <revenue_generated>Revenue Generated</revenue_generated>
+    <avg_cost_conversion>Average Cost Per Conversion</avg_cost_conversion>
+    <avg_sale>Average Sale Amount</avg_sale>
+    <roi>Return on Investment (ROI)</roi>
+    <referred_accounts>Accounts Referred</referred_accounts>
+    <avg_cpi>Avg. CPI (Cost Per Impression)</avg_cpi>
+    <avg_cpc>Avg CPC (Cost Per Click)</avg_cpc>
+    <impr_to_buy>Impression to Buy Ratio</impr_to_buy>
+    <click_to_buy>Click to Buy Ratio</click_to_buy>
+    <impr>Impr.</impr>
+    <cpc>Avg. CPC</cpc>
+    <cpi>Avg. CPI</cpi>
+    <cost_conv>Cost/Conv.</cost_conv>
+    <roi_s>ROI</roi_s>
+    <avg_sale_s>Avg. Sale</avg_sale_s>
+    <revenue>Revenue</revenue>
+</translate>

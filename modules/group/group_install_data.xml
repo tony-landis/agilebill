@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+  <group>
+       <id>0</id>
+       <site_id>1</site_id>
+       <date_orig>0</date_orig>
+       <date_start>0</date_start>
+       <date_expire>0</date_expire>
+       <parent_id>0</parent_id>
+       <status>1</status>
+       <pricing>1</pricing>
+       <name>All Users</name>
+       <notes>All unregistered users will have access to this.</notes>
+  </group>
+  <group>
+       <id>2</id>
+       <site_id>1</site_id>
+       <date_orig>0</date_orig>
+       <date_start>0</date_start>
+       <date_expire>0</date_expire>
+       <parent_id>0</parent_id>
+       <status>1</status>
+       <pricing>1</pricing>
+       <name>Registered Users</name>
+  </group>
+  <group>
+       <id>4</id>
+       <site_id>1</site_id>
+       <date_orig>0</date_orig>
+       <date_start>0</date_start>
+       <date_expire>0</date_expire>
+       <parent_id>2</parent_id>
+       <status>1</status>
+       <pricing>0</pricing>
+       <name>Staff</name>
+  </group>
+  <group>
+       <id>1001</id>
+       <site_id>1</site_id>
+       <date_orig>0</date_orig>
+       <date_start>0</date_start>
+       <date_expire>0</date_expire>
+       <parent_id>2</parent_id>
+       <status>1</status>
+       <pricing>0</pricing>
+       <name>Root</name>
+  </group>
+  <group_id>
+       <id>1016</id>
+  </group_id>
+</install>

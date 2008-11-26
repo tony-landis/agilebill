@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>login_share</module>
+    <!-- define the module table name -->
+    <table>login_share</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy/>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>id</order_by>
+    <!-- define the methods -->
+    <limit>30</limit>
+    <!-- define database indexes -->
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I8</type>
+        </id>
+        <site_id>
+            <type>I4</type>
+        </site_id>
+        <date_orig>
+            <type>I8</type>
+            <convert>date-time</convert>
+        </date_orig>
+        <date_last>
+            <type>I8</type>
+            <convert>date-time</convert>
+        </date_last>
+        <account_id>
+            <type>I8</type>
+        </account_id> 
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,date_orig,date_last,account_id</add>
+        <update>id,site_id,date_orig,date_last,account_id</update>
+        <delete>id</delete>
+        <view>id,site_id,date_orig,date_last,account_id</view>
+        <search>id,site_id,date_orig,date_last,account_id</search>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

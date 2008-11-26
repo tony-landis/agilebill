@@ -1,0 +1,13 @@
+<install>
+	<module_properties>
+		<name>invoice_item_discount</name>
+		<parent>invoice</parent>
+		<notes><![CDATA[Stores discount information for invoices]]></notes>
+		<menu_display>0</menu_display>
+		<dependancy>invoice</dependancy>
+	</module_properties>
+	<sql_inserts>
+		<module_method> 
+		</module_method>
+	</sql_inserts>
+</install>

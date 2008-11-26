@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+  <currency>
+       <id>1</id>
+       <site_id>1</site_id>
+       <name>United States Dollars</name>
+       <status>1</status>
+       <convert_array><![CDATA[a:1:{i:1;a:2:{s:4:"rate";s:1:"1";s:3:"iso";s:3:"USD";}}]]></convert_array>
+       <notes>Notes</notes>
+       <symbol>$</symbol>
+       <three_digit>USD</three_digit>
+  </currency>
+  <currency>
+       <id>3</id>
+       <site_id>1</site_id>
+       <name>Japanese Yen</name>
+       <status>0</status>
+       <convert_array><![CDATA[a:3:{i:3;a:2:{s:4:"rate";s:1:"1";s:3:"iso";s:3:"JPY";}i:4;a:2:{s:4:"rate";s:0:"";s:3:"iso";s:3:"GBP";}i:1;a:2:{s:4:"rate";s:0:"";s:3:"iso";s:3:"USD";}}]]></convert_array>
+       <symbol>¥</symbol>
+       <three_digit>JPY</three_digit>
+  </currency>
+  <currency>
+       <id>4</id>
+       <site_id>1</site_id>
+       <name>United Kingdom Pounds</name>
+       <status>0</status>
+       <convert_array><![CDATA[a:2:{i:4;a:2:{s:4:"rate";s:1:"1";s:3:"iso";s:3:"GBP";}i:1;a:2:{s:4:"rate";s:0:"";s:3:"iso";s:3:"USD";}}]]></convert_array>
+       <symbol>£</symbol>
+       <three_digit>GBP</three_digit>
+  </currency>
+  <currency>
+       <id>5</id>
+       <site_id>1</site_id>
+       <name>Canada Dollars</name>
+       <status>0</status>
+       <convert_array><![CDATA[a:5:{i:5;a:2:{s:4:"rate";s:1:"1";s:3:"iso";s:3:"CAD";}i:16;a:2:{s:4:"rate";s:0:"";s:3:"iso";s:3:"EUR";}i:3;a:2:{s:4:"rate";s:0:"";s:3:"iso";s:3:"JPY";}i:4;a:2:{s:4:"rate";s:0:"";s:3:"iso";s:3:"GBP";}i:1;a:2:{s:4:"rate";s:0:"";s:3:"iso";s:3:"USD";}}]]></convert_array>
+       <symbol>$</symbol>
+       <three_digit>CAD</three_digit>
+  </currency>
+  <currency>
+       <id>6</id>
+       <site_id>1</site_id>
+       <name>Australia Dollars</name>
+       <status>0</status>
+       <convert_array><![CDATA[a:2:{i:6;a:2:{s:4:"rate";s:1:"1";s:3:"iso";s:3:"AUD";}i:1;a:2:{s:4:"rate";s:0:"";s:3:"iso";s:3:"USD";}}]]></convert_array>
+       <symbol>$</symbol>
+       <three_digit>AUD</three_digit>
+  </currency>
+  <currency>
+       <id>7</id>
+       <site_id>1</site_id>
+       <name>Switzerland Francs</name>
+       <symbol>$</symbol>
+       <three_digit>CHF</three_digit>
+  </currency>
+  <currency>
+       <id>8</id>
+       <site_id>1</site_id>
+       <name>Denmark Kroner</name>
+       <status>0</status>
+       <convert_array><![CDATA[a:7:{i:8;a:2:{s:4:"rate";s:1:"1";s:3:"iso";s:3:"DKK";}i:6;a:2:{s:4:"rate";s:7:".236179";s:3:"iso";s:3:"AUD";}i:5;a:2:{s:4:"rate";s:7:".222175";s:3:"iso";s:3:"CAD";}i:16;a:2:{s:4:"rate";s:7:".134471";s:3:"iso";s:3:"EUR";}i:3;a:2:{s:4:"rate";s:7:"17.9572";s:3:"iso";s:3:"JPY";}i:4;a:2:{s:4:"rate";s:8:".0896697";s:3:"iso";s:3:"GBP";}i:1;a:2:{s:4:"rate";s:7:".164627";s:3:"iso";s:3:"USD";}}]]></convert_array>
+       <symbol>¤</symbol>
+       <three_digit>DKK</three_digit>
+  </currency>
+  <currency>
+       <id>9</id>
+       <site_id>1</site_id>
+       <name>Hong Kong Dollars</name>
+       <symbol>$</symbol>
+       <three_digit>HKD</three_digit>
+  </currency>
+  <currency>
+       <id>10</id>
+       <site_id>1</site_id>
+       <name>Norway Kroner</name>
+       <symbol>¤</symbol>
+       <three_digit>NOK</three_digit>
+  </currency>
+  <currency>
+       <id>11</id>
+       <site_id>1</site_id>
+       <name>Sweden Kroner</name>
+       <symbol>¤</symbol>
+       <three_digit>SEK</three_digit>
+  </currency>
+  <currency>
+       <id>12</id>
+       <site_id>1</site_id>
+       <name>New Zealand Dollars</name>
+       <symbol>$</symbol>
+       <three_digit>NZD</three_digit>
+  </currency>
+  <currency>
+       <id>13</id>
+       <site_id>1</site_id>
+       <name>Russian Rubles</name>
+       <symbol>$</symbol>
+       <three_digit>RUR</three_digit>
+  </currency>
+  <currency>
+       <id>14</id>
+       <site_id>1</site_id>
+       <name>South Africa Rand</name>
+       <symbol>$</symbol>
+       <three_digit>ZAR</three_digit>
+  </currency>
+  <currency>
+       <id>15</id>
+       <site_id>1</site_id>
+       <name>Mexican Pesos</name>
+       <status>0</status>
+       <convert_array><![CDATA[a:14:{i:6;s:0:"";i:5;s:0:"";i:8;s:0:"";i:2;s:0:"";i:9;s:0:"";i:3;s:0:"";i:15;s:0:"";i:12;s:0:"";i:10;s:0:"";i:13;s:0:"";i:14;s:0:"";i:11;s:0:"";i:7;s:0:"";i:4;s:0:"";}]]></convert_array>
+       <symbol>$</symbol>
+       <three_digit>MXN</three_digit>
+  </currency>
+  <currency>
+       <id>16</id>
+       <site_id>1</site_id>
+       <name>Euro</name>
+       <status>0</status>
+       <convert_array><![CDATA[a:2:{i:16;a:2:{s:4:"rate";s:1:"1";s:3:"iso";s:3:"EUR";}i:1;a:2:{s:4:"rate";s:7:"1.20636";s:3:"iso";s:3:"USD";}}]]></convert_array>
+       <symbol>€</symbol>
+       <three_digit>EUR</three_digit>
+  </currency>
+  <currency_id>
+       <id>16</id>
+  </currency_id>
+</install>

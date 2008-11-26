@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>invoice_memo</module>
+    <!-- define the module table name -->
+    <table>invoice_memo</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy>invoice</dependancy>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>date_orig</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define database indexes -->
+    <index>
+        <invoice>invoice_id</invoice>
+        <memo>memo</memo>
+    </index>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I8</type>
+        </id>
+        <site_id>
+            <type>I4</type>
+        </site_id>
+        <date_orig>
+            <type>I8</type>
+            <validate>date-time</validate>
+            <convert>date-now</convert>
+        </date_orig>
+        <invoice_id>
+            <type>C(32)</type>
+        </invoice_id>
+        <account_id>
+            <type>I8</type>
+            <asso_table>account</asso_table>
+            <asso_field>username</asso_field>
+        </account_id>
+        <type>
+            <type>C(32)</type>
+            <validate>any</validate>
+        </type>
+        <memo>
+            <type>C(255)</type>
+            <validate>any</validate>
+        </memo>
+        <misc>
+            <type>C(32)</type>
+        </misc>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,date_orig,invoice_id,account_id,type,memo</add>
+        <update>id,site_id,date_orig,invoice_id,account_id,type,memo</update>
+        <delete>id,site_id,date_orig,invoice_id,account_id,type,memo</delete>
+        <view>id,site_id,date_orig,invoice_id,account_id,type,memo</view>
+        <search>id,site_id,date_orig,invoice_id,account_id,type,memo</search>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

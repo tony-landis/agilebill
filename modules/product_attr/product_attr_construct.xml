@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>product_attr</module>
+    <!-- define the module table name -->
+    <table>product_attr</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy>product</dependancy>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>sort_order,name</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define database indexes -->
+    <index>
+        <product>product_id</product>
+        <type>collect_type</type>
+    </index>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I4</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I4</type>
+            <index>1</index>
+        </site_id>
+        <product_id>
+            <type>I4</type>
+            <index>1</index>
+        </product_id>
+        <name>
+            <type>C(32)</type>
+            <min_len>1</min_len>
+            <max_len>32</max_len>
+            <validate>any</validate>
+        </name>
+        <description>
+            <type>C(255)</type>
+        </description>
+        <sort_order>
+            <type>I4</type>
+        </sort_order>
+        <collect_type>
+            <type>I4</type>
+        </collect_type>
+        <collect_default>
+            <type>C(255)</type>
+        </collect_default>
+        <required>
+            <type>L</type>
+        </required>
+        <price_base>
+            <type>F</type>
+            <min_len>1</min_len>
+            <max_len>32</max_len>
+            <validate>float</validate>
+        </price_base>
+        <price_setup>
+            <type>F</type>
+        </price_setup>
+        <price_group>
+            <type>X2</type>
+            <convert>array</convert>
+        </price_group>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,name,description,sort_order,collect_type,collect_default,price_base,price_setup,price_group,product_id,required</add>
+        <update>id,site_id,name,description,sort_order,collect_type,collect_default,price_base,price_setup,price_group,product_id,required</update>
+        <delete>id,site_id,name,description,sort_order,collect_type,collect_default,price_base,price_setup,price_group,product_id,required</delete>
+        <view>id,site_id,name,description,sort_order,collect_type,collect_default,price_base,price_setup,price_group,product_id,required</view>
+        <search>id,site_id,name,sort_order,collect_type,collect_default,price_base,price_group,product_id,required</search>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

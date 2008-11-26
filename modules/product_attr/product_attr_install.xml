@@ -1,0 +1,30 @@
+<install>
+	<module_properties>
+		<name>product_attr</name>
+		<parent>product</parent>
+		<notes><![CDATA[This module controls the product attributs]]></notes>
+		<dependancy>product</dependancy>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<search_show>
+				<name>search_show</name>
+			</search_show>
+			<search>
+				<name>search</name>
+			</search>
+			<view>
+				<name>view</name>
+			</view>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<add>
+				<name>add</name>
+			</add>
+			<update>
+				<name>update</name>
+			</update>
+		</module_method>
+	</sql_inserts>
+</install>

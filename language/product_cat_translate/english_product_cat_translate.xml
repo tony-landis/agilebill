@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>product_cat_translate</name>
+	<!-- define the block title translations -->
+	<title_add>Add Product Category Translation</title_add>
+	<title_view>Edit Product Category Translation</title_view>
+	<!-- define the menu lable translations -->
+	<menu>Product Category Translations</menu>
+	<menu_add>Add Category Translation</menu_add>
+	<menu_search>View All Translations</menu_search>
+	<!-- define the field translations -->
+	<field_product_cat_id>Product Category</field_product_cat_id>
+	<field_language_id>Language</field_language_id>
+	<field_name>Name</field_name>
+	<field_description>Description</field_description> 
+	<!-- define any custom resources -->
+</translate>

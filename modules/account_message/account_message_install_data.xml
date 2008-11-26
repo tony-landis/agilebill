@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+  <account_message>
+       <id>1</id>
+       <site_id>1</site_id>
+       <date_orig>1075175744</date_orig> 
+       <account_id>0</account_id>
+       <message>Default system message...</message>      
+  </account_message>
+  <account_message_id>
+       <id>2</id>
+  </account_message_id>
+</install>

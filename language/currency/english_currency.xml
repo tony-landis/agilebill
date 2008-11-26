@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>currency</name>
+    <!-- define the block title translations -->
+    <title_add>Add Currency</title_add>
+    <title_update>Update Currency</title_update>
+    <title_view>View Currencies</title_view>
+    <title_search>Search Currencies</title_search>
+    <!-- define the menu lable translations -->
+    <menu>Currencies</menu>
+    <menu_add>Add</menu_add>
+    <menu_view>List</menu_view>
+    <!-- define the field translations -->
+    <field_id>ID</field_id>
+    <field_site_id>Site ID</field_site_id>
+    <field_name>Currency Name</field_name>
+    <field_status>Accepted?</field_status>
+    <field_convert_array> Currency Conversion Rates &#60;br&#62;&#60;br&#62; Click
+        the currency flag icon to get the latest currency exchange rates from XE.com </field_convert_array>
+    <field_notes>Notes</field_notes>
+    <field_symbol>Symbol</field_symbol>
+    <field_three_digit>Three Digit Currency Code</field_three_digit> 
+    <!-- define any custom resources -->
+</translate>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate> 
+
+	<!-- define the block title translations --> 
+    <title_update>Email Log</title_update> 
+    <title_view>List</title_view>
+    <title_search>Search</title_search>
+    <title_user_list>E-mail Logs</title_user_list>
+    <title_user_view>E-mail Log Detail</title_user_view>
+	
+	<!-- define the menu lable translations -->
+    <menu>Email Logs</menu> 
+    <menu_view>List</menu_view>
+    <menu_search>Search</menu_search>
+    	
+	<!-- define the field translations -->	 
+	<field_date_orig>Date</field_date_orig>	
+	<field_account_id>Account</field_account_id>	
+	<field_email>E-mail</field_email>	
+	<field_subject>Subject</field_subject>	
+	<field_message>Message</field_message>	
+	<field_html>HTML</field_html>	
+	<field_urgent>Urgent</field_urgent>	
+	<field_userread>User userread?</field_userread>	       			
+</translate>

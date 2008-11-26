@@ -1,0 +1,30 @@
+// Greek lang variables by Jacaranda Bill
+
+tinyMCELang['lang_table_desc'] = 'Εισαγωγή πίνακα';
+tinyMCELang['lang_table_insert_row_before_desc'] = 'Εισαγωγή γραμμής επάνω';
+tinyMCELang['lang_table_insert_row_after_desc'] = 'Εισαγωγή γραμμής κάτω';
+tinyMCELang['lang_table_delete_row_desc'] = 'Διαγραφή γραμμής';
+tinyMCELang['lang_table_insert_col_before_desc'] = 'Εισαγωγή στήλης αριστερά';
+tinyMCELang['lang_table_insert_col_after_desc'] = 'Εισαγωγή στήλης δεξιά';
+tinyMCELang['lang_table_delete_col_desc'] = 'Διαγραφή στήλης';
+tinyMCELang['lang_insert_table_title'] = 'Εισαγωγή/Διόρθωση πίνακα';
+tinyMCELang['lang_insert_table_width'] = 'Πλάτος';
+tinyMCELang['lang_insert_table_height'] = 'Ύψος';
+tinyMCELang['lang_insert_table_cols'] = 'Στήλες';
+tinyMCELang['lang_insert_table_rows'] = 'Γραμμές';
+tinyMCELang['lang_insert_table_cellspacing'] = 'Διάστιχο';
+tinyMCELang['lang_insert_table_cellpadding'] = 'Γέμισμα';
+tinyMCELang['lang_insert_table_border'] = 'Περίγραμμα';
+tinyMCELang['lang_insert_table_align'] = 'Στοίχιση';
+tinyMCELang['lang_insert_table_align_default'] = 'Προκαθ.';
+tinyMCELang['lang_insert_table_align_left'] = 'Αριστερά';
+tinyMCELang['lang_insert_table_align_right'] = 'Δεξιά';
+tinyMCELang['lang_insert_table_align_middle'] = 'Στο κέντρο';
+tinyMCELang['lang_insert_table_class'] = 'Κλάση';
+tinyMCELang['lang_table_row_title'] = 'Table row properties';
+tinyMCELang['lang_table_cell_title'] = 'Table cell properties';
+tinyMCELang['lang_table_row_desc'] = 'Table row properties';
+tinyMCELang['lang_table_cell_desc'] = 'Table cell properties';
+tinyMCELang['lang_insert_table_valign'] = 'Vertical alignment';
+tinyMCELang['lang_insert_table_align_top'] = 'Top';
+tinyMCELang['lang_insert_table_align_bottom'] = 'Bottom';

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+
+        <!-- Define the main module properties -->
+        <module_properties>
+            <name>email_queue</name>
+            <parent>account_admin</parent>
+            <notes>Stores the email queue for future mailing</notes>
+            <menu_display></menu_display>
+            <dependancy></dependancy>
+            <sub_modules></sub_modules>
+        </module_properties> 
+
+        <!-- Define any SQL inserts for this module -->
+        <sql_inserts>
+            <module_method>
+                <send> 
+                    <send>add</send> 
+                </send> 
+        </module_method>
+    </sql_inserts>
+</install>

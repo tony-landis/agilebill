@@ -1,0 +1,41 @@
+<install>
+	<module_properties>
+		<name>affiliate_commission</name>
+		<parent>affiliate</parent>
+		<notes><![CDATA[This module stores the affiliate commissions paid.]]></notes>
+		<menu_display>1</menu_display>
+		<dependancy>affiliate</dependancy>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<add>
+				<name>add</name>
+				<page><![CDATA[%%:add]]></page>
+				<menu_display>1</menu_display>
+			</add>
+			<update>
+				<name>update</name>
+			</update>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<view>
+				<name>view</name>
+			</view>
+			<search>
+				<name>search</name>
+				<page><![CDATA[%%:search_form]]></page>
+				<menu_display>1</menu_display>
+			</search>
+			<search_form>
+				<name>search_form</name>
+			</search_form>
+			<search_show>
+				<name>search_show</name>
+			</search_show>
+			<export>
+				<name>export</name>
+			</export>
+		</module_method>
+	</sql_inserts>
+</install>

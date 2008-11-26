@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>license</name>
+	<!-- define the block title translations -->
+	<title_add>Add License</title_add>
+	<title_view>View License</title_view>
+	<title_search>Search</title_search>
+	<!-- define the menu lable translations -->
+	<menu>Licensing</menu>
+	<menu_add>Add</menu_add>
+	<menu_view>List</menu_view>
+	<menu_search>Search</menu_search>
+	<!-- define the field translations --> 
+	<field_date_orig>Creation Date</field_date_orig>
+	<field_date_last>Last Modified</field_date_last>
+	<field_date_expire>Expiry Date</field_date_expire>
+	<field_date_perm>Permanant License Date</field_date_perm>
+	<field_account_id>Account</field_account_id>
+	<field_invoice_id>Invoice No.</field_invoice_id>
+	<field_license_key>License Key</field_license_key>
+	<field_license_code>License Code</field_license_code>
+	<field_status>Permanent Status</field_status>
+	<field_type>License Type</field_type>
+	<field_term>Trial/Temporary Term (days)</field_term>
+	<field_domain>Domain Authorized</field_domain>
+	<field_ip>IP Authorized</field_ip>
+	<field_change_domain>Domain Change Requested</field_change_domain>
+	<field_change_ip>IP Change Requested</field_change_ip>
+	<field_change_status>Change Status</field_change_status>
+	<!-- define any custom resources -->
+</translate>

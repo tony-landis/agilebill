@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>static_page_translate</name>
+	<!-- define the block title translations -->
+	<title_add>Add Translation</title_add>
+	<title_view>View Translations</title_view>
+	<title_search>Search Translations</title_search>
+	<!-- define the menu lable translations -->
+	<menu>Translation Administration</menu>
+	<menu_add>Add Translation</menu_add>
+	<menu_view>View Translations</menu_view>
+	<menu_search>Search Translations</menu_search>
+	<!-- define the field translations -->
+	<field_id/>
+	<field_site_id/>
+	<field_date_orig>Date of Creation</field_date_orig>
+	<field_date_last/>
+	<field_static_page_id>Static Page</field_static_page_id>
+	<field_language_id>Translation Language</field_language_id>
+	<field_body_intro>Intro Text</field_body_intro>
+	<field_body_full>Full Text</field_body_full>
+	<field_title>Page Title</field_title> 
+	<!-- define any custom resources -->
+	<view_all>View all translations for this page </view_all>
+	<return>Return to main page view</return>
+</translate>

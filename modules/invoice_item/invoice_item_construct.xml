@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>invoice_item</module>
+    <!-- define the module table name -->
+    <table>invoice_item</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy>invoice</dependancy>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>sku</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define database indexes -->
+    <index>
+        <parent>parent_id</parent>
+        <invoice>invoice_id,site_id</invoice>
+        <product>product_id</product>
+        <accountid>account_id</accountid>
+        <serviceid>service_id,site_id</serviceid>
+        <invserviceid>service_id,invoice_id</invserviceid>
+        <sku>sku</sku>
+        <domain>domain_name,domain_tld</domain>
+        <dates>date_orig</dates>
+        <charge>site_id,charge_id</charge>
+    </index>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I8</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I4</type>
+            <index>1</index>
+        </site_id>
+        <date_orig>
+            <type>I8</type>
+        </date_orig>
+        <parent_id>
+            <type>I8</type>
+        </parent_id>
+        <account_id>
+        	<type>I8</type>
+        </account_id>
+        <service_id>
+            <type>I8</type>
+        </service_id>
+        <invoice_id>
+            <type>I8</type>
+        </invoice_id>
+        <product_id>
+            <type>I8</type>
+        </product_id>
+        <charge_id>
+        	<type>I8</type>
+        </charge_id>
+        <sku>
+            <type>C(128)</type>
+        </sku>
+        <quantity>
+            <type>I4</type>
+        </quantity>
+        <item_type>
+            <type>L</type>
+        </item_type>
+        <product_attr>
+            <type>X2</type>
+            <convert>array</convert>
+        </product_attr>
+        <product_attr_cart>
+            <type>X2</type>
+        </product_attr_cart>
+        <product_name>
+        	<type>C(128)</type>
+        </product_name>
+        <total_amt>
+        	<type>F</type>
+        </total_amt>
+        <tax_amt>
+        	<type>F</type>
+        </tax_amt>
+        <discount_amt>
+        	<type>F</type>
+        </discount_amt>                
+        <price_type>
+            <type>L</type>
+        </price_type>
+        <price_base>
+            <type>F</type>
+        </price_base>
+        <price_setup>
+            <type>F</type>
+        </price_setup>
+        <recurring_schedule>
+            <type>I4</type>
+        </recurring_schedule>
+        <domain_name>
+            <type>C(128)</type>
+        </domain_name>
+        <domain_tld>
+            <type>C(16)</type>
+        </domain_tld>
+        <domain_term>
+            <type>I4</type>
+        </domain_term>
+        <domain_type>
+            <type>C(16)</type>
+        </domain_type>
+        <date_start>
+        	<type>I8</type>
+        </date_start>
+        <date_stop>
+        	<type>I8</type>
+        </date_stop>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,date_orig,invoice_id,product_id,sku,quantity,item_type,product_attr,product_attr_cart,price_base,price_setup,recurring_schedule,domain_name,domain_tld,domain_term,domain_type,invoice_item_parent_id</add>
+        <update>id,site_id,date_orig,invoice_id,product_id,sku,quantity,item_type,product_attr,product_attr_cart,price_base,price_setup,recurring_schedule,domain_name,domain_tld,domain_term,domain_type,invoice_item_parent_id</update>
+        <delete>id,site_id,date_orig,invoice_id,product_id,sku,quantity,item_type,product_attr,product_attr_cart,price_base,price_setup,recurring_schedule,domain_name,domain_tld,domain_term,domain_type,invoice_item_parent_id</delete>
+        <view>id,site_id,date_orig,invoice_id,product_id,sku,quantity,item_type,product_attr,product_attr_cart,price_base,price_setup,recurring_schedule,domain_name,domain_tld,domain_term,domain_type,invoice_item_parent_id</view>
+        <search>id,site_id,date_orig,invoice_id,product_id,sku,quantity,item_type,product_attr,product_attr_cart,price_base,price_setup,recurring_schedule,domain_name,domain_tld,domain_term,domain_type,invoice_item_parent_id</search>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>
+

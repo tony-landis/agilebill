@@ -1,0 +1,35 @@
+<install>
+	<module_properties>
+		<name>affiliate_template</name>
+		<parent>affiliate</parent>
+		<notes><![CDATA[This module controls the default affiliate settings.]]></notes>
+		<menu_display>1</menu_display>
+		<dependancy>affiliate</dependancy>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<view>
+				<name>view</name>
+				<page><![CDATA[core:search&module=%%&_escape=1&_next_page_one=view]]></page>
+				<menu_display>1</menu_display>
+			</view>
+			<update>
+				<name>update</name>
+			</update>
+			<add>
+				<name>add</name>
+				<page><![CDATA[%%:add]]></page>
+				<menu_display>1</menu_display>
+			</add>
+			<search>
+				<name>search</name>
+			</search>
+			<search_show>
+				<name>search_show</name>
+			</search_show>
+		</module_method>
+	</sql_inserts>
+</install>

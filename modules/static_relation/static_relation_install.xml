@@ -1,0 +1,31 @@
+<install>
+	<module_properties>
+		<name>static_relation</name>
+		<parent>setup</parent>
+		<notes><![CDATA[Available variable types and definitions]]></notes>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<update>
+				<name>update</name>
+			</update>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<add>
+				<name>add</name>
+				<notes><![CDATA[Allow users to add records]]></notes>
+			</add>
+			<view>
+				<name>view</name>
+			</view>
+			<search>
+				<name>search</name>
+			</search>
+			<search_show>
+				<name>search_show</name>
+				<notes><![CDATA[Allow users to view the search results]]></notes>
+			</search_show>
+		</module_method>
+	</sql_inserts>
+</install>

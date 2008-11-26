@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>staff</module>
+    <!-- define the module table name -->
+    <table>staff</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy/>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>id</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I4</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I4</type>
+        </site_id>
+        <date_orig>
+            <type>I8</type>
+            <convert>date-now</convert>
+        </date_orig>
+        <staff>
+            <type>C(16)</type>
+        </staff>
+        <account_id>
+            <type>I8</type>
+            <asso_table>account</asso_table>
+            <asso_field>username</asso_field>
+            <validate>any</validate>
+        </account_id>
+        <department_avail>
+            <type>C(255)</type>
+            <validate>any</validate>
+            <convert>array</convert>
+        </department_avail>
+        <nickname>
+            <type>C(128)</type>
+            <min_len>1</min_len>
+            <max_len>128</max_len>
+            <validate>any</validate>
+        </nickname>
+        <notify_new>
+            <type>L</type>
+        </notify_new>
+        <notify_change>
+            <type>L</type>
+        </notify_change>
+        <signature>
+        	<type>X2</type>
+        </signature>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,date_orig,account_id,department_avail,nickname,notify_new,notify_change,signature</add>
+        <update>id,site_id,date_orig,account_id,department_avail,nickname,notify_new,notify_change,signature</update>
+        <delete>id,site_id,date_orig,account_id,department_avail,nickname,notify_new,notify_change,signature</delete>
+        <view>id,site_id,date_orig,account_id,department_avail,nickname,notify_new,notify_change,signature</view>
+        <search>id,site_id,date_orig,account_id,department_avail,nickname,notify_new,notify_change,signature</search>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

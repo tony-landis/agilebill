@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate> 
+    <title_view>View Fax</title_view>
+    <title_search>Search Faxes</title_search>
+	 
+    <menu>Faxes</menu> 
+    <menu_view>List</menu_view>
+    <menu_search>Search</menu_search>
+    	 
+	<field_account_id>Account</field_account_id>	
+	<field_date_orig>Date</field_date_orig>	
+	<field_clid>CLID</field_clid>	
+	<field_src>Source</field_src>	
+	<field_dst>Destination</field_dst>	
+	<field_pages>Pages</field_pages>	
+	<field_image_size>Image Size</field_image_size>	
+	<field_image_resolution>Image Resolution</field_image_resolution>	
+	<field_transfer_rate>Transfer Rate</field_transfer_rate>	
+	<field_image_bytes>Image Bytes</field_image_bytes>	
+	<field_bad_rows>Bad Rows</field_bad_rows>	
+	<field_mime_type>Mime Type</field_mime_type>	
+
+	<view>View</view>
+	
+</translate>

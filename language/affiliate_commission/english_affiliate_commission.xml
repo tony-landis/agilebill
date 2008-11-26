@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>affiliate</name>
+    
+    <!-- define the block title translations -->
+    <title_add>Generate Affiliate Commissions</title_add>
+    <title_search>Search Affiliate Commissions</title_search>
+    <title_view>Export Affiliate Commissions</title_view>
+    
+    <!-- define the menu lable translations -->
+    <menu>Commissions</menu>
+    <menu_add>Generate Commissions</menu_add>
+    <menu_search>Search Commissions</menu_search>
+    
+    <!-- define the field translations -->	
+    <field_date_orig>Creation Date</field_date_orig>	
+    <field_date_begin>Commission Period, Starting Date</field_date_begin>	
+    <field_date_end>Commission Period, End Date</field_date_end>		
+    <field_commissions>Total Commissions</field_commissions>	
+    <field_notes_admin>Notes (for Admin)</field_notes_admin>	
+    <field_notes_affiliate>Notes (for Affiliate)</field_notes_affiliate>
+    <field_status>Commissions Paid?</field_status>
+    
+    <!-- define the help text -->
+    <help_file>
+        This module stores the affiliate commissions paid.	
+    </help_file>
+    
+    <!-- define any custom resources -->
+    <commissions>Commission(s)</commissions>
+    <export>Run commission payment tool</export>
+    <do_nothing>Nothing to do...</do_nothing> 
+    <generated>No more commissions left to generate, please click submit to export the commission data...</generated>
+    <no_results>There are no commissions to be generated for the selected date range.</no_results>
+    <continue>
+        <![CDATA[
+        Processed records %%start%% - %%stop%%, please  
+        <a href="?_page=core:blank&amp;do[]=affiliate_commission:add&amp;amp;GenID=%%genid%%&amp;page=%%page%%&quot;&gt;click here&lt;/a&gt; to proceed...
+        ]]>   
+    </continue>
+     
+</translate>

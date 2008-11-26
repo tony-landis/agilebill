@@ -1,0 +1,31 @@
+<install>
+	<module_properties>
+		<name>setup</name>
+		<parent>setup</parent>
+		<notes><![CDATA[Control the site setup]]></notes>
+		<menu_display>1</menu_display>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<search>
+				<name>search</name>
+			</search>
+			<view>
+				<name>view</name>
+			</view>
+			<update>
+				<name>update</name> 
+				<page><![CDATA[core:search&module=%%&_escape=1&_next_page_one=view]]></page>
+				<menu_display>1</menu_display>
+			</update>
+			<search_show>
+				<name>search_show</name> 
+			</search_show>
+			<_php_info>
+				<name>_php_info</name> 
+				<page><![CDATA[%%:_php_info&_escape=true]]></page>
+				<menu_display>1</menu_display>
+			</_php_info>
+		</module_method>
+	</sql_inserts>
+</install>

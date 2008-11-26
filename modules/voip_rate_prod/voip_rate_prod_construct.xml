@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct> 
+    <module>voip_rate_prod</module> 
+    <table>voip_rate_prod</table> 
+    <dependancy>voip</dependancy> 
+    <cache>0</cache> 
+    <order_by>product_id</order_by> 
+    <limit>25</limit> 
+    <index>
+        <idx>product_id,voip_rate_id</idx>
+    </index> 
+    <field>
+        <id>
+            <type>I4</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I4</type>
+            <index>1</index>
+        </site_id>
+        <product_id>
+            <type>I4</type>
+			<index>1</index>
+			<asso_table>product</asso_table>
+			<asso_field>sku</asso_field>
+        </product_id>
+		<voip_rate_id>
+			<type>I4</type>
+			<asso_table>voip_rate</asso_table>
+			<asso_field>name</asso_field>
+		</voip_rate_id>
+    </field> 
+    <method>
+        <add>id,site_id,product_id,voip_rate_id</add>
+        <update>id,site_id,product_id,voip_rate_id</update>
+        <delete>id,site_id,product_id,voip_rate_id</delete>
+        <view>id,site_id,product_id,voip_rate_id</view>
+        <search>id,site_id,product_id,voip_rate_id</search>
+    </method> 
+    <trigger>0</trigger>
+</construct>

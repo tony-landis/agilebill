@@ -1,0 +1,34 @@
+<install>
+	<module_properties>
+		<name>email_template_translate</name>
+		<parent>email_template</parent>
+		<notes><![CDATA[This module allows you to translate the email templates for any languages you wish to support. ]]></notes>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<search>
+				<name>search</name>
+			</search>
+			<view>
+				<name>view</name>
+			</view>
+			<add>
+				<name>add</name>
+				<notes><![CDATA[Allow users to add records]]></notes>
+			</add>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<update>
+				<name>update</name>
+			</update>
+			<search_form>
+				<name>search_form</name>
+			</search_form>
+			<search_show>
+				<name>search_show</name>
+				<notes><![CDATA[Allow users to view the search results]]></notes>
+			</search_show>
+		</module_method>
+	</sql_inserts>
+</install>

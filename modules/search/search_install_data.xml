@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+  <search>
+       <id>3066</id>
+       <site_id>1</site_id>
+       <date_orig>1112338630</date_orig>
+       <date_expire>1112374630</date_expire>
+       <session_id>c48c8cec9298a40a1995ad479b5c4e37</session_id>
+       <account_id>1</account_id>
+       <module>0</module>
+       <sql>SELECT %%fieldList%% FROM %%tableList%%  WHERE  %%whereList%% </sql>
+       <order_by>name</order_by>
+       <limit_no>25</limit_no>
+       <results>66</results>
+  </search>
+  <search>
+       <id>3067</id>
+       <site_id>1</site_id>
+       <date_orig>1112338637</date_orig>
+       <date_expire>1112374637</date_expire>
+       <session_id>c48c8cec9298a40a1995ad479b5c4e37</session_id>
+       <account_id>1</account_id>
+       <module>0</module>
+       <sql><![CDATA[SELECT %%fieldList%% FROM %%tableList%%  WHERE module_id = '62' AND  %%whereList%% ]]></sql>
+       <order_by>name</order_by>
+       <limit_no>25</limit_no>
+       <results>7</results>
+  </search>
+  <search>
+       <id>3068</id>
+       <site_id>1</site_id>
+       <date_orig>1112343270</date_orig>
+       <date_expire>1112379270</date_expire>
+       <session_id>b3662a1982e7ba3c5308973b354fb6f7</session_id>
+       <account_id>1</account_id>
+       <module>0</module>
+       <sql>SELECT %%fieldList%% FROM %%tableList%%  WHERE  %%whereList%% </sql>
+       <order_by>site_id</order_by>
+       <limit_no>10</limit_no>
+       <results>1</results>
+  </search>
+  <search>
+       <id>3069</id>
+       <site_id>1</site_id>
+       <date_orig>1112343320</date_orig>
+       <date_expire>1112379320</date_expire>
+       <session_id>6528fd5472182bd2b622f97b76567655</session_id>
+       <account_id>1</account_id>
+       <module>0</module>
+       <sql>SELECT %%fieldList%% FROM %%tableList%%  WHERE  %%whereList%% </sql>
+       <order_by>name</order_by>
+       <limit_no>25</limit_no>
+       <results>25</results>
+  </search>
+  <search_id>
+       <id>3069</id>
+  </search_id>
+</install>

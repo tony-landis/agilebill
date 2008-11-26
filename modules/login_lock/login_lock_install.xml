@@ -1,0 +1,11 @@
+<install>
+	<module_properties>
+		<name>login_lock</name>
+		<parent>login_lock</parent>
+		<notes><![CDATA[Control the lock on specific accounts or IP addresses]]></notes>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+		</module_method>
+	</sql_inserts>
+</install>

@@ -1,0 +1,32 @@
+<install>
+	<module_properties>
+		<name>login_log</name>
+		<parent>account_admin</parent>
+		<notes><![CDATA[Admin control of the Modules a]]></notes>
+		<menu_display>1</menu_display>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<search>
+				<name>search</name>
+			</search>
+			<view>
+				<name>view</name>
+				<page><![CDATA[core:search&module=%%]]></page>
+				<menu_display>1</menu_display>
+			</view>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<update>
+				<name>update</name>
+			</update>
+			<search_form>
+				<name>search_form</name>
+			</search_form>
+			<search_show>
+				<name>search_show</name>
+			</search_show>
+		</module_method>
+	</sql_inserts>
+</install>

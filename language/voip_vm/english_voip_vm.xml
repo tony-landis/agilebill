@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate> 
+    <title_add>Add Voicemail</title_add> 
+    <title_view>View Voicemail</title_view>
+    <title_search>Search Voicemail</title_search>
+	 
+    <menu>Voicemail</menu>
+    <menu_add>Add</menu_add> 
+    <menu_view>List</menu_view>
+    <menu_search>Search</menu_search>
+    	 
+	<field_account_id>Account</field_account_id>	
+	<field_context>Context</field_context>	
+	<field_mailbox>Mailbox</field_mailbox>	
+	<field_password>Password</field_password>	
+	<field_fullname>Full Name</field_fullname>	
+	<field_email>E-mail</field_email>	
+	<field_pager>Pager</field_pager>	
+	<field_options>Options</field_options>	    
+
+	<listen>Listen</listen>
+	<delete>Delete</delete>
+	<date>Date</date>
+	<from>From</from>
+	<filesize>File Size</filesize>
+	<length>Length</length>
+	
+</translate>

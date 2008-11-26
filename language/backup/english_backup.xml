@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>backup</name>
+    
+    <!-- define the block title translations -->
+    <title_add>Backup Database</title_add>
+    <title_view>Restore Database</title_view>
+    <title_manual>Manual Backup</title_manual>
+    
+    <!-- define the menu lable translations -->
+    <menu>Backup</menu>
+    <menu_add>Backup</menu_add>
+    <menu_view>Restore</menu_view>
+    
+    <!-- define the field translations -->	
+    <field_date_orig>Creation Date</field_date_orig>	
+    <field_date_expire>Scheduled Deletion Date</field_date_expire>	
+    <field_notes>Notes</field_notes>	
+    <field_modules>Modules to backup</field_modules>
+    <field_manual>File Name</field_manual>
+    
+    <!-- define the help text -->
+    <help_file>
+        This module enables you to create backups of the database for later restoration.	
+    </help_file>
+    
+    <!-- define any custom resources -->
+    <manual_instructions>
+        If you have previously downloaded a backup, and it has been since been deleted,
+        you can use the manual backup feature to put it back in the restore list
+        so it can be used. You must upload it (via FTP or another method) to your
+        /includes/files/ directory, and then enter the name of the file below once
+        you have uploaded it.
+        Example: backup_10.xml
+    </manual_instructions>
+    <manual_file_req>You must enter the filename, please go back and correct this.</manual_file_req>
+    <manual_file_miss>The filename you entered does not exist or is not writable, please correct this and try again.</manual_file_miss>
+    <download>Download Backup File</download>
+    <restore>Restore</restore> 	
+    <restore_instructions>
+        If you choose to restore this backup, all you current data in the modules in this backup
+        WILL BE LOST, and all data and settings will be as they were at the time that this
+        backup was made. If you are sure you wish to continue, press the button below.
+    </restore_instructions>
+    <backing_up>Currently backing up %%mod%%</backing_up>
+    <backup_complete>Database Backup Complete!</backup_complete>	
+    <restore_complete>Database Restore Complete!</restore_complete>				
+</translate>

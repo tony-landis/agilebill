@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>discount</module>
+    <!-- define the module table name -->
+    <table>discount</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy/>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>name</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define database indexes -->
+    <index>
+        <start>date_start</start>
+        <expire>date_expire</expire>
+        <status>status</status>
+    </index>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I8</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I4</type>
+            <index>1</index>
+        </site_id>
+        <date_orig>
+            <type>I8</type>
+            <convert>date-now</convert>
+        </date_orig>
+        <date_start>
+            <type>I8</type>
+            <convert>date</convert>
+        </date_start>
+        <date_expire>
+            <type>I8</type>
+            <convert>date</convert>
+        </date_expire>
+        <status>
+            <type>L</type>
+        </status>
+        <name>
+            <type>C(64)</type>
+            <min_len>2</min_len>
+            <max_len>32</max_len>
+            <validate>any</validate>
+        </name>
+        <notes>
+            <type>X2</type>
+        </notes>
+        <max_usage_account>
+            <type>I4</type>
+        </max_usage_account>
+        <max_usage_global>
+            <type>I4</type>
+        </max_usage_global>
+        <avail_account_id>
+            <type>I8</type>
+        </avail_account_id>
+        <avail_product_id>
+            <type>X2</type>
+            <asso_table>country</asso_table>
+            <asso_field>name</asso_field>
+            <convert>array</convert>
+        </avail_product_id>
+        <avail_group_id>
+            <type>X2</type>
+            <convert>array</convert>
+        </avail_group_id>
+        <avail_tld_id>
+            <type>X2</type>
+            <convert>array</convert>
+        </avail_tld_id>
+        <new_status>
+            <type>L</type>
+        </new_status>
+        <new_type>
+            <type>L</type>
+        </new_type>
+        <new_rate>
+            <type>F</type>
+        </new_rate>
+        <new_max_discount>
+            <type>F</type>
+        </new_max_discount>
+        <new_min_cost>
+            <type>F</type>
+        </new_min_cost>
+        <recurr_status>
+            <type>L</type>
+        </recurr_status>
+        <recurr_type>
+            <type>L</type>
+        </recurr_type>
+        <recurr_rate>
+            <type>F</type>
+        </recurr_rate>
+        <recurr_max_discount>
+            <type>F</type>
+        </recurr_max_discount>
+        <recurr_min_cost>
+            <type>F</type>
+        </recurr_min_cost>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,date_orig,date_start,date_expire,status,name,notes,max_usage_account,max_usage_global,avail_account_id,avail_product_id,avail_group_id,avail_tld_id,new_status,new_type,new_rate,new_max_discount,new_min_cost,recurr_status,recurr_type,recurr_rate,recurr_max_discount,recurr_min_cost</add>
+        <update>id,site_id,date_orig,date_start,date_expire,status,name,notes,max_usage_account,max_usage_global,avail_account_id,avail_product_id,avail_group_id,avail_tld_id,new_status,new_type,new_rate,new_max_discount,new_min_cost,recurr_status,recurr_type,recurr_rate,recurr_max_discount,recurr_min_cost</update>
+        <delete>id,site_id,date_orig,date_start,date_expire,status,name,notes,max_usage_account,max_usage_global,avail_account_id,avail_product_id,avail_group_id,avail_tld_id,new_status,new_type,new_rate,new_max_discount,new_min_cost,recurr_status,recurr_type,recurr_rate,recurr_max_discount,recurr_min_cost</delete>
+        <view>id,site_id,date_orig,date_start,date_expire,status,name,notes,max_usage_account,max_usage_global,avail_account_id,avail_product_id,avail_group_id,avail_tld_id,new_status,new_type,new_rate,new_max_discount,new_min_cost,recurr_status,recurr_type,recurr_rate,recurr_max_discount,recurr_min_cost</view>
+        <search>id,site_id,date_orig,date_start,date_expire,status,name,notes,max_usage_account,max_usage_global,avail_account_id,new_status,new_type,new_rate,new_max_discount,new_min_cost,recurr_status,recurr_type,recurr_rate,recurr_max_discount,recurr_min_cost</search>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

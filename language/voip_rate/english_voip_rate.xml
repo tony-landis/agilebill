@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>voip_rate</name>
+	
+	<title_add>Add Rate</title_add>
+	<title_view>View Rates</title_view>
+	<title_search>Search Rates</title_search>
+	
+	<menu>Rates</menu>
+	<menu_add>Add</menu_add>
+	<menu_view>List</menu_view>
+	<menu_products>Product Associations</menu_products>
+	<menu_import>Import</menu_import>
+	
+	<field_date_added>Date Added</field_date_added>
+	<field_name>Name</field_name>
+	<field_pattern>Digit Match Pattern (regex - separate with a semicolon for multiples)</field_pattern>
+	<field_connect_fee>Price for Connecting</field_connect_fee>
+	<field_increment_seconds>Billing Increment Seconds</field_increment_seconds>
+	<field_seconds_included>Seconds Included/Free</field_seconds_included>
+	<field_amount>Price per minute</field_amount>
+	<field_type>Rating Type</field_type>
+	<field_direction>Call Direction</field_direction>
+	<field_min>Minimum Minutes</field_min>
+	<field_max>Maximum Minutes</field_max>
+	<field_combine>Combine Minutes?</field_combine>
+	<field_percall>Price is per Call</field_percall>
+
+	<type_yes>Yes</type_yes>
+	<type_no>No</type_no>
+
+	<type_innetwork>In Network</type_innetwork>
+	<type_local>Local Calling</type_local>
+	<type_regular>Regular</type_regular>
+	<type_default>Default/Match All</type_default>
+
+	<direction_inbound>In-bound</direction_inbound>
+	<direction_outbound>Out-bound</direction_outbound>
+	<direction_both>Both In/Out-bound</direction_both>
+
+	<run>Run Rating Now</run>
+</translate>

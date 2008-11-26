@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct> 
+    <module>voip_blacklist</module> 
+    <table>voip_blacklist</table> 
+    <dependancy>voip</dependancy>
+    <cache>0</cache> 
+    <order_by>id</order_by> 
+    <limit>35</limit> 
+    <index>
+    	<didsrc>voip_did_id,src</didsrc>
+    </index>
+    <field>
+        <id>
+            <type>I4</type> 
+            <unique>1</unique>
+        </id>
+        <site_id>
+            <type>I4</type> 
+        </site_id>
+        <voip_did_id>
+            <type>I8</type> 
+            <asso_table>voip_did</asso_table>
+            <asso_field>did</asso_field> 
+        </voip_did_id>
+        <account_id>
+            <type>I4</type>  
+        </account_id>
+        <src>
+            <type>C(32)</type> 
+        </src>
+        <dst>
+            <type>C(64)</type> 
+        </dst>
+     </field> 
+     <method>
+        <add>id,site_id,voip_did_id,account_id,src,dst</add>
+        <update>id,site_id,voip_did_id,account_id,src,dst</update>
+        <delete>id,site_id,voip_did_id,account_id,src,dst</delete>
+        <view>id,site_id,voip_did_id,account_id,src,dst</view>
+        <search>id,site_id,voip_did_id,account_id,src,dst</search>
+     </method> 
+     <trigger>0</trigger>
+</construct>

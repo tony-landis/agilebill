@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+  <staff>
+       <id>1</id>
+       <site_id>1</site_id>
+       <date_orig>1028598481</date_orig>
+       <account_id>1</account_id>
+       <department_avail><![CDATA[a:2:{i:0;s:1:"4";i:1;s:1:"1";}]]></department_avail>
+       <nickname>Admin</nickname>
+       <notify_new>1</notify_new>
+       <notify_change>1</notify_change>
+  </staff>
+  <staff_id>
+       <id>2</id>
+  </staff_id>
+</install>

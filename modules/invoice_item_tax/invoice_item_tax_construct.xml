@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct> 
+    <module>invoice_item_tax</module> 
+    <table>invoice_item_tax</table> 
+    <dependancy>invoice</dependancy> 
+    <cache>0</cache> 
+    <order_by>zone</order_by> 
+    <limit>25</limit> 
+    <index>
+        <taxes>tax_id</taxes>
+        <invoice_id>invoice_id,invoice_item_id</invoice_id>
+        <dates>date_orig</dates>
+        <accounts>account_id</accounts>
+    </index> 
+    <field>
+        <id>
+            <type>I4</type>
+            <unique>1</unique> 
+        </id>
+        <site_id>
+            <type>I4</type> 
+        </site_id>
+        <date_orig>
+        	<type>I8</type> 
+        </date_orig>
+        <invoice_id>
+            <type>I8</type> 
+        </invoice_id>
+        <account_id>
+        	<type>I8</type> 
+        </account_id>        
+        <invoice_item_id>
+           <type>I8</type> 
+        </invoice_item_id>
+        <tax_id>
+            <type>I4</type> 
+        </tax_id>
+        <amount>
+            <type>F</type> 
+        </amount>
+    </field> 
+    <method> 
+    </method> 
+    <trigger>0</trigger>
+</construct>

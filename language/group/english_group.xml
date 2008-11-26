@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>group</name>
+    <!-- define the block title translations -->
+    <title_add>Add New Group</title_add>
+    <title_update>Update Group</title_update>
+    <title_view>View Groups</title_view>
+    <title_search>Search Groups</title_search>
+    <!-- define the menu lable translations -->
+    <menu>Groups</menu>
+    <menu_add>Add</menu_add>
+    <menu_view>List</menu_view>
+    <menu_search>Search</menu_search>
+    <!-- define the field translations -->
+    <field_date_orig>Date of Creation</field_date_orig>
+    <field_date_start>Date of Activation</field_date_start>
+    <field_date_expire>Date of Expiration</field_date_expire>
+    <field_name>Name</field_name>
+    <field_notes>Notes</field_notes>
+    <field_status>Active</field_status>
+    <field_pricing>Allow Alternate Pricing?</field_pricing>
+    <field_parent_id>Parent Group</field_parent_id>
+    <!-- define the help file -->
+    <help_file><![CDATA[
+        Groups are simply a set of permissions that accounts can be authorized for. Each
+        group is simply a list of methods that accounts associated with the group can access.
+        <BR><BR>
+        For example, if a particular group is authorized for the Account Administration methods, any account
+        authorized for that group can access the  Account Administration features.
+        <BR><BR>
+        The group configuration is very flexible. For example, a group can have access to only some of the
+        methods in a specific module. So, group(s) can be define for employees that allow them to
+        view and search for accounts, but not to delete or edit them.
+        <BR><BR>
+        The group hierarchy also allows for up to three levels of groups, so a parent group can be defined, 
+        and each unlimited child groups can be defined under that parent group. Those 2nd tier child groups can then have children of their
+        own. The advantage of this system is that the child group(s) always inherit all it's parents
+        permissions, and then you can add additional permissions to the child. This makes it
+        possible to very quickly create a group that has all the permissions of an existing group,
+        plus a few changes.
+        <BR><BR>
+        The group hierarchy is show above this help dialogue.
+        ]]></help_file>
+    <!-- define any custom resources -->
+    <select_module>Select a module</select_module>
+    <title_visual>Group Layout Visualization</title_visual>
+    <title_relation>Update Group to Method Relationships</title_relation>
+</translate>

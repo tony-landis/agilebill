@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>account_memo</name>
+    <!-- define the block title translations -->
+    <title_add>Add Memo</title_add>
+    <title_view>View Memo</title_view>
+    <title_search>Search Memos</title_search>
+    <!-- define the menu lable translations -->
+    <menu>Account Memos</menu>
+    <menu_add>Add Memo</menu_add>
+    <menu_view>View Memos</menu_view>
+    <menu_search>Search Memos</menu_search>
+    <!-- define the field translations -->
+    <field_date_orig>Date</field_date_orig>
+    <field_staff_id>Staff/Admin</field_staff_id>
+    <field_account_id>Account</field_account_id>
+    <field_type>Memo Type</field_type>
+    <field_memo>Memo</field_memo>
+    <field_misc>Misc</field_misc>
+    <!-- define any custom resources -->
+    <system>System</system>
+    <admin>Staff/Admin Memo</admin> 
+</translate>

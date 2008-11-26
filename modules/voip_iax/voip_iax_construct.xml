@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct> 
+    <module>voip_iax</module> 
+    <table>voip_iax</table> 
+    <dependancy>voip</dependancy> 
+    <cache>0</cache> 
+    <order_by>id</order_by> 
+    <limit>35</limit> 
+    <index>
+    	<keyword>keyword</keyword>
+    </index>
+    <field>
+        <id>
+            <type>I4</type> 
+        </id>
+        <site_id>
+            <type>I4</type> 
+        </site_id>
+        <iax>
+            <type>C(32)</type> 
+        </iax>        
+        <keyword>
+            <type>C(32)</type> 
+        </keyword>
+        <data>
+            <type>C(255)</type> 
+        </data>
+        <flags>
+            <type>L</type> 
+        </flags>
+     </field> 
+     <method>0</method> 
+     <trigger>0</trigger>
+</construct>

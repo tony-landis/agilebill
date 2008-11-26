@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install> 
+        <module_properties>
+            <name>voip_did</name>
+            <parent>voip</parent>
+            <notes>This module stores the DID records</notes>
+            <menu_display>1</menu_display>
+            <dependancy>voip</dependancy>
+            <sub_modules></sub_modules>
+        </module_properties>  
+        <sql_inserts>
+            <module_method>
+                <add> 
+                    <name>add</name> 
+                    <page>%%:add</page>
+                    <menu_display>1</menu_display>
+                </add>
+
+                <update> 
+                    <name>update</name> 
+                </update>
+               
+                <delete> 
+                    <name>delete</name> 
+                </delete>
+                <view> 
+                    <name>view</name> 
+                    <page>core:search&amp;module=%%&amp;_escape=1</page>
+                    <menu_display>1</menu_display>
+                </view>
+                <search> 
+                    <name>search</name> 
+                    <page>%%:search_form</page>
+                    <menu_display>1</menu_display>
+                </search>
+                <search_form> 
+                    <name>search_form</name> 
+                </search_form>
+                <search_show> 
+                    <name>search_show</name> 
+                </search_show>                 
+                <export_csv> 
+                    <name>export_csv</name> 
+                </export_csv>
+                <export_excel> 
+                    <name>export_excel</name> 
+                </export_excel>
+                <search_export> 
+                    <name>search_export</name> 
+                </search_export> 
+                <export_xml> 
+                    <name>export_xml</name> 
+                </export_xml>  
+                <export_tab> 
+                    <name>export_tab</name> 
+                </export_tab> 
+			<autoselect>
+				<name>autoselect</name>
+			</autoselect>				
+        </module_method>
+    </sql_inserts>
+</install>

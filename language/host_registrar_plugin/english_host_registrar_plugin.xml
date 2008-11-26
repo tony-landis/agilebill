@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>host_registrar_plugin</name>
+    <!-- define the block title translations -->
+    <title_add>Install Plugin</title_add>
+    <title_view>Manage Registrar Plugins</title_view>
+    <!-- define the menu lable translations -->
+    <menu>Registrar Plugins</menu>
+    <menu_view>Configure</menu_view>
+    <!-- define the field translations -->
+    <field_status>Active?</field_status>
+    <field_name>Registrar Nickname</field_name>
+    <field_file>File Name</field_file>
+    <field_plugin_data/>
+    <!-- define the help text -->
+    <help_file> This module controls the settings for the registrar plugins </help_file>
+    <!-- define any custom resources -->
+    <install>Install Plugin</install>
+    <view>View / Edit Plugin</view>
+    <debug>Show Debug Details?</debug>
+    <primary_ns>Primary NameServer</primary_ns>
+    <secondary_ns>Secondary NameServer</secondary_ns>
+    <primary_nsip>Primary NameServer IP</primary_nsip>
+    <secondary_nsip>Secondary NameServer IP</secondary_nsip>
+    <!-- Total Registrations-->
+    <tr_partnerno>TotalRegistration Partner Number</tr_partnerno>
+    <tr_pass>TotalRegistration Password</tr_pass>
+    <!-- OpenSRS -->
+    <osrs_user>OpenSRS Username</osrs_user>
+    <osrs_testkey>Test Key</osrs_testkey>
+    <osrs_livekey>Live Key</osrs_livekey>
+    <osrs_enviroment>Live Mode?</osrs_enviroment>
+    <!-- Nominet -->
+    <nominet_tag>Nominet Tag</nominet_tag>
+    <pgp_emailto>E-mail to Forward to for PGP Encryption</pgp_emailto>
+    <!-- MelbourneIT -->
+    <melbourne_user>MelbourneIT Username</melbourne_user>
+    <melbourne_pass>MelbourneIT Password</melbourne_pass>
+    <melbourne_pgpemail>E-mail to forward requests to for PGP encryption</melbourne_pgpemail>
+    <melbourne_mode>Live Mode?</melbourne_mode>
+    <!-- Enom -->
+    <enom_user>Enom Username</enom_user>
+    <enom_pass>Enom Password</enom_pass>
+    <enom_mode>Live Mode?</enom_mode>
+    <!-- Manual -->
+    <manual_add_email>E-mail to notify of new registrations</manual_add_email>
+    <manual_renew_email>E-mail to notify of renewals</manual_renew_email>
+    <manual_transfer_email>E-mail to notify of transfers</manual_transfer_email>
+    <manual_park_email>E-mail to notify of renewals</manual_park_email>
+    <!-- BulkRegister -->
+    <br_user>BulkRegister Username</br_user>
+    <br_pass>BulkRegister Password</br_pass>
+    <br_pgpemail>E-mail to forward requests to for PGP encryption</br_pgpemail>
+    <br_mode>Live Mode?</br_mode>
+    <!-- Directi  -->
+    <directi_user>Directi Username</directi_user>
+    <directi_pass>Directi Password</directi_pass>
+    <directi_mode>Live Mode?</directi_mode>
+    <!-- GoDaddy -->
+    <gd_user>GoDaddy Username</gd_user>
+    <gd_pass>GoDaddy Password</gd_pass>
+    <gd_mode>Live Mode?</gd_mode>
+</translate>

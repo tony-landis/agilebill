@@ -1,0 +1,50 @@
+ECHOPHP class 1.6.9 released 01-28-2003 (Updated by Salim Qadeer sqadeer@echo-inc.com)
+  * Function version_check() was causing problems with Submit being called twice, fixed
+
+ECHOPHP class 1.6.7 released 12-23-2003 (Updated by Salim Qadeer sqadeer@echo-inc.com)
+  * Removed Openecho ECHOTYPE3 response
+
+ECHOPHP class 1.6.6 released 10-07-2003 (Updated by Salim Qadeer sqadeer@echo-inc.com)
+  * Removed shipping fields (discontinued)
+
+ECHOPHP class 1.6.5 released 08-27-2003 (Updated by Salim Qadeer sqadeer@echo-inc.com)
+  * Class no longer sends unnecessary fields to ECHOnline
+
+ECHOPHP class 1.6.4 released 07-28-2003 (Updated by Salim Qadeer sqadeer@echo-inc.com)
+  * Fix: ec_city needed urlencode()
+
+ECHOPHP class 1.6.3 released 07-02-2003 (Updated by Salim Qadeer sqadeer@echo-inc.com)
+  * added variables: 
+    $echoPHP->tran_date - The date on which the transaction occurred, formatted CCYYMMDD. 
+    $echoPHP->merchant_name - The DBA name of the merchant as it is currently stored 
+                              in the ECHO merchant database. 
+    $echoPHP->version - The version of the ECHONLINE engine that processed the transaction.
+
+ECHOPHP class 1.6.2 released 06-11-2003 (Updated by Salim Qadeer sqadeer@echo-inc.com)
+  * removed version_compare() and added function version_check() for PHP older than 4.1.0.
+
+ECHOPHP class 1.6.1 released 05-19-2003 (Updated by Salim Qadeer sqadeer@echo-inc.com)
+  * re-added variable $billing_name for compatibility with ECHOcart
+
+ECHOPHP class 1.6 released 05-16-2003 (Updated by Salim Qadeer sqadeer@echo-inc.com)
+ 
+  * removed discontinued fields cs_factors, cs_flag, cs_host_score, cs_reference_number,
+    cs_response, cs_score, cs_status, ec_business_acct, ec_merchant_ref, ec_nbds_code, billing_name
+  * removed misspelled variable $athorization
+  * combined curl and openssl echophp.class classes into one.  The class will automatically find a         working solution.
+  * added variable $decline_code to check if the merchant's ECHO-ID and PIN is valid.
+  * added error message in a case where the server could not reach ECHOnline
+
+ 03-28-2003 - updated to reflect additional status and avs_result codes (Updated by Salim Qadeer sqadeer@echo-inc.com)
+ 03-25-2003 - added error messages for missing curl/ssl  (Updated by Alex Schultz aschultz@echo-inc.com)  
+ 03-21-2003 - fixed issue with cURL 7.10.2 + Win2k   (Updated by Salim Qadeer sqadeer@echo-inc.com)       
+ 02-18-2003 - the what happened to my auth code release	  
+ 01-16-2003 - removed duplicate functions		  
+ 12-03-2002 - added product_description, purchase_order_number  		          
+ 11-18-2002 - added sales_tax				 
+ 03-12-2002 - added ec_transaction_dt
+ 01-16-2002 - fixed ec_account_type (typo)
+ 01-10-2002 - Added ec_account_type and ec_payment_type for Alex ;-)      
+
+
+Bugs and comments may be sent to developer-support@echo-inc.com

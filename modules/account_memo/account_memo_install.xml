@@ -1,0 +1,33 @@
+<install>
+	<module_properties>
+		<name>account_memo</name>
+		<parent>account_admin</parent>
+		<notes><![CDATA[Handles the account memos]]></notes>
+		<dependancy>invoice</dependancy>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<add>
+				<name>add</name>
+			</add>
+			<update>
+				<name>update</name>
+			</update>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<view>
+				<name>view</name>
+			</view>
+			<search>
+				<name>search</name>
+			</search>
+			<search_form>
+				<name>search_form</name> 
+			</search_form>
+			<search_show>
+				<name>search_show</name> 
+			</search_show>
+		</module_method>
+	</sql_inserts>
+</install>

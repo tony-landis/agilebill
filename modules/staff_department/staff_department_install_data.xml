@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+  <staff_department>
+       <id>1</id>
+       <site_id>1</site_id>
+       <name>Sales</name>
+       <description>This is the sales dept.</description>
+       <default_staff_id>1</default_staff_id>
+       <contact_display>1</contact_display>
+  </staff_department>
+  <staff_department_id>
+       <id>1</id>
+  </staff_department_id>
+</install>

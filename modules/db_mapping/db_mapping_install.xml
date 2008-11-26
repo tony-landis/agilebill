@@ -1,0 +1,35 @@
+<install>
+	<module_properties>
+		<name>db_mapping</name>
+		<parent>setup</parent>
+		<notes><![CDATA[This module controls the account and group syncronization between this program and 3rd party programs.]]></notes>
+		<menu_display>1</menu_display>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<view>
+				<name>view</name>
+				<page><![CDATA[core:search&module=db_mapping]]></page>
+				<menu_display>1</menu_display>
+			</view>
+			<add>
+				<name>add</name>
+			</add>
+			<update>
+				<name>update</name>
+			</update>
+			<search>
+				<name>search</name>
+			</search>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<search_show>
+				<name>search_show</name>
+			</search_show>
+			<sync>
+				<name>sync</name>
+			</sync>
+		</module_method>
+	</sql_inserts>
+</install>

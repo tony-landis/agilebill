@@ -1,0 +1,55 @@
+<!--
+	Opensrs Protocol Suite (OPS) v 0.1
+	(C) Copyright 2000, Tuwcows Inc.
+	All Rights Reserved
+	
+	OPS Message Definition
+	
+-->
+
+<!-- Envelope -->
+<!ELEMENT OPS_envelope (header,body)>
+
+<!-- header part -->
+<!ELEMENT header (version, msg_id, msg_type)>
+
+<!-- body part -->
+<!ELEMENT body (data_block)>
+
+<!-- data block -->
+<!ELEMENT data_block (dt_assoc | dt_array | 
+                      dt_scalar| dt_scalarref)>
+
+<!-- data types -->
+<!ELEMENT dt_assoc (dt_assoc | dt_array|
+                    dt_scalar | dt_scalarref|
+                    (item)*)>
+
+<!ELEMENT dt_array (dt_assoc | dt_array |
+                    dt_scalar | dt_scalarref |
+                    (item)*)>
+
+<!ELEMENT dt_scalar (#PCDATA | dt_assoc | dt_array |
+                     dt_scalar | dt_scalarref)*>
+
+<!ELEMENT dt_scalarref (#PCDATA | dt_assoc | dt_array |
+                        dt_scalar | dt_scalarref)*>
+
+<!ELEMENT item 	(#PCDATA |
+                   dt_assoc | dt_array | 
+                   dt_scalar | dt_scalarref)*>
+                   
+<!ATTLIST item 
+       key   CDATA #REQUIRED 
+       class CDATA            >
+
+			
+<!ELEMENT msg_id   (#PCDATA)>
+<!ELEMENT msg_type (#PCDATA)>
+<!ELEMENT version (#PCDATA)>
+
+<!-- document information entities -->
+<!ENTITY author "Victor Magdic">
+<!ENTITY company "Tucows">
+<!ENTITY copyright "2000, Tucows">
+

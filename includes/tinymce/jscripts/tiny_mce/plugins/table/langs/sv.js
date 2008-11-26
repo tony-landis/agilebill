@@ -1,0 +1,30 @@
+// SE lang variables
+
+tinyMCELang['lang_table_desc'] = 'Skapa ny tabell';
+tinyMCELang['lang_table_insert_row_before_desc'] = 'Skapa rad f&#246;re';
+tinyMCELang['lang_table_insert_row_after_desc'] = 'Skapa rad efter';
+tinyMCELang['lang_table_delete_row_desc'] = 'Ta bort rad';
+tinyMCELang['lang_table_insert_col_before_desc'] = 'Skapa kolumn f&#246;re';
+tinyMCELang['lang_table_insert_col_after_desc'] = 'Skapa kolumn efter';
+tinyMCELang['lang_table_delete_col_desc'] = 'Ta bort kolumn';
+tinyMCELang['lang_insert_table_title'] = 'Skapa/Redigera tabell';
+tinyMCELang['lang_insert_table_width'] = 'Bredd';
+tinyMCELang['lang_insert_table_height'] = 'H&#246;jd';
+tinyMCELang['lang_insert_table_cols'] = 'Kolumner';
+tinyMCELang['lang_insert_table_rows'] = 'Rader';
+tinyMCELang['lang_insert_table_cellspacing'] = 'Cellspacing';
+tinyMCELang['lang_insert_table_cellpadding'] = 'Cellpadding';
+tinyMCELang['lang_insert_table_border'] = 'Rambredd';
+tinyMCELang['lang_insert_table_align'] = 'Justering';
+tinyMCELang['lang_insert_table_align_default'] = 'Ingen';
+tinyMCELang['lang_insert_table_align_left'] = 'V&#228;nster';
+tinyMCELang['lang_insert_table_align_right'] = 'H&#246;ger';
+tinyMCELang['lang_insert_table_align_middle'] = 'Mitten';
+tinyMCELang['lang_insert_table_class'] = 'Stil';
+tinyMCELang['lang_table_row_title'] = 'Tabellradsinst&auml;llningar';
+tinyMCELang['lang_table_cell_title'] = 'Tabellcellsinst&auml;llningar';
+tinyMCELang['lang_table_row_desc'] = 'Tabellradsinst&auml;llningar';
+tinyMCELang['lang_table_cell_desc'] = 'Tabellcellsinst&auml;llningar';
+tinyMCELang['lang_insert_table_valign'] = 'Vertikal justering';
+tinyMCELang['lang_insert_table_align_top'] = 'Toppen';
+tinyMCELang['lang_insert_table_align_bottom'] = 'Botten';

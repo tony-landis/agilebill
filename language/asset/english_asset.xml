@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate> 
+    <title_add>Add</title_add> 
+    <title_view>View</title_view>
+    <title_search>Search</title_search>
+    <title_import>Import Assets</title_import>
+	 
+    <menu>Assets</menu>
+    <menu_add>Add</menu_add> 
+    <menu_view>List</menu_view>
+    <menu_search>Search</menu_search>
+    <menu_import>Import</menu_import>
+    	 
+	<field_id>ID</field_id>	 
+	<field_date_orig>Date Added</field_date_orig>	
+	<field_date_last>Last Modified</field_date_last>	
+	<field_status>Assigned</field_status>	
+	<field_service_id>Service ID</field_service_id>	
+	<field_pool_id>Pool ID</field_pool_id>	
+	<field_asset>Asset</field_asset>	
+	<field_misc>Misc Notes</field_misc>	
+
+	<field_filename>File to Import</field_filename>
+	<pool>Select the Asset Pool to place the imported assets in.</pool>
+	<help_import>
+		Select a file to import below. 
+		The file must contain a single asset per line. Optional: a second column with a value for the 'misc' field. 
+		Example line in import file: 'asset,misc text'
+		Duplicates will not be imported.
+	</help_import>
+	
+</translate>

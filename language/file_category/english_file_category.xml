@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>file_category</name>
+	
+	<!-- define the block title translations -->
+    <title_add>Add Category</title_add>
+    <title_view>View Categories</title_view>
+	
+	<!-- define the menu lable translations -->
+    <menu>File Categories</menu>
+    <menu_add>Add</menu_add>
+    <menu_view>View</menu_view>
+    	
+	<!-- define the field translations -->	
+	<field_date_orig>Creation Date</field_date_orig>	
+	<field_name>Category Name</field_name>	
+	<field_description>Description</field_description>	
+	<field_status>Active?</field_status>	
+	<field_group_avail>Available to Groups</field_group_avail>	
+	<field_sort_order>Sort Order</field_sort_order>
+	
+	<!-- define the help text -->
+	<help_file>
+	   This module allows you to manage the categories for your downloadable files.	
+	</help_file>
+	    
+</translate>

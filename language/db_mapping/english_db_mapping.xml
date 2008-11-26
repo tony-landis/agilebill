@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>db_mapping</name>
+	<!-- define the block title translations -->
+	<title_add>Install Database Map</title_add>
+	<title_view>Manage Database Map</title_view>
+	<!-- define the menu lable translations -->
+	<menu>Database Mapping</menu>
+	<menu_view>Configure</menu_view>
+	<!-- define the field translations -->
+	<field_name>Name</field_name>
+	<field_notes>Notes</field_notes>
+	<field_status>Active?</field_status>
+	<field_type>Type</field_type>
+	<field_db_name>Database Name</field_db_name>
+	<field_db_host>Database Host</field_db_host>
+	<field_db_user>Database Username</field_db_user>
+	<field_db_pass>Database Password</field_db_pass>
+	<field_cookie_name>Session Cookie Name</field_cookie_name>
+	<field_group_map>Group Mapping</field_group_map>
+	<field_map_file>Map File</field_map_file>
+	<field_db_prefix>Database Field Prefix</field_db_prefix>	
+	<!-- define any custom resources -->
+	<install>Install</install>
+	<view>View/Edit</view>
+	<no_local_groups>No local groups found, please add some!</no_local_groups>
+	<no_remote_groups>No remote groups found, please add some!</no_remote_groups>
+	<no_group_mapping>No group mapping for this database map available</no_group_mapping>
+	<file_error>Unable to open database map plugin file!</file_error>
+	<exported>Exported %%count_exp%% account(s) to the remote database</exported>
+	<updated>Updated %%count_upd%% account(s) in the remote database</updated>
+	<imported>Imported %%count_imp%% account(s) from the remote database</imported>
+</translate>

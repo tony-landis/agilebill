@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>product_cat</name>
+	<!-- define the block title translations -->
+	<title_add>Add Product Category</title_add>
+	<title_view>View Product Categories</title_view>
+	<title_view_translations>View all translations for this category</title_view_translations>
+	<title_add_translation>Add a translation for this category</title_add_translation>
+	<!-- define the menu lable translations -->
+	<menu>Categories</menu>
+	<menu_add>Add</menu_add>
+	<menu_view>List</menu_view>
+	<!-- define the field translations -->
+	<field_name>Category Nickname</field_name>
+	<field_notes>Category Notes</field_notes>
+	<field_status>Active?</field_status>
+	<field_max>Maximum Products Per Page</field_max>
+	<field_template>Template</field_template>
+	<field_thumbnail>Thumbnail</field_thumbnail>
+	<field_image>Image</field_image>
+	<field_position>Position/Ranking</field_position> 
+	<field_parent_id>Parent Category</field_parent_id>
+	<field_group_avail>Available to Group(s)</field_group_avail>
+	<!-- define any custom resources -->
+	<pages>View items on page:</pages>
+	<products_none>No Products Available in this Category...</products_none>
+	<desc_none>No Description</desc_none>
+	<plans_select>Please select a plan below</plans_select>
+	<plans_none>No Plans Available in this Category...</plans_none>
+</translate>

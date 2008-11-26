@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>task</module>
+    <!-- define the module table name -->
+    <table>task</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy/>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>name</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define database indexes -->
+    <index>
+        <start>date_start</start>
+        <expire>date_expire</expire>
+    </index>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I4</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I4</type>
+            <index>1</index>
+        </site_id>
+        <date_start>
+            <type>I8</type>
+            <convert>date-time</convert>
+        </date_start>
+        <date_expire>
+            <type>I8</type>
+            <convert>date-time</convert>
+        </date_expire>
+        <date_last>
+            <type>I8</type>
+            <convert>date</convert>
+        </date_last>
+        <name>
+            <type>C(32)</type>
+            <min_len>3</min_len>
+            <max_len>32</max_len>
+            <validate>any</validate>
+        </name>
+        <description>
+            <type>C(255)</type>
+        </description>
+        <log>
+            <type>L</type>
+        </log>
+        <type>
+            <type>I4</type>
+        </type>
+        <command>
+            <type>C(128)</type>
+            <min_len>2</min_len>
+            <max_len>128</max_len>
+            <validate>any</validate>
+        </command>
+        <int_min>
+            <type>C(32)</type>
+            <min_len>1</min_len>
+            <max_len>32</max_len>
+            <validate>any</validate>
+        </int_min>
+        <int_hour>
+            <type>C(32)</type>
+            <min_len>1</min_len>
+            <max_len>32</max_len>
+            <validate>any</validate>
+        </int_hour>
+        <int_month>
+            <type>C(32)</type>
+            <min_len>1</min_len>
+            <max_len>32</max_len>
+            <validate>any</validate>
+        </int_month>
+        <int_month_day>
+            <type>C(32)</type>
+            <min_len>1</min_len>
+            <max_len>32</max_len>
+            <validate>any</validate>
+        </int_month_day>
+        <int_week_day>
+            <type>C(32)</type>
+            <min_len>1</min_len>
+            <max_len>32</max_len>
+            <validate>any</validate>
+        </int_week_day>
+        <running>
+        	<type>L</type>
+        </running>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,date_start,date_expire,date_last,name,description,log,type,command,int_min,int_hour,int_month_day,int_month,int_week_day,running</add>
+        <update>id,site_id,date_start,date_expire,date_last,name,description,log,type,command,int_min,int_hour,int_month_day,int_month,int_week_day,running</update>
+        <delete>id,site_id,date_start,date_expire,date_last,name,description,log,type,command,int_min,int_hour,int_month_day,int_month,int_week_day,running</delete>
+        <view>id,site_id,date_start,date_expire,date_last,name,description,log,type,command,int_min,int_hour,int_month_day,int_month,int_week_day,running</view>
+        <search>id,site_id,date_start,date_expire,date_last,name,description,log,type,command,int_min,int_hour,int_month_day,int_month,int_week_day,running</search>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>newsletter</module>
+    <!-- define the module table name -->
+    <table>newsletter</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy/>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>name</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I4</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I4</type>
+        </site_id>
+        <group_avail>
+            <type>C(255)</type>
+            <validate>any</validate>
+            <convert>array</convert>
+        </group_avail>
+        <name>
+            <type>C(255)</type>
+            <min_len>1</min_len>
+            <max_len>255</max_len>
+            <unique>1</unique>
+        </name>
+        <description>
+            <type>X2</type>
+            <html>1</html>
+        </description>
+        <notes>
+            <type>X2</type>
+        </notes>
+        <active>
+            <type>L</type>
+        </active>
+        <display_signup>
+            <type>L</type>
+        </display_signup>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,group_avail,name,description,notes,active,display_signup</add>
+        <update>id,site_id,group_avail,name,description,notes,active,display_signup</update>
+        <delete>id,site_id,group_avail,name,description,notes,active,display_signup</delete>
+        <view>id,site_id,group_avail,name,description,notes,active,display_signup</view>
+        <search>id,site_id,group_avail,name,description,notes,active,display_signup</search>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

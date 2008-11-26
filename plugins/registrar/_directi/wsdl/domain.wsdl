@@ -1,0 +1,971 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="com.logicboxes.foundation.sfnb.order.DomOrder" xmlns:impl="com.logicboxes.foundation.sfnb.order.DomOrder" xmlns:intf="com.logicboxes.foundation.sfnb.order.DomOrder" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+ <wsdl:types>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="com.logicboxes.foundation.sfnb.order.DomOrder">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="ArrayOf_xsd_int">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="xsd:int[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <element name="ArrayOf_xsd_int" nillable="true" type="impl:ArrayOf_xsd_int"/>
+   <complexType name="ArrayOf_xsd_string">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="xsd:string[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <element name="ArrayOf_xsd_string" nillable="true" type="impl:ArrayOf_xsd_string"/>
+  </schema>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.apache.org/xml-soap">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="Map">
+    <sequence>
+     <element name="item" minOccurs="0" maxOccurs="unbounded">
+      <complexType>
+       <all>
+        <element name="key" type="xsd:anyType"/>
+        <element name="value" type="xsd:anyType"/>
+       </all>
+      </complexType>
+     </element>
+    </sequence>
+   </complexType>
+   <element name="Map" nillable="true" type="apachesoap:Map"/>
+   <complexType name="Vector">
+    <sequence>
+     <element name="item" minOccurs="0" maxOccurs="unbounded" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+   <element name="Vector" nillable="true" type="apachesoap:Vector"/>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="deleteDomainRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="orderId" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="setCustomerLockRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="orderId" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkAvailabilityRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="domainName" type="xsd:string"/>
+
+      <wsdl:part name="suggestAlternative" type="xsd:boolean"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDetailsResponse">
+
+      <wsdl:part name="getDetailsReturn" type="apachesoap:Map"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getLockListRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="orderId" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="modifyChildNameServerNameResponse">
+
+      <wsdl:part name="modifyChildNameServerNameReturn" type="apachesoap:Map"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeCustomerLockRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="orderId" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkAvailabilityResponse">
+
+      <wsdl:part name="checkAvailabilityReturn" type="apachesoap:Map"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="modifyDomainSecretResponse">
+
+      <wsdl:part name="modifyDomainSecretReturn" type="apachesoap:Map"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="renewDomainRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="domainHash" type="apachesoap:Map"/>
+
+      <wsdl:part name="invoiceOption" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteChildNameServerIpResponse">
+
+      <wsdl:part name="deleteChildNameServerIpReturn" type="apachesoap:Map"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="transferDomainRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="domainHash" type="apachesoap:Map"/>
+
+      <wsdl:part name="registrantContactId" type="xsd:int"/>
+
+      <wsdl:part name="adminContactId" type="xsd:int"/>
+
+      <wsdl:part name="techContactId" type="xsd:int"/>
+
+      <wsdl:part name="billingContactId" type="xsd:int"/>
+
+      <wsdl:part name="customerId" type="xsd:int"/>
+
+      <wsdl:part name="invoiceOption" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listResponse">
+
+      <wsdl:part name="listReturn" type="apachesoap:Map"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteChildNameServerIpRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="orderId" type="xsd:int"/>
+
+      <wsdl:part name="cns" type="xsd:string"/>
+
+      <wsdl:part name="ipAddress" type="apachesoap:Vector"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="modifyDomainSecretRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="orderId" type="xsd:int"/>
+
+      <wsdl:part name="newSecret" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDetailsRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="orderId" type="xsd:int"/>
+
+      <wsdl:part name="option" type="apachesoap:Vector"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="setCustomerLockResponse">
+
+      <wsdl:part name="setCustomerLockReturn" type="apachesoap:Map"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="addChildNameServerResponse">
+
+      <wsdl:part name="addChildNameServerReturn" type="apachesoap:Map"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="transferDomainResponse">
+
+      <wsdl:part name="transferDomainReturn" type="apachesoap:Map"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getLockListResponse">
+
+      <wsdl:part name="getLockListReturn" type="apachesoap:Map"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="modifyNameServerRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="orderId" type="xsd:int"/>
+
+      <wsdl:part name="nsHash" type="apachesoap:Map"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="registerDomainResponse">
+
+      <wsdl:part name="registerDomainReturn" type="apachesoap:Map"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="orderId" type="impl:ArrayOf_xsd_int"/>
+
+      <wsdl:part name="resellerId" type="impl:ArrayOf_xsd_int"/>
+
+      <wsdl:part name="customerId" type="impl:ArrayOf_xsd_int"/>
+
+      <wsdl:part name="showChildOrders" type="xsd:boolean"/>
+
+      <wsdl:part name="domainType" type="impl:ArrayOf_xsd_string"/>
+
+      <wsdl:part name="currentStatus" type="impl:ArrayOf_xsd_string"/>
+
+      <wsdl:part name="description" type="xsd:string"/>
+
+      <wsdl:part name="creationDTRangStart" type="xsd:string"/>
+
+      <wsdl:part name="creationDTRangEnd" type="xsd:string"/>
+
+      <wsdl:part name="endTimeRangStart" type="xsd:string"/>
+
+      <wsdl:part name="endTimeRangEnd" type="xsd:string"/>
+
+      <wsdl:part name="numOfRecordPerPage" type="xsd:int"/>
+
+      <wsdl:part name="pageNum" type="xsd:int"/>
+
+      <wsdl:part name="orderBy" type="impl:ArrayOf_xsd_string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeCustomerLockResponse">
+
+      <wsdl:part name="removeCustomerLockReturn" type="apachesoap:Map"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="modifyChildNameServerNameRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="orderId" type="xsd:int"/>
+
+      <wsdl:part name="oldCns" type="xsd:string"/>
+
+      <wsdl:part name="newCns" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="registerDomainRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="domainHash" type="apachesoap:Map"/>
+
+      <wsdl:part name="ns" type="apachesoap:Vector"/>
+
+      <wsdl:part name="registrantContactId" type="xsd:int"/>
+
+      <wsdl:part name="adminContactId" type="xsd:int"/>
+
+      <wsdl:part name="techContactId" type="xsd:int"/>
+
+      <wsdl:part name="billingContactId" type="xsd:int"/>
+
+      <wsdl:part name="customerId" type="xsd:int"/>
+
+      <wsdl:part name="invoiceOption" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="modifyChildNameServerIpRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="orderId" type="xsd:int"/>
+
+      <wsdl:part name="cns" type="xsd:string"/>
+
+      <wsdl:part name="oldIp" type="xsd:string"/>
+
+      <wsdl:part name="newIp" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="modifyContactResponse">
+
+      <wsdl:part name="modifyContactReturn" type="apachesoap:Map"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteDomainResponse">
+
+      <wsdl:part name="deleteDomainReturn" type="apachesoap:Map"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="renewDomainResponse">
+
+      <wsdl:part name="renewDomainReturn" type="apachesoap:Map"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="modifyContactRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="orderId" type="xsd:int"/>
+
+      <wsdl:part name="registrantContactId" type="xsd:int"/>
+
+      <wsdl:part name="adminContactId" type="xsd:int"/>
+
+      <wsdl:part name="techContactId" type="xsd:int"/>
+
+      <wsdl:part name="billingContactId" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="addChildNameServerRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="orderId" type="xsd:int"/>
+
+      <wsdl:part name="cns" type="xsd:string"/>
+
+      <wsdl:part name="ipAddress" type="apachesoap:Vector"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="modifyNameServerResponse">
+
+      <wsdl:part name="modifyNameServerReturn" type="apachesoap:Map"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="modifyChildNameServerIpResponse">
+
+      <wsdl:part name="modifyChildNameServerIpReturn" type="apachesoap:Map"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Domain">
+
+      <wsdl:operation name="list" parameterOrder="userName password role langpref parentid orderId resellerId customerId showChildOrders domainType currentStatus description creationDTRangStart creationDTRangEnd endTimeRangStart endTimeRangEnd numOfRecordPerPage pageNum orderBy">
+
+         <wsdl:input name="listRequest" message="impl:listRequest"/>
+
+         <wsdl:output name="listResponse" message="impl:listResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDetails" parameterOrder="userName password role langpref parentid orderId option">
+
+         <wsdl:input name="getDetailsRequest" message="impl:getDetailsRequest"/>
+
+         <wsdl:output name="getDetailsResponse" message="impl:getDetailsResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checkAvailability" parameterOrder="userName password role langpref parentid domainName suggestAlternative">
+
+         <wsdl:input name="checkAvailabilityRequest" message="impl:checkAvailabilityRequest"/>
+
+         <wsdl:output name="checkAvailabilityResponse" message="impl:checkAvailabilityResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="registerDomain" parameterOrder="userName password role langpref parentid domainHash ns registrantContactId adminContactId techContactId billingContactId customerId invoiceOption">
+
+         <wsdl:input name="registerDomainRequest" message="impl:registerDomainRequest"/>
+
+         <wsdl:output name="registerDomainResponse" message="impl:registerDomainResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="transferDomain" parameterOrder="userName password role langpref parentid domainHash registrantContactId adminContactId techContactId billingContactId customerId invoiceOption">
+
+         <wsdl:input name="transferDomainRequest" message="impl:transferDomainRequest"/>
+
+         <wsdl:output name="transferDomainResponse" message="impl:transferDomainResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="renewDomain" parameterOrder="userName password role langpref parentid domainHash invoiceOption">
+
+         <wsdl:input name="renewDomainRequest" message="impl:renewDomainRequest"/>
+
+         <wsdl:output name="renewDomainResponse" message="impl:renewDomainResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modifyNameServer" parameterOrder="userName password role langpref parentid orderId nsHash">
+
+         <wsdl:input name="modifyNameServerRequest" message="impl:modifyNameServerRequest"/>
+
+         <wsdl:output name="modifyNameServerResponse" message="impl:modifyNameServerResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addChildNameServer" parameterOrder="userName password role langpref parentid orderId cns ipAddress">
+
+         <wsdl:input name="addChildNameServerRequest" message="impl:addChildNameServerRequest"/>
+
+         <wsdl:output name="addChildNameServerResponse" message="impl:addChildNameServerResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modifyChildNameServerName" parameterOrder="userName password role langpref parentid orderId oldCns newCns">
+
+         <wsdl:input name="modifyChildNameServerNameRequest" message="impl:modifyChildNameServerNameRequest"/>
+
+         <wsdl:output name="modifyChildNameServerNameResponse" message="impl:modifyChildNameServerNameResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modifyChildNameServerIp" parameterOrder="userName password role langpref parentid orderId cns oldIp newIp">
+
+         <wsdl:input name="modifyChildNameServerIpRequest" message="impl:modifyChildNameServerIpRequest"/>
+
+         <wsdl:output name="modifyChildNameServerIpResponse" message="impl:modifyChildNameServerIpResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteChildNameServerIp" parameterOrder="userName password role langpref parentid orderId cns ipAddress">
+
+         <wsdl:input name="deleteChildNameServerIpRequest" message="impl:deleteChildNameServerIpRequest"/>
+
+         <wsdl:output name="deleteChildNameServerIpResponse" message="impl:deleteChildNameServerIpResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modifyContact" parameterOrder="userName password role langpref parentid orderId registrantContactId adminContactId techContactId billingContactId">
+
+         <wsdl:input name="modifyContactRequest" message="impl:modifyContactRequest"/>
+
+         <wsdl:output name="modifyContactResponse" message="impl:modifyContactResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteDomain" parameterOrder="userName password role langpref parentid orderId">
+
+         <wsdl:input name="deleteDomainRequest" message="impl:deleteDomainRequest"/>
+
+         <wsdl:output name="deleteDomainResponse" message="impl:deleteDomainResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modifyDomainSecret" parameterOrder="userName password role langpref parentid orderId newSecret">
+
+         <wsdl:input name="modifyDomainSecretRequest" message="impl:modifyDomainSecretRequest"/>
+
+         <wsdl:output name="modifyDomainSecretResponse" message="impl:modifyDomainSecretResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setCustomerLock" parameterOrder="userName password role langpref parentid orderId">
+
+         <wsdl:input name="setCustomerLockRequest" message="impl:setCustomerLockRequest"/>
+
+         <wsdl:output name="setCustomerLockResponse" message="impl:setCustomerLockResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeCustomerLock" parameterOrder="userName password role langpref parentid orderId">
+
+         <wsdl:input name="removeCustomerLockRequest" message="impl:removeCustomerLockRequest"/>
+
+         <wsdl:output name="removeCustomerLockResponse" message="impl:removeCustomerLockResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getLockList" parameterOrder="userName password role langpref parentid orderId">
+
+         <wsdl:input name="getLockListRequest" message="impl:getLockListRequest"/>
+
+         <wsdl:output name="getLockListResponse" message="impl:getLockListResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="DomainServiceSoapBinding" type="impl:Domain">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="list">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDetails">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDetailsRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDetailsResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checkAvailability">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="checkAvailabilityRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="checkAvailabilityResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="registerDomain">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="registerDomainRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="registerDomainResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="transferDomain">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="transferDomainRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="transferDomainResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="renewDomain">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="renewDomainRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="renewDomainResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modifyNameServer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="modifyNameServerRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="modifyNameServerResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addChildNameServer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addChildNameServerRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addChildNameServerResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modifyChildNameServerName">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="modifyChildNameServerNameRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="modifyChildNameServerNameResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modifyChildNameServerIp">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="modifyChildNameServerIpRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="modifyChildNameServerIpResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteChildNameServerIp">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteChildNameServerIpRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteChildNameServerIpResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modifyContact">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="modifyContactRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="modifyContactResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteDomain">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteDomainRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteDomainResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modifyDomainSecret">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="modifyDomainSecretRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="modifyDomainSecretResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setCustomerLock">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setCustomerLockRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setCustomerLockResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeCustomerLock">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removeCustomerLockRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removeCustomerLockResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getLockList">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getLockListRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getLockListResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomOrder"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="DomainService">
+
+      <wsdl:port name="DomainService" binding="impl:DomainServiceSoapBinding">
+
+         <wsdlsoap:address location="http://www.myorderbox.com:9090/anacreon/servlet/rpcrouter"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,3 @@
+{htmlarea}
+test 
+{/htmlarea}

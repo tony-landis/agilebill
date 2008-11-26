@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>group</module>
+    <!-- define the module table name -->
+    <table>group</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy/>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>parent_id,name</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define database indexes -->
+    <index> 
+        <pricing>date_expire</pricing> 
+        <idx>status,parent_id,date_start,date_expire</idx>
+    </index> 
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I4</type> 
+            <unique>1</unique>
+        </id>
+        <site_id>
+            <type>I4</type> 
+        </site_id>
+        <date_orig>
+            <type>I8</type>
+            <convert>date-now</convert>
+        </date_orig>
+        <date_start>
+            <type>I8</type>
+            <convert>date-time</convert>
+        </date_start>
+        <date_expire>
+            <type>I8</type>
+            <convert>date-time</convert>
+        </date_expire>
+        <parent_id>
+            <type>I4</type>
+        </parent_id>
+        <status>
+            <type>L</type>
+        </status>
+        <pricing>
+            <type>L</type>
+        </pricing>
+        <name>
+            <type>C(128)</type>
+            <validate>any</validate>
+            <min_len>3</min_len>
+            <max_len>64</max_len>
+            <unique>1</unique>
+        </name>
+        <notes>
+            <type>X2</type>
+        </notes>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,date_orig,date_start,date_expire,name,notes,status,pricing,parent_id</add>
+        <update>id,site_id,date_orig,date_start,date_expire,name,notes,status,pricing,parent_id</update>
+        <delete>id,site_id,date_orig,date_start,date_expire,name,notes,status,pricing,parent_id</delete>
+        <view>id,site_id,date_orig,date_start,date_expire,name,notes,status,pricing,parent_id</view>
+        <search>id,site_id,date_orig,date_start,date_expire,name,notes,status,pricing,parent_id</search>
+        <list>id,site_id,date_orig,date_start,date_expire,name,notes,status,pricing,parent_id</list>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

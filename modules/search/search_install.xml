@@ -1,0 +1,11 @@
+<install>
+	<module_properties>
+		<name>search</name>
+		<parent>search</parent>
+		<notes><![CDATA[Manage searchs]]></notes>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+		</module_method>
+	</sql_inserts>
+</install>

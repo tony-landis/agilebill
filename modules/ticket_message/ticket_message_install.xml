@@ -1,0 +1,30 @@
+<install>
+	<module_properties>
+		<name>ticket_message</name>
+		<parent>ticket</parent>
+		<notes><![CDATA[This module controls each message  in a specific ticket]]></notes>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<search>
+				<name>search</name>
+			</search>
+			<view>
+				<name>view</name>
+			</view>
+			<add>
+				<name>add</name>
+			</add>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<update>
+				<name>update</name>
+			</update>
+			<search_show>
+				<name>search_show</name>
+				<notes><![CDATA[Allow users to view the search results]]></notes>
+			</search_show>
+		</module_method>
+	</sql_inserts>
+</install>

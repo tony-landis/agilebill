@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>host_tld</name>
+    <!-- define the block title translations -->
+    <title_add>Add New TLD</title_add>
+    <title_view>View All TLDs</title_view>
+    <!-- define the menu lable translations -->
+    <menu>TLD Setup</menu>
+    <menu_add>Add</menu_add>
+    <menu_view>List</menu_view>
+    <!-- define the field translations -->
+    <field_status>Accepted?</field_status>
+    <field_name>Extension Name</field_name>
+    <field_taxable>Taxable</field_taxable>
+    <field_whois_plugin>Whois Plugin</field_whois_plugin>
+    <field_whois_plugin_data/>
+    <field_registrar_plugin_id>Registrar Plugin</field_registrar_plugin_id>
+    <field_registrar_plugin_data/>
+    <field_auto_search>Auto Search?</field_auto_search>
+    <field_default_term_new>Default Registration Length (years)</field_default_term_new>
+    <field_price_group>Group Pricing Schedule</field_price_group> 
+    <!-- define any custom resources -->
+    <parking>Offer domain parking for this TLD?</parking>
+    <year1>Offer 1 year purchase options for this TLD?</year1>
+    <year2>Offer 2 year purchase options for this TLD?</year2>
+    <year3>Offer 3 year purchase options for this TLD?</year3>
+    <year4>Offer 4 year purchase options for this TLD?</year4>
+    <year5>Offer 5 year purchase options for this TLD?</year5>
+    <year6>Offer 6 year purchase options for this TLD?</year6>
+    <year7>Offer 7 year purchase options for this TLD?</year7>
+    <year8>Offer 8 year purchase options for this TLD?</year8>
+    <year9>Offer 9 year purchase options for this TLD?</year9>
+    <year10>Offer 10 year purchase options for this TLD?</year10>
+    <ns_transfer_instructions> Please enter the domain name and extension below </ns_transfer_instructions>
+    <register_instructions> Please enter the name and select an extension below </register_instructions>
+    <register_instructions_s> Please enter the desired domain name and select an extension above </register_instructions_s>
+    <searching>Checking domain availibility, please hold....</searching>
+    <domain_unavail>The specified domain is invalid or not available, please try another...</domain_unavail>
+    <domain_avail>Congratulations! The domain is available, you can purchase this hosting plan now.</domain_avail>
+    <domain_avail_s>Congratulations! The domain is available, you can purchase it now.</domain_avail_s>
+    <transfer_searching>Checking if domain can be transferred, please hold....</transfer_searching>
+    <transfer_unavail> The specified domain is invalid, unregistered, or unsupported by our
+        registrar, please try another domain or select the "update nameserver" option above
+        instead...</transfer_unavail>
+    <transfer_avail> Congratulations! The domain can be transferred to our registrar, you may now
+        purchase this hosting plan. </transfer_avail>
+    <transfer_avail_s> Congratulations! The domain can be transferred to our registrar, you may now
+        continue the transfer. </transfer_avail_s>
+    <transfer_cart>Complete Domain Transfer</transfer_cart>
+    <register_cart>Register this domain name</register_cart>
+    <park_cart>Park this domain name</park_cart>
+    <domain_register>Register or Park a new domain</domain_register>
+    <domain_transfer>Transfer an existing domain</domain_transfer> 
+    <suggest_available>Available!</suggest_available>
+    <suggest_reserved>Reserved</suggest_reserved>
+    <suggest_searching>Searching...</suggest_searching>
+    <suggest_purchase>Continue with Purchase</suggest_purchase>
+    <suggest_other>Show More Domain Suggestions</suggest_other>
+    <suggest_heading>Suggest Domains</suggest_heading>
+    <suggest_select>Please make your selection(s) from the list above then press continue</suggest_select>
+    <search_mass>Bulk Domain Registration Form</search_mass>
+    <search_mass_header>Bulk Domain Registration Form</search_mass_header>
+    <search_mass_instructions><![CDATA[
+	    Please enter the list of domains to search on the left, separated by a new line.
+	    <BR><BR>
+		<u>Example:</u>
+		<BR><BR>
+		domain123.com<BR>
+		domain345.net<BR>
+		domain456.org<BR>
+	]]></search_mass_instructions>
+	<search_mass_err_tld>The TLD %%tld%% is not accepted and the domain %%domain%% has been removed.</search_mass_err_tld>
+	<search_mass_err_dom>The domain %%domain%% is not available and has been removed.</search_mass_err_dom>
+</translate>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct> 
+    <module>ticket_attachment</module> 
+    <table>ticket_attachment</table> 
+    <dependancy/> 
+    <cache>0</cache> 
+    <order_by>name</order_by> 
+    <limit>25</limit> 
+    <index>  
+        <tickets>site_id,ticket_id</tickets>
+        <message>site_id,ticket_message_id</message>
+        <fulltext_content>content</fulltext_content> 
+    </index> 
+    <field>
+        <id>
+            <type>I4</type>
+            <unique>1</unique> 
+        </id>
+        <site_id>
+            <type>I4</type> 
+        </site_id>
+        <ticket_id>
+            <type>I4</type> 
+        </ticket_id>
+        <ticket_message_id>
+            <type>I8</type> 
+        </ticket_message_id>
+        <name>
+            <type>C(255)</type> 
+        </name>
+        <size>
+            <type>C(16)</type>
+        </size>
+        <type>
+            <type>C(64)</type>
+        </type>
+        <content>
+            <type>X2</type>
+        </content> 
+    </field> 
+    <method></method> 
+    <trigger>0</trigger>
+</construct>

@@ -1,0 +1,48 @@
+<report>
+<title>Customers</title> 
+	<level> 
+		<title>Company Name Specified</title>
+		<sql>SELECT A.email, A.company, CONCAT(A.first_name,' ', A.last_name) as name, CONCAT(address1,' ', address1,', ', city, ' ', state, ', ', zip ) as address from %%AGILE_DB_PREFIX%%account A</sql>  
+  	<criteria>A.site_id = %%DEFAULT_SITE%% AND A.company IS NOT NULL and A.company!='' AND A.id in (select distinct account_id from %%AGILE_DB_PREFIX%%account_group where group_id!=4 and group_id!=1001)</criteria>
+		<orderby>ORDER BY company DESC</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Company</display>
+			<field>company</field> 
+		</column>
+		<column>
+			<display>Contact</display>
+			<field>name</field> 
+		</column>
+		<column>
+			<display>Address</display>
+			<field>address</field> 
+		</column>
+		<column>
+			<display>E-mail</display>
+			<field>email</field>  
+		</column>		
+	</level>	
+	
+	<break />
+	
+	<level> 
+		<title>Company Name Not Specified</title>
+		<sql>SELECT A.email, CONCAT(A.first_name,' ', A.last_name) as name, CONCAT(address1,' ', address1,', ', city, ' ', state, ', ', zip ) as address from %%AGILE_DB_PREFIX%%account A</sql>  
+    <criteria>A.site_id = %%DEFAULT_SITE%% AND (A.company IS NULL OR A.company='') AND A.id in (select distinct account_id from %%AGILE_DB_PREFIX%%account_group where group_id!=4 and group_id!=1001)</criteria>		<orderby>ORDER BY company DESC</orderby>
+		<indent>0</indent> 
+		<column>
+			<display>Contact</display>
+			<field>name</field> 
+		</column>
+		<column>
+			<display>Address</display>
+			<field>address</field> 
+		</column> 
+		<column>
+			<display>E-mail</display>
+			<field>email</field>  
+		</column>		
+	</level>
+				 
+</report>

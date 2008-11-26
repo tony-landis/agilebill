@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>invoice_item</name> 
+	<!-- define the menu lable translations -->
+	<menu>Invoice Items</menu> 
+	<!-- define the field translations --> 
+	<field_sku>SKU</field_sku>
+	<field_item_type>Item Type</field_item_type>
+	<field_product_attr>Product Attributes</field_product_attr>
+	<field_price_base>Base Price</field_price_base>
+	<field_price_setup>Setup Price</field_price_setup>
+	<field_recurring_schedule>Recurring Schedule</field_recurring_schedule>
+	<field_domain_name>Domain Name</field_domain_name> 
+	<field_domain_term>Domain Term</field_domain_term>
+	<field_domain_type>Domain Type</field_domain_type>  
+	<!-- define any custom resources -->
+</translate>

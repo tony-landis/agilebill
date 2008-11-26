@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>setup_invoice</name>
+	<!-- define the block title translations -->
+	<title_update>Invoice Setup</title_update>
+	<title_view>Invoice Setup</title_view>
+	<!-- define the menu lable translations -->
+	<menu>Invoice Setup</menu>
+	<menu_view>Invoice Setup</menu_view>
+
+	<!-- define the field translations -->
+	<field_id>ID</field_id>
+	<field_site_id>Site ID</field_site_id>
+	<field_bill_to_company>Bill to company name</field_bill_to_company>
+	<field_invoice_currency>Currency Symbol</field_invoice_currency>
+	<field_invoice_decimals>Currency Decimal Precision</field_invoice_decimals>
+	<field_items_summary_max>Number of items to display in summary</field_items_summary_max>
+	<field_news>News you can use </field_news>
+	<field_page_type>Page Type</field_page_type>
+	
+	<field_invoice_delivery>Default Invoice Delivery Method</field_invoice_delivery> 
+	<field_invoice_show_itemized>Show itemized detail pages</field_invoice_show_itemized>
+	<field_invoice_terms>Default Net Terms for All System Generated Invoices</field_invoice_terms>
+	<field_invoice_pdf_plugin>PDF Invoice Plugin</field_invoice_pdf_plugin>
+	<field_contact_us_url>Contact Us URL</field_contact_us_url>
+	<field_contact_us_phone>Contact Us Phone Number</field_contact_us_phone>
+	<field_invoice_show_service_dates>Show service date ranges on invoice overview</field_invoice_show_service_dates>
+	<field_advance_notice>Send advance billing notice how many days before invoice generation? (0 = disabled)</field_advance_notice>
+	
+	<pdf_service_range_month>Monthly Services for</pdf_service_range_month>
+	<pdf_summary>The above is just a summary. To view a detailed list of charges, please visit our website.</pdf_summary>
+	<pdf_cur_charge_summary>Current Charges Summary for </pdf_cur_charge_summary>
+	<pdf_combine_minutes> Combined Minutes Used</pdf_combine_minutes>
+	<pdf_payment_coupon>Payment Coupon</pdf_payment_coupon>
+	<pdf_return1>Please return this portion with your check or money</pdf_return1>
+	<pdf_return2>order made payable to </pdf_return2>
+	<pdf_account_number>Account Number</pdf_account_number>
+	<pdf_account_username>Username</pdf_account_username>
+	<pdf_contact>Contact Us:</pdf_contact>
+	<pdf_contact_online>Online: </pdf_contact_online>
+	<pdf_contact_phone>Phone: </pdf_contact_phone>
+	<pdf_invoice_number>Invoice Number</pdf_invoice_number>
+	<pdf_invoice_number_small>Invoice #</pdf_invoice_number_small>
+	<pdf_billing_date>Billing Date</pdf_billing_date>
+	<pdf_bill_date>Bill Date</pdf_bill_date>
+	<pdf_current_charges>Current Charges</pdf_current_charges>
+	<pdf_amount_due_by>AMOUNT DUE BY </pdf_amount_due_by>
+	<pdf_make_check>MAKE CHECK PAYABLE TO</pdf_make_check>
+	<pdf_itemized_charges>Itemized Charges</pdf_itemized_charges>
+	<pdf_itemized_calls>Itemized Calls</pdf_itemized_calls>
+	<pdf_page>Page #</pdf_page>
+	<pdf_item_description>Description</pdf_item_description>
+	<pdf_item_quantity>Quantity</pdf_item_quantity>
+	<pdf_item_min>Min./Quan.</pdf_item_min>
+	<pdf_item_cost>Unit Cost</pdf_item_cost>
+	<pdf_item_amount>Amount</pdf_item_amount>
+	<pdf_item_to>To</pdf_item_to>
+	<pdf_item_from>From</pdf_item_from>
+</translate>

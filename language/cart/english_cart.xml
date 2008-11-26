@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>cart</name>
+    <!-- define any custom resources -->
+    <err_no_prod> The product you have attempted to add to the cart is not available at this time. </err_no_prod>
+    <err_assoc_login> The product requires associated product(s) in order to be purchased. If you have
+        already purchased the associated products, please login so the required products can be
+        verified against your account.</err_assoc_login>
+    <err_assoc_req>The selected product requires other associated product(s) in order to be purchased.</err_assoc_req>
+    <assoc_one><![CDATA[You must add one of the following items to your cart in order to purchase the item you selected:<br>%%items%%]]></assoc_one>
+    <assoc_all><![CDATA[You must add all of the following items to your cart in order to purchase the item you selected:<br>%%items%%]]></assoc_all>
+    <err_prod_already> The product you have attempted to add to the cart cannot be added, as it is already in the cart. </err_prod_already>
+    <quantity>Quantity</quantity>
+    <host_type_domain>For your existing domain </host_type_domain>
+    <host_type_ip>This is an IP based hosting plan, IP address to be assigned.</host_type_ip>
+    <domain_term>Domain Term</domain_term>
+    <host_type_register>Domain registration for hosting plan </host_type_register>
+    <host_type_transfer>Domain transfer for hosting plan </host_type_transfer>
+    <register>New domain registration</register>
+    <transfer>Domain Transfer</transfer>
+    <renew>Renew Domain</renew>
+    <park>Park Domain</park>
+    <price_type>Pricing Structure</price_type>
+    <price_type_one>One-time Charge</price_type_one>
+    <price_type_recurr>Recurring Membership/Subscription</price_type_recurr>
+    <price_type_trial>Trial for Membership/Subscription</price_type_trial>
+    <setup>Setup</setup>
+    <recurr_week>Weekly Billing Schedule</recurr_week>
+    <recurr_month>Monthly Billing Schedule</recurr_month>
+    <recurr_quarter>Quarterly Billing Schedule</recurr_quarter>
+    <recurr_semianual>Semi-annual Billing Schedule</recurr_semianual>
+    <recurr_anual>Annual Billing Schedule</recurr_anual>
+    <recurr_twoyear>Two-year Billing Schedule</recurr_twoyear>
+    <recurr_threeyear>Three-year Billing Schedule</recurr_threeyear>
+    <payment_option>Please Select Your Preferred Payment Option</payment_option>
+    <admin_create_invoice>Create Invoice Now</admin_create_invoice>
+    <manual_discount>Manual Discount</manual_discount>
+    <empty>Your cart is empty, please select one or more products to continue...</empty> 
+    <base_price>Base Price</base_price>
+    <setup_price>Setup Price</setup_price> 
+    <subtotal>Sub-total</subtotal>
+    <discount>Discount</discount>
+    <total>Total</total>
+    <remove_items>To edit or remove items, click here.</remove_items>
+    <view_items>Click here for an itemized list of items in this purchase.</view_items>
+    <hide_items>Click here to hide itemized list.</hide_items>
+    <no_checkout_options>
+    	Sorry, no online payment option has been defined for this order type.
+		Please contact customer service for ordering details.
+	</no_checkout_options> 
+    <ad_hoc_heading>Ad Hoc Item</ad_hoc_heading>
+    <ad_hoc_sku>SKU</ad_hoc_sku>
+    <ad_hoc_name>Item Name</ad_hoc_name>
+    <ad_hoc_amount>Item Price</ad_hoc_amount>
+    <ad_hoc_taxable>Taxable?</ad_hoc_taxable>
+    <ad_hoc_attr>Attributes (up to 10)</ad_hoc_attr>
+    <ad_hoc_err>The SKU, Item Name, and Item Price must all be entered, please go back and correct.</ad_hoc_err>
+    <service_upgrade>Upgrade for Service ID %%service%%</service_upgrade>
+</translate>

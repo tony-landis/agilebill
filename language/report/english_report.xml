@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>reports</name>
+	
+	<!-- define the block title translations -->
+    <title_add>Generate New Report</title_add>
+    <title_update></title_update>
+    <title_delete>Delete Saved Report</title_delete>
+    <title_view>Report Administration</title_view>
+    <title_search>Locate Saved Report(s)</title_search>
+	
+	<!-- define the menu lable translations -->
+    <menu>Reports</menu>
+    <menu_add></menu_add>
+    <menu_update></menu_update>
+    <menu_delete></menu_delete>
+    <menu_view>Report Administration</menu_view>
+    <menu_search></menu_search>
+    	
+	<!-- define the field translations -->	
+	<field_id></field_id>	
+	<field_date_orig>Date Generated</field_date_orig>	
+	<field_date_last>Date Last Run</field_date_last>	
+	<field_template>Report Template</field_template>	
+	<field_nickname>Nickname</field_nickname>	
+	<field_criteria>Criteria</field_criteria>	       		
+	<field_site_id>Company or Reseller</field_site_id>
+	
+	<!-- custom translations -->
+	<report_select>Select A Report</report_select>	
+	<module_select>Select A Report Category</module_select>
+	<no_reports>No Reports for this Module</no_reports>
+	<view>View</view>
+	<update_sql>Update Query</update_sql>
+</translate>

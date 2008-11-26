@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>blocked_email</name>
+    <!-- define the block title translations -->
+    <title_add>Add Blocked Email</title_add>
+    <title_update>Update Blocked Email</title_update>
+    <title_view>View Blocked Emails</title_view>
+    <title_search>Search Blocked Emails</title_search>
+    <!-- define the menu lable translations -->
+    <menu>Blocked Domains</menu>
+    <menu_add>Add</menu_add>
+    <menu_view>List</menu_view>
+    <menu_search>Search</menu_search>
+    <!-- define the field translations -->
+    <field_date_orig>Creation Date</field_date_orig>
+    <field_date_last>Date of Last Update</field_date_last>
+    <field_email>Email or Domain</field_email>
+    <field_notes>Notes</field_notes>
+    <!-- define any custom resources -->
+</translate>

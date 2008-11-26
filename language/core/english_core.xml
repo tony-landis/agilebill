@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate> 
+	<window_close>Close</window_close>
+	<ticket>Support Tickets</ticket>
+	<contact>Contact Us</contact>
+	<verify_txt>Verify your account here:</verify_txt>
+	<verify>Verify Account</verify>
+	<logout>Logout</logout>
+	<login>Login</login>
+	<cart>Cart</cart>
+	<checkout>Checkout</checkout>
+	<update_account>Update Account</update_account>
+	<admin>Administration</admin>
+	<newsletter>Newsletters</newsletter>
+	<reset_password>Reset password</reset_password>
+	<static_page>Site Content</static_page>
+	<account_login>Account Login</account_login>
+	<products>Our Products</products>
+	<account>Account Options</account>
+	<invoice>My Invoices</invoice>
+	<main>Site Options</main>
+	<username>Username</username>
+	<password>Password</password>
+	<authorized_groups>Authorized Groups</authorized_groups>
+	<back>Back</back>
+	<refresh>Refresh</refresh>
+	<home>Home</home>
+	<register>Register</register>
+	<true>Yes</true>
+	<false>No</false>
+	<none>None</none>
+	<cancel>Cancel</cancel>
+	<submit>Submit</submit>
+	<view>View</view>
+	<add>Add</add>
+	<search>Search</search>
+	<list>List</list>
+	<help>Help</help>
+	<select>Select</select>
+	<clear>Clear</clear>
+	<delete>Delete</delete>
+	<processing>Processing...</processing>
+	<hide>Hide</hide>
+	<close>Close</close>
+	<save>Save</save>
+	<edit>Edit</edit>
+	<select_all>Select All</select_all>
+	<deselect_all>Deselect All</deselect_all>
+	<range_select>Range Select</range_select>
+	<view_edit>View / Edit</view_edit>
+	<export>Export</export>
+	<error>Error</error>
+	<alert>Alert</alert>
+	<free>FREE</free>
+	<currency>Currency Options</currency>
+	<overview>Overview</overview>
+	<day>Day(s)</day>
+	<week>Week(s)</week>
+	<month>Month(s)</month>
+	<year>Year(s)</year>
+	<jan>Jan</jan>
+	<feb>Feb</feb>
+	<mar>Mar</mar>
+	<apr>Apr</apr>
+	<may>May</may>
+	<jun>Jun</jun>
+	<jul>Jul</jul>
+	<aug>Aug</aug>
+	<sep>Sep</sep>
+	<oct>Oct</oct>
+	<nov>Nov</nov>
+	<dec>Dec</dec>
+	<login_enter_both>You must enter both your username and password.</login_enter_both>
+	<login_required>You must be logged in to access this area.</login_required>
+	<login_un_pw_failed>The username or password you have provided does not match our records.</login_un_pw_failed>
+	<login_un_failed>The username you provided does not exist in our database.</login_un_failed>
+	<login_pw_failed>The password you provided is incorrect.</login_pw_failed>
+	<login_locked>You have exceeded the allowed login attempts, your account has been temporarily locked.</login_locked>
+	<login_inactive>Your account is currently inactive.</login_inactive>
+	<login_success>You have been successfully logged in.</login_success>
+	<login_renew>Stay logged in</login_renew>
+	<login_renewed>Your session has been renewed and will remain active.</login_renewed>
+	<login_sess_timout>Your session is set to expire in 60 seconds.</login_sess_timout>
+	<login_user_add>Register for a client account</login_user_add>
+	<login_log_success>Last successful login was on %date% from %ip%</login_log_success>
+	<logout_success>You have been logged out.</logout_success>
+	<logout_notify>Your session has expired, and you have been logged out.</logout_notify>
+	<alert_print>Print this page now?</alert_print>
+	<alert_session_timeout>Session Timout Alert</alert_session_timeout>
+	<alert_refresh_click>If this page does not automaticaly refresh within a few seconds, please click below to continue.</alert_refresh_click>
+	<alert_click>Click here to continue</alert_click>
+	<alert_delete>Are you sure you wish to delete this record?</alert_delete>
+	<alert_delete_id>%%module%% record Id %%id%% has been deleted.</alert_delete_id>
+	<alert_delete_ids>The %%module_name%% record(s) you specified have been deleted.</alert_delete_ids>
+	<module_non_existant>The required %%module_name%% module does not exist.</module_non_existant>
+	<module_non_auth>Your account is not authorized for the %%module_name%% module.</module_non_auth>
+	<method_non_existant>The required %%module_name%% method does not exist.</method_non_existant>
+	<method_invalid>%%module_name%% method is not a valid method.</method_invalid>
+	<validate_min_length>The minimum length of this field is %%min_length%% characters.</validate_min_length>
+	<validate_max_length>The maximum length of this field is %%max_length%% characters.</validate_max_length>
+	<validate_email>The email address you have provided is invalid.</validate_email>
+	<validate_date>The date you have provided is invalid.</validate_date>
+	<validate_address>The address you have provided is invalid.</validate_address>
+	<validate_zip>The zip code you have provided is invalid.</validate_zip>
+	<validate_phone>The phone number you have provided is invalid. eg: 123-456-7890</validate_phone>
+	<validate_fax>The fax number you have provided is invalid. eg: 123-456-7890</validate_fax>
+	<validate_cc>The credit card number you have provided is invalid.</validate_cc>
+	<validate_check>The check account number you have provided is invalid.</validate_check>
+	<validate_numeric>This field can contain only numeric characters.</validate_numeric>
+	<validate_float>This field can contain only numbers with up to one decimal.</validate_float>
+	<validate_alphanumeric>This field can contain only alphanumeric characters</validate_alphanumeric>
+	<validate_non_numeric>This field cannot contain numeric characters.</validate_non_numeric>
+	<validate_any>This field is required and cannot be left blank.</validate_any>
+	<validate_unique>The value you have entered is already in use, please try again.</validate_unique>
+	<validate_banned_ip>Sorry, we are presently not accepting new registrations from your area</validate_banned_ip>
+	<validate_banned_email>Sorry, we cannot accept new registrations from the e-mail address you provided</validate_banned_email>
+	<validate_ip>Sorry, the domain you specified is invalid and cannot be licensed.</validate_ip>
+	<validate_domain>Sorry, the IP address you specified is invalid and cannot be licensed.</validate_domain>
+	<validate_general>Sorry, the value you entered is not valid.</validate_general>
+	<validate_password>Must include both numbers and letters, cannot be your initials, and cannot include your first or last name, your username, or your email.</validate_password>
+	<export_format>Export Format</export_format>
+	<export_format_csv>Comma Separated Value</export_format_csv>
+	<export_format_excel>Excel</export_format_excel>
+	<export_format_pdf>Adobe Acrobat</export_format_pdf>
+	<export_format_tab>Tab Separated Value</export_format_tab>
+	<export_format_xml>Extensible Markup Language</export_format_xml>
+	<export_pages>Export Pages</export_pages>
+	<export_pages_all>All Pages</export_pages_all>
+	<export_pages_current>Current Pages</export_pages_current>
+	<export_to>Export To</export_to>
+	<export_to_browser>Display in browser</export_to_browser>
+	<export_to_download>Download to local computer</export_to_download>
+	<export_to_email>Email to user/list</export_to_email>
+	<export_to_public>Save to public area</export_to_public> 
+	<search_recent>Your Recent Searches</search_recent>
+	<search_saved_l>Your Saved Searches</search_saved_l>
+	<search_save>Save Search</search_save>
+	<search_saved>Your search has been saved.</search_saved>
+	<search_save_nickname>Enter a nickname for this search:</search_save_nickname>
+	<search_no_results>No results for your search were found.</search_no_results>
+	<search_results>Your search has been completed sucessfully.</search_results>
+	<search_results_per>Results per page</search_results_per>
+	<search_order_by>Order results by</search_order_by>
+	<search_partial>"%" for partial match</search_partial>
+	<search_export_image>Export these search results to XML, PDF, Excel, Comma or Tab Separated Values.</search_export_image>
+	<search_print_image>View a printer friendly page with these search results.</search_print_image>
+	<search_save_image>Save this search for later retrieval.</search_save_image>
+	<search_new_image>Create a new search.</search_new_image>
+	<search_result_count>%%results%% record was found.</search_result_count>
+	<search_results_count>%%results%% records were found.</search_results_count>
+	<debug_groups>Authorized Groups</debug_groups>
+	<debug_methods>Authorized Methods</debug_methods>
+	<debug_execution>Execution Timing</debug_execution>
+	<debug_general>General Debug Details</debug_general>
+	<debug_execution_time>Execution Time</debug_execution_time>
+	<debug_session>Session ID</debug_session>
+	<debug_sql_queries>Total SQL Queries</debug_sql_queries>
+	<reset_password_txt>Reset your lost password here:</reset_password_txt>
+	<newsletter_txt>Manage your newsletters here:</newsletter_txt>
+	<newsletter_subscribe>Enter e-mail to subscribe:</newsletter_subscribe>
+	<accounts>Accounts</accounts>
+	<campaigns>Campaigns</campaigns>
+	<database_mapping>Database Mapping</database_mapping>
+	<email_templates>Email Templates</email_templates>
+	<files>Files</files>
+	<groups>User Groups</groups>
+	<modules>Modules</modules>
+	<htaccess_groups>Htaccess Groups</htaccess_groups>
+	<newsletters>Newsletters</newsletters>
+	<site_configuration>Site Configuration</site_configuration>
+	<newsletter_subscribers>Newsletter Subscribers</newsletter_subscribers>
+	<static_pages>Static Pages</static_pages>
+	<tickets>Tickets</tickets>
+	<web_logs>Web Logs</web_logs>
+	<import>Import</import>
+	<products_services><![CDATA[Products &amp; Services]]></products_services>
+	<invoices_billing><![CDATA[Invoices &amp; Billing]]></invoices_billing>
+	<affiliates>Affiliates</affiliates>
+	<backup_restore><![CDATA[Backup &amp; Restore]]></backup_restore>
+	<login_logs>Login Logs</login_logs>
+	<sessions>Sessions</sessions>
+	<domain_search>Domain Names</domain_search>
+</translate>

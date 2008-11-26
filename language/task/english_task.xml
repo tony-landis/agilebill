@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>task</name>
+	<!-- define the block title translations -->
+	<title_add>Add Task</title_add>
+	<title_view>View Tasks</title_view>
+	<title_search>Search Tasks</title_search>
+	<!-- define the menu lable translations -->
+	<menu>Tasks</menu>
+	<menu_add>Add</menu_add>
+	<menu_view>List</menu_view>
+	<!-- define the field translations -->
+	<field_date_start>Start Date</field_date_start>
+	<field_date_expire>Expiration Date</field_date_expire>
+	<field_date_last>Last Run Date</field_date_last>
+	<field_name>Name</field_name>
+	<field_description>Description</field_description>
+	<field_log>Log Results?</field_log>
+	<field_type>Task Type</field_type>
+	<field_command>Command</field_command>
+	<field_int_min>Minutes (0-59)</field_int_min>
+	<field_int_hour>Hour (0-23)</field_int_hour>
+	<field_int_month_day>Month Day (1-31)</field_int_month_day>
+	<field_int_month>Month (1-12)</field_int_month>
+	<field_int_week_day>Week Day (0-6)</field_int_week_day> 
+	<!-- define any custom resources -->
+	<type_method>Internal Method</type_method>
+	<type_system>System Call</type_system>
+	<run>Run Task Now</run>
+	<logs>View Task Logs</logs>
+</translate>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>host_whois_plugin</name>
+    <!-- define any custom resources -->
+    <whois_server>Whois Server (eg: whios.networksolutions.com)</whois_server>
+    <avail_response>Available Response String (eg: AVAIL, NOT TAKEN, etc)</avail_response>
+</translate>

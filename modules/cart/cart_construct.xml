@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>cart</module>
+    <!-- define the module table name -->
+    <table>cart</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy/>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>date_orig</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define database indexes -->
+    <index>
+        <account>account_id</account>
+        <session>session_id</session>
+        <parent>cart_parent_id</parent>
+    </index>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I4</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I4</type>
+            <index>1</index>
+        </site_id>
+        <date_orig>
+            <type>I8</type>
+        </date_orig>
+        <account_id>
+            <type>I8</type>
+        </account_id>
+        <session_id>
+            <type>C(32)</type>
+        </session_id>
+        <cart_type>
+            <type>I4</type>
+        </cart_type>
+        <product_id>
+            <type>I4</type>
+        </product_id>
+        <product_attr>
+            <type>X2</type>
+            <convert>array</convert>
+        </product_attr>
+        <quantity>
+            <type>I4</type>
+        </quantity>
+        <coupon>
+            <type>C(16)</type>
+        </coupon>
+        <recurr_schedule>
+            <type>I4</type>
+        </recurr_schedule>
+        <host_type>
+            <type>C(16)</type>
+        </host_type>
+        <domain_tld_id>
+            <type>I4</type>
+        </domain_tld_id>
+        <domain_name>
+            <type>C(128)</type>
+        </domain_name>
+        <domain_tld>
+            <type>C(16)</type>
+        </domain_tld>
+        <domain_term>
+            <type>I4</type>
+        </domain_term>
+        <cart_parent_id>
+            <type>I4</type>
+        </cart_parent_id>
+        <ad_hoc_sku>
+        	<type>C(16)</type>
+        </ad_hoc_sku>
+        <ad_hoc_name>
+        	<type>C(128)</type>
+        </ad_hoc_name>
+        <ad_hoc_desc>
+        	<type>C(255)</type>
+        </ad_hoc_desc>
+        <ad_hoc_amount>
+        	<type>F</type>
+        </ad_hoc_amount>
+        <ad_hoc_setup>
+        	<type>F</type>
+        </ad_hoc_setup>              
+        <ad_hoc_discount>
+        	<type>F</type>
+        </ad_hoc_discount>              
+        <ad_hoc_taxable>
+        	<type>L</type>
+        </ad_hoc_taxable> 
+        <service_id>
+			<type>I8</type>
+        </service_id>       
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>0</method>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

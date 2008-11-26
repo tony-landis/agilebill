@@ -1,0 +1,35 @@
+<install>
+	<module_properties>
+		<name>session</name>
+		<parent>account_admin</parent>
+		<notes><![CDATA[Control the sessions]]></notes>
+		<menu_display>1</menu_display>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<search>
+				<name>search</name>
+				<page><![CDATA[%%:search_form]]></page>
+				<menu_display>1</menu_display>
+			</search>
+			<view>
+				<name>view</name>
+				<page><![CDATA[core:search&module=%%]]></page>
+				<menu_display>1</menu_display>
+			</view>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<update>
+				<name>update</name>
+			</update>
+			<search_form>
+				<name>search_form</name>
+			</search_form>
+			<search_show>
+				<name>search_show</name>
+				<notes><![CDATA[Allow users to view the search results]]></notes>
+			</search_show>
+		</module_method>
+	</sql_inserts>
+</install>

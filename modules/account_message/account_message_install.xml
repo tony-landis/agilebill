@@ -1,0 +1,17 @@
+<install>
+	<module_properties>
+		<name>account_message</name>
+		<parent>account</parent>
+		<notes><![CDATA[Holds messages to accounts...]]></notes>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<add>
+				<name>add</name>
+			</add>
+			<add>
+				<name>view</name>
+			</add>			
+		</module_method>
+	</sql_inserts>
+</install>

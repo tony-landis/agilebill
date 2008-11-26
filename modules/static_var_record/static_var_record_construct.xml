@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>static_var_record</module>
+    <!-- define the module table name -->
+    <table>static_var_record</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy/>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>id</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define database indexes -->
+    <index>
+        <record>record_id</record>
+        <module>module_id</module>
+        <var>static_var_id</var>
+        <relation>static_var_relation_id</relation>
+    </index>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I8</type>
+        </id>
+        <site_id>
+            <type>I8</type>
+        </site_id>
+        <record_id>
+            <type>I8</type>
+            <index>1</index>
+        </record_id>
+        <module_id>
+            <type>I4</type>
+            <index>1</index>
+        </module_id>
+        <static_var_id>
+            <type>I4</type>
+            <index>1</index>
+        </static_var_id>
+        <static_var_relation_id>
+            <type>I4</type>
+            <index>1</index>
+        </static_var_relation_id>
+        <value>
+            <type>X2</type>
+        </value>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method/>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

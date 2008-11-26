@@ -1,0 +1,23 @@
+<install>
+	<module_properties>
+		<name>cart</name>
+		<parent>cart</parent>
+		<notes><![CDATA[This module controls the shopping cart contents]]></notes>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<admin_view>
+				<name>admin_view</name>
+			</admin_view>
+			<admin_add>
+				<name>admin_add</name>
+			</admin_add>
+			<admin_changeqty>
+				<name>admin_changeqty</name>
+			</admin_changeqty>
+			<ad_hoc>
+				<name>ad_hoc</name>
+			</ad_hoc>			
+		</module_method>
+	</sql_inserts>
+</install>

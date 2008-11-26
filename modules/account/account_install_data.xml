@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+  <account>
+       <id>1</id>
+       <site_id>1</site_id>
+       <date_orig>1075175744</date_orig>
+       <date_last>1112335769</date_last>
+       <date_expire>0</date_expire>
+       <parent_id>0</parent_id>
+       <language_id>english</language_id>
+       <country_id>840</country_id>
+       <reseller_id>0</reseller_id>
+       <currency_id>1</currency_id>
+       <theme_id>default</theme_id>
+       <username>admin</username>
+       <password>21232f297a57a5a743894a0e4a801fc3</password>
+       <misc>Notes</misc>
+       <status>1</status>
+       <first_name>Admin</first_name>
+       <last_name>Admin</last_name>
+       <title>Mrs</title>
+       <email>email@company.com</email>
+       <address1><![CDATA[100 Street's]]></address1>
+       <city>City</city>
+       <state>State</state>
+       <zip>12345</zip>
+       <email_type>0</email_type>
+       <campaign_id>0</campaign_id>
+  </account>
+  <account_id>
+       <id>33</id>
+  </account_id>
+</install>

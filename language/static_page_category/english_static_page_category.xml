@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>static_page_category</name>
+	<!-- define the block title translations -->
+	<title_add>Add Static Page Category</title_add>
+	<title_view>View Static Page Categories</title_view>
+	<!-- define the menu lable translations -->
+	<menu>Categories</menu>
+	<menu_add>Add</menu_add>
+	<menu_view>List</menu_view>
+	<!-- define the field translations -->
+	<field_sort_order>Sort Order</field_sort_order>
+	<field_date_orig>Date of Creation</field_date_orig>
+	<field_group_avail>Groups that can access this category</field_group_avail>
+	<field_name>Name of Category</field_name>
+	<field_description>Category Description</field_description>
+	<field_status>Active?</field_status> 
+	<!-- define any custom resources -->
+</translate>

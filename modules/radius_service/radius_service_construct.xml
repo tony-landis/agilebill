@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct> 
+    <module>radius_service</module> 
+    <table>radius_service</table> 
+    <dependancy>radius</dependancy> 
+    <cache>0</cache> 
+    <order_by>id</order_by> 
+    <limit>35</limit> 
+    <field>
+        <id>
+            <type>I8</type> 
+            <unique>1</unique>
+        </id>
+        <site_id>
+            <type>I4</type> 
+        </site_id>
+        <account_id>
+            <type>I8</type> 
+        </account_id>
+        <service_id>
+            <type>I8</type> 
+        </service_id>
+        <radius_id>
+            <type>I8</type> 
+        </radius_id>
+        <auth>
+            <type>C(16)</type> 
+        </auth>
+     </field> 
+     <method>
+     </method> 
+     <trigger>0</trigger>
+</construct>

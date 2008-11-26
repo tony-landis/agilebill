@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>product</name>
+    <!-- define the block title translations -->
+    <title_add>Add New Product</title_add>
+    <title_view>View Product</title_view>
+    <title_search>Search All Products</title_search>
+    <!-- define the menu lable translations -->
+    <menu>Products</menu>
+    <menu_add>Add</menu_add>
+    <menu_view>List</menu_view>
+    <menu_search>Search</menu_search>
+    <!-- define the field translations -->
+    <field_date_orig>Creation Date</field_date_orig>
+    <field_date_last>Last Update</field_date_last>
+    <field_sku>Product SKU</field_sku>
+    <field_taxable>Taxable?</field_taxable>
+    <field_active>Active?</field_active>
+	<field_position>Position/Ranking</field_position>  
+	<field_cart_multiple>User can add to cart multiple times for one purchase?</field_cart_multiple>
+	<field_group_avail>Available to Group(s)</field_group_avail>    
+    <field_avail_category_id>Display in Category(s)</field_avail_category_id>
+    <field_discount>Automatically Generate Discount Code When This Product Is Ordered?</field_discount>
+    <field_discount_amount>Discount Amount to Create</field_discount_amount>
+    <field_price_type>Pricing Structure</field_price_type>
+    <field_price_base>Base Price</field_price_base>
+    <field_price_setup>Setup Price</field_price_setup>
+    <field_price_group>Group Pricing Structure</field_price_group>
+    <field_price_recurr_type>Recurring Billing Schedule</field_price_recurr_type>
+    <field_price_recurr_weekday>Day of Month to Bill</field_price_recurr_weekday>
+    <field_price_recurr_week>Week Number</field_price_recurr_week>
+    <field_price_recurr_schedule>Allow Change of Billing Schedule?</field_price_recurr_schedule>
+    <field_price_recurr_cancel>Allow Cancelation of Service?</field_price_recurr_cancel>
+    <field_price_trial_length_type>Trial Period Type</field_price_trial_length_type>
+    <field_price_trial_length>Trial Length</field_price_trial_length>
+    <field_price_trial_prod>Trial For Product</field_price_trial_prod>
+    <field_assoc_req_prod>Product(s) Required for Access to This Product</field_assoc_req_prod>
+    <field_assoc_req_prod_type>Match Type for Required Products</field_assoc_req_prod_type>
+    <field_assoc_grant_prod>Purchasing This Product Grants Access to the Following Product(s)</field_assoc_grant_prod>
+    <field_assoc_grant_group>Purchasing This Product Grants Access to the Following Group(s)</field_assoc_grant_group>
+    <field_assoc_grant_group_type>Type of Group Access Granted</field_assoc_grant_group_type>
+    <field_assoc_grant_group_days>Grant access to the selected group(s) for X days</field_assoc_grant_group_days>
+    <field_thumbnail>Product Thumbnail</field_thumbnail>
+    <field_price_recurr_default>Default Billing Schedule</field_price_recurr_default>
+    <field_host>Set up a hosting account when this product is ordered?</field_host>
+    <field_host_server_id>Target Server</field_host_server_id>
+    <field_host_allow_domain>Allow Domain Purchases with this Hosting Plan?</field_host_allow_domain>
+    <field_host_allow_host_only>Allow Purchases without a domain?</field_host_allow_host_only>
+    <field_host_discount_tld>Discount the following TLDs</field_host_discount_tld>
+    <field_host_discount_tld_amount>Domain Purchase Discount Amount</field_host_discount_tld_amount> 
+    <field_price_recurr_modify>Allow Modification of Service?</field_price_recurr_modify>
+    <field_modify_waive_setup>Waive setup fee when modifying service?</field_modify_waive_setup>
+    <!-- define any custom resources -->
+    <setup>Setup</setup>
+    <domain_options>Domain Transfer / Registrations Options</domain_options>
+    <domain_register>Register new domain name</domain_register>
+    <domain_transfer>Transfer existing domain name</domain_transfer>
+    <domain_ns_transfer>I will use an existing domain name and update my nameservers only.</domain_ns_transfer>
+    <domain_ip>All I need is an IP based hosting plan.</domain_ip>
+    <user_options>Options Available to Subscribers</user_options>
+    <price_type_one>One-time Charge</price_type_one>
+    <price_type_recurr>Recurring Membership/Subscription</price_type_recurr>
+    <price_type_trial>Trial for Membership/Subscription</price_type_trial>
+    <recurr_type_aniv>Bill on Aniversary Date of Subscription</recurr_type_aniv>
+    <recurr_type_fixed>Bill on Fixed Schedule</recurr_type_fixed>
+    <weekly>Offer weekly billing schedule for this product?</weekly>
+    <monthly>Offer monthly billing schedule for this product?</monthly>
+    <quarterly>Offer quarterly billing schedule for this product?</quarterly>
+    <semianually>Offer semi-annual billing schedule for this product?</semianually>
+    <anually>Offer annual billing schedule for this product?</anually>
+    <twoyear>Offer two-year billing schedule for this product?</twoyear>
+    <threeyear>Offer three-year billing schedule for this product?</threeyear>
+    <recurr_week>Weekly Billing Schedule</recurr_week>
+    <recurr_month>Monthly Billing Schedule</recurr_month>
+    <recurr_quarter>Quarterly Billing Schedule</recurr_quarter>
+    <recurr_semianual>Semi-annual Billing Schedule</recurr_semianual>
+    <recurr_anual>Annual Billing Schedule</recurr_anual>
+    <recurr_twoyear>Two-year Billing Schedule</recurr_twoyear>
+    <recurr_threeyear>Three-year Billing Schedule</recurr_threeyear>
+    <assoc_req_all>Require All Selected Products</assoc_req_all>
+    <assoc_req_one>Require Any One Selected Product</assoc_req_one>
+    <assoc_group_limited>Grant access for specified amount of days:</assoc_group_limited>
+    <assoc_group_subscription>Grant access while associated subscription is active</assoc_group_subscription>
+    <assoc_group_forever>Grant access forerver</assoc_group_forever>
+    <tld_discount_desc>(example: 0.10 = 10%)</tld_discount_desc>
+    <trial_desc> This product is a trial for SKU %%sku%%, which can be viewed in detail here: </trial_desc>
+    <trial_bill_desc> If you wish to cancel prior to the trial expiring, you may do so and you will not
+        be billed for SKU %%sku2%%. </trial_bill_desc>
+    <trial_length_days> This trial will last for %%length%% days before it expires and you are
+        billed for the full cost of SKU %%sku1%%. </trial_length_days>
+    <trial_length_months> This trial will last for %%length%% months before it expires and you are
+        billed for the full cost of SKU %%sku1%%. </trial_length_months>
+    <trial_length_weeks> This trial will last for %%length%% weeks before it expires and you are
+        billed for the full cost of SKU %%sku1%%. </trial_length_weeks>
+    <host_domain_opt>You must choose a 'Domain Transfer / Registration Option' to continue.</host_domain_opt>
+    <host_domain_inv>You must select a valid domain name to continue.</host_domain_inv>
+    <graph_top>Top Product Sales</graph_top>
+    <cart>Add to Cart</cart>
+    <checkout>Add to Cart and Checkout</checkout>
+    <manage_images>Manage Images</manage_images>
+    <attributes>Attributes</attributes>
+    <advanced_billing>Advanced Billing</advanced_billing>
+    <associations>Associations</associations>
+    <discounts>Discounts</discounts>
+    <hosting>Hosting</hosting>
+    <product_plugins>Product Plugins</product_plugins>
+    <link>Link</link>
+    <clone>Clone</clone>
+    <clone_error>Please enter a unique SKU for the newly cloned product</clone_error>
+    <clone_success>The product has been cloned, click here to view it now</clone_success>
+    <wizard_finalize_purchase>Finalize Purchase</wizard_finalize_purchase>
+    <wizard_login>Login and review purchase</wizard_login>
+    <wizard_checkout_login>Login to existing client account</wizard_checkout_login>
+    <wizard_checkout_register>Register for new client account</wizard_checkout_register>
+    <wizard_checkout>Proceed to checkout</wizard_checkout>
+</translate>

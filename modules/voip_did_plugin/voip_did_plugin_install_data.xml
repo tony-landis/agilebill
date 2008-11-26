@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+  <voip_did_plugin>
+       <id>1</id>
+       <site_id>1</site_id>
+       <name>Default ( USA, UK, CANADA)</name>
+       <plugin>DEFAULT</plugin>
+       <avail_countries><![CDATA[a:4:{i:0;s:2:"38";i:1;s:3:"173";i:2;s:3:"224";i:3;s:3:"225";}]]></avail_countries>
+       <release_minutes>360</release_minutes>
+       <plugin_data><![CDATA[a:1:{i:0;s:0:"";}]]></plugin_data>
+  </voip_did_plugin>
+  <voip_did_plugin>
+       <id>3</id>
+       <site_id>1</site_id>
+       <name>DidX</name>
+       <plugin>DIDX</plugin>
+       <avail_countries><![CDATA[a:2:{i:0;s:3:"224";i:1;s:3:"225";}]]></avail_countries>
+       <release_minutes>360</release_minutes>
+       <plugin_data><![CDATA[a:5:{s:4:"user";s:0:"";s:4:"pass";s:0:"";s:4:"host";s:14:"208.44.220.231";s:4:"type";s:3:"SIP";s:12:"country_area";s:53:"44:20,121,871,800,1223
+1:800,419,440,330,216,937,614";}]]></plugin_data>
+  </voip_did_plugin>
+  <voip_did_plugin>
+       <id>4</id>
+       <site_id>1</site_id>
+       <name>Magrathea-Telecom</name>
+       <plugin>MAGRATHEA</plugin>
+       <avail_countries><![CDATA[a:1:{i:0;s:3:"224";}]]></avail_countries>
+       <release_minutes>360</release_minutes>
+       <plugin_data><![CDATA[a:6:{s:4:"user";s:0:"";s:4:"pass";s:0:"";s:6:"server";s:27:"www.magrathea-telecom.co.uk";s:9:"poolcount";s:1:"5";s:4:"host";s:14:"208.44.220.231";s:12:"country_area";s:10:"44:0871504";}]]></plugin_data>
+  </voip_did_plugin>
+  <voip_did_plugin_id>
+       <id>4</id>
+  </voip_did_plugin_id>
+</install>

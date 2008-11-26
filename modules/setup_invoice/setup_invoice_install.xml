@@ -1,0 +1,26 @@
+<install>
+	<module_properties>
+		<name>setup_invoice</name>
+		<parent>setup</parent>
+		<notes><![CDATA[Control the invoice setup]]></notes>
+		<menu_display>1</menu_display>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<search>
+				<name>search</name>
+			</search>
+			<view> 
+				<name>view</name> 
+				<page>core:search&amp;module=%%&amp;_escape=1&amp;_next_page_one=view</page>
+				<menu_display>1</menu_display>
+			</view>
+			<update>
+				<name>update</name>
+			</update>
+			<search_show>
+				<name>search_show</name> 
+			</search_show>
+		</module_method>
+	</sql_inserts>
+</install>

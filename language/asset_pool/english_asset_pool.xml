@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate> 
+    <title_add>Add New Asset Pool</title_add>
+    <title_update></title_update>
+    <title_delete></title_delete>
+    <title_view>Vew Asset Pool</title_view>
+	 
+    <menu>Asset Pools</menu>
+    <menu_add>Add</menu_add>
+    <menu_update></menu_update>
+    <menu_delete></menu_delete>
+    <menu_view>List</menu_view>
+    	 	
+	<field_id>ID</field_id>	
+	<field_site_id></field_site_id>	
+	<field_name>Pool Name</field_name>	       			
+</translate>

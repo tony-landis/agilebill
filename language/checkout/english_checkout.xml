@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>checkout</name>
+    <!-- define the block title translations -->
+    <title_add>Add A Checkout Option</title_add>
+    <title_view>View Checkout Option</title_view>
+    <!-- define the menu lable translations -->
+    <menu>Checkout Plugins</menu>
+    <menu_add>Add</menu_add>
+    <menu_view>List</menu_view>
+    <!-- define the field translations -->
+    <field_name>Name</field_name>
+    <field_description>Description</field_description>
+    <field_active>Active?</field_active>
+    <field_checkout_plugin>Checkout Plugin</field_checkout_plugin>
+    <field_plugin_data>Plugin Configuration</field_plugin_data>
+    <field_allow_recurring>Allow Recurring Charges?</field_allow_recurring>
+    <field_allow_new>Allow One-time Charges?</field_allow_new>
+    <field_allow_trial>Allow Trials?</field_allow_trial>
+    <field_total_minimum>Minimum Purchase Amount Allowed</field_total_minimum>
+    <field_total_maximum>Maximum Purchase Amount Allowed</field_total_maximum>
+    <field_max_decline_attempts>Maximum Failed Order Attempts Allowed</field_max_decline_attempts>
+    <field_manual_approval_all>Require Manual Approval of all new Purchases?</field_manual_approval_all>
+    <field_manual_approval_recur>Require Manual Approval af all Automatically Generated Invoices for Recurring Services?</field_manual_approval_recur>
+    <field_manual_approval_country>Manual Approval Required for Countries</field_manual_approval_country>
+    <field_manual_approval_group>Manual Approval Required for Groups</field_manual_approval_group>
+    <field_manual_approval_amount>Manual Approval Required for any new Purchase Greater Than</field_manual_approval_amount>
+    <field_manual_approval_currency>Manual Approval Required for Currencies</field_manual_approval_currency>
+    <field_default_when_currency>Default Checkout Option for Currencies</field_default_when_currency>
+    <field_default_when_country>Default Checkout Option for Countries</field_default_when_country>
+    <field_default_when_group>Default Checkout Option for Groups</field_default_when_group>
+    <field_default_when_amount>Default Checkout Option for Amounts Greater Than</field_default_when_amount>
+    <field_allowed_currencies>Currencies Supported</field_allowed_currencies>
+    <field_email_template>Special Instructions to E-mail User</field_email_template>
+    <field_required_groups>Require one of the following groups to access this checkout option</field_required_groups>
+    <field_excluded_products>Excluded orders that include any of the following products from accessing this checkout option</field_excluded_products> 
+    <field_graphic_url>Checkout Graphic URL</field_graphic_url>
+    
+    <!-- define any custom resources -->
+    <invalid_discount>The discount code was entered incorrectly or is not valid.</invalid_discount>
+    <discounts>Enter Discount Code</discounts>
+    <totals>Purchase Totals</totals>
+    <affiliate>Enter Referrer Code</affiliate>
+    <redirect_html><![CDATA[If you are not redirected shortly, please <a href="#" onClick="checkoutNow();">click here to redirect</a>.]]></redirect_html>
+    <redirect>Thank you! We will now finalize your purchase and forward you to the secure payment area.</redirect>
+    <redirect_cancel>Please select your preferred payment option above when you are ready to continue.</redirect_cancel>
+    <bad_checkout_option>This checkout option is currently disabled, please select another.</bad_checkout_option>
+    <mode>Processing Mode</mode>
+    <mode_test>Test Mode</mode_test>
+    <mode_live>Live Mode</mode_live>
+    <currency_not_supported> Sorry, the selected payment processor does not support the currency you have selected. Please change your currency to %%currency%%, or try another payment option.</currency_not_supported>
+    <prorated_not_supported> Sorry, this payment processor can not handle pro-rated subscriptions - please select another payment option.</prorated_not_supported>
+    <avs_address_only>Address (street) matches, Zip does not</avs_address_only>
+    <avs_error>AVS Error</avs_error>
+    <avs_no_match>No match on street or zip</avs_no_match>
+    <avs_na>AVS not applicable to this transaction</avs_na>
+    <avs_retry>Retry - system unavailable or timed out</avs_retry>
+    <avs_not_supported>Service not supported by issuer</avs_not_supported>
+    <avs_address_unavail>Address information unavailable</avs_address_unavail>
+    <avs_fullzip_only>9 digit zip matches, address does not</avs_fullzip_only>
+    <avs_exact>Exact AVS match</avs_exact>
+    <avs_address_zip>Address and 5 digit zip match</avs_address_zip>
+    <avs_partzip_only>5 digit zip match, no street match</avs_partzip_only>
+    <enter_card>Please enter your billing details below</enter_card>
+    <enter_card_onfile>Please select a billing record on file to use</enter_card_onfile>
+    <card_no>Credit Card No.</card_no>
+    <card_type>Card Type</card_type>
+    <card_type_visa>Visa</card_type_visa>
+    <card_type_mc>Mastercard</card_type_mc>
+    <card_type_amex>Amex</card_type_amex>
+    <card_type_discover>Discover</card_type_discover>
+    <card_type_delta>Delta</card_type_delta>
+    <card_type_solo>Solo</card_type_solo>
+    <card_type_switch>Switch</card_type_switch>
+    <card_type_jcb>JCB</card_type_jcb>
+    <card_type_diners>Diners Club</card_type_diners>
+    <card_type_carteblanche>Carte Blanche</card_type_carteblanche>
+    <card_type_enroute>enRoute</card_type_enroute>
+    <card_type_eft>eCheck</card_type_eft>
+    <exp_date>Expiration Date</exp_date>
+    <exp_month>Expiration Month</exp_month>
+    <exp_year>Expiration Year</exp_year>
+    <process_ord>Process Order</process_ord>
+    <ccv>Security No. ?</ccv>
+    <ccv_visa_mc>FOR VISA/MASTER CARD HOLDERS</ccv_visa_mc>
+    <ccv_visa_mc_full> For your safety and security, we require that you enter your card's
+        verification number. The verification number is a 3-digit number printed on the back of your
+        card. It appears after and to the right of your card number </ccv_visa_mc_full>
+    <ccv_amex>FOR AMERICAN EXPRESS CARD HOLDERS</ccv_amex>
+    <ccv_amex_full> For your safety and security, we require that you enter your card's verification
+        number. The American Express verification number is a small 4-digit number printed on the
+        front of your card on the right hand side. </ccv_amex_full>
+    <manual_alert> Thank you, your billing details have been stored for manual review and
+        verification of funds. Once we have reviewed and successfully debited the account provided, we
+        will update the invoice status. In the meanwhile, your invoice will be continue to be
+        displayed as due, you can ignore this unless we contact you stating otherwise. </manual_alert>
+    <remit_alert> Thank you, invoice billing status will be displayed as due until reciept and
+        verification of your funds. In the meanwhile, your invoice will be continue to be displayed
+        as due, you can ignore this unless we contact you stating otherwise. </remit_alert>
+    <card_invalid>The credit card details entered are invalid!</card_invalid>
+    <card_exp_invalid>The expiration details entered are invalid!</card_exp_invalid>
+    <enter_new_card>Enter a new billing details</enter_new_card> 
+    <missing_fields>Missing required billing details</missing_fields>
+    <eft_check_checkno>Check Number</eft_check_checkno>
+    <eft_check_acct_type>Check Type</eft_check_acct_type>
+    <eft_type_b>Business</eft_type_b>
+    <eft_type_p>Personal</eft_type_p>
+    <eft_trn>Routing No.</eft_trn>
+    <eft_check_acct>Account No.</eft_check_acct>
+    <dob>Date of Birth</dob>
+    <dl_no>Driver's License No.</dl_no>
+    <ssn>SSN</ssn>
+    <phone>Phone No.</phone>
+</translate>

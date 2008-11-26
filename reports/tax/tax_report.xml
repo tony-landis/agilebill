@@ -1,0 +1,154 @@
+<report>
+<title>Tax Report by Year and Month</title>
+	<level>
+		<title>Yearly Totals</title>
+		<sql>SELECT from_unixtime(A.date_orig,"%Y") as yearmonth, count(A.id) as sales, sum(A.amount) as amount from %%AGILE_DB_PREFIX%%invoice_item_tax A </sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+		<orderby>GROUP BY yearmonth ORDER BY yearmonth DESC</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Year:</display>
+			<field>yearmonth</field>
+			<aggregate>true</aggregate>
+			<visible>true</visible>  
+		</column>
+		<column>
+			<display>Taxable Items</display>
+			<field>sales</field>
+			<total>true</total>
+		</column>
+		<column>
+			<display>Tax Charged</display>
+			<field>amount</field>
+			<total>true</total>
+			<total_format>dol,2</total_format>
+		</column>
+	</level>
+	
+	<break />
+	
+	<level>
+		<title>Monthly Totals</title>
+		<sql>SELECT from_unixtime(A.date_orig,"%M, %Y") as yearmonth, count(A.id) as sales, sum(A.amount) as amount from %%AGILE_DB_PREFIX%%invoice_item_tax A </sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+		<orderby>GROUP BY yearmonth ORDER BY yearmonth DESC</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Month and Year:</display>
+			<field>yearmonth</field>
+			<aggregate>true</aggregate>
+			<visible>true</visible> 
+		</column>
+		<column>
+			<display>Taxable Items</display>
+			<field>sales</field>
+			<total>true</total>
+		</column>
+		<column>
+			<display>Tax Charged</display>
+			<field>amount</field>
+			<total>true</total>
+			<total_format>dol,2</total_format>
+		</column>
+	</level>	
+		
+	<break />
+	
+	<level> 
+		<htmlstyle>heading</htmlstyle>
+		<sql>SELECT from_unixtime(A.date_orig,"%Y") as yearmonth from %%AGILE_DB_PREFIX%%invoice_item_tax A</sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+		<orderby>GROUP BY yearmonth ORDER BY yearmonth DESC</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Breakdown for Year:</display>
+			<field>yearmonth</field>
+			<aggregate>true</aggregate>
+			<width></width>
+			<format></format>
+			<group_children_by>true</group_children_by>
+			<visible>true</visible>
+			<hide_dups>false</hide_dups>
+			<sql></sql>
+			<sql_criteria></sql_criteria>
+			<condition></condition>
+			<total>false</total>
+			<total_format></total_format>
+			<link></link>
+		</column> 
+		<level> 
+			<sql>SELECT B.description as tax, from_unixtime(A.date_orig,"%Y") as yearmonth, count(A.id) as sales, sum(A.amount) as amount from %%AGILE_DB_PREFIX%%invoice_item_tax A  inner join %%AGILE_DB_PREFIX%%tax B on A.tax_id = B.id
+			</sql>
+			<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+			<orderby>GROUP BY tax ORDER BY tax DESC</orderby>
+			<indent>30</indent> 
+			<column>
+				<display>Tax</display>
+				<field>tax</field>
+				<aggregate>true</aggregate>
+				<visible>true</visible>  
+			</column>
+			<column>
+				<display>Taxable Items</display>
+				<field>sales</field>
+				<total>true</total>
+			</column>
+			<column>
+				<display>Tax Charged</display>
+				<field>amount</field>
+				<total>true</total>
+				<total_format>dol,2</total_format>
+			</column>
+		</level>
+	</level>
+
+	<break />
+	
+	<level> 
+		<htmlstyle>heading</htmlstyle>
+		<sql>SELECT from_unixtime(A.date_orig,"%M, %Y") as yearmonth from %%AGILE_DB_PREFIX%%invoice_item_tax A</sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+		<orderby>GROUP BY yearmonth ORDER BY yearmonth DESC</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Breakdown for Month:</display>
+			<field>yearmonth</field>
+			<aggregate>true</aggregate>
+			<width></width>
+			<format></format>
+			<group_children_by>true</group_children_by>
+			<visible>true</visible>
+			<hide_dups>false</hide_dups>
+			<sql></sql>
+			<sql_criteria></sql_criteria>
+			<condition></condition>
+			<total>false</total>
+			<total_format></total_format>
+			<link></link>
+		</column> 
+		<level> 
+			<sql>SELECT B.description as tax, from_unixtime(A.date_orig,"%M, %Y") as yearmonth, count(A.id) as sales, sum(A.amount) as amount from %%AGILE_DB_PREFIX%%invoice_item_tax A inner join %%AGILE_DB_PREFIX%%tax B on A.tax_id = B.id
+			</sql>
+			<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+			<orderby>GROUP BY tax ORDER BY tax DESC</orderby>
+			<indent>30</indent>				
+			<column>
+				<display>Tax</display>
+				<field>tax</field>
+				<aggregate>true</aggregate>
+				<visible>true</visible>  
+			</column>
+			<column>
+				<display>Taxable Items</display>
+				<field>sales</field>
+				<total>true</total>
+			</column>
+			<column>
+				<display>Tax Charged</display>
+				<field>amount</field>
+				<total>true</total>
+				<total_format>dol,2</total_format>
+			</column>
+		</level>
+	</level>	 
+</report>

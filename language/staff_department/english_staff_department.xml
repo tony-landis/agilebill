@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>staff_department</name>
+	<!-- define the block title translations -->
+	<title_add>Add Department</title_add>
+	<title_view>View Departments</title_view>
+	<!-- define the menu lable translations -->
+	<menu>Staff Departments</menu>
+	<menu_add>Add</menu_add>
+	<menu_view>List</menu_view>
+	<!-- define the field translations -->
+	<field_name>Department Name</field_name>
+	<field_description>Department Description</field_description>
+	<field_default_staff_id>Head Staff Member</field_default_staff_id>
+	<field_contact_display>Display on Contact Page?</field_contact_display> 
+	<!-- define any custom resources -->
+</translate>

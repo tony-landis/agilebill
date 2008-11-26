@@ -1,0 +1,85 @@
+<report>
+<title>Revenue Report by Checkout Plugin</title>
+		<level>
+			<title>Overview</title> 
+			<sql>SELECT A.name, sum(B.billed_amt) as amt, count(B.id) as quan from %%AGILE_DB_PREFIX%%checkout A join %%AGILE_DB_PREFIX%%invoice B on(A.id=B.checkout_plugin_id and B.billing_status=1 and (B.refund_status='' OR B.refund_status is null))</sql>
+			<criteria>A.site_id=%%DEFAULT_SITE%% and B.site_id=%%DEFAULT_SITE%%</criteria>
+			<orderby>GROUP BY name ORDER BY amt DESC</orderby> 
+			<indent>30</indent>
+			<column>
+				<display>Checkout Option</display>
+				<field>name</field> 
+			</column>			 		 
+			<column>
+				<display>Invoices</display>
+				<field>quan</field>
+				<total>true</total>
+			</column>
+			<column>
+				<display>Amount</display>
+				<field>amt</field>
+				<format>dol,2</format>
+				<total>true</total>
+				<total_format>dol,2</total_format>
+			</column> 		  
+		</level> 
+			
+	 <break /> 
+	 
+		<graph type="bar" title="" width="500" height="300">
+			<dataset>
+				<sql>SELECT A.name, sum(B.billed_amt) as amt from %%AGILE_DB_PREFIX%%checkout A join %%AGILE_DB_PREFIX%%invoice B on(A.id=B.checkout_plugin_id and B.billing_status=1 and (B.refund_status='' OR B.refund_status is null))</sql>
+				<criteria>A.site_id=%%DEFAULT_SITE%% and B.site_id=%%DEFAULT_SITE%%</criteria>
+				<orderby>GROUP BY name ORDER BY amt DESC</orderby>
+			</dataset>
+		</graph>				
+	 <break /> 	 	
+	 
+	 
+	<level>   
+		<sql>SELECT B.name, sum(A.billed_amt) as amt, count(B.id) as quan from %%AGILE_DB_PREFIX%%invoice A join %%AGILE_DB_PREFIX%%checkout B on (A.checkout_plugin_id=B.id)</sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%% and A.billing_status=1 and (A.refund_status IS NULL or A.refund_status!='')</criteria>
+		<orderby>GROUP BY name ORDER BY amt DESC</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Checkout Option: </display>
+			<field>name</field>
+			<aggregate>true</aggregate>
+			<width></width>
+			<format></format>
+			<group_children_by>true</group_children_by>
+			<visible>true</visible>
+			<hide_dups>false</hide_dups>
+			<sql></sql>
+			<sql_criteria></sql_criteria>
+			<condition></condition>
+			<total>false</total>
+			<total_format></total_format>
+			<link></link>
+		</column>		
+		<column>
+			<display>Invoices</display>
+			<field>quan</field>
+			<total>true</total>
+		</column>
+		<column>
+			<display>Amount</display>
+			<field>amt</field>
+			<format>dol,2</format>  
+		</column> 
+			
+			  
+		<graph type="line" title="" width="800" height="300">
+			<dataset>
+				<sql>SELECT from_unixtime(A.date_orig,"%Y-%U") as yearmonth, sum(A.billed_amt) as amt, B.name from %%AGILE_DB_PREFIX%%invoice A 
+						join %%AGILE_DB_PREFIX%%checkout B on (A.checkout_plugin_id=B.id)</sql>
+				<criteria>A.site_id=%%DEFAULT_SITE%% and B.site_id=%%DEFAULT_SITE%% and (A.refund_status IS NULL or A.refund_status!='')</criteria>
+				<orderby>GROUP BY yearmonth, name ORDER BY yearmonth ASC</orderby>
+			</dataset>
+		</graph>	
+		
+		<break />
+		 
+	</level>
+	 	 	 
+</report>

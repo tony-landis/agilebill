@@ -1,0 +1,45 @@
+<install>
+	<module_properties>
+		<name>checkout</name>
+		<parent>setup</parent>
+		<notes><![CDATA[This module controls the various checkout options and plugins.]]></notes>
+		<menu_display>1</menu_display>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<search_form>
+				<name>search_form</name> 
+			</search_form>
+			<search>
+				<name>search</name>
+			</search>
+			<view>
+				<name>view</name>
+				<page><![CDATA[core:search&module=%%&_escape=1]]></page>
+				<menu_display>1</menu_display>
+			</view>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<add>
+				<name>add</name>
+				<menu_display>1</menu_display>
+			</add>
+			<update>
+				<name>update</name>
+			</update>
+			<search_show>
+				<name>search_show</name> 
+			</search_show>
+			<admin_checkoutnow>
+				<name>admin_checkoutnow</name>
+			</admin_checkoutnow>
+			<admin_adddiscount>
+				<name>admin_adddiscount</name>
+			</admin_adddiscount>
+			<admin_preview>
+				<name>admin_preview</name>
+			</admin_preview>
+		</module_method>
+	</sql_inserts>
+</install>

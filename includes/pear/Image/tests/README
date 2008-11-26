@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+               These tests are not unit or regression tests.
+-------------------------------------------------------------------------------
+
+This is because it is not possible to compare output from Image_Driver with an
+expected "value" (i.e. is this graph equal to this graph). The problem is similar
+to testing user interfaces.
+
+The provided test "cases" are visual test suites that renders Image_Driver output,
+the output should then be viewed and checked for inconsistencies on a visual base,
+fx. this line chart does not show as _expected_, this gradient fill does not fill
+to the edges of the area, the text does not align properly, etc.

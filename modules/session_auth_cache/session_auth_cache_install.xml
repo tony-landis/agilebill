@@ -1,0 +1,11 @@
+<install>
+	<module_properties>
+		<name>session_auth_cache</name>
+		<parent>session_auth_cache</parent>
+		<notes><![CDATA[Cache the user authentication]]></notes>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+		</module_method>
+	</sql_inserts>
+</install>

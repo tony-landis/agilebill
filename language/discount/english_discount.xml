@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>discount</name>
+	<!-- define the block title translations -->
+	<title_add>Add Discount</title_add>
+	<title_view>View All Discounts</title_view>
+	<title_search>Search Discounts</title_search>
+	<!-- define the menu lable translations -->
+	<menu>Discounts</menu>
+	<menu_add>Add</menu_add>
+	<menu_view>List</menu_view>
+	<menu_search>Search</menu_search>
+	<!-- define the field translations -->
+	<field_date_orig>Creation Date</field_date_orig>
+	<field_date_start>Start Date</field_date_start>
+	<field_date_expire>Expiration Date</field_date_expire>
+	<field_status>Active?</field_status>
+	<field_name>Coupon Code</field_name>
+	<field_notes>Notes</field_notes>
+	<field_max_usage_account>Maximum Uses per Account (blank for unlimited)</field_max_usage_account>
+	<field_max_usage_global>Uses Allowed Globally (blank for unlimited)</field_max_usage_global>
+	<field_avail_account_id>Available only to account</field_avail_account_id>
+	<field_avail_product_id>Available only to product(s)</field_avail_product_id>
+	<field_avail_group_id>Available only to group(s)</field_avail_group_id>
+	<field_avail_tld_id>Available only to TLD(s)</field_avail_tld_id>
+	<field_new_status>Valid for new orders?</field_new_status>
+	<field_new_type>Type of Discount for new orders</field_new_type>
+	<field_new_rate>Discount rate for new orders</field_new_rate>
+	<field_new_max_discount>Maximum discount for new orders</field_new_max_discount>
+	<field_new_min_cost>Minimum order total required</field_new_min_cost>
+	<field_recurr_status>Valid for recurring charges?</field_recurr_status>
+	<field_recurr_type>Discount type for recurring charges</field_recurr_type>
+	<field_recurr_rate>Discount rate for recurring charges</field_recurr_rate>
+	<field_recurr_max_discount>Maximum discount for recurring charges</field_recurr_max_discount>
+	<field_recurr_min_cost>Minimum recurring charge amount for discount to apply</field_recurr_min_cost> 
+	<!-- define any custom resources -->
+	<percent>Percentage of Total</percent>
+	<flat>Flat Rate</flat>
+	<discount_restrictions><![CDATA[Discount Restrictions &amp; Limitations]]></discount_restrictions>
+	<discount_new><![CDATA[Settings for new Charges &amp; Orders]]></discount_new>
+	<discount_recurr>Settings for Recurring Charges</discount_recurr>
+	<invoice_count>Invoice Count</invoice_count>
+	<revenue>Revenue</revenue>
+	<savings>Customer Savings</savings>
+</translate>

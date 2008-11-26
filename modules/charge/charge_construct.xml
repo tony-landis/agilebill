@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>charge</module>
+    <!-- define the module table name -->
+    <table>charge</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy/>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>date_orig</order_by>
+    <!-- define the methods -->
+    <limit>35</limit>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I8</type>
+            <unique>1</unique>
+        </id>
+        <site_id>
+            <type>I4</type>
+        </site_id>
+        <date_orig>
+            <type>I8</type>
+        </date_orig>
+        <status>
+            <type>L</type>
+            <index>1</index>
+        </status>
+        <sweep_type>
+            <type>I4</type>
+        </sweep_type>
+        <account_id>
+            <type>I8</type>
+            <asso_table>account</asso_table>
+            <asso_field>username</asso_field>
+            <validate>any</validate>
+        </account_id>
+        <product_id>
+            <type>I4</type>
+            <asso_table>product</asso_table>
+            <asso_field>sku</asso_field>
+        </product_id>
+        <service_id>
+            <type>I4</type>
+        </service_id>
+        <amount>
+            <type>F</type>
+            <validate>float</validate>
+        </amount>
+        <quantity>
+            <type>F</type>
+            <validate>float</validate>
+        </quantity>
+        <taxable>
+            <type>L</type>
+        </taxable>
+        <attributes>
+            <type>X2</type>
+        </attributes>
+        <description>
+            <type>C(32)</type>
+        </description>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,date_orig,status,sweep_type,account_id,product_id,service_id,amount,quantity,taxable,attributes</add>
+        <search_export>id,site_id,date_orig,status,sweep_type,account_id,product_id,service_id,amount,quantity,taxable,attributes</search_export>
+        <update>id,site_id,date_orig,status,sweep_type,account_id,product_id,service_id,amount,quantity,taxable,attributes</update>
+        <export_excel>id,site_id,date_orig,status,sweep_type,account_id,product_id,service_id,amount,quantity,taxable,attributes</export_excel>
+        <delete>id,site_id,date_orig,status,sweep_type,account_id,product_id,service_id,amount,quantity,taxable,attributes</delete>
+        <export_xml>id,site_id,date_orig,status,sweep_type,account_id,product_id,service_id,amount,quantity,taxable,attributes</export_xml>
+        <view>id,site_id,date_orig,status,sweep_type,account_id,product_id,service_id,amount,quantity,taxable,attributes</view>
+        <export_tab>id,site_id,date_orig,status,sweep_type,account_id,product_id,service_id,amount,quantity,taxable,attributes</export_tab>
+        <search>id,site_id,date_orig,status,sweep_type,account_id,product_id,service_id,amount,quantity,taxable,attributes</search>
+        <export_csv>id,site_id,date_orig,status,sweep_type,account_id,product_id,service_id,amount,quantity,taxable,attributes</export_csv>
+        <import>id,date_orig,status,sweep_type,account_id,product_id,service_id,amount,quantity,taxable,attributes</import>
+    </method>
+    <!-- define database indexes -->
+    <index>
+        <sweep_type>sweep_type,status</sweep_type>
+        <service_id>account_id,service_id</service_id>
+        <sss>site_id,service_id,status</sss>
+    </index> 
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

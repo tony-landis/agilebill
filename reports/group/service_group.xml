@@ -1,0 +1,29 @@
+<report>
+<title>Service Group Membership</title> 
+	<level>
+		<sql>SELECT B.sku as group_name, count(A.id) as total from %%AGILE_DB_PREFIX%%account_group A inner join %%AGILE_DB_PREFIX%%service B on A.service_id=B.id</sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%% and A.active=1 AND A.service_id IS NOT NULL and A.service_id!=0</criteria>
+		<orderby>GROUP BY group_name ORDER BY total DESC</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Group Name</display>
+			<field>group_name</field> 
+			<visible>true</visible>
+		</column> 	 
+		<column>
+			<display>Account Members</display>
+			<field>total</field>
+			<total>true</total>
+			<total_format>num</total_format>
+		</column>
+	</level>
+	 
+	<graph type="bar" title="Group Membership Graph" width="600" height="250" x_angle="0" direction="vertical">
+		<dataset>
+			<sql>SELECT B.sku as group_name, count(A.id) as total from %%AGILE_DB_PREFIX%%account_group A inner join %%AGILE_DB_PREFIX%%service B on A.service_id=B.id</sql>
+			<criteria>A.site_id = %%DEFAULT_SITE%% and A.active=1 AND A.service_id IS NOT NULL and A.service_id!=0</criteria>
+			<orderby>GROUP BY group_name ORDER BY total DESC</orderby>
+		</dataset>
+	</graph> 
+	
+</report>

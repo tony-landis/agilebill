@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate> 
+	<!-- define the block title translations -->
+    <title_add>Add</title_add> 
+    <title_view>List</title_view> 
+    <title_search>Search</title_search> 
+	
+	<!-- define the menu lable translations -->
+    <menu>Radius</menu>
+    <menu_add>Add</menu_add> 
+    <menu_view>List</menu_view> 
+    <menu_search>Search</menu_search> 
+    	
+	<!-- define the field translations -->	
+	<field_id>ID</field_id>	
+	<field_site_id></field_site_id>	
+	<field_account_id>Account</field_account_id>	
+	<field_service_id>Service Id</field_service_id>	
+	<field_active>Active?</field_active>	
+	<field_sku>SKU</field_sku>	
+	<field_max>Remove This</field_max>	
+	<field_auth>Auth Type</field_auth>	
+	<field_username>Username</field_username>	
+	<field_password>Password</field_password>	
+	<field_service_type>Service Type</field_service_type>	
+	<field_session_limit>Session Limit</field_session_limit>	
+	<field_idle_limit>Idle Limit</field_idle_limit>	
+	<field_port_limit>Port Limit</field_port_limit>	
+	<field_analog>Analog?</field_analog>	
+	<field_digital>Digital</field_digital>	
+	<field_filter_id>Filter ID</field_filter_id>	
+	<field_netmask>Netmask</field_netmask>	
+	<field_framed_route>Framed Route</field_framed_route>	
+	<field_speed_limit>Speed Limit</field_speed_limit>	
+	<field_static_ip>Static IP</field_static_ip>	
+	<field_profiles>Profiles</field_profiles>	
+	<field_time_bank>Time Bank</field_time_bank>	   
+
+	<old_logins>Existing Authentication Management</old_logins>
+	<new_logins>Assign Available Authentication </new_logins>
+	<mac>MAC Address</mac>
+	<user>Username</user>
+	<pass>Password</pass>
+	
+	<err_login>The username/password "%%user%%/%%pass%%" combo is not valid or is already in use, example username/password: "user1965/MySecret29".</err_login>
+	<err_wireless>"The MAC ID "%%user%%" is not valid or is already in use, example MAC ID: "00 0A E4 3A 18 13".</err_wireless>
+</translate>

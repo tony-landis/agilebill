@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install> 
+        <module_properties>
+            <name>voip_pool</name>
+            <parent>voip</parent>
+            <notes>This module stores the VoIP Pool records</notes>
+            <menu_display>1</menu_display>
+            <dependancy>voip</dependancy> 
+        </module_properties>  
+        <sql_inserts>
+            <module_method>
+                <add> 
+                    <name>add</name> 
+                </add>
+                <search_export> 
+                    <name>search_export</name> 
+                </search_export>
+                <update> 
+                    <name>update</name> 
+                </update>
+                <export_excel> 
+                    <name>export_excel</name> 
+                </export_excel>
+                <delete> 
+                    <name>delete</name> 
+                </delete>
+                <export_xml> 
+                    <name>export_xml</name> 
+                </export_xml>
+                <view> 
+                    <name>view</name> 
+                    <page>core:search&amp;module=%%&amp;_escape=1</page>
+                    <menu_display>1</menu_display>
+                </view>
+                <import>
+                	<name>import</name>
+					<page>%%:import</page>
+					<menu_display>1</menu_display>
+                </import>
+                <export_tab> 
+                    <name>export_tab</name> 
+                </export_tab>
+                <search> 
+                    <name>search</name>  
+                </search> 
+                <search_show> 
+                    <name>search_show</name> 
+                </search_show> 
+                <export_csv> 
+                    <name>export_csv</name> 
+                </export_csv>
+        </module_method>
+    </sql_inserts>
+</install>

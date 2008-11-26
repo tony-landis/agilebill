@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>login_log</name>
+    <!-- define the block title translations -->
+    <title_view>View Login Logs</title_view>
+    <title_search>Search Login Logs</title_search>
+    <!-- define the menu lable translations -->
+    <menu>Login Logs</menu>
+    <menu_view>List</menu_view>
+    <menu_search>Search</menu_search>
+    <!-- define the field translations -->
+    <field_date_orig>Login Date</field_date_orig>
+    <field_account_id>Account</field_account_id>
+    <field_status>Login Succeeded?</field_status>
+    <field_ip>IP Address</field_ip> 
+    <!-- define any custom resources -->
+    <statistics_login>User Logins: %%count%%</statistics_login>
+</translate>

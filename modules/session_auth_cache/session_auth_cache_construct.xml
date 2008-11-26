@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>session_auth_cache</module>
+    <!-- define the module table name -->
+    <table>session_auth_cache</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy/>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>date_last</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define database indexes -->
+    <index>
+        <session_id>session_id</session_id>
+        <expire>date_expire</expire>
+    </index>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I8</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I8</type>
+            <index>1</index>
+        </site_id>
+        <session_id>
+            <type>C(32)</type>
+        </session_id>
+        <date_expire>
+            <type>I8</type>
+        </date_expire>
+        <group_arr>
+            <type>X2</type>
+        </group_arr>
+        <menu_arr>
+            <type>X2</type>
+        </menu_arr>
+        <module_arr>
+            <type>X2</type>
+        </module_arr>
+        <method_arr>
+            <type>X2</type>
+        </method_arr>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method/>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

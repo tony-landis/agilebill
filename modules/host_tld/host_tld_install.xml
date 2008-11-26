@@ -1,0 +1,37 @@
+<install>
+	<module_properties>
+		<name>host_tld</name>
+		<parent>host_server</parent>
+		<notes><![CDATA[This module controls the settings for the TLD (top level domains)]]></notes>
+		<menu_display>1</menu_display>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<add>
+				<name>add</name>
+				<page><![CDATA[%%:add]]></page>
+				<menu_display>1</menu_display>
+			</add>
+			<update>
+				<name>update</name>
+			</update>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<view>
+				<name>view</name>
+				<page><![CDATA[core:search&module=%%&_escape=1&_next_page_one=view]]></page>
+				<menu_display>1</menu_display>
+			</view>
+			<search>
+				<name>search</name>
+			</search>
+			<search_form>
+				<name>search_form</name>
+			</search_form>
+			<search_show>
+				<name>search_show</name>
+			</search_show>
+		</module_method>
+	</sql_inserts>
+</install>

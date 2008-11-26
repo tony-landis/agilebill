@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>host_server</module>
+    <!-- define the module table name -->
+    <table>host_server</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy/>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>name</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I4</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I4</type>
+            <index>1</index>
+        </site_id>
+        <status>
+            <type>L</type>
+        </status>
+        <debug>
+            <type>L</type>
+        </debug>
+        <name>
+            <type>C(128)</type>
+            <min_len>1</min_len>
+            <max_len>128</max_len>
+            <validate>any</validate>
+        </name>
+        <notes>
+            <type>C(255)</type>
+        </notes>
+        <provision_plugin>
+            <type>C(128)</type>
+            <min_len>1</min_len>
+            <max_len>128</max_len>
+        </provision_plugin>
+        <provision_plugin_data>
+            <type>X2</type>
+            <convert>array</convert>
+        </provision_plugin_data>
+        <max_accounts>
+            <type>I4</type>
+        </max_accounts>
+        <next_host_server_id>
+            <type>I4</type>
+            <asso_table>host_server</asso_table>
+            <asso_field>name</asso_field>
+        </next_host_server_id>
+        <name_based>
+            <type>L</type>
+        </name_based>
+        <name_based_ip>
+            <type>C(32)</type>
+        </name_based_ip>
+        <ip_based>
+            <type>L</type>
+        </ip_based>
+        <ip_based_ip>
+            <type>X2</type>
+        </ip_based_ip>
+        <ns_primary>
+            <type>C(128)</type>
+        </ns_primary>
+        <ns_secondary>
+            <type>C(128)</type>
+        </ns_secondary>
+        <ns_ip_primary>
+            <type>C(128)</type>
+        </ns_ip_primary>
+        <ns_ip_secondary>
+            <type>C(128)</type>
+        </ns_ip_secondary>
+        <keycode>
+            <type>C(64)</type>
+        </keycode>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,status,debug,name,notes,provision_plugin,provision_plugin_data,max_accounts,next_host_server_id,name_based,name_based_ip,ip_based,ip_based_ip,ns_ip_secondary,ns_ip_primary,ns_primary,ns_secondary,keycode</add>
+        <update>id,site_id,status,debug,name,notes,provision_plugin,provision_plugin_data,max_accounts,next_host_server_id,name_based,name_based_ip,ip_based,ip_based_ip,ns_ip_secondary,ns_ip_primary,ns_primary,ns_secondary,keycode</update>
+        <delete>id,site_id,status,debug,name,notes,provision_plugin,provision_plugin_data,max_accounts,next_host_server_id,name_based,name_based_ip,ip_based,ip_based_ip,ns_ip_secondary,ns_ip_primary,ns_primary,ns_secondary,keycode</delete>
+        <view>id,site_id,status,debug,name,notes,provision_plugin,provision_plugin_data,max_accounts,next_host_server_id,name_based,name_based_ip,ip_based,ip_based_ip,ns_ip_secondary,ns_ip_primary,ns_primary,ns_secondary,keycode</view>
+        <search>id,site_id,status,debug,name,notes,provision_plugin,provision_plugin_data,max_accounts,next_host_server_id,name_based,name_based_ip,ip_based,ip_based_ip,ns_ip_secondary,ns_ip_primary,ns_primary,ns_secondary,keycode</search>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct> 
+    <module>asset_invoice</module> 
+    <name>asset_invoice</name>
+    <table>asset_invoice</table> 
+    <dependancy>asset</dependancy> 
+    <cache>0</cache> 
+    <order_by>name</order_by> 
+    <limit>35</limit> 
+    <field>
+        <id>
+            <type>I4</type> 
+            <unique>1</unique>
+        </id> 
+        <name>
+            <type>C(32)</type> 
+        </name>
+     </field> 
+     <method>0</method> 
+     <trigger>0</trigger>
+</construct>

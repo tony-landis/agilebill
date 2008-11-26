@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+  <product_cat>
+       <id>1</id>
+       <site_id>1</site_id>
+       <parent_id>0</parent_id>
+       <group_avail><![CDATA[a:1:{i:0;s:1:"0";}]]></group_avail>
+       <name>Sample Directory</name>
+       <notes>You can edit this category as needed</notes>
+       <status>1</status>
+       <template>Paged Listing</template>
+       <position>1</position>
+       <max>10</max>
+  </product_cat>
+  <product_cat_id>
+       <id>8</id>
+  </product_cat_id>
+</install>

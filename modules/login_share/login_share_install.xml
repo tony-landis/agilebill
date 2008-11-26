@@ -1,0 +1,12 @@
+<install>
+	<module_properties>
+		<name>login_share</name>
+		<parent>setup</parent>
+		<notes><![CDATA[Catches and bans login sharing.]]></notes>
+		<menu_display>0</menu_display>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+		</module_method>
+	</sql_inserts>
+</install>

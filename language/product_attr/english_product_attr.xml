@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>product_attr</name>
+	<!-- define the block title translations -->
+	<title_add>Add New Product Attribute</title_add>
+	<title_delete>Delete This Attribute</title_delete>
+	<!-- define the field translations -->
+	<field_name>Name</field_name>
+	<field_description>Description</field_description>
+	<field_type>Type</field_type>
+	<field_collect_type>Attribute Input Type</field_collect_type>
+	<field_collect_default>Default Input Value</field_collect_default>
+	<field_price_base>Base Price</field_price_base>
+	<field_price_setup>Setup Price</field_price_setup>
+	<field_price_group>Group Pricing Schedule</field_price_group>
+	<!-- define any custom resources -->
+	<type_checkbox>Checkbox (yes/no)</type_checkbox>
+	<type_text>Text Input Field</type_text>
+	<type_menu>Multiple Choice Menu</type_menu>
+	<type_textarea>Textarea Input Field</type_textarea> 
+	<input_req>User input required to add product to cart</input_req> 
+</translate>

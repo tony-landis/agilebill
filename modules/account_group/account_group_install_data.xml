@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+  <account_group>
+       <id>0</id>
+       <site_id>1</site_id>
+       <date_orig>0</date_orig>
+       <date_start>0</date_start>
+       <date_expire>0</date_expire>
+       <group_id>0</group_id>
+       <account_id>0</account_id>
+       <service_id>0</service_id>
+       <active>1</active>
+  </account_group>
+  <account_group>
+       <id>210</id>
+       <site_id>1</site_id>
+       <date_orig>1099624291</date_orig>
+       <date_expire>0</date_expire>
+       <group_id>2</group_id>
+       <account_id>1</account_id>
+       <active>1</active>
+  </account_group>
+  <account_group>
+       <id>211</id>
+       <site_id>1</site_id>
+       <date_orig>1099624291</date_orig>
+       <date_expire>0</date_expire>
+       <group_id>1001</group_id>
+       <account_id>1</account_id>
+       <active>1</active>
+  </account_group>
+  <account_group>
+       <id>212</id>
+       <site_id>1</site_id>
+       <date_orig>1099624291</date_orig>
+       <date_expire>0</date_expire>
+       <group_id>4</group_id>
+       <account_id>1</account_id>
+       <active>1</active>
+  </account_group>
+  <account_group_id>
+       <id>502</id>
+  </account_group_id>
+</install>

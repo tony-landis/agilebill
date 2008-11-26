@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>Module</name>
+    <title_add>Add a new Module record</title_add>
+    <title_view>View/Edit Module</title_view>
+    <title_search>Search for a specific Module record</title_search>
+    <title_install>Install New Module</title_install>
+    <title_upgrade>Database and Method Consistancy Check</title_upgrade>
+    <menu>Modules</menu>
+    <menu_add>Add</menu_add>
+    <menu_view>List</menu_view>
+    <menu_search>Search</menu_search>
+    <menu_install>Install</menu_install>
+    <menu_admin_add>Add</menu_admin_add>
+    <menu_admin_list>List</menu_admin_list>
+    <menu_admin_search>Search</menu_admin_search>
+    <menu_dev_add>Development</menu_dev_add>
+    <menu_dev_install_gen>Generate Install Files</menu_dev_install_gen>
+    <menu_translate>Translate Modules</menu_translate>
+    <menu_upgrade>Upgrade</menu_upgrade>
+    <field_name>Name</field_name>
+    <field_notes>Notes</field_notes>
+    <field_status>Module Installed?</field_status>
+    <field_menu_display>Show In Modules Menu?</field_menu_display>
+    <field_parent_id>Display as child of module</field_parent_id>
+    <field_date_orig>Date of creation</field_date_orig>
+    <field_date_last>Date of last update</field_date_last>
+    <!-- define the menu objects -->
+    <install_name>Module Name</install_name>
+    <install_group>Authorized Groups</install_group>
+    <install_sub_module_err>Unable to install required sub-module %%sub_module%%</install_sub_module_err>
+    <install_failed>The Module Installation Failed!</install_failed>
+    <install_enter_name>You must enter a module name</install_enter_name>
+    <install_select_group>You must select at least one group to be authorized for this module</install_select_group>
+    <install_module_exists>This module already exists in the database</install_module_exists>
+    <install_missing_dir>The specified module directory does not exist</install_missing_dir>
+    <install_missing_class>The specified module class file does not exist</install_missing_class>
+    <install_missing_construct>The specified module construct file does not exist</install_missing_construct>
+    <install_missing_install>The specified module installation file does not exist</install_missing_install>
+    <install_module_depend>This module already requires that the %%$depend%% module be installed
+        first</install_module_depend>
+    <install_install_complete>The module installation has completed!</install_install_complete> 
+    
+    <uninstall>Uninstall Module</uninstall>
+    <module_installed>Install Complete</module_installed>
+    <view_methods>View all methods for this module</view_methods>
+    <add_methods>Add a method for this module</add_methods>
+    <upgrademodules>Select all modules to check for upgrades</upgrademodules>
+    <default_groups>Select a default group to add any new methods to</default_groups>
+    
+    <consistancy_file>Version and File Consistancy Check</consistancy_file>
+    <current_version>Latest Version</current_version>
+    <current_ab_version>Your Installation Version</current_ab_version>
+    <encoding_version>Your Encoding Version</encoding_version>
+    <optional_modules>Your Optional Modules Installed</optional_modules> 
+    <consistancy_submit>Check file consistancy</consistancy_submit>
+    
+    <modified_files>Modified Files:</modified_files> 
+    <missing_files>Missing Files:</missing_files>
+    <no_modified_files>No modified files.</no_modified_files>
+    <no_missing_files>No missing files.</no_missing_files>
+    <mis_files_count>%%mis%% file(s) are missing from your current installation.</mis_files_count>
+    <md5_files_count>%%md5%% files(s) are corrupt or modified in your current installation.</md5_files_count>
+ 
+</translate>

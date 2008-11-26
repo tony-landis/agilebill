@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+
+        <!-- Define the main module properties -->
+        <module_properties>
+            <name>import</name>
+            <parent>setup</parent>
+            <notes></notes>
+            <menu_display>1</menu_display>
+            <dependancy></dependancy>
+            <sub_modules></sub_modules>
+        </module_properties> 
+
+        <!-- Define any SQL inserts for this module -->
+        <sql_inserts>
+            <module_method>
+            
+                <do_action> 
+                    <name>do_action</name> 
+                </do_action>
+                
+                <undo_action> 
+                    <name>undo_action</name> 
+                </undo_action>
+                
+                
+                <view> 
+                    <name>view</name> 
+                    <page>core:search&amp;module=%%&amp;_escape=1</page>
+                    <menu_display></menu_display>
+                </view>
+                <search> 
+                    <name>search</name> 
+                    <page>core:search&amp;module=%%&amp;_escape=1</page>
+                    <menu_display>1</menu_display>
+                </search> 
+                <search_show> 
+                    <name>search_show</name> 
+                </search_show>
+                
+        </module_method>
+    </sql_inserts>
+</install>

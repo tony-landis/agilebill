@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>product_translate</name>
+	<!-- define the block title translations -->
+	<title_add>Add Product Translation</title_add>
+	<title_view>View Product Translation</title_view>
+	<title_search>Search Product Translations</title_search>
+	<!-- define the menu lable translations -->
+	<menu>Product Translations</menu>
+	<menu_search>Search Product Translations</menu_search>
+	<!-- define the field translations -->
+	<field_product_id>Product</field_product_id>
+	<field_language_id>Language</field_language_id>
+	<field_name>Product Name</field_name>
+	<field_description_short>Short Description</field_description_short>
+	<field_description_full>Full Description</field_description_full>
+	<field_email_template>Extra E-mail Instructions</field_email_template> 
+	<!-- define any custom resources -->
+</translate>

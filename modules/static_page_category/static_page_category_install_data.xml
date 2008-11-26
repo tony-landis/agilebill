@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+  <static_page_category>
+       <id>1</id>
+       <site_id>1</site_id>
+       <group_avail><![CDATA[a:1:{i:0;s:1:"0";}]]></group_avail>
+       <name>News</name>
+       <description>Company News</description>
+       <status>1</status>
+       <sort_order>1</sort_order>
+  </static_page_category>
+  <static_page_category_id>
+       <id>1</id>
+  </static_page_category_id>
+</install>

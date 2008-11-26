@@ -1,0 +1,33 @@
+<install>
+	<module_properties>
+		<name>staff_department</name>
+		<parent>setup</parent>
+		<notes><![CDATA[Manage the staff departments...]]></notes>
+		<menu_display>1</menu_display>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<search>
+				<name>search</name>
+			</search>
+			<view>
+				<name>view</name> 
+				<page><![CDATA[core:search&module=%%&_escape=1&_next_page_one=view]]></page>
+				<menu_display>1</menu_display>
+			</view>
+			<add>
+				<name>add</name> 
+				<menu_display>1</menu_display>
+			</add>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<update>
+				<name>update</name>
+			</update>
+			<search_show>
+				<name>search_show</name> 
+			</search_show>
+		</module_method>
+	</sql_inserts>
+</install>

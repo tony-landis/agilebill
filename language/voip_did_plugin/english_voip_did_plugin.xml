@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>voip_did_plugin</name>
+	
+	<!-- define the block title translations -->
+    <title_add>New DID Plugin Setup</title_add>
+    <title_update></title_update>
+    <title_delete></title_delete>
+    <title_view>View DID Plugin Setups</title_view>
+    <title_search></title_search>
+	
+	<!-- define the menu lable translations -->
+        <menu>DID Plugin Setup</menu>
+    <menu_add>Add</menu_add>
+    <menu_update></menu_update>
+    <menu_delete></menu_delete>
+    <menu_view>List</menu_view>
+    <menu_search></menu_search>
+    	
+	<!-- define the field translations -->	
+	<field_id></field_id>	
+	<field_site_id></field_site_id>	
+	<field_name>Plugin Setup Name</field_name>	
+	<field_plugin>Use Plugin</field_plugin>	
+	<field_avail_countries>Available for Countries</field_avail_countries>	
+	<field_release_minutes>Release reserved DIDs after (minutes)</field_release_minutes>	
+	<field_plugin_data></field_plugin_data>	       			
+</translate>

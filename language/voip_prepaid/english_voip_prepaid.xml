@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate> 
+    <title_add>Add Prepaid Pin</title_add> 
+	<title_add_bulk>Generate Bulk Prepaid Pins</title_add_bulk> 
+    <title_view>View Prepaid Pin</title_view>
+    <title_search>Search Prepaid Pins</title_search>
+	 
+     <menu>Prepaid Pins</menu>
+    <menu_add>Add</menu_add> 
+	<menu_add_batch>Add Batch</menu_add_batch> 
+    <menu_view>List</menu_view>
+    <menu_search>Search</menu_search>
+    	 
+	<field_account_id>Account</field_account_id>	
+	<field_product_id>Product</field_product_id>	
+	<field_pin>Pin Number</field_pin>	
+	<field_balance>Balance</field_balance>	
+	<field_in_use>In Use?</field_in_use>	
+	<field_date_expire>Pin expires on</field_date_expire>
+	<field_bulk>Batch Reference Code</field_bulk>    
+	
+	<bulk_qty>Batch Quantity</bulk_qty>
+	<bulk_ref>Batch Reference Code</bulk_ref>
+   			
+</translate>

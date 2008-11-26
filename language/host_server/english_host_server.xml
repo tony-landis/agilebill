@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>host_server</name>
+	<!-- define the block title translations -->
+	<title_add>Add New Server</title_add>
+	<title_view>View Server</title_view>
+	<!-- define the menu lable translations -->
+	<menu>Hosting Setup</menu>
+	<menu_add>Add Server</menu_add>
+	<menu_view>List Servers</menu_view>
+	<!-- define the field translations -->
+	<field_status>Active?</field_status>
+	<field_debug>Show Debug Results?</field_debug>
+	<field_name>Server Nickname</field_name>
+	<field_notes>Server Notes</field_notes>
+	<field_email_template_id>Email Template</field_email_template_id>
+	<field_provision_plugin>Provisioning Plugin</field_provision_plugin>
+	<field_provision_plugin_data/>
+	<field_max_accounts>Maximum Accounts</field_max_accounts>
+	<field_next_host_server_id>Next Server (when this one is full)</field_next_host_server_id>
+	<field_name_based>Allow Name Based Accounts?</field_name_based>
+	<field_name_based_ip>IP For Name Based Accounts</field_name_based_ip>
+	<field_ip_based>Allow IP Based Accounts?</field_ip_based>
+	<field_ip_based_ip>IP List (separate w/new line)</field_ip_based_ip>
+	<field_keycode>Security Keycode</field_keycode> 
+	<!-- define any custom resources -->
+	<ftp>FTP Method (recommended)</ftp>
+	<http>HTTP Method</http>
+	<connection_mode>Connection Mode</connection_mode>
+	<host>Host Name</host>
+	<path>File Path</path>
+	<username>Remote Username</username>
+	<password>Remote Password</password>
+	<email>Email to notify for required changes</email>
+</translate>

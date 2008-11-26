@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>product_cat_translate</module>
+    <!-- define the module table name -->
+    <table>product_cat_translate</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy>product</dependancy>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>product_cat_id</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I4</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I4</type>
+            <index>1</index>
+        </site_id>
+        <product_cat_id>
+            <type>I4</type>
+            <asso_table>product_cat</asso_table>
+            <asso_field>name</asso_field>
+            <validate>any</validate>
+        </product_cat_id>
+        <language_id>
+            <type>C(16)</type>
+        </language_id>
+        <name>
+            <type>C(128)</type>
+            <min_len>2</min_len>
+            <max_len>128</max_len>
+            <validate>any</validate>
+        </name>
+        <description>
+            <type>X2</type>
+            <validate>any</validate>
+            <html>1</html>
+        </description>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,product_cat_id,language_id,name,description</add>
+        <update>id,site_id,product_cat_id,language_id,name,description</update>
+        <delete>id,site_id,product_cat_id,language_id,name,description</delete>
+        <view>id,site_id,product_cat_id,language_id,name,description</view>
+        <search>id,site_id,product_cat_id,language_id,name</search>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

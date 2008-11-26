@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>ticket_department</name>
+	<!-- define the block title translations -->
+	<title_add>Add Department</title_add>
+	<title_view>View Departments</title_view>
+	<!-- define the menu lable translations -->
+	<menu>Departments</menu>
+	<menu_add>Add</menu_add>
+	<menu_view>List</menu_view>
+	<!-- define the field translations -->
+	<field_group_id>Available to Group(s)</field_group_id>
+	<field_setup_email_id>Default Email Setup</field_setup_email_id>
+	<field_name>Department Name</field_name>
+	<field_description>Department Description</field_description>
+	<field_status>Is Active?</field_status>
+	<field_piping>Enable Piping?</field_piping>
+	<field_piping_setup_email_id>Email setup to use for piping</field_piping_setup_email_id>
+	<!-- define any custom resources -->
+	<view_tickets>View all tickets for this department</view_tickets>
+</translate>

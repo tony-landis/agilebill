@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>staff</name>
+    <!-- define the block title translations -->
+    <title_add>Add Staff</title_add>
+    <title_view>View Staff</title_view>
+    <title_search>Search Staff</title_search>
+    <title_contact>Contact our Staff</title_contact>
+    <!-- define the menu lable translations -->
+    <menu>Staff</menu>
+    <menu_add>Add</menu_add>
+    <menu_view>List</menu_view>
+    <menu_search>Search</menu_search>
+    <!-- define the field translations -->
+    <field_date_orig>Creation Date</field_date_orig>
+    <field_account_id>Account</field_account_id>
+    <field_department_avail>Can Access Ticket Departments</field_department_avail>
+    <field_nickname>Staff Nickname</field_nickname>
+    <field_notify_new>Notify of New Tickets</field_notify_new>
+    <field_notify_change>Notify of Changes to Tickets</field_notify_change> 
+    <field_signature>Signature for Ticket Replies</field_signature> 
+    <!-- define any custom resources -->
+    <view_tickets>View all tickets for this staff member</view_tickets>
+    <contact_options> To contact our staff, you may select their staff nickname below. If you do not
+        know any staff in the department you wish to correspond with, simply select the recipient
+        department instead, and your message will be forwarded to the appropriate staff member when
+        you send your message. You do not need to select both a recipient department and recipient
+        staff member; please just select one or the other. </contact_options>
+    <contact_staff>Recipient Staff Nickname</contact_staff>
+    <contact_department>Recipient Department</contact_department>
+    <contact_name>Your Name</contact_name>
+    <contact_email>Your E-mail</contact_email>
+    <error_req_fields>You must fill in all the required fields in order send your message, please
+        try again.</error_req_fields>
+    <error_staff_non_exist>Sorry, the specified recipient staff member does not exist any longer.</error_staff_non_exist>
+    <error_dept_non_exist>Sorry, the specified recipient department does not exist any longer.</error_dept_non_exist>
+    <error_staff_dept>You must specify either the recipient staff member or department, please try
+        again.</error_staff_dept>
+    <mail_sent> Thank you, we have sent your message to the specified recipient. If a response is in
+        order, we will do so as soon as possible. </mail_sent>
+</translate>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>newsletter</name>
+    <!-- define the block title translations -->
+    <title_add>Add Newsletter</title_add>
+    <title_view>View Newsletters</title_view>
+    <title_search>Search Newsletters</title_search>
+    <!-- define the menu lable translations -->
+    <menu>Newsletters</menu>
+    <menu_add>Add</menu_add>
+    <menu_view>List</menu_view>
+    <menu_search>Search</menu_search>
+    <menu_send>Send</menu_send>
+    <overview>Statistics</overview>
+    <!-- define the field translations -->
+    <field_group_avail>Available to Group(s)</field_group_avail>
+    <field_name>Newsletter Name</field_name>
+    <field_description>Description</field_description>
+    <field_notes>Notes</field_notes>
+    <field_active>Active?</field_active>
+    <field_display_signup>Display at Signup?</field_display_signup> 
+    <!-- define any custom resources -->
+    <view_subscribers>View all subscribers of this newsletter</view_subscribers>
+    <send_newsletters>Send To Newsletter Subscribers</send_newsletters>
+    <send_from_email>Send Using Email Setup</send_from_email>
+    <send_subject>Message Subject</send_subject>
+    <send_body_text>Message Body, Text Version</send_body_text>
+    <send_body_html>Message Body, HTML Version</send_body_html>
+    <send_high_priority>Set as High Priority?</send_high_priority>
+    <send_test>Test Only?</send_test>
+    <send_alert_message>You must enter a subject for the message!</send_alert_message>
+    <send_alert_body_text>You must enter the text body for the message!</send_alert_body_text>
+    <send_alert_body_html>You must enter the html body for the message!</send_alert_body_html>
+    <send_alert_fail>Could not send the newsletter!</send_alert_fail>
+    <send_alert_success>The newsletter mailing has been completed!</send_alert_success>
+    <send_alert_no_results>No subscribers found for the selected newsletters(s)</send_alert_no_results>
+    <send_alert_success>The selected newsletters have been sent</send_alert_success>
+    <submit_subscribe>Subscribe Now</submit_subscribe>
+    <submit_unsubscribe>Unsubscribe Now</submit_unsubscribe>
+    <subscribe_newsletters>Select newsletters to receive:</subscribe_newsletters>
+    <subscribe_name_req>You must enter your name, please go back and fill in your name.</subscribe_name_req>
+    <subscribe_newsletter_req>You must select at least one newsletter to subscribe to.</subscribe_newsletter_req>
+    <subscribe_email_req>You must enter a valid email address, please go back and correct this.</subscribe_email_req>
+    <subscribe_spam_limit>You have already submitted a request within the last %limit% seconds,
+        please wait before you try again.</subscribe_spam_limit>
+    <subscribe_confirm> Thank you for subscribing! Futher action on your part is required; we have
+        sent an email to the address you provided requesting your confirmation. Once you confirm as
+        explained in your email, no further action on your part will be required. </subscribe_confirm>
+    <subscribe_confirm_fail> The confirmation link you followed is older than 72 hours and has
+        expired, or has been malformed by your email reader and therefore does not work. Please
+        check that the full link shown in your email reader has displayed in browser address bar, or
+        you can start the newsletter subscription process again by clicking "Submit" below: %here%. </subscribe_confirm_fail>
+    <subscribe_confirm_success> We have confirmed your email, and you have been subscribed for the
+        selected newsletters. Any newsletter emails you recieve in the future will have a link for
+        removing yourself from the newsletters you are currently subscribed to. </subscribe_confirm_success>
+    <subscribe_subj>Newsletter Confirmation Required</subscribe_subj>
+    <subscribe_body>Hello %name%, To confirm your newsletter subscription, you will need to click
+        the link below. Once you do this no futher action on your part will be required. Click:
+        %confirm_url% If the text above does not show up as a link in your browser, you can paste it
+        to your browser. Thank you, %site_name%</subscribe_body>
+    <unsubscribe_newsletters> The form above allows you to subscribe to our newsletters, and the
+        form below is for removing any current newsletter subscriptions that you no longer wish to
+        receive. </unsubscribe_newsletters>
+    <unsubscribe_newsletter>Select newsletters to unsubscribe</unsubscribe_newsletter>
+    <unsubscribe_success>You have been unsubscribed from the selected
+    newsletters</unsubscribe_success>
+</translate>

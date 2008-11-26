@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install> 
+        <module_properties>
+            <name>voip_fax_data</name>
+            <parent>voip</parent>
+            <notes>This module stores the binary fax data in PDF format</notes>
+            <menu_display></menu_display>
+            <dependancy>voip</dependancy>
+            <sub_modules></sub_modules>
+        </module_properties>  
+        <sql_inserts>
+            <module_method>
+        </module_method>
+    </sql_inserts>
+</install>

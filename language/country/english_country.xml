@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    
+    <!-- menu labels -->
+    <menu>Countries</menu>
+    <menu_add>Add</menu_add>
+    <menu_list>List</menu_list>
+    <menu_search>Search</menu_search>
+    <menu_view>List</menu_view>
+    
+    <!-- block headings -->
+    <title_add>Add Country</title_add>
+    <title_update>Update Country</title_update>
+    <title_view>View Countries</title_view>
+    <title_search>Search Countries</title_search>
+  
+    <!-- field translations -->
+    <field_id>ID</field_id>
+    <field_site_id>Site ID</field_site_id>
+    <field_name>Country Name</field_name>
+    <field_description>Description</field_description>
+    <field_notes>Notes</field_notes>
+    <field_two_code>Two Digit Country Code</field_two_code>
+    <field_three_code>Three Digit Country Code</field_three_code> 
+ 
+</translate>

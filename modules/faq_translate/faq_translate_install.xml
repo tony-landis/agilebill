@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+
+        <!-- Define the main module properties -->
+        <module_properties>
+            <name>faq_translate</name>
+            <parent>faq_translate</parent>
+            <notes>This module controls the FAQs translations</notes> 
+        </module_properties> 
+
+        <!-- Define any methods for this module -->
+        <sql_inserts>
+            <module_method>
+                <search>
+                    <name>search</name>
+                </search>
+                <view>
+                    <name>view</name>
+                </view>
+                <add>
+                    <name>add</name>
+                </add>
+                <delete>
+                    <name>delete</name>
+                </delete>
+                <update>
+                    <name>update</name>
+                </update>
+                <search_show>
+                    <name>search_show</name>
+                </search_show>
+            </module_method>
+        </sql_inserts>
+</install>

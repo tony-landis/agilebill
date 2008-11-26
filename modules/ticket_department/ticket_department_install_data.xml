@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+  <ticket_department>
+       <id>1</id>
+       <site_id>1</site_id>
+       <group_id><![CDATA[a:4:{i:0;s:1:"0";i:1;s:1:"2";i:2;s:4:"1001";i:3;s:1:"4";}]]></group_id>
+       <setup_email_id>1</setup_email_id>
+       <name>Standard Support</name>
+       <description>All Users Can create tickets in this department</description>
+       <status>1</status>
+       <piping>0</piping>
+       <piping_setup_email_id>1</piping_setup_email_id>
+  </ticket_department>
+  <ticket_department>
+       <id>4</id>
+       <site_id>1</site_id>
+       <group_id><![CDATA[a:3:{i:0;s:1:"2";i:1;s:4:"1001";i:2;s:1:"4";}]]></group_id>
+       <setup_email_id>1</setup_email_id>
+       <name>Registered Users</name>
+       <description>adsfsfda</description>
+       <status>1</status>
+       <piping>0</piping>
+       <piping_setup_email_id>1</piping_setup_email_id>
+  </ticket_department>
+  <ticket_department_id>
+       <id>5</id>
+  </ticket_department_id>
+</install>

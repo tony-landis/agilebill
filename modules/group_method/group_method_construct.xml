@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>group_method</module>
+    <!-- define the module table name -->
+    <table>group_method</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy/>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>group_id</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define database indexes -->
+    <index>
+        <groups>group_id</groups>
+        <modules>module_id,method_id</modules> 
+    </index>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I4</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I4</type>
+            <index>1</index>
+        </site_id>
+        <method_id>
+            <type>I4</type>
+            <asso_table>module_method</asso_table>
+            <asso_field>name</asso_field>
+            <validate>any</validate>
+        </method_id>
+        <group_id>
+            <type>I4</type>
+            <asso_table>group</asso_table>
+            <asso_field>name</asso_field>
+            <validate>any</validate>
+        </group_id>
+        <module_id>
+            <type>I4</type>
+            <asso_table>module</asso_table>
+            <asso_field>name</asso_field>
+            <validate>any</validate>
+        </module_id>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,method_id,group_id,module_id</add>
+        <update>id,site_id,method_id,group_id,module_id</update>
+        <delete>id,site_id,method_id,group_id,module_id</delete>
+        <view>id,site_id,method_id,group_id,module_id</view>
+        <search>id,site_id,method_id,group_id,module_id</search>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

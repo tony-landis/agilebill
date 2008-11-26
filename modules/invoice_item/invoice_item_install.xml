@@ -1,0 +1,12 @@
+<install>
+	<module_properties>
+		<name>invoice_item</name>
+		<parent>invoice</parent>
+		<notes><![CDATA[This module contains each item for the invoices.]]></notes>
+		<dependancy>invoice</dependancy>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+		</module_method>
+	</sql_inserts>
+</install>

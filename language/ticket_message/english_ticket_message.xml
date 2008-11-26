@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>ticket_message</name>
+    <!-- define the block title translations -->
+    <title_add>Add A Reply</title_add>
+    <title_view>View Messages</title_view>
+    <title_search>Search Messages</title_search>
+    <!-- define the menu lable translations -->
+    <menu>Message Administration</menu>
+    <menu_add>Add A Reply</menu_add>
+    <menu_view>View Messages</menu_view>
+    <menu_search>Search Messages</menu_search>
+    <!-- define the field translations -->
+    <field_ticket_id>Ticket Id</field_ticket_id>
+    <field_date_orig>Date Submitted</field_date_orig>
+    <field_message>Message</field_message>
+    <!-- define any custom resources -->
+    <statistics>New Tickets Created: %%count%%</statistics>
+</translate>

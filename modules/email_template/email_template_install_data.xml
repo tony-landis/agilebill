@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+  <email_template>
+       <id>11</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>account_reset_password</name>
+       <priority>1</priority>
+       <shortcuts>all</shortcuts>
+       <notes>This email is sent to the user when they use the password retrieval program</notes>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>12</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>account_registration_active</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes><![CDATA[This email is sent out when the user registers for a new account & the store is set to automatically activate their account for login without email verification first.]]></notes>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>14</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>account_registration_inactive</name>
+       <priority>1</priority>
+       <shortcuts>all</shortcuts>
+       <notes>This email is sent to the user after account registration, if email verification is required.</notes>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>15</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>account_add_staff_active</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>This is the email a user recieves when the staff adds their new account as active</notes>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>16</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>account_add_staff_inactive</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>This email is sent to users when a staff-member creates their account as inactive</notes>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>17</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>password_change_instructions</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>This email is sent by the administrator / staff to resend the change password instructions...</notes>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>18</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>affiliate_staff_add</name>
+       <priority>0</priority>
+       <shortcuts>*</shortcuts>
+       <notes>This e-mail template is sent when staff/admin adds a new affiliate account.</notes>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>19</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>affiliate_user_add_active</name>
+       <priority>0</priority>
+       <shortcuts>*</shortcuts>
+       <notes>This e-mail template is sent when the user signs up for an affiliate account and is automatically approved.</notes>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>20</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>affiliate_user_add_pending</name>
+       <priority>0</priority>
+       <shortcuts>*</shortcuts>
+       <notes>This e-mail template is sent when an affiliate signs up for an account and it requires admin approval.</notes>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>21</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>affiliate_user_add_staff_notify</name>
+       <priority>0</priority>
+       <shortcuts>*</shortcuts>
+       <notes>This e-mail template is sent to the staff when a pending affiliate application is received.</notes>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>22</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>invoice_confirm_user</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes><![CDATA[Email sent to users confirming order placed, billing & account details, and products/services ordered.]]></notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%invoice WHERE id = %SQL1%</sql_1>
+       <sql_2>SELECT email_template FROM %DB_PREFIX%checkout WHERE id = %SQL2%</sql_2>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>23</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>invoice_confirm_admin</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>Sends the admin an new invoice alert.</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%invoice WHERE id = %SQL1%</sql_1>
+       <sql_2>SELECT email_template FROM %DB_PREFIX%checkout WHERE id = %SQL2%</sql_2>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>24</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>invoice_due_user</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>Sends the user a due invoice alert when new invoice is created or they pay via a 3rd party method.</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%invoice WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>25</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>invoice_due_admin</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>Alert sent to admin when  manual payment needs processed.</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%invoice WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>26</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>invoice_paid_user</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>Notify user of payment recieved for an invoice.</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%invoice WHERE id = %SQL1%</sql_1>
+       <sql_2>SELECT * FROM %DB_PREFIX%currency WHERE id = %SQL2%</sql_2>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>27</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>invoice_paid_admin</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>Notify admin of payment recieved for an invoice.</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%invoice WHERE id = %SQL1%</sql_1>
+       <sql_2>SELECT * FROM %DB_PREFIX%currency WHERE id = %SQL2%</sql_2>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>28</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>invoice_resend</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>Resends payment due alert....</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%invoice WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>29</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>invoice_manual_auth_admin</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>Sends admin alert that an invoice requires manual approval</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%invoice WHERE id = %SQL1%</sql_1>
+       <sql_2>SELECT checkout_plugin FROM %DB_PREFIX%checkout WHERE id = %SQL2%</sql_2>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>30</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>invoice_approved_user</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>Sent to user when invoice status is updated to approved</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%invoice WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>31</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>registrar_manual_admin</name>
+       <priority>0</priority>
+       <shortcuts>All</shortcuts>
+       <notes>Sends selected staff member an alert to manually renew, register, transfer, or park a domain name.</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%account WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>32</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>registrar_bulkregister_admin</name>
+       <priority>0</priority>
+       <shortcuts>All</shortcuts>
+       <notes><![CDATA[Sent to staff member for PGP encryption & forwarding to BulkRegister]]></notes>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>33</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>registrar_nominet_admin</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>35</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>invoice_recur_user</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>Sends the user notification of new invoice created for a recurring service</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%invoice WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>36</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>invoice_recur_admin</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>Sends the admin notification of new invoice created for a recurring service</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%invoice WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>37</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>service_suspend_user</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>Sends the user notice that service(s) have been suspended due to non-payment.</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%invoice WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>38</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>service_suspend_admin</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>Sends the admin notice that service(s) have been suspended due to non-payment.</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%invoice WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>39</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>host_new_user</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>This e-mail is sent to the user when their hosting account is provisioned</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%service WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>40</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>host_edit_user</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>This e-mail is sent to the user when their hosting account is edited</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%service WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>41</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>host_new_admin</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>Email sent to admin to notify of new manual provisioning required.</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%service WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>42</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>host_edit_admin</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>Email sent to admin to notify that edit of manual provisioning required.</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%service WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>43</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>host_inactive_admin</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>Email sent to admin to notify that edit of manual suspend required.</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%service WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>44</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>host_active_admin</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>Email sent to admin to notify that edit of manual activation required.</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%service WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>45</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>host_delete_admin</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>Email sent to admin to notify that edit of manual deletion required.</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%service WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>46</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>service_cancel_user</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>Notify user of service cancelation</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%service WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>47</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>service_cancel_admin</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>Notify admin of service cancelation</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%service WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>48</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>service_changeschedule_admin</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>Sends admin notice that user has selected a different billing schedule.</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%service WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>638</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>login_share_ban_user</name>
+       <priority>1</priority>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>639</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>login_share_ban_admin</name>
+       <priority>0</priority>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>640</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>account_billing_exp_soon</name>
+       <priority>0</priority>
+       <notes>Sent when a credit card is set to expire soon, triggered by the account_billing::task</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%account_billing WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>651</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name> net_term_suspend</name>
+       <priority>0</priority>
+       <sql_1>SELECT * FROM %DB_PREFIX%invoice WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>652</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>  	 net_term_late_notice</name>
+       <priority>0</priority>
+       <sql_1>SELECT * FROM %DB_PREFIX%invoice WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>653</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name> voip_balance_prepaid</name>
+       <priority>0</priority>
+       <sql_1>SELECT * FROM %DB_PREFIX%voip_prepaid WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>654</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name> voip_manual</name>
+       <priority>0</priority>
+       <sql_1>SELECT * FROM %DB_PREFIX%service WHERE id = %SQL1%</sql_1>
+       <sql_2><![CDATA[SELECT * FROM %DB_PREFIX%voip_sip WHERE keyword='secret' AND sip=%SQL2%]]></sql_2>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>655</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name> voip_new_prepaid_ani</name>
+       <priority>0</priority>
+       <sql_1>SELECT * FROM %DB_PREFIX%voip_prepaid WHERE id=%SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>656</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name> voip_new_prepaid_pin</name>
+       <priority>0</priority>
+       <sql_1>SELECT * FROM %DB_PREFIX%voip_prepaid WHERE id=%SQL1%</sql_1>
+       <sql_2><![CDATA[SELECT * FROM %DB_PREFIX%voip_prepaid WHERE did='%SQL2%']]></sql_2>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>657</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name> voip_new_service</name>
+       <priority>0</priority>
+       <sql_1>SELECT * FROM %DB_PREFIX%service WHERE id = %SQL1%</sql_1>
+       <sql_2><![CDATA[SELECT * FROM %DB_PREFIX%voip_sip WHERE keyword='secret' AND sip=%SQL2%]]></sql_2>
+       <sql_3>SELECT * FROM %DB_PREFIX%voip_vm WHERE mailbox=%SQL3%</sql_3>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>658</id>
+       <site_id>1</site_id>
+       <setup_email_id>3</setup_email_id>
+       <name>ticket_piping_add_user</name>
+       <priority>0</priority>
+       <notes>This e-mail is set to the user when a e-mail message is successfully piped to a new ticket.</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%ticket WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>659</id>
+       <site_id>1</site_id>
+       <setup_email_id>3</setup_email_id>
+       <name>ticket_piping_add_user_pending</name>
+       <priority>0</priority>
+       <notes>This e-mail is set to the user when a e-mail message is piped to a new ticket and requires further authorization...</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%ticket WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>660</id>
+       <site_id>1</site_id>
+       <setup_email_id>3</setup_email_id>
+       <name>ticket_piping_add_user_unauth</name>
+       <priority>0</priority>
+       <notes>This e-mail is set to the user when a e-mail message is piped to a new ticket and requires further authorization...</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%ticket WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>661</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>ticket_staff_add</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>This template is sent to all applicable staff members (except the staff member who added the ticket) when a staff member adds a new ticket</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%ticket WHERE id = %SQL1%</sql_1>
+       <sql_2>SELECT * FROM %DB_PREFIX%ticket_department WHERE id = %SQL2%</sql_2>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>662</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>ticket_staff_add_user</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>This template is sent to the user when a staff member adds a new ticket to their account</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%ticket WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>663</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>ticket_staff_update_user</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>This template is sent out to the user when a staff member updates one of their tickets...</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%ticket WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>664</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>ticket_user_add</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>This template is sent out when a new ticket is added</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%ticket WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>665</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>ticket_user_add_staff</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>This email is sent to all ticket staff members who are set to recieve new ticket notices</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%ticket WHERE id = %SQL1%</sql_1>
+       <sql_2>SELECT * FROM %DB_PREFIX%ticket_department WHERE id = %SQL2%</sql_2>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>666</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>ticket_user_update</name>
+       <priority>0</priority>
+       <shortcuts>All</shortcuts>
+       <notes>This is sent to the user when they respond to a ticket</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%ticket WHERE id = %SQL1%</sql_1>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>667</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>ticket_user_update_staff</name>
+       <priority>0</priority>
+       <shortcuts>all</shortcuts>
+       <notes>This email is sent to all ticket staff members who are set to recieve updated ticket notices</notes>
+       <sql_1>SELECT * FROM %DB_PREFIX%ticket WHERE id = %SQL1%</sql_1>
+       <sql_2>SELECT * FROM %DB_PREFIX%ticket_department WHERE id = %SQL2%</sql_2>
+       <status>1</status>
+  </email_template>
+  <email_template>
+       <id>668</id>
+       <site_id>1</site_id>
+       <setup_email_id>1</setup_email_id>
+       <name>invoice_pregen_notice</name>
+       <priority>0</priority>
+       <notes>Sends out a notice to user prior to generating invoices</notes>
+       <sql_1>SELECT sum(price) as price FROM %DB_PREFIX%service WHERE id in (%SQL1%)</sql_1>
+       <sql_2>SELECT symbol,three_digit FROM %DB_PREFIX%currency WHERE id = %SQL2%</sql_2>
+       <status>1</status>
+  </email_template>
+  <email_template_id>
+       <id>668</id>
+  </email_template_id>
+  <email_template_id>
+       <id>668</id>
+  </email_template_id>
+</install>

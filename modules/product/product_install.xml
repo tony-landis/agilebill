@@ -1,0 +1,45 @@
+<install>
+	<module_properties>
+		<name>product</name>
+		<parent>product</parent>
+		<notes><![CDATA[This module controls the various products and pricing, descriptions, etc.]]></notes>
+		<menu_display>1</menu_display>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<search_show>
+				<name>search_show</name>
+			</search_show>
+			<search_form>
+				<name>search_form</name>
+			</search_form>
+			<search>
+				<name>search</name>
+				<page><![CDATA[%%:search_form]]></page>
+				<menu_display>1</menu_display>
+			</search>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<view>
+				<name>view</name>
+				<page><![CDATA[core:search&module=%%&_escape=1&_next_page_one=view]]></page>
+				<menu_display>1</menu_display>
+			</view>
+			<update>
+				<name>update</name>
+			</update>
+			<add>
+				<name>add</name>
+				<page><![CDATA[%%:add]]></page>
+				<menu_display>1</menu_display>
+			</add>
+			<admin_details>
+				<name>admin_details</name>
+			</admin_details>
+			<cloner>
+				<name>cloner</name>
+			</cloner>
+		</module_method>
+	</sql_inserts>
+</install>

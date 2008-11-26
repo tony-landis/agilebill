@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate> 
+    <title_view>View CDR</title_view> 
+    <title_search>Search CDRs</title_search>
+    
+    <menu>CDRs</menu> 
+    <menu_view>List</menu_view> 
+    <menu_search>Search</menu_search>  
+    
+	<field_date_orig>Date Created</field_date_orig>	
+	<field_account_id>Account</field_account_id>	
+	<field_voip_rate_id>Rate ID</field_voip_rate_id>	
+	<field_clid>CLID</field_clid>	
+	<field_src>Source</field_src>	
+	<field_dst>Destination</field_dst>	
+	<field_dcontext>Dest Context</field_dcontext>	
+	<field_channel>Channel</field_channel>	
+	<field_dstchannel>Dest Channel</field_dstchannel>	
+	<field_lastapp>Last App</field_lastapp>	
+	<field_lastdata>Last Data</field_lastdata>	
+	<field_duration>Duration</field_duration>	
+	<field_billsec>Bill Seconds</field_billsec>	
+	<field_disposition>Disposition</field_disposition>	
+	<field_amaflags>AMA Flags</field_amaflags>	
+	<field_accountcode>Account Code</field_accountcode>	
+	<field_uniqueid>Unique ID</field_uniqueid>	
+	<field_cdrid>CDRID</field_cdrid>	
+	<field_amount>Amount</field_amount>	
+	<field_calltype>Call Type</field_calltype>	
+	<field_id>ID</field_id>
+	<field_rated>Rating Status</field_rated>
+	<field_adjbillinterval>Adjusted Bill Interval</field_adjbillinterval>      			
+</translate>

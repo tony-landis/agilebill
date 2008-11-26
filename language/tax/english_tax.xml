@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>tax</name>
+	<!-- define the block title translations -->
+	<title_add>Add Tax Zone</title_add>
+	<title_view>View Tax Zones</title_view>
+	<!-- define the menu lable translations -->
+	<menu>Tax Zones</menu>
+	<menu_add>Add</menu_add>
+	<menu_view>List</menu_view>
+	<!-- define the field translations -->
+	<field_country_id>Country</field_country_id>
+	<field_zone>Tax Zone</field_zone>
+	<field_description>Tax Description</field_description>
+	<field_rate>Tax Rate</field_rate> 
+	<field_tax_id_collect>Collect Tax ID?</field_tax_id_collect>
+	<field_tax_id_name>Tax ID Descriptor</field_tax_id_name>
+	<field_tax_id_exempt>Allow Exempt Status?</field_tax_id_exempt>
+	<field_tax_id_req>Require Tax ID Input?</field_tax_id_req>
+	<field_tax_id_regex>REGEX for Tax Id Number Validation</field_tax_id_regex>
+</translate>

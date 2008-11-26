@@ -1,0 +1,30 @@
+<install>
+	<module_properties>
+		<name>product_img</name>
+		<parent>product</parent>
+		<notes><![CDATA[This module maintains the product images and thumbnails.]]></notes>
+		<dependancy>product</dependancy>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<search_show>
+				<name>search_show</name>
+			</search_show>
+			<search>
+				<name>search</name>
+			</search>
+			<view>
+				<name>view</name>
+			</view>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<update>
+				<name>update</name>
+			</update>
+			<add>
+				<name>add</name>
+			</add>
+		</module_method>
+	</sql_inserts>
+</install>

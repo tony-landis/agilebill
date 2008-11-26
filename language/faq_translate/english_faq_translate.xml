@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>faq_translate</name>
+	
+	<!-- define the block title translations -->
+    <title_add>Add Translation</title_add>
+    <title_view>View Translations</title_view>
+    <title_search>Search Translations</title_search>
+	
+	<!-- define the menu lable translations -->
+    <menu>Translation Administration</menu>
+    <menu_add>Add Translation</menu_add>
+    <menu_view>View Translations</menu_view>
+    <menu_search>Search Translations</menu_search>
+    	
+	<!-- define the field translations -->	
+	<field_id></field_id>	
+	<field_site_id></field_site_id>	
+	<field_date_orig>Date of Creation</field_date_orig>	
+	<field_date_last></field_date_last>	
+	<field_faq_id>FAQ</field_faq_id>	
+	<field_language_id>Translation Language</field_language_id>	
+	<field_answer>Answer</field_answer>	
+	<field_question>Question</field_question>
+	
+	<!-- define the help text -->
+	<help_file>
+	   This module allows you to view/edit/add translations into other languages for your Frequently Asked questions (and their answers).&#60;br&#62;&#60;br&#62;Add Translation: add a new FAQ translation&#60;br&#62;&#60;br&#62;View Translations: view all existing FAQ translations&#60;br&#62;&#60;br&#62;Search Translations: search all existing FAQ translations	
+	</help_file>
+
+    <!-- define any custom resources -->
+    <view_all>View all translations for this FAQ </view_all>
+    <return>Return to main page view</return>
+      			
+</translate>

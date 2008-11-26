@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="com.logicboxes.foundation.sfnb.order.DomContact" xmlns:impl="com.logicboxes.foundation.sfnb.order.DomContact" xmlns:intf="com.logicboxes.foundation.sfnb.order.DomContact" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+ <wsdl:types>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="com.logicboxes.foundation.sfnb.order.DomContact">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="ArrayOf_xsd_int">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="xsd:int[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <element name="ArrayOf_xsd_int" nillable="true" type="impl:ArrayOf_xsd_int"/>
+   <complexType name="ArrayOf_xsd_string">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="xsd:string[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <element name="ArrayOf_xsd_string" nillable="true" type="impl:ArrayOf_xsd_string"/>
+  </schema>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.apache.org/xml-soap">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="Map">
+    <sequence>
+     <element name="item" minOccurs="0" maxOccurs="unbounded">
+      <complexType>
+       <all>
+        <element name="key" type="xsd:anyType"/>
+        <element name="value" type="xsd:anyType"/>
+       </all>
+      </complexType>
+     </element>
+    </sequence>
+   </complexType>
+   <element name="Map" nillable="true" type="apachesoap:Map"/>
+   <complexType name="Vector">
+    <sequence>
+     <element name="item" minOccurs="0" maxOccurs="unbounded" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+   <element name="Vector" nillable="true" type="apachesoap:Vector"/>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="listNamesRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="customerId" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="addDefaultContactRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="customerId" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="addDefaultContactResponse">
+
+      <wsdl:part name="addDefaultContactReturn" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="customerId" type="xsd:int"/>
+
+      <wsdl:part name="contactId" type="impl:ArrayOf_xsd_int"/>
+
+      <wsdl:part name="currentStatus" type="impl:ArrayOf_xsd_string"/>
+
+      <wsdl:part name="creationDTRangStart" type="xsd:string"/>
+
+      <wsdl:part name="creationDTRangEnd" type="xsd:string"/>
+
+      <wsdl:part name="contactName" type="xsd:string"/>
+
+      <wsdl:part name="companyName" type="xsd:string"/>
+
+      <wsdl:part name="emailAddr" type="xsd:string"/>
+
+      <wsdl:part name="numOfRecordPerPage" type="xsd:int"/>
+
+      <wsdl:part name="pageNum" type="xsd:int"/>
+
+      <wsdl:part name="orderBy" type="impl:ArrayOf_xsd_string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDetailsResponse">
+
+      <wsdl:part name="getDetailsReturn" type="apachesoap:Map"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="addResponse">
+
+      <wsdl:part name="addReturn" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="modRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="contactId" type="xsd:int"/>
+
+      <wsdl:part name="name" type="xsd:string"/>
+
+      <wsdl:part name="company" type="xsd:string"/>
+
+      <wsdl:part name="emailAddr" type="xsd:string"/>
+
+      <wsdl:part name="address1" type="xsd:string"/>
+
+      <wsdl:part name="address2" type="xsd:string"/>
+
+      <wsdl:part name="address3" type="xsd:string"/>
+
+      <wsdl:part name="city" type="xsd:string"/>
+
+      <wsdl:part name="state" type="xsd:string"/>
+
+      <wsdl:part name="country" type="xsd:string"/>
+
+      <wsdl:part name="zip" type="xsd:string"/>
+
+      <wsdl:part name="telNoCc" type="xsd:string"/>
+
+      <wsdl:part name="telNo" type="xsd:string"/>
+
+      <wsdl:part name="faxNoCc" type="xsd:string"/>
+
+      <wsdl:part name="faxNo" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="addRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="name" type="xsd:string"/>
+
+      <wsdl:part name="company" type="xsd:string"/>
+
+      <wsdl:part name="emailAddr" type="xsd:string"/>
+
+      <wsdl:part name="address1" type="xsd:string"/>
+
+      <wsdl:part name="address2" type="xsd:string"/>
+
+      <wsdl:part name="address3" type="xsd:string"/>
+
+      <wsdl:part name="city" type="xsd:string"/>
+
+      <wsdl:part name="state" type="xsd:string"/>
+
+      <wsdl:part name="country" type="xsd:string"/>
+
+      <wsdl:part name="zip" type="xsd:string"/>
+
+      <wsdl:part name="telNoCc" type="xsd:string"/>
+
+      <wsdl:part name="telNo" type="xsd:string"/>
+
+      <wsdl:part name="faxNoCc" type="xsd:string"/>
+
+      <wsdl:part name="faxNo" type="xsd:string"/>
+
+      <wsdl:part name="customerId" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="modResponse">
+
+      <wsdl:part name="modReturn" type="apachesoap:Map"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listNamesResponse">
+
+      <wsdl:part name="listNamesReturn" type="apachesoap:Map"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="listResponse">
+
+      <wsdl:part name="listReturn" type="apachesoap:Map"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDetailsRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="contactId" type="xsd:int"/>
+
+      <wsdl:part name="option" type="apachesoap:Vector"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="DomainContact">
+
+      <wsdl:operation name="add" parameterOrder="userName password role langpref parentid name company emailAddr address1 address2 address3 city state country zip telNoCc telNo faxNoCc faxNo customerId">
+
+         <wsdl:input name="addRequest" message="impl:addRequest"/>
+
+         <wsdl:output name="addResponse" message="impl:addResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="list" parameterOrder="userName password role langpref parentid customerId contactId currentStatus creationDTRangStart creationDTRangEnd contactName companyName emailAddr numOfRecordPerPage pageNum orderBy">
+
+         <wsdl:input name="listRequest" message="impl:listRequest"/>
+
+         <wsdl:output name="listResponse" message="impl:listResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="mod" parameterOrder="userName password role langpref parentid contactId name company emailAddr address1 address2 address3 city state country zip telNoCc telNo faxNoCc faxNo">
+
+         <wsdl:input name="modRequest" message="impl:modRequest"/>
+
+         <wsdl:output name="modResponse" message="impl:modResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDetails" parameterOrder="userName password role langpref parentid contactId option">
+
+         <wsdl:input name="getDetailsRequest" message="impl:getDetailsRequest"/>
+
+         <wsdl:output name="getDetailsResponse" message="impl:getDetailsResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addDefaultContact" parameterOrder="userName password role langpref parentid customerId">
+
+         <wsdl:input name="addDefaultContactRequest" message="impl:addDefaultContactRequest"/>
+
+         <wsdl:output name="addDefaultContactResponse" message="impl:addDefaultContactResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listNames" parameterOrder="userName password role langpref parentid customerId">
+
+         <wsdl:input name="listNamesRequest" message="impl:listNamesRequest"/>
+
+         <wsdl:output name="listNamesResponse" message="impl:listNamesResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="DomainContactServiceSoapBinding" type="impl:DomainContact">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="add">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomContact"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomContact"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="list">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomContact"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomContact"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="mod">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="modRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomContact"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="modResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomContact"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDetails">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDetailsRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomContact"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDetailsResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomContact"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addDefaultContact">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addDefaultContactRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomContact"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addDefaultContactResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomContact"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="listNames">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listNamesRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomContact"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listNamesResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.order.DomContact"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="DomainContactService">
+
+      <wsdl:port name="DomainContactService" binding="impl:DomainContactServiceSoapBinding">
+
+         <wsdlsoap:address location="http://www.foundationapi.com:9090/anacreon/servlet/rpcrouter"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

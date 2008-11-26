@@ -1,0 +1,158 @@
+<report>
+<title>New Ticket Statistics</title>
+	<level>   
+		<title>By Year</title>
+		<sql>SELECT from_unixtime(A.date_orig,"%Y") as yearmonth, count(A.id) as total from %%AGILE_DB_PREFIX%%ticket A  </sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%% </criteria>
+		<orderby>GROUP BY yearmonth ORDER BY yearmonth</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Year:</display>
+			<field>yearmonth</field>
+			<aggregate>true</aggregate>
+			<width></width>
+			<format></format>
+			<group_children_by>true</group_children_by>
+			<visible>true</visible>
+			<hide_dups>false</hide_dups>
+			<sql></sql>
+			<sql_criteria></sql_criteria>
+			<condition></condition>
+			<total>false</total>
+			<total_format></total_format>
+			<link></link>
+		</column> 
+		<column>
+			<display>Total Tickets</display>
+			<field>total</field>
+			<total>true</total> 
+		</column>	 
+	</level> 
+	 <break /> 
+		<graph type="bar" title="" width="500" height="300">
+			<dataset>
+				<sql>SELECT from_unixtime(A.date_orig,"%Y") as yearmonth, count(A.id) as total from %%AGILE_DB_PREFIX%%ticket A  </sql>
+				<criteria>A.site_id = %%DEFAULT_SITE%% </criteria>
+				<orderby>GROUP BY yearmonth ORDER BY yearmonth</orderby>
+			</dataset>
+		</graph>				
+	 <break /> 
+	  
+	<level>   
+		<title>By Month</title>
+		<sql>SELECT from_unixtime(A.date_orig,"%Y-%m") as yearmonth, count(A.id) as total from %%AGILE_DB_PREFIX%%ticket A  </sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%% </criteria>
+		<orderby>GROUP BY yearmonth ORDER BY yearmonth</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Year and Month:</display>
+			<field>yearmonth</field>
+			<aggregate>true</aggregate>
+			<width></width>
+			<format></format>
+			<group_children_by>true</group_children_by>
+			<visible>true</visible>
+			<hide_dups>false</hide_dups>
+			<sql></sql>
+			<sql_criteria></sql_criteria>
+			<condition></condition>
+			<total>false</total>
+			<total_format></total_format>
+			<link></link>
+		</column> 
+		<column>
+			<display>Total Tickets</display>
+			<field>total</field>
+			<total>true</total> 
+		</column>	 
+	</level> 
+	 <break /> 
+		<graph type="line" title="" width="700" height="300">
+			<dataset>
+				<sql>SELECT from_unixtime(A.date_orig,"%Y-%m") as yearmonth, count(A.id) as total from %%AGILE_DB_PREFIX%%ticket A  </sql>
+				<criteria>A.site_id = %%DEFAULT_SITE%% </criteria>
+				<orderby>GROUP BY yearmonth ORDER BY yearmonth</orderby>
+			</dataset>
+		</graph>				
+	 <break /> 
+	 
+	 
+	<level>   
+		<title>By Week</title>
+		<sql>SELECT from_unixtime(A.date_orig,"%Y-%u") as yearmonth, count(A.id) as total from %%AGILE_DB_PREFIX%%ticket A  </sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%% </criteria>
+		<orderby>GROUP BY yearmonth ORDER BY yearmonth</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Year and Week:</display>
+			<field>yearmonth</field>
+			<aggregate>true</aggregate>
+			<width></width>
+			<format></format>
+			<group_children_by>true</group_children_by>
+			<visible>true</visible>
+			<hide_dups>false</hide_dups>
+			<sql></sql>
+			<sql_criteria></sql_criteria>
+			<condition></condition>
+			<total>false</total>
+			<total_format></total_format>
+			<link></link>
+		</column> 
+		<column>
+			<display>Total Tickets</display>
+			<field>total</field>
+			<total>true</total> 
+		</column>	 
+	</level> 
+	 <break /> 
+		<graph type="line" title="" width="800" height="300">
+			<dataset>
+				<sql>SELECT from_unixtime(A.date_orig,"%Y-%u") as yearmonth, count(A.id) as total from %%AGILE_DB_PREFIX%%ticket A  </sql>
+				<criteria>A.site_id = %%DEFAULT_SITE%% </criteria>
+				<orderby>GROUP BY yearmonth ORDER BY yearmonth</orderby>
+			</dataset>
+		</graph>				
+	 <break /> 	 
+	 
+	 
+	 
+	<level>   
+		<title>By Day</title>
+		<sql>SELECT from_unixtime(A.date_orig,"%Y-%m-%d") as yearmonth, count(A.id) as total from %%AGILE_DB_PREFIX%%ticket A  </sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%% </criteria>
+		<orderby>GROUP BY yearmonth ORDER BY yearmonth</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Year, Month, and Day:</display>
+			<field>yearmonth</field>
+			<aggregate>true</aggregate>
+			<width></width>
+			<format></format>
+			<group_children_by>true</group_children_by>
+			<visible>true</visible>
+			<hide_dups>false</hide_dups>
+			<sql></sql>
+			<sql_criteria></sql_criteria>
+			<condition></condition>
+			<total>false</total>
+			<total_format></total_format>
+			<link></link>
+		</column> 
+		<column>
+			<display>Total Tickets</display>
+			<field>total</field>
+			<total>true</total> 
+		</column>	 
+	</level> 
+	 <break /> 
+		<graph type="line" title="" width="800" height="300">
+			<dataset>
+				<sql>SELECT from_unixtime(A.date_orig,"%Y-%m-%d") as yearmonth, count(A.id) as total from %%AGILE_DB_PREFIX%%ticket A  </sql>
+				<criteria>A.site_id = %%DEFAULT_SITE%% </criteria>
+				<orderby>GROUP BY yearmonth ORDER BY yearmonth</orderby>
+			</dataset>
+		</graph>				
+	 <break /> 	 
+	 	   
+</report>	

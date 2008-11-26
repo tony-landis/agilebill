@@ -1,0 +1,64 @@
+<report>
+<title>Services By Customer and SKU</title>
+	<level> 
+		<sql>SELECT DISTINCT A.id as account_id,company,CONCAT(first_name,' ', last_name) as name,email,username from %%AGILE_DB_PREFIX%%account A
+		JOIN %%AGILE_DB_PREFIX%%service as B ON(B.account_id=A.id and B.active=1 AND B.price_type=1) </sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%% </criteria>
+		<orderby>GROUP BY account_id ORDER BY company DESC</orderby>
+		<indent>0</indent>		
+		<column>
+			<display>account_id</display>
+			<field>account_id</field> 
+			<visible>false</visible> 
+			<aggregate>true</aggregate>
+			<group_children_by>true</group_children_by> 
+			<total>false</total>
+		</column> 		
+		<column>
+			<display>Company:</display>
+			<field>company</field> 
+			<visible>true</visible>  
+		</column> 
+		<column>
+			<display>Name:</display>
+			<field>name</field> 
+			<visible>true</visible> 
+		</column>		
+		<column>
+			<display>E-mail:</display>
+			<field>email</field>
+			<visible>true</visible> 
+		</column>	
+
+		<level> 
+			<sql>SELECT DISTINCT B.sku, B.account_id as account_id, count(B.id) as total, sum(B.price) as price
+				FROM %%AGILE_DB_PREFIX%%account A
+				JOIN %%AGILE_DB_PREFIX%%service as B ON(B.account_id=A.id and B.active=1 AND B.price_type=1) </sql>
+			<criteria>A.site_id = %%DEFAULT_SITE%% </criteria>
+			<orderby>GROUP BY sku ORDER BY sku DESC</orderby>
+			<indent>30</indent> 
+			<column>
+				<display>SKU</display>
+				<field>sku</field> 
+				<visible>true</visible>
+			</column> 
+			<column>
+				<display>Total Services for SKU</display>
+				<field>total</field>
+				<total>true</total>
+				<format>num</format>
+			</column>			 
+			<column>
+				<display>Forcasted Revenue</display>
+				<field>price</field>
+				<total>true</total>
+				<format>dol,2</format>
+				<total_format>dol,2</total_format>
+			</column>	 
+		</level> 
+				 
+	</level>
+		 
+ 
+	
+</report>

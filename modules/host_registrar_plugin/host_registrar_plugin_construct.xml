@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>host_registrar_plugin</module>
+    <!-- define the module table name -->
+    <table>host_registrar_plugin</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy/>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>name</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I4</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I4</type>
+            <unique>1</unique>
+            <index>1</index>
+        </site_id>
+        <status>
+            <type>L</type>
+        </status>
+        <name>
+            <type>C(32)</type>
+            <unique>1</unique>
+            <min_len>2</min_len>
+            <max_len>32</max_len>
+            <validate>any</validate>
+        </name>
+        <file>
+            <type>C(32)</type>
+            <unique>1</unique>
+            <min_len>2</min_len>
+            <max_len>32</max_len>
+            <validate>any</validate>
+        </file>
+        <plugin_data>
+            <type>X2</type>
+            <convert>array</convert>
+        </plugin_data>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,status,name,file,plugin_data</add>
+        <update>id,site_id,status,name,file,plugin_data</update>
+        <delete>id,site_id,status,name,file,plugin_data</delete>
+        <view>id,site_id,status,name,file,plugin_data</view>
+        <search>id,site_id,status,name,file,plugin_data</search>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>>
+</construct>

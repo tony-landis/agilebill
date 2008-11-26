@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install> 
+        <module_properties>
+            <name>voip</name>
+            <parent>voip</parent>
+            <notes><![CDATA[AgileVoice modules for AgileBill Core]]></notes>
+            <dependancy></dependancy>
+            <sub_modules>voip_rate,voip_rate_prod,voip_did,voip_pool,voip_in_network,voip_sip,voip_fax,voip_fax_data,voip_vm,voip_blacklist,voip_cdr,voip_did_plugin,voip_prepaid</sub_modules>
+			<menu_display>1</menu_display>
+        </module_properties> 
+        <sql_inserts>
+            <module_method> 
+				<config> 
+					<page><![CDATA[%%:config]]></page>
+					<menu_display>1</menu_display>
+				</config>
+            </module_method>
+        </sql_inserts>
+</install>

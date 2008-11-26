@@ -1,0 +1,62 @@
+<install>
+	<module_properties>
+		<name>ticket</name>
+		<parent>ticket</parent>
+		<notes><![CDATA[This is the ticket control module.]]></notes>
+		<menu_display>1</menu_display>
+		<dependancy>staff</dependancy>
+		<sub_modules>ticket_department,ticket_message,ticket_attachment</sub_modules>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<search>
+				<name>search</name>
+				<notes><![CDATA[Allow users to view the search form]]></notes>
+				<page><![CDATA[%%:search_form]]></page>
+				<menu_display>1</menu_display>
+			</search>
+			<view>
+				<name>view</name>
+				<notes><![CDATA[Allow users to view records]]></notes>
+				<page><![CDATA[core:search&module=%%&_escape=1&_next_page_one=view]]></page>
+				<menu_display>1</menu_display>
+			</view>
+			<add>
+				<name>add</name>
+				<notes><![CDATA[Allow users to add records]]></notes>
+				<menu_display>1</menu_display>
+			</add>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<update>
+				<name>update</name>
+			</update>
+			<search_form>
+				<name>search_form</name>
+			</search_form>
+			<search_show>
+				<name>search_show</name>
+				<notes><![CDATA[Allow users to view the search results]]></notes>
+			</search_show>
+			<reply>
+				<name>reply</name>
+				<notes><![CDATA[Method for staff replies to a ticket]]></notes>
+			</reply> 
+			<merge>
+				<name>merge</name>
+			</merge>
+			<overview>
+				<name>overview</name>
+				<menu_display>1</menu_display>
+				<page><![CDATA[%%:main]]></page>
+			</overview>
+			<search_quick>
+				<name>search_quick</name>
+			</search_quick>
+			<search_status>
+				<name>search_status</name>
+			</search_status>
+		</module_method>
+	</sql_inserts>
+</install>

@@ -1,0 +1,41 @@
+                *******************************
+                         Image_Canvas
+                *******************************
+                        version 0.2.4
+
+  ------ CopyRight (C) Jesper Veggerby Hansen, 2003-2005 ------
+      http://pear.php.net/pepr/pepr-proposal-show.php?id=212
+
+_________________________________________________________________
+
+	This library is free software; you can redistribute it
+	and/or modify it under the terms of the GNU Lesser General
+	Public License as published by the Free Software Foundation;
+	either version 2.1 of the License, or (at your option)
+	any later version.
+_________________________________________________________________
+
+Image_Canvas
+
+Requirements
+------------
+The only system requirement is PHP4/PHP5 support.
+For GD output GD support is required with GD 2 for optimal performance. For PDF
+support, PDFlib is required (planned File_PDF support when released in working
+version). 
+
+Documentation
+-------------
+See http://pear.veggerby.dk/Image_Canvas/docs/ for documentation
+
+History
+-------
+Release history of Image_Canvas
+0.2.4        08-Nov-2005
+0.2.3        28-Oct-2005
+0.2.2        30-Sep-2005
+0.2.1        08-Aug-2005      First version used by Image_Graph
+0.2.0        01-Aug-2005      First PEAR release
+0.1.2        21-Jul-2005
+0.1.1        21-Mar-2005
+0.1.0        14-Feb-2005

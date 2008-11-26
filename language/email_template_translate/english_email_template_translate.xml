@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>email_template_translate</name>
+	<!-- define the block title translations -->
+	<title_add>Add Email Template Translation</title_add>
+	<title_view>View Email Template Translations</title_view>
+	<title_search>Search Email Template Translations</title_search>
+	<!-- define the menu lable translations -->
+	<menu>Translations</menu>
+	<menu_add>Add</menu_add>
+	<menu_view>List</menu_view>
+	<menu_search>Search</menu_search>
+	<!-- define the field translations -->
+	<field_email_template_id>Email Template</field_email_template_id>
+	<field_language_id>Language</field_language_id>
+	<field_subject>Template Subject</field_subject>
+	<field_message_text>Text Message</field_message_text>
+	<field_message_html>HTML Message</field_message_html> 
+</translate>

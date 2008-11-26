@@ -1,0 +1,76 @@
+.treemenudiv	{
+	display: block;
+	white-space: nowrap;
+}
+
+.phplmnormal	{
+	font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+	font-size: 13px;
+	color: black; 
+}
+
+a.phplmnormal:hover	{
+	font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+	font-size: 13px;
+	color: black; 
+}
+
+
+
+a.phplm:link	{
+	font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+	font-size: 13px;
+	color: #006699;
+	text-decoration: none;
+}
+
+a.phplm:visited	{
+	font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+	font-size: 13px; 
+	text-decoration: none;
+	color: #006699;
+}
+
+a.phplm:hover	{
+	font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+	font-size: 13px;
+	color: #006699;
+	background-color: #eee;
+	text-decoration: none;
+}
+
+a.phplm:active	{
+	font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+	font-size: 13px; 
+	text-decoration: none;
+	color: #006699;
+}
+
+
+
+
+a.phplmselected:link	{
+	font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+	font-size: 13px;
+	color: #8e8e8e; 
+	text-decoration: none;
+}
+
+a.phplmselected:visited	{
+	font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+	font-size: 13px; 
+	text-decoration: none;
+}
+
+a.phplmselected:hover	{
+	font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+	font-size: 13px;
+	color: #9999cc; 
+	text-decoration: none;
+}
+
+a.phplmselected:active	{
+	font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+	font-size: 13px; 
+	text-decoration: none;
+}

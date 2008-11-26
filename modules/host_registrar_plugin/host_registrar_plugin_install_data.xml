@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+  <host_registrar_plugin>
+       <id>1</id>
+       <site_id>1</site_id>
+       <status>1</status>
+       <name>manual</name>
+       <file>MANUAL</file>
+       <plugin_data><![CDATA[a:1:{i:0;s:0:"";}]]></plugin_data>
+  </host_registrar_plugin>
+  <host_registrar_plugin_id>
+       <id>2</id>
+  </host_registrar_plugin_id>
+</install>

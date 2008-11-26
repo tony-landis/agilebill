@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>affiliate_template</name>
+	
+	<!-- define the block title translations -->
+	<title_add>Add an Affiliate Template</title_add>
+	<title_view>View All Affiliate Templates</title_view>
+	
+	<!-- define the menu lable translations -->
+	<menu>Configuration</menu>
+	<menu_add>Add</menu_add>
+	<menu_view>List</menu_view>
+	
+	<!-- define the field translations -->	
+	<field_affiliate_plugin>Commission Payout Type</field_affiliate_plugin>	
+	<field_avail_campaign_id>Available Campaigns</field_avail_campaign_id>	
+	<field_status>Active?</field_status>	
+	<field_name>Name</field_name>	
+	<field_notes>Notes</field_notes>	
+	<field_max_tiers>Maximum Tiers</field_max_tiers>	
+	<field_commission_minimum>Minimum Commission Required</field_commission_minimum>	
+	<field_new_commission_type>Commission Type for New Charges</field_new_commission_type>	
+	<field_new_commission_rate>Commissions for New Charges</field_new_commission_rate>	
+	<field_recurr_commission_type>Commission Type for Recurring Charges</field_recurr_commission_type>	
+	<field_recurr_commission_rate>Commissions for Recurring Charges</field_recurr_commission_rate>	
+	<field_recurr_max_commission_periods>Maximum Recurring Periods Commission Paid</field_recurr_max_commission_periods>
+	
+	<!-- define the help text -->
+	<help_file>
+		This module controls the default affiliate settings.	
+	</help_file>
+	
+	<!-- define any custom resources --> 
+</translate>

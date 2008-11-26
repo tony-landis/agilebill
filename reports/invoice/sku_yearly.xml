@@ -1,0 +1,78 @@
+<report>
+<title>Yearly Sales by SKU</title> 
+	<level>
+		<htmlstyle>heading</htmlstyle>
+			<sql>select from_unixtime(A.date_orig,'%Y') as year, A.sku, B.account_id from %%AGILE_DB_PREFIX%%invoice_item A inner JOIN %%AGILE_DB_PREFIX%%invoice B ON (A.invoice_id=B.id and billing_status=1 and (refund_status=0 or refund_status is null) and B.site_id=%%DEFAULT_SITE%%)</sql>
+			<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>		
+			<orderby>GROUP BY year ORDER BY year DESC</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Breakdown for Year:</display>
+			<field>year</field>
+			<aggregate>true</aggregate>
+			<width></width>
+			<format></format>
+			<group_children_by>true</group_children_by>
+			<visible>true</visible>
+			<hide_dups>false</hide_dups>
+			<sql></sql>
+			<sql_criteria></sql_criteria>
+			<condition></condition>
+			<total>false</total>
+			<total_format></total_format>
+			<link></link>
+			<user_criteria type="date_year" aggregate="true" />
+		</column> 
+		<column> 
+			<display>Account</display>
+			<field>B.account_id</field> 
+			<visible>false</visible>
+			<user_criteria type="auto_account"/>
+		</column>
+		<column> 
+			<display>SKU</display>
+			<field>sku</field> 
+			<visible>false</visible>
+			<user_criteria type="text"/>
+		</column>				
+		<level>
+			<sql>select A.sku, sum(A.quantity) as quan, sum(A.total_amt) as amt, from_unixtime(A.date_orig,'%Y') as year, B.account_id from %%AGILE_DB_PREFIX%%invoice_item A inner JOIN %%AGILE_DB_PREFIX%%invoice B ON (A.invoice_id=B.id and billing_status=1 and (refund_status=0 or refund_status is null) and B.site_id=%%DEFAULT_SITE%%)</sql>
+			<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+			<orderby>GROUP BY year, sku ORDER BY amt DESC</orderby>
+			<indent>30</indent>
+			<column>
+				<display />
+				<field>year</field>
+				<aggregate>false</aggregate>
+				<visible>false</visible> 
+			</column>
+			<column>
+				<display>SKU</display>
+				<field>sku</field>
+			</column>
+			<column>
+				<display>Quantity</display>
+				<field>quan</field>
+				<total>true</total>
+				<format>num,0</format>
+				<total_format>num,0</total_format>
+			</column>
+			<column>
+				<display>Amount</display>
+				<field>amt</field>
+				<format>dol,2</format>
+				<total>true</total>
+				<total_format>dol,2</total_format>
+			</column>  		 							
+		</level> 
+		<break />  
+		<graph type="bar" title="" width="800" height="350">
+			<dataset>
+				<sql>select A.sku, sum(A.total_amt) as amt, from_unixtime(A.date_orig,'%Y') as year, B.account_id from %%AGILE_DB_PREFIX%%invoice_item A inner JOIN %%AGILE_DB_PREFIX%%invoice B ON (A.invoice_id=B.id and billing_status=1 and (refund_status=0 or refund_status is null) and B.site_id=%%DEFAULT_SITE%%)</sql>
+				<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+				<orderby>GROUP BY year, sku ORDER BY amt DESC</orderby>
+			</dataset>
+		</graph>	
+		<break />  
+	</level>		 			
+</report>

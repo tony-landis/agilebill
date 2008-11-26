@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>billing_account</name>
+	
+	<!-- define the block title translations -->
+	<title_add>Add Billing Details</title_add>
+	<title_update>Edit Billing Details</title_update> 
+	<title_view>Modify Billing Details</title_view>
+	<title_search>Search By Billing Details</title_search>
+	
+	<!-- define the menu lable translations -->
+	<menu>Billing Records</menu>
+	<menu_add>Add</menu_add>
+	<menu_search>Search</menu_search>
+	
+	<!-- define the field translations -->
+	<field_account_id>Account</field_account_id>
+	<field_checkout_plugin_id>Checkout Plugin</field_checkout_plugin_id>    
+	<field_name>Nickname</field_name>    
+	<field_card_type>Account Type</field_card_type>	
+	<field_card_num>Card Number</field_card_num>
+	<field_card_num4>Last 4 Digits of Current Account</field_card_num4>
+	<field_card_exp_month>Expires (month)</field_card_exp_month>
+	<field_card_exp_year>Expires (year)</field_card_exp_year>	
+	<field_card_start_month>Issued (month)</field_card_start_month>	
+	<field_card_start_year>Issued (year)</field_card_start_year>
+	
+   	<field_eft_check_acct_type>Check Type</field_eft_check_acct_type>        
+    <field_eft_trn>Routing No.</field_eft_trn>
+    <field_eft_check_acct>Account No.</field_eft_check_acct> 
+    <field_eft_check_checkno>Check Number</field_eft_check_checkno>   
+    <field_ssn>SSN</field_ssn>  
+    <field_dl_no>Drivers License No.</field_dl_no>
+    <field_dob>Date of Birth</field_dob> 	
+          
+    <field_first_name>First Name</field_first_name>
+    <field_last_name>Last Name</field_last_name>
+    <field_address1>Primary Address</field_address1>
+    <field_address2>Secondary Address</field_address2>
+    <field_city>City</field_city>
+    <field_state>State/Province</field_state>        
+    <field_zip>Zip/Postal</field_zip>
+    <field_country_id>Country</field_country_id>
+    <field_phone>Phone No.</field_phone>
+    <field_email>E-mail</field_email>
+    <field_company>Company</field_company>
+
+	
+	<!-- define the help text -->
+	<help_file>
+		This module contains the encrypted billing records.	
+	</help_file>
+	
+	<!-- define any custom resources -->
+	<val_missing>Missing required data, please check the form and try again</val_missing>
+	<val_exp>Expiration date invalid/expired, please check the form and try again</val_exp>
+	<val_cc>Invalid credit card details submitted, please check the form and try again</val_cc>
+	<card_num_current>Current card on file</card_num_current>
+	<card_num_new>Change card number to</card_num_new>
+  	<card_in_use>Can not remove a card that is already in use</card_in_use> 
+  	<card_removed>Credit card has been removed</card_removed> 	
+  	
+  	<eft_change_routing>New Routing Number</eft_change_routing>
+  	<eft_change_account>New Bank Account Number</eft_change_account>
+</translate>

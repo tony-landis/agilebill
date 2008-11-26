@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+
+        <!-- Define the main module properties -->
+        <module_properties>
+            <name>file</name>
+            <parent>file</parent>
+            <notes>This module allows you to manage your downloadable files and permissions.</notes>
+            <menu_display>1</menu_display>
+            <dependancy></dependancy>
+            <sub_modules>file_category</sub_modules>
+        </module_properties>
+
+
+        <!-- Define any methods for this module -->
+        <sql_inserts>
+            <module_method>
+                <search>
+                    <name>search</name>
+                    <notes>Allow users to view the search form</notes>
+                    <page>%%:search_form</page>
+                    <menu_display>1</menu_display>
+                </search>
+                <view>
+                    <name>view</name>
+                    <notes>Allow users to view records</notes>
+                    <page>core:search&amp;module=%%&amp;_escape=1&amp;_next_page_one=view</page>
+                    <menu_display>1</menu_display>
+                </view>
+                <add>
+                    <name>add</name>
+                    <notes>Allow users to add records</notes>
+                    <menu_display>1</menu_display>
+                </add>
+                <delete>
+                    <name>delete</name>
+                </delete>
+                <update>
+                    <name>update</name>
+                </update>
+                <search_form>
+                    <name>search_form</name>
+                </search_form>
+                <search_show>
+                    <name>search_show</name>
+                    <notes>Allow users to view the search results</notes>
+                </search_show>
+            </module_method>
+        </sql_inserts>
+</install>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate> 
+    <title_add>Add DID</title_add> 
+    <title_view>View DIDs</title_view> 
+    <title_search>Search DIDs</title_search> 
+	 
+    <menu>DID</menu>
+    <menu_add>Add</menu_add> 
+    <menu_view>List</menu_view> 
+    <menu_search>Search</menu_search> 
+    	 	 
+	<field_account_id>Account</field_account_id>	
+	<field_service_id>Service ID</field_service_id>	
+	<field_service_parent_id>Parent Service ID</field_service_parent_id>	
+	<field_did>DID</field_did>	
+	<field_callingrateid>Calling Rate ID</field_callingrateid>	
+	<field_calledrateid>Called Rate ID</field_calledrateid>	
+	<field_planid>Plan ID</field_planid>	
+	<field_cnam>Calling Name Display</field_cnam>	
+	<field_blacklist>Blacklisting</field_blacklist>	
+	<field_anirouting>ANI-based routing</field_anirouting>	
+	<field_faxdetection>FAX detection</field_faxdetection>	
+	<field_channel>Channel</field_channel>	
+	<field_channelarg>Channel Arguments</field_channelarg>	
+	<field_voicemailenabled>Voice Mail Enabled?</field_voicemailenabled>	
+	<field_callforwardingenabled>Call Forwarding Enabled?</field_callforwardingenabled>	
+	<field_busycallforwardingenabled>Busy Call Forwarding Enabled?</field_busycallforwardingenabled>	
+	<field_voicemailafter>Voice Mail After?</field_voicemailafter>	
+	<field_cfringfor>Call Forwarding Ring For?</field_cfringfor>	
+	<field_cfnumber>Call Forwarding Number</field_cfnumber>	
+	<field_bcfnumber>Busy Call Forwarding Number</field_bcfnumber> 
+	<field_rxfax>Fax Enabled?</field_rxfax>	
+	<field_faxemail>Fax To Email</field_faxemail>	
+	<field_active>Active?</field_active>	
+	<field_conf>Conferencing Enabled?</field_conf>
+	<field_conflimit>Conference Limit</field_conflimit>	
+	<field_failover>Failover?</field_failover>	
+	<field_failovernumber>Failover Number</field_failovernumber>	
+	<field_remotecallforward>Remote Call Forwarding?</field_remotecallforward>	
+	<field_remotecallforwardnumber>Remote Call Forwarding Number</field_remotecallforwardnumber>
+	<field_callerid>Caller ID</field_callerid>
+	<field_username>VoIP Registration Username</field_username>
+	<field_secret>VoIP Registration Password</field_secret>
+	<field_qualify>NAT Qualification/Monitoring</field_qualify>
+	<field_mailbox>Voicemail Box</field_mailbox>
+	<field_incominglimit>Incoming Call Limit</field_incominglimit>
+	<field_dtmfmode>DTMF Mode</field_dtmfmode>
+	<field_canreinvite>Can Re-Invite</field_canreinvite>
+	<field_nat>NAT</field_nat>
+</translate>

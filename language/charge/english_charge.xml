@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>charge</name>
+	<!-- define the block title translations -->
+	<title_add>Add Charge</title_add>
+	<title_update>View/Edit Charge</title_update>
+	<title_view>View/Edit Charge</title_view>
+	<title_search>Search Charges</title_search>
+	<!-- define the menu lable translations -->
+	<menu>Charges</menu>
+	<menu_add>Add</menu_add>
+	<menu_view>List</menu_view>
+	<menu_search>Search</menu_search>
+	<menu_import>Import</menu_import>
+	<!-- define the field translations -->
+	<field_date_orig>Creation Date</field_date_orig>
+	<field_status>Invoiced?</field_status>
+	<field_sweep_type>Sweep Type</field_sweep_type>
+	<field_account_id>Account</field_account_id>
+	<field_product_id>Product SKU</field_product_id>
+	<field_service_id>Service</field_service_id>
+	<field_amount>Amount</field_amount>
+	<field_quantity>Quantity</field_quantity>
+	<field_taxable>Taxable</field_taxable>
+	<field_attributes>Attributes</field_attributes>
+	<!-- define any custom resources -->
+</translate>

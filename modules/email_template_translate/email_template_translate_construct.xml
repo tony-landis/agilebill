@@ -1,0 +1,64 @@
+<construct>
+    <!-- define the module name -->
+    <module>email_template_translate</module>
+    <!-- define the module table name -->
+    <table>email_template_translate</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy>email_template</dependancy>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>email_template_id</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define database indexes -->
+    <index>
+        <parent>email_template_id</parent>
+        <language>language_id</language>
+    </index>    
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I8</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I4</type>
+            <index>1</index>
+        </site_id>
+        <email_template_id>
+            <type>I8</type>
+            <asso_table>email_template</asso_table>
+            <asso_field>name</asso_field>
+        </email_template_id>
+        <language_id>
+            <type>C(16)</type>
+        </language_id>
+        <subject>
+            <type>C(255)</type>
+            <min_len>1</min_len>
+            <max_len>255</max_len>
+            <validate>any</validate>
+        </subject>
+        <message_text>
+            <type>X2</type>
+            <validate>any</validate>
+            <html>1</html>
+        </message_text>
+        <message_html>
+            <type>X2</type>
+            <html>1</html>
+        </message_html>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,email_template_id,language_id,subject,message_text,message_html</add>
+        <update>id,site_id,email_template_id,language_id,subject,message_text,message_html</update>
+        <delete>id,site_id,email_template_id,language_id,subject,message_text,message_html</delete>
+        <view>id,site_id,email_template_id,language_id,subject,message_text,message_html</view>
+        <search>id,site_id,email_template_id,language_id,subject,message_text,message_html</search>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>1</trigger>
+</construct>

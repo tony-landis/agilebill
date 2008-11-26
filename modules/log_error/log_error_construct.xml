@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>log_error</module>
+    <!-- define the module table name -->
+    <table>log_error</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy/>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>date_orig</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I8</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I4</type>
+            <index>1</index>
+        </site_id>
+        <date_orig>
+            <type>I8</type>
+            <convert>date</convert>
+        </date_orig>
+        <account_id>
+            <type>I8</type>
+            <asso_table>account</asso_table>
+            <asso_field>username</asso_field>
+        </account_id>
+        <module>
+            <type>C(64)</type>
+        </module>
+        <method>
+            <type>C(64)</type>
+        </method>
+        <message>
+            <type>X2</type>
+        </message>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,date_orig,account_id,module,method,message</add>
+        <update>id,site_id,date_orig,account_id,module,method,message</update>
+        <delete>id,site_id,date_orig,account_id,module,method,message</delete>
+        <view>id,site_id,date_orig,account_id,module,method,message</view>
+        <search>id,site_id,date_orig,account_id,module,method,message</search>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

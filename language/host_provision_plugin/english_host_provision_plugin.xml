@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <!-- define any custom resources -->
+    <service>Service</service>
+    <enabled>Enabled?</enabled>
+    <options>Options</options>
+    <notes>Notes</notes>
+    <assoc_plan>Name of Associated Plan on Server - Required!</assoc_plan>
+    <!-- Ensim Windows and Linux -->
+    <bandwidth_threshold>Bandwidth Threshold, in bytes</bandwidth_threshold>
+    <bandwidth_rollover>Bandwidth Rollover Day of Month</bandwidth_rollover>
+    <backup>Backup Manager</backup>
+    <files>File Manager</files>
+    <analog>Analog Stats</analog>
+    <ipinfo_namebased>Hosting Type</ipinfo_namebased>
+    <diskquota>Disk Space Quota</diskquota>
+    <telnet>Telnet</telnet>
+    <ssh>SSH</ssh>
+    <imap>Imap</imap>
+    <bind>Bind</bind>
+    <anonftp>Anonymous FTP</anonftp>
+    <openssl>OpenSSL</openssl>
+    <ssi>SSI</ssi>
+    <weblogs>Weblogs</weblogs>
+    <vacation>Vacation Autoresponders</vacation>
+    <majordomo>Majordomo</majordomo>
+    <sqmail>Squirrel Mail</sqmail>
+    <frontpage>Frontpage</frontpage>
+    <mivamerchant>Mivamerchant</mivamerchant>
+    <maxusers>Maximum number of users</maxusers>
+    <odbc>ODBC</odbc>
+    <coldfusion>ColdFusion</coldfusion>
+    <perl>Perl</perl>
+    <php>PHP</php>
+    <mysql>MySQL</mysql>
+    <urchin>Urchin</urchin>
+    <msftpsvc>MS FTP Service</msftpsvc>
+    <cgi>CGI</cgi>
+    <sslc>SSL</sslc>
+    <w3svc>w3svc Service</w3svc>
+    <allowanonymous>Allow Anonymous FTP logins?</allowanonymous>
+    <logtype>Enable IIS Logging?</logtype>
+    <ftp_maxconnections>Maximum FTP connections</ftp_maxconnections>
+    <ftp_maxconnectionsunlimited>Allow Unlimited FTP connections?</ftp_maxconnectionsunlimited>
+    <enablebandwidthquota>Enable Bandwidth Quota?</enablebandwidthquota>
+    <cpuquota>Enable CPU Quota?</cpuquota>
+    <w3svc_maxconnections>w3svc service maximum connections</w3svc_maxconnections>
+    <w3svc_maxconnectionsunlimited>Allow Unlimited w3svc connections?</w3svc_maxconnectionsunlimited>
+    <serversize>Server Size</serversize>
+    <winmail>Enable Winmail service?</winmail>
+    <userforwards>Allow user forwards?</userforwards>
+    <autoresponder>Enable autoresponders</autoresponder>
+    <datadrive>Drive where data will be stored</datadrive>
+    <style_name>Color scheme to use</style_name>
+    <mailscanner>Mailscanner</mailscanner>
+    <mailscanner_in>Scan Incoming</mailscanner_in>
+    <mailscanner_out>Scan Outgoing</mailscanner_out>
+    <scriptsmgr>Scripts Manager</scriptsmgr>
+    <aspmgr>ASP Manager</aspmgr>
+    <logrotate>Rotate Logs</logrotate>
+    <vhbackup>Allow Backup</vhbackup>
+    <tomcat4>Tomcat 4</tomcat4>
+    <subdomain>Allow Subdomains</subdomain>
+    <sendmail>Sendmail</sendmail>
+    <proftpd>ProFTPd</proftpd>
+    <max_submdomain>Max Subdomains</max_submdomain>
+    <apache_jail>Apache Jail (high security)</apache_jail>
+    <spam_filter>Spam Filter</spam_filter>
+    <webalizer>Webalizer</webalizer>
+    <develenv>Development Environment</develenv>
+    <!-- WHM -->
+    <whm_plan>Enter the name of the WHM plan to grant this user</whm_plan>
+    <!-- Plesk 5,6,7 -->
+    <hst_type>Hosting Type</hst_type>
+    <space>Available disk space</space>
+    <max_box>Limit Mailboxes</max_box>
+    <boxquota>Mailbox quota limit</boxquota>
+    <max_redir>Limit Redirects</max_redir>
+    <max_mg>Limit mail groups</max_mg>
+    <max_aresp>Limit Mail autoresponders</max_aresp>
+    <max_wu>Limit web users</max_wu>
+    <max_db>Limit databases</max_db>
+    <traffic>Available bandwidth per month</traffic>
+    <keep_traf_stat>Months to keep traffic stats</keep_traf_stat>
+    <log_bysize>Rotate logs by size</log_bysize>
+    <log_max_num>Maximum number of log files</log_max_num>
+    <ssi>SSI Support</ssi>
+    <dns>DNS on?</dns>
+    <www>Allow WWW redirect</www>
+    <hosting>Hosting</hosting>
+    <fp>Frontpage support</fp>
+    <fp_ssl>Frontpage authorization</fp_ssl>
+    <fpauth>Frontpage SSL support</fpauth>
+    <cgi>CGI</cgi>
+    <perl>Perl</perl>
+    <asp>ASP</asp>
+    <err_docs>Error docs supported</err_docs>
+    <log_compress>Compress the logfiles</log_compress>
+    <wuscripts>Allow scripting</wuscripts>
+    <webmail>WebMail</webmail>
+    <ssl>SSL</ssl>
+    <shell>Available shells</shell>
+    <hard_quota>Hard disk quota (0 is unlimited)</hard_quota>
+    <disk_space>Available disk space</disk_space>
+    <mail_service>Mail service</mail_service>
+    <mbox_quota>Mailbox quota</mbox_quota>
+    <python>Python</python>
+    <webstat>Webalizer</webstat>
+    <max_resp>Available mail autoresponders</max_resp>
+    <max_subdom>Available Subdomains</max_subdom>
+    <max_maillists>Available mailing lists</max_maillists>
+    <max_webapps>Available web applications</max_webapps>
+</translate>

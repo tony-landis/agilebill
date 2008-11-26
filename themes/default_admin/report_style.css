@@ -1,0 +1,131 @@
+body {
+	font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif; 
+}
+
+h1 {
+	padding: 1px;
+	margin: 10px;
+	color: #191970;
+	font-size: x-large;
+	text-align: center;
+}
+
+img {
+	border: 1px dashed #333; 
+	margin: 4px;
+}
+
+#level_1 {
+	border: 1px solid #333;
+	background-color: #fefefe;	 
+}
+#level_1 #title {
+	background-color: #333;
+	padding: 4px;
+	color: #fff;
+	font-size: large;
+	text-align: center;
+}
+#level_1 table {
+	background-color: #CCCCCC;
+	color: #333333; 
+}
+#level_1 table th {
+	background-color: #ccc;
+	color: #333;
+	font-size: medium;
+	padding: 2px;  	
+}
+#level_1 table td {
+	background-color: #f1f1f1;
+	color: #333;
+	text-align: center;
+	font-size: small; 
+}
+
+#level_2 {
+	border: 1px solid #666;
+	margin: 0px; 
+	margin-bottom: 25px;
+}
+#level_2 #title {
+	background-color: #999;
+	padding: 3px;
+	color: #FAFAD2;
+	font-size: large;
+}
+#level_2 table {
+	background-color: #CCCCCC;
+	color: #333333; 
+}
+#level_2 table th {
+	background-color: #f1f1f1;
+	color: #333;
+	font-size: medium;
+	padding: 2px;
+}
+#level_2 table td {
+	background-color: #fefefe;
+	color: #333;
+	font-size: small; 
+}
+
+
+#heading { 
+	margin-bottom: 10px;
+}
+ 
+#heading #level_1 { 
+	background-color: #fefefe;	 
+} 
+#heading #level_1 table {
+	background-color: #CCCCCC;
+	color: #333333; 
+}
+#heading #level_1 table th {
+	background-color: #333;
+	color: #fff;
+	font-size: medium;
+	padding: 2px;  	
+	text-align: right; 
+	font-size: medium;	
+}
+#heading #level_1 table td {
+	background-color: #333;
+	color: #fff;  
+	text-align: left; 
+	font-size: medium;
+	color: #FFFFE0;
+	font-weight: bolder;
+}
+
+
+#heading #level_2 { 
+	margin: 0px; 
+}
+#heading #level_2 #title {
+	background-color: #999;
+	padding: 3px;
+	color: #FAFAD2;
+	font-size: large;
+}
+#heading #level_2 table {
+	background-color: #CCCCCC;
+	color: #333333; 
+}
+#heading #level_2 table th {
+	background-color: #f1f1f1;
+	color: #333;
+	font-size: medium;
+	padding: 2px; 
+	border-bottom: 1px solid #f1f1f1;
+	text-align: center;
+}
+#heading #level_2 table td {
+	background-color: #fefefe;
+	color: #333;
+	font-size: small; 
+	border-bottom: 1px solid #f1f1f1;
+	text-align: center;
+}
+

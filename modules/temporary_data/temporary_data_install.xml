@@ -1,0 +1,11 @@
+<install>
+	<module_properties>
+		<name>temporary_data</name>
+		<parent>setup</parent>
+		<notes><![CDATA[This module contains temporary data for password changes, newsletter confirmations, etc...]]></notes>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+		</module_method>
+	</sql_inserts>
+</install>

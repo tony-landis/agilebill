@@ -1,0 +1,122 @@
+<report>
+<title>Service Cancelations</title> 
+  <level> 
+  	<title>Service Cancelations (With Outstanding Balance)</title>     
+	<sql><![CDATA[SELECT DISTINCT from_unixtime(A.date_last,"%Y-%m-%d") as ymd 
+			FROM %%AGILE_DB_PREFIX%%service A
+			JOIN %%AGILE_DB_PREFIX%%account B ON (A.account_id=B.id)
+			RIGHT JOIN %%AGILE_DB_PREFIX%%invoice_item C ON (C.service_id=A.id)
+			RIGHT JOIN %%AGILE_DB_PREFIX%%invoice D ON (D.billing_status <> 1 AND D.id=C.invoice_id )			
+	]]></sql>  
+    <criteria>A.site_id = %%DEFAULT_SITE%% AND A.suspend_billing = 1</criteria> 
+    <orderby>ORDER BY ymd DESC</orderby>
+	<indent>0</indent> 
+	<column> 
+		<field>ymd</field>
+		<display>Date</display>
+		<aggregate>true</aggregate>
+		<width></width>
+		<format></format>
+		<group_children_by>true</group_children_by>
+		<visible>true</visible>
+		<hide_dups>false</hide_dups>
+		<sql></sql>
+		<sql_criteria></sql_criteria>
+		<condition></condition>
+		<total>false</total>  
+	</column>		 	 
+	<level> 		
+		<sql><![CDATA[SELECT DISTINCT from_unixtime(A.date_last,"%Y-%m-%d") as ymd, A.id as serviceId,
+			B.email, CONCAT(B.first_name,' ', B.last_name) as name,
+			D.total_amt as due
+			FROM %%AGILE_DB_PREFIX%%service A
+			JOIN %%AGILE_DB_PREFIX%%account B ON (A.account_id=B.id)
+			RIGHT JOIN %%AGILE_DB_PREFIX%%invoice_item C ON (C.service_id=A.id)
+			RIGHT JOIN %%AGILE_DB_PREFIX%%invoice D ON (D.billing_status <> 1 AND D.id=C.invoice_id )			
+		]]></sql>  
+	    <criteria>A.site_id = %%DEFAULT_SITE%% AND A.suspend_billing = 1</criteria>
+	    <orderby>ORDER BY name DESC</orderby>
+		<indent>0</indent> 
+		<column>
+			<display>Name</display>
+			<field>name</field> 
+		</column>  
+		<column>
+			<display>E-mail</display>
+			<field>email</field>  
+		</column>
+		<column>
+			<display>Service Id</display>
+			<field>serviceId</field>  
+		</column>		
+		<column>
+			<display>Outstanding Amt Due</display>
+			<field>due</field>  			
+		</column>	
+	</level>		  
+	<break />	   
+  </level>
+
+  <level> 
+  	<title>Service Cancelations (With No Outstanding Balance)</title>     
+	<sql>SELECT DISTINCT from_unixtime(A.date_last,"%Y-%m-%d") as ymd  FROM %%AGILE_DB_PREFIX%%service A  </sql>  
+	<criteria><![CDATA[ 
+	   	WHERE A.suspend_billing = 1 AND 
+	   	NOT EXISTS 
+	   	(
+	   		SELECT t1.id FROM %%AGILE_DB_PREFIX%%invoice_item AS t1
+	  		RIGHT JOIN %%AGILE_DB_PREFIX%%invoice AS t2 ON ( t2.id = t1.invoice_id and t2.billing_status <> 1 )
+	   		WHERE t1.service_id = A.id
+	   	)
+	]]></criteria>
+    <orderby>ORDER BY ymd DESC</orderby>
+	<indent>0</indent> 
+	<column> 
+		<field>ymd</field>
+		<display>Date</display>
+		<aggregate>true</aggregate>
+		<width></width>
+		<format></format>
+		<group_children_by>true</group_children_by>
+		<visible>true</visible>
+		<hide_dups>false</hide_dups>
+		<sql></sql>
+		<sql_criteria></sql_criteria>
+		<condition></condition>
+		<total>false</total>  
+	</column>		 	 
+	<level> 		
+		<sql>SELECT DISTINCT from_unixtime(A.date_last,"%Y-%m-%d") as ymd, A.id as serviceId,
+			B.email, CONCAT(B.first_name,' ', B.last_name) as name
+			FROM %%AGILE_DB_PREFIX%%service A
+			JOIN %%AGILE_DB_PREFIX%%account B ON (A.account_id=B.id) 			
+		</sql>  
+	    <criteria><![CDATA[ 
+	    	WHERE A.suspend_billing = 1 AND 
+	    	NOT EXISTS 
+	    	(
+	    		SELECT t1.id FROM %%AGILE_DB_PREFIX%%invoice_item AS t1
+	    		RIGHT JOIN %%AGILE_DB_PREFIX%%invoice AS t2 ON ( t2.id = t1.invoice_id and t2.billing_status <> 1 )
+	    		WHERE t1.service_id = A.id
+	    	)
+	    ]]></criteria>
+	    <orderby>ORDER BY name DESC</orderby>
+		<indent>0</indent> 
+		<column>
+			<display>Name</display>
+			<field>name</field> 
+		</column>  
+		<column>
+			<display>E-mail</display>
+			<field>email</field>  
+		</column>
+		<column>
+			<display>Service Id</display>
+			<field>serviceId</field>  
+		</column>		 	
+	</level>		  
+	<break />	   
+  </level>	
+
+   
+</report>

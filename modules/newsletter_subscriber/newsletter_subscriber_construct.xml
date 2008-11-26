@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>newsletter_subscriber</module>
+    <!-- define the module table name -->
+    <table>newsletter_subscriber</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy/>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>newsletter_id</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I8</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I4</type>
+        </site_id>
+        <date_orig>
+            <type>I8</type>
+            <convert>date-time</convert>
+        </date_orig>
+        <newsletter_id>
+            <type>I8</type>
+            <asso_table>newsletter</asso_table>
+            <asso_field>name</asso_field>
+        </newsletter_id>
+        <email>
+            <type>C(128)</type>
+            <min_len>1</min_len>
+            <max_len>128</max_len>
+            <validate>email</validate>
+        </email>
+        <html>
+            <type>L</type>
+        </html>
+        <first_name>
+            <type>C(128)</type>
+        </first_name>
+        <last_name>
+            <type>C(128)</type>
+        </last_name>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,date_orig,newsletter_id,email,html,first_name,last_name</add>
+        <update>id,site_id,date_orig,newsletter_id,email,html,first_name,last_name</update>
+        <delete>id,site_id,date_orig,newsletter_id,email,html,first_name,last_name</delete>
+        <view>id,site_id,date_orig,newsletter_id,email,html,first_name,last_name</view>
+        <search>id,site_id,date_orig,newsletter_id,email,html,first_name,last_name</search>
+        <search_export>id,newsletter_id,email,html,first_name,last_name</search_export>
+        <export_excel>id,newsletter_id,email,html,first_name,last_name</export_excel>
+        <export_pdf>id,newsletter_id,email,html,first_name,last_name</export_pdf>
+        <export_csv>id,newsletter_id,email,html,first_name,last_name</export_csv>
+        <export_tab>id,newsletter_id,email,html,first_name,last_name</export_tab>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

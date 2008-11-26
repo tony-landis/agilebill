@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+  <newsletter>
+       <id>0</id>
+       <site_id>1</site_id>
+       <group_avail><![CDATA[a:5:{i:0;s:4:"1011";i:1;s:1:"0";i:2;s:1:"2";i:3;s:4:"1001";i:4;s:1:"4";}]]></group_avail>
+       <name>Newsletter 1</name>
+       <description>Sign up today!</description>
+       <active>1</active>
+       <display_signup>1</display_signup>
+  </newsletter>
+  <newsletter_id>
+       <id>3</id>
+  </newsletter_id>
+</install>

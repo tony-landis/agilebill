@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+  <static_var>
+       <id>2</id>
+       <site_id>1</site_id>
+       <name>Address</name>
+       <description>Collect the main address</description>
+       <input_format>medium_text</input_format>
+       <validation_type>address</validation_type>
+       <convert_type>none</convert_type>
+  </static_var>
+  <static_var>
+       <id>10</id>
+       <site_id>1</site_id>
+       <name>Status</name>
+       <description>Get the satus</description>
+       <input_format>status</input_format>
+       <validation_type>none</validation_type>
+       <convert_type>none</convert_type>
+  </static_var>
+  <static_var>
+       <id>11</id>
+       <site_id>1</site_id>
+       <name>Accept User Agreement?</name>
+       <description>Requires user to check in order to continue</description>
+       <input_format>checkbox</input_format>
+       <validation_type>any</validation_type>
+       <convert_type>none</convert_type>
+  </static_var>
+  <static_var>
+       <id>12</id>
+       <site_id>1</site_id>
+       <name>Date</name>
+       <description>Date</description>
+       <input_format>calendar</input_format>
+       <validation_type>date</validation_type>
+       <convert_type>date</convert_type>
+  </static_var>
+  <static_var>
+       <id>14</id>
+       <site_id>1</site_id>
+       <name>Zip Code</name>
+       <description>Collect Users zip code</description>
+       <input_format>small_text</input_format>
+       <validation_type>zip</validation_type>
+       <convert_type>none</convert_type>
+  </static_var>
+  <static_var>
+       <id>15</id>
+       <site_id>1</site_id>
+       <name>Misc</name>
+       <description>misc</description>
+       <input_format>medium_text</input_format>
+       <validation_type>none</validation_type>
+       <convert_type>none</convert_type>
+  </static_var>
+  <static_var_id>
+       <id>16</id>
+  </static_var_id>
+</install>

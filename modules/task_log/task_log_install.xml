@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+
+        <!-- Define the main module properties -->
+        <module_properties>
+            <name>task_log</name>
+            <parent>task</parent>
+            <notes>Stores the task logs</notes> 
+            <dependancy>task</dependancy> 
+        </module_properties> 
+
+        <!-- Define any methods for this module -->
+        <sql_inserts>
+            <module_method>
+                <update>
+                    <name>update</name>
+                </update> 
+                <search_show>
+                    <name>search_show</name> 
+                </search_show>
+                <view>
+                    <name>view</name>  
+                </view>
+                <delete>
+                    <name>delete</name>
+                </delete>
+                <search>
+                    <name>search</name>
+                </search>                
+            </module_method>
+        </sql_inserts>
+</install>

@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+  <task>
+       <id>3</id>
+       <site_id>1</site_id>
+       <date_start>0</date_start>
+       <date_expire>0</date_expire>
+       <date_last>1132899162</date_last>
+       <name>Database Cleanup</name>
+       <description>Cleans up old sessions and other data, optimizes and repairs the database tables, corrects bad key counters, and runs any new update scripts in the /upgrades directory.</description>
+       <log>1</log>
+       <type>0</type>
+       <command>core:cleanup</command>
+       <int_min>1</int_min>
+       <int_hour>*</int_hour>
+       <int_month>*</int_month>
+       <int_month_day>*</int_month_day>
+       <int_week_day>*</int_week_day>
+       <running>0</running>
+  </task>
+  <task>
+       <id>5</id>
+       <site_id>1</site_id>
+       <date_start>1098342000</date_start>
+       <date_expire>0</date_expire>
+       <date_last>1111365988</date_last>
+       <name>Service Queue</name>
+       <description>Runs the service queue to perform add, suspend, unsuspend, edit, delete, etc...</description>
+       <log>1</log>
+       <type>0</type>
+       <command>service:queue</command>
+       <int_min>0-59/5</int_min>
+       <int_hour>*</int_hour>
+       <int_month>*</int_month>
+       <int_month_day>*</int_month_day>
+       <int_week_day>*</int_week_day>
+  </task>
+  <task>
+       <id>6</id>
+       <site_id>1</site_id>
+       <date_start>1268467200</date_start>
+       <date_expire>0</date_expire>
+       <date_last>1099096879</date_last>
+       <name>Account Cleanup</name>
+       <description>Loop though all accounts to delete inactive accounts with no invoices, services, and no staff or affiliate accts</description>
+       <type>0</type>
+       <command>core:account_cleanup</command>
+       <int_min>0</int_min>
+       <int_hour>0</int_hour>
+       <int_month>*</int_month>
+       <int_month_day>*</int_month_day>
+       <int_week_day>*</int_week_day>
+  </task>
+  <task>
+       <id>7</id>
+       <site_id>1</site_id>
+       <date_start>0</date_start>
+       <date_expire>0</date_expire>
+       <date_last>1099096842</date_last>
+       <name>Invoice Cleanup</name>
+       <description><![CDATA[Delete inactive/unpaid invoices older than the allowed period, defined to 60 days by default in /modules/core/core.inc.php as the constant &quot;AGILE_INVOICE_CLEANUP_DAYS&quot;.
+]]></description>
+       <type>0</type>
+       <command>core:invoice_cleanup</command>
+       <int_min>15</int_min>
+       <int_hour>*</int_hour>
+       <int_month>*</int_month>
+       <int_month_day>*</int_month_day>
+       <int_week_day>*</int_week_day>
+  </task>
+  <task>
+       <id>8</id>
+       <site_id>1</site_id>
+       <date_start>0</date_start>
+       <date_expire>0</date_expire>
+       <date_last>1111894623</date_last>
+       <name>Generate Invoices</name>
+       <description>This task generates any new invoices and sends the appropriate notices to the customers.</description>
+       <type>0</type>
+       <command>invoice:generate</command>
+       <int_min>5</int_min>
+       <int_hour>*</int_hour>
+       <int_month>*</int_month>
+       <int_month_day>*</int_month_day>
+       <int_week_day>*</int_week_day>
+  </task>
+  <task>
+       <id>9</id>
+       <site_id>1</site_id>
+       <date_start>0</date_start>
+       <date_expire>0</date_expire>
+       <date_last>1111525669</date_last>
+       <name>Invoice Autobilling</name>
+       <description>Performs the billing for due invoices sends out invoice alerts, reminders, decline, and suspend notices.</description>
+       <type>0</type>
+       <command>invoice:autobill</command>
+       <int_min>10</int_min>
+       <int_hour>*</int_hour>
+       <int_month>*</int_month>
+       <int_month_day>*</int_month_day>
+       <int_week_day>*</int_week_day>
+  </task>
+  <task>
+       <id>11</id>
+       <site_id>1</site_id>
+       <date_start>0</date_start>
+       <date_expire>0</date_expire>
+       <date_last>1102724394</date_last>
+       <name>Service Cleanup</name>
+       <description>Deactivate any expired one-time services that granted group access for a specific amount of days. If this task is run manually, the service queue task should be run afterwards.</description>
+       <type>0</type>
+       <command>service:cleanup</command>
+       <int_min>20</int_min>
+       <int_hour>*</int_hour>
+       <int_month>*</int_month>
+       <int_month_day>*</int_month_day>
+       <int_week_day>*</int_week_day>
+  </task>
+  <task>
+       <id>12</id>
+       <site_id>1</site_id>
+       <date_start>0</date_start>
+       <date_expire>0</date_expire>
+       <date_last>1110084311</date_last>
+       <name>Charge: Daily</name>
+       <type>0</type>
+       <command>charge:sweep_daily</command>
+       <int_min>0</int_min>
+       <int_hour>*</int_hour>
+       <int_month>*</int_month>
+       <int_month_day>*</int_month_day>
+       <int_week_day>*</int_week_day>
+  </task>
+  <task>
+       <id>58</id>
+       <site_id>1</site_id>
+       <date_start>0</date_start>
+       <date_expire>0</date_expire>
+       <date_last>1112256262</date_last>
+       <name>Ticket Piping</name>
+       <description>Grabs new e-mails for any of the ticket departments configured for email piping.</description>
+       <type>0</type>
+       <command>ticket:piping</command>
+       <int_min>0-59/5</int_min>
+       <int_hour>*</int_hour>
+       <int_month>*</int_month>
+       <int_month_day>*</int_month_day>
+       <int_week_day>*</int_week_day>
+  </task>
+  <task>
+       <id>59</id>
+       <site_id>1</site_id>
+       <date_start>0</date_start>
+       <date_expire>0</date_expire>
+       <date_last>1132899627</date_last>
+       <name>Credit Card Expiry</name>
+       <description>Locate credit cards expiring in the next 2 months and e-mail the user.</description>
+       <type>0</type>
+       <command>account_billing:task</command>
+       <int_min>0</int_min>
+       <int_hour>0</int_hour>
+       <int_month>*</int_month>
+       <int_month_day>*</int_month_day>
+       <int_week_day>3</int_week_day>
+       <running>0</running>
+  </task>
+  <task>
+       <id>60</id>
+       <site_id>1</site_id>
+       <date_start>0</date_start>
+       <date_expire>0</date_expire>
+       <date_last>1132899627</date_last>
+       <name>Invoice Delivery</name>
+       <description>Delivers the invoices via email and/or writes the invoices to the export directory.</description>
+       <type>0</type>
+       <command>invoice:delivery_task</command>
+       <int_min>0</int_min>
+       <int_hour>*</int_hour>
+       <int_month>*</int_month>
+       <int_month_day>*</int_month_day>
+       <int_week_day>*</int_week_day>
+       <running>0</running>
+  </task>  
+  <task>
+       <id>61</id>
+       <site_id>1</site_id>
+       <date_start>0</date_start>
+       <date_expire>0</date_expire>
+       <date_last>1132899627</date_last>
+       <name>Net Terms</name>
+       <description>Performs Net Terms task.</description>
+       <type>0</type>
+       <command>net_term:task</command>
+       <int_min>30</int_min>
+       <int_hour>1</int_hour>
+       <int_month>*</int_month>
+       <int_month_day>*</int_month_day>
+       <int_week_day>*</int_week_day>
+       <running>0</running>
+  </task>
+  <task>
+       <id>62</id>
+       <site_id>1</site_id>
+       <date_start>0</date_start>
+       <date_expire>0</date_expire>
+       <date_last>1132899627</date_last>
+       <name>VoIP DID Refresh</name>
+       <description>Refreshes the DID pool by querying any DID providers.</description>
+       <type>0</type>
+       <command>voip_did_plugin:task</command>
+       <int_min>*</int_min>
+       <int_hour>*</int_hour>
+       <int_month>*</int_month>
+       <int_month_day>*</int_month_day>
+       <int_week_day>*</int_week_day>
+       <running>0</running>
+  </task>
+  <task>
+       <id>63</id>
+       <site_id>1</site_id>
+       <date_start>0</date_start>
+       <date_expire>0</date_expire>
+       <date_last>1132899627</date_last>
+       <name>VoIP Prepaid Notice and Cleanup</name>
+       <description>Performs VoIP prepaid cleanup of expired entries and sends low balance email notifications.</description>
+       <type>0</type>
+       <command>voip_prepaid:task</command>
+       <int_min>30</int_min>
+       <int_hour>*</int_hour>
+       <int_month>*</int_month>
+       <int_month_day>*</int_month_day>
+       <int_week_day>*</int_week_day>
+       <running>0</running>
+  </task>
+  <task>
+       <id>64</id>
+       <site_id>1</site_id>
+       <date_start>0</date_start>
+       <date_expire>0</date_expire>
+       <date_last>1132899627</date_last>
+       <name>VoIP Rating</name>
+       <description>Performs the VoIP CDR rating.</description>
+       <type>0</type>
+       <command>voip:task</command>
+       <int_min>5</int_min>
+       <int_hour>*</int_hour>
+       <int_month>*</int_month>
+       <int_month_day>*</int_month_day>
+       <int_week_day>*</int_week_day>
+       <running>0</running>
+  </task>
+  <task>
+       <id>65</id>
+       <site_id>1</site_id>
+       <date_start>0</date_start>
+       <date_expire>0</date_expire>
+       <date_last>1132899627</date_last>
+       <name>VoIP DID Pool Areas</name>
+       <description>Calculates the area of newly refreshed DIDs.</description>
+       <type>0</type>
+       <command>voip_pool:task_area</command>
+       <int_min>*</int_min>
+       <int_hour>*</int_hour>
+       <int_month>*</int_month>
+       <int_month_day>*</int_month_day>
+       <int_week_day>*</int_week_day>
+       <running>0</running>
+  </task>  
+  <task>
+       <id>66</id>
+       <site_id>1</site_id>
+       <date_start>0</date_start>
+       <date_expire>0</date_expire>
+       <date_last>0</date_last>
+       <name>Pre Invoice Generation email</name>
+       <description>Sends out Invoice Generation Pre-Notification E-mail.</description>
+       <type>0</type>
+       <command>core:invoice_advance_notice</command>
+       <int_min>1</int_min>
+       <int_hour>6</int_hour>
+       <int_month>*</int_month>
+       <int_month_day>*</int_month_day>
+       <int_week_day>*</int_week_day>
+       <running>0</running>
+  </task>    
+  <task_id>
+       <id>67</id>
+  </task_id>
+  <task_id>
+       <id>67</id>
+  </task_id>
+</install>

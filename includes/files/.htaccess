@@ -1,0 +1,7 @@
+<Limit GET POST PUT>
+ order deny,allow
+ deny from all
+ allow from localhost
+ allow from 127.0.0.1 
+ satisfy any
+</Limit>

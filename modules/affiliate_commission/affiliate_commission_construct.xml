@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>affiliate_commission</module>
+    <!-- define the module table name -->
+    <table>affiliate_commission</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy>affiliate</dependancy>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>date_orig</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define database indexes -->
+    <index>
+        <start>date_begin</start>
+        <end>date_end</end>
+    </index>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I4</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I4</type>
+            <index>1</index>
+        </site_id>
+        <date_orig>
+            <type>I8</type>
+            <convert>date-now</convert>
+        </date_orig>
+        <date_begin>
+            <type>I8</type>
+            <convert>date</convert>
+        </date_begin>
+        <date_end>
+            <type>I8</type>
+            <convert>date</convert>
+        </date_end>
+        <commissions>
+            <type>F</type>
+        </commissions>
+        <notes_admin>
+            <type>X2</type>
+        </notes_admin>
+        <notes_affiliate>
+            <type>X2</type>
+        </notes_affiliate>
+        <status>
+            <type>L</type>
+        </status>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,date_orig,date_begin,date_end,commissions,notes_admin,notes_affiliate,status</add>
+        <update>id,site_id,date_orig,date_begin,date_end,commissions,notes_admin,notes_affiliate,status</update>
+        <delete>id,site_id</delete>
+        <view>id,site_id,date_orig,date_begin,date_end,commissions,notes_admin,notes_affiliate,status</view>
+        <search>id,site_id,date_orig,date_begin,date_end,commissions,notes_admin,notes_affiliate,status</search>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct> 
+    <module>account_message</module> 
+    <table>account_message</table> 
+    <dependancy/> 
+    <cache>0</cache> 
+    <order_by>date_orig</order_by> 
+    <limit>30</limit> 
+    <field>
+        <id>
+            <type>I8</type>
+            <unique>1</unique>
+        </id>
+        <site_id>
+            <type>I4</type>
+        </site_id>
+        <date_orig>
+            <type>I8</type>
+        </date_orig>
+        <account_id>
+            <type>I8</type> 
+        </account_id> 
+        <message>
+            <type>X2</type>
+        </message> 
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,date_orig,account_id,message</add>
+        <update>id,date_orig,account_id,message</update>
+        <view>id,date_orig,account_id,message</view>
+    </method>
+    <!-- define the method triggers -->
+    <trigger></trigger>
+</construct>

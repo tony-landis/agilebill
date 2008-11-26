@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct> 
+    <module>ticket_message</module> 
+    <table>ticket_message</table> 
+    <dependancy/> 
+    <cache>0</cache> 
+    <order_by>id</order_by> 
+    <limit>25</limit> 
+    <index>
+        <ticket>site_id,ticket_id</ticket>
+        <staff>site_id,staff_id</staff>        
+        <fulltext_message>message</fulltext_message>
+    </index>   
+    <field>
+        <id>
+            <type>I8</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I4</type>
+            <index>1</index>
+        </site_id>
+        <ticket_id>
+            <type>I8</type>
+        </ticket_id>
+        <staff_id>
+            <type>I8</type>
+        </staff_id>
+        <date_orig>
+            <type>I8</type>
+            <convert>date-time</convert>
+        </date_orig>
+        <message>
+            <type>X2</type>
+        </message>
+    </field> 
+    <method>
+        <add>id,site_id,ticket_id,date_orig,message</add>
+        <update>id,site_id,ticket_id,date_orig,message</update>
+        <delete>id,site_id,ticket_id,date_orig,message</delete>
+        <view>id,site_id,ticket_id,date_orig,message</view>
+        <search>id,site_id,ticket_id,date_orig,message</search>
+    </method> 
+    <trigger>0</trigger>
+</construct>

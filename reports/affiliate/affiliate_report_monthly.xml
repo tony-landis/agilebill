@@ -1,0 +1,70 @@
+<report>
+<title>Monthly Revenue by Affiliate</title> 
+	<level>
+		<htmlstyle>heading</htmlstyle>
+			<sql>select from_unixtime(A.date_orig,'%Y%m') as yearmonth, from_unixtime(A.date_orig,'%M, %Y') as dates, A.sku, B.account_id from %%AGILE_DB_PREFIX%%invoice_item A inner JOIN %%AGILE_DB_PREFIX%%invoice B ON (A.invoice_id=B.id and billing_status=1 and (refund_status=0 or refund_status is null) and B.site_id=%%DEFAULT_SITE%%)</sql>
+			<criteria>A.site_id = %%DEFAULT_SITE%% AND (B.affiliate_id > 0 OR B.affiliate_id IS NOT NULL)</criteria>		
+			<orderby>GROUP BY yearmonth ORDER BY yearmonth DESC</orderby>
+		<indent>0</indent>
+		<column> 
+			<field>yearmonth</field>
+			<aggregate>true</aggregate>
+			<width></width>
+			<format></format>
+			<group_children_by>true</group_children_by>
+			<visible>false</visible>
+			<hide_dups>false</hide_dups>
+			<sql></sql>
+			<sql_criteria></sql_criteria>
+			<condition></condition>
+			<total>false</total>
+			<total_format></total_format>
+			<link></link> 
+		</column> 
+		<column> 
+			<display>Breakdown for Month: </display>
+			<field>dates</field> 
+			<visible>true</visible> 
+		</column>		 				
+		<level>
+			<sql>select CONCAT(C.first_name,' ', C.last_name,' ', C.company) as affiliate_name, B.id as aid, count(A.id) as quan, sum(A.total_amt) as amt, 
+			from_unixtime(A.date_orig,'%Y%m') as yearmonth, B.account_id from %%AGILE_DB_PREFIX%%invoice A 
+			JOIN %%AGILE_DB_PREFIX%%affiliate B ON (A.affiliate_id=B.id and B.site_id=%%DEFAULT_SITE%%)
+			JOIN %%AGILE_DB_PREFIX%%account C ON (B.account_id=C.id and C.site_id=%%DEFAULT_SITE%%)</sql>
+			<criteria>A.site_id = %%DEFAULT_SITE%% AND (A.affiliate_id > 0 OR A.affiliate_id IS NOT NULL)
+			and A.billing_status=1 and (A.refund_status=0 or A.refund_status is null)</criteria>
+			<orderby>GROUP BY aid ORDER BY amt DESC</orderby>
+			<indent>30</indent>
+			<column>
+				<display />
+				<field>yearmonth</field>
+				<aggregate>false</aggregate>
+				<visible>false</visible> 
+			</column>
+			<column>
+				<display>Affiliate ID</display>
+				<field>aid</field>
+			</column>			
+			<column>
+				<display>Affiliate Name</display>
+				<field>affiliate_name</field>
+			</column>
+			<column>
+				<display>Invoice Quantity</display>
+				<field>quan</field>
+				<total>true</total>
+				<format>num,0</format>
+				<total_format>num,0</total_format>
+			</column>
+			<column>
+				<display>Invoice Amount</display>
+				<field>amt</field>
+				<format>dol,2</format>
+				<total>true</total>
+				<total_format>dol,2</total_format>
+			</column>  	 								
+		</level> 
+		<break />  
+  
+	</level>		 			
+</report>

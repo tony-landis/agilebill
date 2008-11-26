@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install> 
+	<module_properties>
+    	<name>email_log</name>
+        <parent>setup</parent>
+        <notes>Stores log of all e-mails sent out to accounts</notes>
+        <menu_display>1</menu_display>
+        <dependancy>setup</dependancy>
+        <sub_modules></sub_modules>
+  	</module_properties>  
+    	<sql_inserts>
+            <module_method> 
+                <delete> 
+                    <name>delete</name> 
+                </delete>
+                <view> 
+                    <name>view</name> 
+                    <page>core:search&amp;module=%%&amp;_escape=1</page>
+                    <menu_display>1</menu_display>
+                </view>
+                <search> 
+                    <name>search</name> 
+                    <page>%%:search_form</page>
+                    <menu_display>1</menu_display>
+                </search>
+                <search_form> 
+                    <name>search_form</name> 
+                </search_form>
+                <search_show> 
+                    <name>search_show</name> 
+                </search_show> 
+        </module_method>
+    </sql_inserts>
+</install>

@@ -1,0 +1,11 @@
+<install>
+	<module_properties>
+		<name>account_group</name>
+		<parent>account_admin</parent>
+		<notes><![CDATA[The Account Group settings]]></notes>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+		</module_method>
+	</sql_inserts>
+</install>

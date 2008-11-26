@@ -1,0 +1,32 @@
+<install>
+	<module_properties>
+		<name>product_cat_translate</name>
+		<parent>product_cat</parent>
+		<notes><![CDATA[This module contains the translations for the each product category.]]></notes>
+		<dependancy>product_cat</dependancy>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<search>
+				<name>search</name>
+				<page><![CDATA[core:search&module=%%&_escape=1&_next_page_one=view]]></page>
+				<menu_display>1</menu_display>
+			</search>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<view>
+				<name>view</name>
+			</view>
+			<update>
+				<name>update</name>
+			</update>
+			<add>
+				<name>add</name>
+			</add>
+			<search_show>
+				<name>search_show</name>
+			</search_show>
+		</module_method>
+	</sql_inserts>
+</install>

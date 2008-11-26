@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>module</module>
+    <!-- define the module table name -->
+    <table>module</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy>module,account</dependancy>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>name</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define database indexes -->
+    <index>
+        <parent>parent_id</parent>
+        <menu_display>menu_display</menu_display>
+        <displays>status,menu_display</displays>
+    </index>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I4</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I4</type>
+            <index>1</index>
+        </site_id>
+        <date_orig>
+            <type>I8</type>
+        </date_orig>
+        <date_last>
+            <type>I8</type>
+        </date_last>
+        <parent_id>
+            <type>I4</type>
+            <index>1</index>
+        </parent_id>
+        <name>
+            <type>C(128)</type>
+            <min_len>3</min_len>
+            <max_len>128</max_len>
+            <validate>any</validate>
+            <unique>1</unique>
+        </name>
+        <notes>
+            <type>X2</type>
+        </notes>
+        <status>
+            <type>L</type>
+        </status>
+        <menu_display>
+            <type>L</type>
+        </menu_display>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>name,notes,status,date_orig,date_last,menu_display,parent_id</add>
+        <update>notes,status,date_orig,date_last,menu_display,parent_id</update>
+        <view>id,name,notes,status,date_orig,date_last,menu_display,parent_id</view>
+        <list>id,name,notes,status,date_orig,date_last,menu_display,parent_id</list>
+        <search>id,name,notes,status,date_orig,date_last,menu_display,parent_id</search>
+        <export_excel>id,name,notes,status,date_orig,date_last,menu_display,parent_id</export_excel>
+        <export_xml>id,name,notes,status,date_orig,date_last,menu_display,parent_id</export_xml>
+        <export_pdf>id,name,notes,status</export_pdf>
+        <export_csv>id,name,notes,status,date_orig,date_last,menu_display,parent_id</export_csv>
+        <export_tab>id,name,notes,status,date_orig,date_last,menu_display,parent_id</export_tab>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>
+        <method>
+            <success>module:method</success>
+            <failure>module:method</failure>
+        </method>
+    </trigger>
+</construct>

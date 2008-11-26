@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>static_relation</module>
+    <!-- define the module table name -->
+    <table>static_relation</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy/>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>module_id</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define database indexes -->
+    <index>
+        <var>static_var_id</var>
+        <module>module_id</module>
+        <sort_order>sort_order</sort_order>
+    </index>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I4</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>C(16)</type>
+            <index>1</index>
+        </site_id>
+        <static_var_id>
+            <type>I8</type>
+            <asso_table>static_var</asso_table>
+            <asso_field>name</asso_field>
+            <validate>any</validate>
+        </static_var_id>
+        <module_id>
+            <type>I4</type>
+            <asso_table>module</asso_table>
+            <asso_field>name</asso_field>
+            <validate>any</validate>
+        </module_id>
+        <default_value>
+            <type>X2</type>
+            <min_len>1</min_len> 
+        </default_value>
+        <description>
+            <type>C2(255)</type>
+            <min_len>1</min_len>
+            <max_len>255</max_len>
+        </description>
+        <required>
+            <type>L</type>
+        </required>
+        <sort_order>
+            <type>I4</type>
+        </sort_order>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,static_var_id,module_id,default_value,description,required,sort_order</add>
+        <update>id,site_id,static_var_id,module_id,default_value,description,required,sort_order</update>
+        <delete>id,site_id,static_var_id,module_id,default_value,description,required,sort_order</delete>
+        <view>id,site_id,static_var_id,module_id,default_value,description,required,sort_order</view>
+        <search>id,site_id,static_var_id,module_id,default_value,description,required,sort_order</search>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

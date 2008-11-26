@@ -1,0 +1,11 @@
+<install>
+	<module_properties>
+		<name>static_var_record</name>
+		<parent>static_var</parent>
+		<notes><![CDATA[This module controls the static var records]]></notes>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+		</module_method>
+	</sql_inserts>
+</install>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+
+    <!-- define the module name -->
+    <module>file</module>
+
+    <!-- define the module table name -->
+    <table>file</table>
+
+    <!-- define the module dependancy(s) -->
+    <dependancy></dependancy>
+
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>sort_order</order_by>
+
+    <!-- define the methods -->
+    <limit>35</limit>
+
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I4</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I4</type>
+            <index>1</index>
+        </site_id>
+        <date_orig>
+            <type>I8</type>
+            <convert>date-now</convert>
+        </date_orig>
+        <date_last>
+            <type>I8</type>
+            <convert>date-now</convert>
+        </date_last>
+        <date_start>
+            <type>I8</type>
+            <convert>date</convert>
+        </date_start>
+        <date_expire>
+            <type>I8</type>
+            <convert>date</convert>
+        </date_expire>
+        <file_category_id>
+            <type>I4</type>
+            <asso_table>file_category</asso_table>
+            <asso_field>name</asso_field>
+            <index>1</index>
+        </file_category_id>
+        <type>
+            <type>C(32)</type>
+        </type>
+        <size>
+            <type>I8</type>
+        </size>
+        <name>
+            <type>C(255)</type>
+            <min_len>1</min_len>
+            <max_len>255</max_len>
+            <validate>any</validate>
+        </name>
+        <description>
+            <type>X2</type>
+        </description>
+        <status>
+            <type>L</type>
+        </status>
+        <location>
+        	<type>C(255)</type>
+        </location>
+        <location_type>
+            <type>L</type>
+        </location_type>        
+        <sort_order>
+            <type>I4</type>
+        </sort_order>
+        <group_avail>
+            <type>C(255)</type>
+            <convert>array</convert>
+            <validate>any</validate>
+        </group_avail>
+     </field>
+
+     <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+     <method>
+        <add>id,site_id,group_avail,date_orig,date_last,date_start,date_expire,file_category_id,type,size,name,description,status,location,location_type,sort_order</add>
+        <update>id,site_id,group_avail,date_orig,date_last,date_start,date_expire,file_category_id,type,size,name,description,status,location,location_type,sort_order</update>
+        <delete>id,site_id,group_avail,date_orig,date_last,date_start,date_expire,file_category_id,type,size,name,description,status,location,location_type,sort_order</delete>
+        <view>id,site_id,group_avail,date_orig,date_last,date_start,date_expire,file_category_id,type,size,name,description,status,location,location_type,sort_order</view>
+        <search>id,site_id,group_avail,date_orig,date_last,date_start,date_expire,file_category_id,type,size,name,description,status,location,location_type,sort_order</search>
+     </method>
+
+     <!-- define the method triggers -->
+     <trigger>0</trigger>
+</construct>

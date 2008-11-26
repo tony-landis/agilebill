@@ -1,0 +1,1 @@
+<iframe src="{$VAR.url}" style="border:0px; width:600px; height:600px;" scrolling="auto" ALLOWTRANSPARENCY="true" frameborder="0"></iframe>

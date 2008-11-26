@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?> 
+<translate>
+    <name>account_admin</name>
+    
+    <!-- define the block title translations -->
+    <title_add>Register for Account</title_add>
+    <title_update>Update Account Details</title_update>
+    <title_view>My Account Details</title_view>
+    <title_password_reset>Retrieve Lost Password</title_password_reset>
+    <title_password_new>Reset Your Password</title_password_new>
+    <title_verify_resend>Resend Verification Email</title_verify_resend>
+    <title_verification_code>Enter Verification Code</title_verification_code>
+    <title_view_sub_account>Manage Sub-Accounts</title_view_sub_account>
+    <title_add_sub_account>Add Sub-Account</title_add_sub_account>
+        
+    <!-- define the menu label translations -->
+    <menu>My Account</menu>
+    <menu_add>Register for Account</menu_add>
+    <menu_view>My Account Details</menu_view>
+    
+    <!-- define the field translations -->	
+    <field_date_orig>Creation Date</field_date_orig>	
+    <field_date_last>Date of Last Update</field_date_last>	
+    <field_date_expire>Expiration Date</field_date_expire>	
+    <field_parent_id>Parent Account</field_parent_id>	
+    <field_language_id>Language</field_language_id>	
+    <field_country_id>Country</field_country_id>	
+    <field_affiliate_id>Affiliate</field_affiliate_id>	
+    <field_reseller_id>Reseller</field_reseller_id>	
+    <field_currency_id>Currency</field_currency_id>	
+    <field_theme_id>Theme</field_theme_id>	
+    <field_username>Username</field_username>	
+    <field_password>Password</field_password>	
+    <field_update_password>Enter New Password</field_update_password>
+    <field_confirm_password>Confirm Password</field_confirm_password>
+    <field_change_username>Update Username Requested</field_change_username>	
+    <field_change_password>Update Password Requested</field_change_password>	
+    <field_change_key>Username/Password Update Key</field_change_key>	
+    <field_secret_question>Secret Question</field_secret_question>	
+    <field_secret_answer>Secret Answer</field_secret_answer>	
+    <field_inherit_group>Child Accounts Inherit Parent's Groups?</field_inherit_group>	
+    <field_misc>Account Notes</field_misc>	
+    <field_status>Account Active?</field_status>	
+    <field_first_name>First Name</field_first_name>	
+    <field_middle_name>Middle Name</field_middle_name>	
+    <field_last_name>Last Name</field_last_name>	
+    <field_title>Title/Suffix</field_title>	
+    <field_email>E-mail Address</field_email>
+    <field_email_html>HTML E-mail OK?</field_email_html>	
+    <field_address1>Address</field_address1>
+    <field_address2>Address 2</field_address2>
+    <field_city>City</field_city>
+    <field_state>State/Province</field_state>
+    <field_zip>Zip/Postal</field_zip>
+    <field_company>Company</field_company> 
+     
+    <!-- define any custom resources --> 	
+    <ip_address>IP Address</ip_address>
+    <mr>Mr.</mr>	
+    <ms>Ms.</ms>		
+    <mrs>Mrs.</mrs>
+    <miss>Miss</miss>
+    <dr>Dr.</dr>
+    <prof>Prof</prof>  
+    <password_change_match>
+        The new password you provided was not entered the same in the confirm field, please try again.
+    </password_change_match>
+    <password_changed>
+        Your password has been changed to the new password you submitted.
+    </password_changed> 
+    <password_reset>
+        If you have forgotten your password, we can issue you a temporary access code
+        via email that will allow you to change your password. To start this process,
+        please enter either your e-mail address or username to begin. Please do not enter
+        both, simply providing one or the other will do just fine.
+    </password_reset>
+    <password_reset_req>You must provide either your e-mail address or username in order to retrieve your password</password_reset_req>
+    <password_reset_spam_limit>You have already submitted the password reset request for this account within the past %limit% seconds, please wait to try again</password_reset_spam_limit>
+    <password_reset_no_match>Sorry, we cannot find any matching accounts for the criteria you submitted, please double check your information and try again</password_reset_no_match>
+    <password_reset_sent>
+        Thank you, we have sent an email to your email address on file with a link for changing your password.
+        The link is valid for 15 minutes only, so be sure to check your email right away.
+    </password_reset_sent>
+    <password_reset_bad_url>
+        The link you followed has either expired, or been malformed by your email reader.
+        If you suspect that it did not copy correctly from your email reader, please paste the
+        entire link from your email reader to the address bar in your browser.
+        Otherwise, you can restart your password reset request by clicking the link below:
+    </password_reset_bad_url>
+    <password_update_success>Your password has been updated successfully!</password_update_success>
+    <password_reset_instructions>
+        Please enter the new password for your account below.
+    </password_reset_instructions>
+    <password_reset_reqq>You must enter a new password</password_reset_reqq>
+    <user_add_active_welcome>
+        Thank you for registering, your account has been successfully registered and
+        you have been logged in.
+    </user_add_active_welcome>
+    <user_add_inactive_welcome><![CDATA[
+        Thank you for taking the first step of the registration process.
+        To finish the registration process, please check your e-mail.
+        We have sent you a link - once you visit the link in the e-mail,
+        your account status will be updated to active and there will be
+        nothing left for you to do.
+        <BR><BR>
+        If you do not receive the verification email shortly, you can click
+        the "Verify Account" link to request that we resend the verification
+        email.]]> 
+    </user_add_inactive_welcome>
+    <verify_resend_instructions>
+        If you are having trouble with the verification code, or never received the verification email,
+        you can use this form to request that we resend the verification email to you.
+        Please enter either your username or email address, not both.
+    </verify_resend_instructions>
+    <validate_success>
+        Thank you, your account is now validated and you can login!
+    </validate_success>
+    <validate_fail>
+        Oops, there was a problem with the url you followed, please enter the verification
+        code from your email in the box below
+    </validate_fail>
+    <verification_code>Verification Code</verification_code>
+    <verification_code_instructions>
+        Please enter the verification code from the email you recieved below. If you
+        have not recieved the verification email, or are having trouble, you can use
+        the form below to request that the verification email be resent.
+    </verification_code_instructions>
+    <verify_resend_req>
+        You must enter either your username or e-mail address in order for the
+        verification e-mail to be resent.
+    </verify_resend_req>
+    <verify_resend_active>
+        Your account is already active... you can login now.
+    </verify_resend_active>
+    <subscribe_newsletters>Newsletters</subscribe_newsletters>
+    <billing_link>Manage Billing Details</billing_link>
+    <account_link>Manage Account Details</account_link>
+    <discount_link>Manage Discounts</discount_link>
+    <affiliate_link>Manage Affiliate Details</affiliate_link>
+    <newsletter_link>Manage Newsletters</newsletter_link>
+</translate>

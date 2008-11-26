@@ -1,0 +1,29 @@
+<report>
+<title>Account Group Membership</title> 
+	<level>
+		<sql>SELECT B.name as group_name, count(A.id) as total from %%AGILE_DB_PREFIX%%account_group A join %%AGILE_DB_PREFIX%%group B on A.group_id=B.id</sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%% and A.active=1 </criteria>
+		<orderby>GROUP BY group_name ORDER BY total DESC</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Group Name</display>
+			<field>group_name</field> 
+			<visible>true</visible>
+		</column> 	 
+		<column>
+			<display>Account Members</display>
+			<field>total</field>
+			<total>true</total>
+			<total_format>num</total_format>
+		</column>
+	</level>
+	 
+	<graph type="bar" title="Group Membership Graph" width="800" height="350" x_angle="0" direction="vertical">
+		<dataset>
+			<sql>SELECT B.name as group_name, count(A.id) as total from %%AGILE_DB_PREFIX%%account_group A join %%AGILE_DB_PREFIX%%group B on A.group_id=B.id</sql>
+			<criteria>A.site_id = %%DEFAULT_SITE%% and A.active=1 </criteria>
+			<orderby>GROUP BY group_name ORDER BY total DESC</orderby>
+		</dataset>
+	</graph> 
+	
+</report>

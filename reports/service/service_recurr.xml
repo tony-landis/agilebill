@@ -1,0 +1,80 @@
+<report>
+<title>Recurring Service Billing Forcast</title>   
+	<level>
+		<title>All Recurring Services</title> 
+		<sql>SELECT A.sku, A.account_id as account, count(id) as total, sum(price) as price from %%AGILE_DB_PREFIX%%service A</sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%% AND active=1 AND price_type=1</criteria>
+		<orderby>GROUP BY sku ORDER BY sku DESC</orderby>
+		<indent>0</indent> 
+		<column>
+			<display>SKU</display>
+			<field>sku</field> 
+			<visible>true</visible>
+			<user_criteria type="text" />
+		</column> 
+		<column>
+			<display>Total Services for SKU</display>
+			<field>total</field>
+			<total>true</total>
+			<format>num</format>
+		</column>			 
+		<column>
+			<display>Forcasted Revenue</display>
+			<field>price</field>
+			<format>dol,2</format>
+			<total>true</total>
+			<total_format>dol,2</total_format>
+		</column>	 
+	</level> 
+	
+	<break />
+	
+	<level>
+		<htmlstyle>heading</htmlstyle> 
+		<sql>SELECT A.sku, from_unixtime(date_next_invoice,"%M, %Y") as yearmonth, from_unixtime(date_next_invoice,"%Y-%m") as ord from %%AGILE_DB_PREFIX%%service A</sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%% AND active=1 AND price_type=1</criteria>
+		<orderby>GROUP BY yearmonth ORDER BY ord ASC</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Month, Year:</display>
+			<field>yearmonth</field>
+			<aggregate>true</aggregate>
+			<width></width>
+			<format></format>
+			<group_children_by>true</group_children_by>
+			<visible>true</visible>
+			<hide_dups>false</hide_dups>
+			<sql></sql>
+			<sql_criteria></sql_criteria>
+			<condition></condition>
+			<total>false</total>
+			<total_format></total_format>
+			<link></link>
+		</column>	 
+		<level> 
+			<sql>SELECT A.sku, A.account_id as account, from_unixtime(date_next_invoice,"%M, %Y") as yearmonth, count(id) as total, sum(price) as price from %%AGILE_DB_PREFIX%%service A</sql>
+			<criteria>A.site_id = %%DEFAULT_SITE%% AND active=1 AND price_type=1</criteria>
+			<orderby>GROUP BY sku ORDER BY sku DESC</orderby>
+			<indent>30</indent> 
+			<column>
+				<display>SKU</display>
+				<field>sku</field> 
+				<visible>true</visible>
+			</column> 
+			<column>
+				<display>Total Services for SKU</display>
+				<field>total</field>
+				<total>true</total>
+				<format>num</format>
+			</column>			 
+			<column>
+				<display>Forcasted Revenue</display>
+				<field>price</field>
+				<total>true</total>
+				<format>dol,2</format>
+				<total_format>dol,2</total_format>
+			</column>	 
+		</level> 
+	</level>
+		 
+</report>

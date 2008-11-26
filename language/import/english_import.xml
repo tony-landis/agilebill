@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>import</name>
+	
+	<!-- define the block title translations -->
+    <title_add></title_add>
+    <title_update></title_update>
+    <title_delete></title_delete>
+    <title_view></title_view>
+    <title_search>Import</title_search>
+	
+	<!-- define the menu lable translations -->
+    <menu>Import</menu> 
+    <menu_search>Import Plugins</menu_search>
+    	
+	<!-- define the field translations -->	
+	<field_id></field_id>	
+	<field_site_id></field_site_id>	
+	<field_date_orig></field_date_orig>	
+	<field_plugin></field_plugin>	
+	<field_module></field_module>	
+	<field_local_table></field_local_table>	
+	<field_ab_table></field_ab_table>	
+	<field_remote_id></field_remote_id>	
+	<field_ab_id></field_ab_id>	  
+
+	
+	<plugin>Import Plugin</plugin>
+	<view>Plugin Options</view>
+	
+	<ready>Ready - Click to process</ready>
+	<pending>Not ready...</pending>
+	<done>Done - Click to undue</done>
+	
+	
+</translate>

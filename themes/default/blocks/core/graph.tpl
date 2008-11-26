@@ -1,0 +1,1 @@
+{ $list->bar_graph() }

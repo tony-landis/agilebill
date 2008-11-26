@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>voip_pool</name>
+	 
+    <title_add>Add DID Pool</title_add> 
+    <title_update>View DID Pool</title_update> 
+    <title_view>List DID Pools</title_view> 
+    <title_search>Search DID Pool</title_search> 
+	<title_import>Import DIDs</title_import>
+	 
+    <menu>DID POOL</menu>
+    <menu_add>Add</menu_add> 
+    <menu_view>List</menu_view> 
+    <menu_search>Search</menu_search> 
+    <menu_import>Import</menu_import>
+    	  
+	<field_account_id>Account</field_account_id>	
+	<field_npa>NPA</field_npa>	
+	<field_nxx>NXX</field_nxx>	
+	<field_station>Station</field_station>
+	<field_filename>File to import</field_filename>
+	<field_did_plugin>DID Pool to associate imported DIDs with</field_did_plugin>
+	
+	<help_import>Select a file to import below. The file must contain a single phone number per line, in E.164 format. Duplicates will not be imported.</help_import>
+</translate>

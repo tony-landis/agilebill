@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>product_img</module>
+    <!-- define the module table name -->
+    <table>product_img</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy>product</dependancy>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>product_id</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define database indexes -->
+    <index>
+        <product>product_id</product>
+    </index>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I4</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I4</type>
+            <index>1</index>
+        </site_id>
+        <product_id>
+            <type>I4</type>
+        </product_id>
+        <type>
+            <type>L</type>
+        </type>
+        <url>
+            <type>C(255)</type>
+        </url>
+        <name>
+            <type>C(128)</type>
+        </name>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,product_id,type,url,name</add>
+        <update>id,site_id,product_id,type,url,name</update>
+        <delete>id,site_id,product_id,type,url,name</delete>
+        <view>id,site_id,product_id,type,url,name</view>
+        <search>id,site_id,product_id,type,url,name</search>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

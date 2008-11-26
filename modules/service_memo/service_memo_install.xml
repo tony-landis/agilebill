@@ -1,0 +1,33 @@
+<install>
+	<module_properties>
+		<name>service_memo</name>
+		<parent>service_memo</parent>
+		<notes><![CDATA[Handles the service memos]]></notes>
+		<dependancy>service</dependancy>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<add>
+				<name>add</name>
+			</add>
+			<update>
+				<name>update</name>
+			</update>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<view>
+				<name>view</name>
+			</view>
+			<search>
+				<name>search</name>
+			</search>
+			<search_form>
+				<name>search_form</name> 
+			</search_form>
+			<search_show>
+				<name>search_show</name> 
+			</search_show>
+		</module_method>
+	</sql_inserts>
+</install>

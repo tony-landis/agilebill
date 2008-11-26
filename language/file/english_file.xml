@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>file</name>
+	
+	<!-- define the block title translations -->
+    <title_add>Add File</title_add>
+    <title_view>View Files</title_view>
+    <title_search>Search Files</title_search>
+	
+	<!-- define the menu lable translations -->
+    <menu>Files</menu>
+    <menu_add>Add</menu_add>
+    <menu_view>List</menu_view>
+    <menu_search>Search</menu_search>
+    	
+	<!-- define the field translations -->	
+	<field_group_avail>Groups that can access this file</field_group_avail>	
+	<field_select_file>Select a file to upload</field_select_file>	
+	<field_date_orig>Creation Date</field_date_orig>	
+	<field_date_last>Last Update</field_date_last>	
+	<field_date_start>Start Date</field_date_start>	
+	<field_date_expire>Expire Date</field_date_expire>	
+	<field_file_category_id>Display In Category</field_file_category_id>	
+	<field_type>File Type</field_type>	
+	<field_size>File Size (KB)</field_size>	
+	<field_name>File Name</field_name>	
+	<field_description>Description</field_description>	
+	<field_status>Active?</field_status>	
+	<field_location_type>File location</field_location_type>
+	<field_sort_order>Sort Order</field_sort_order>
+	
+	<!-- define the help text -->
+	<help_file>
+	   This module allows you to manage your downloadable files and permissions.	
+	</help_file>
+
+    <!-- define any custom resources -->
+    <test>Test file download</test>
+    <download>Download file...</download>
+    <no_files>Sorry, there are no files in this category that you are authorized to view</no_files>
+    
+    <upload_file>Upload File</upload_file>
+    <file_url>File URL</file_url>
+    <file_path>File Path</file_path>
+    
+    <remote_file_err>Cannot open remote file!</remote_file_err>
+    <local_file_err>Cannot read local file!</local_file_err>
+    <copy_file_err>Could not save uploaded file!</copy_file_err>
+    
+    <available_files>Files Available for Download</available_files>
+    <desc_more>...more</desc_more>  			
+</translate>

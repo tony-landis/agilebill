@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>session</name>
+    <!-- define the block title translations -->
+    <title_view>View Sessions</title_view>
+    <title_search>Search Sessions</title_search>
+    <!-- define the menu lable translations -->
+    <menu>Sessions</menu>
+    <menu_view>List</menu_view>
+    <menu_search>Search</menu_search>
+    <!-- define the field translations -->
+    <field_date_orig>Creation Date</field_date_orig>
+    <field_date_last>Last Used Date</field_date_last>
+    <field_date_expire>Date of Expiration</field_date_expire>
+    <field_logged>User Logged In?</field_logged>
+    <field_ip>IP Address</field_ip>
+    <field_theme_id>Theme</field_theme_id>
+    <field_country_id>Country</field_country_id>
+    <field_language_id>Language</field_language_id>
+    <field_currency_id>Currency</field_currency_id>
+    <field_weight_id>Weight Unit</field_weight_id>
+    <field_account_id>Account</field_account_id>
+    <field_reseller_id>Reseller Account</field_reseller_id>
+    <field_affiliate_id>Affilliate Account</field_affiliate_id> 
+    <!-- define any custom resources -->
+    <statistics>User Sessions: %%count%%</statistics>
+</translate>

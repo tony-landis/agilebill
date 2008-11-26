@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install> 
+        <module_properties>
+            <name>asset_invoice</name>
+            <table>asset_invoice</table>
+            <parent>asset</parent>
+            <notes>Assign assets to pending invoices</notes>
+            <menu_display>1</menu_display>
+            <dependancy>asset</dependancy>
+            <sub_modules></sub_modules>
+        </module_properties>
+        <sql_inserts>
+            <module_method>
+                <search> 
+                    <name>search</name> 
+                    <page>%%:main</page>
+                    <menu_display>1</menu_display>
+                </search>
+                <invoice> 
+                    <name>invoice</name> 
+                </invoice>
+                <assign> 
+                    <name>assign</name> 
+                </assign>                          
+        </module_method>
+    </sql_inserts>
+</install>

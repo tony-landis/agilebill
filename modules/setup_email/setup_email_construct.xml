@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>setup_email</module>
+    <!-- define the module table name -->
+    <table>setup_email</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy/>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>name</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I4</type>
+        </id>
+        <site_id>
+            <type>I4</type>
+            <index>1</index>
+        </site_id>
+        <account_id>
+            <type>I8</type>
+        </account_id>
+        <name>
+            <type>C(128)</type>
+            <min_len>1</min_len>
+            <max_len>128</max_len>
+            <validate>any</validate>
+        </name>
+        <notes>
+            <type>X2</type>
+        </notes>
+        <type>
+            <type>L</type>
+        </type>
+        <from_name>
+            <type>C(128)</type>
+            <min_len>1</min_len>
+            <max_len>128</max_len>
+            <validate>any</validate>
+        </from_name>
+        <from_email>
+            <type>C(128)</type>
+            <min_len>1</min_len>
+            <max_len>128</max_len>
+            <validate>any</validate>
+        </from_email>
+        <cc_list>
+            <type>X2</type>
+        </cc_list>
+        <bcc_list>
+            <type>X2</type>
+        </bcc_list>
+        <server>
+            <type>C(128)</type>
+        </server>
+        <username>
+            <type>C(128)</type>
+        </username>
+        <password>
+            <type>C(128)</type>
+        </password>
+        <piping>
+            <type>C(4)</type>
+        </piping>
+        <piping_host>
+            <type>C(128)</type>
+        </piping_host>
+        <piping_username>
+            <type>C(128)</type>
+        </piping_username>
+        <piping_password>
+            <type>C(128)</type>
+        </piping_password>
+        <piping_action>
+            <type>C(4)</type>
+        </piping_action>
+        <queue>
+        	<type>L</type>
+        </queue>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,account_id,name,notes,type,from_name,from_email,cc_list,bcc_list,server,username,password,piping,piping_host,piping_username,piping_password,piping_action,queue</add>
+        <update>id,site_id,account_id,name,notes,type,from_name,from_email,cc_list,bcc_list,server,username,password,piping,piping_host,piping_username,piping_password,piping_action,queue</update>
+        <delete>id,site_id,account_id,name,notes,type,from_name,from_email,cc_list,bcc_list,server,username,password,piping,piping_host,piping_username,piping_password,piping_action,queue</delete>
+        <view>id,site_id,account_id,name,notes,type,from_name,from_email,cc_list,bcc_list,server,username,password,piping,piping_host,piping_username,piping_password,piping_action,queue</view>
+        <search>id,site_id,account_id,name,notes,type,from_name,from_email,cc_list,bcc_list,server,username,password,piping,piping_host,piping_username,piping_password,piping_action,queue</search>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

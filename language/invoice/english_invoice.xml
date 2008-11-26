@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>invoice</name>
+    <!-- define the block title translations -->
+    <title_add>Add Invoice</title_add>
+    <title_view>Invoice Number </title_view>
+    <title_search>Search Invoices</title_search>
+    <title_reconcile>Reconcile Invoice Number</title_reconcile>
+    <title_refund>Refund Invoice Number</title_refund>
+    <!-- define the menu lable translations -->
+    <menu>Invoices</menu>
+    <overview>Statistics</overview>
+    <menu_add>Add</menu_add>
+    <menu_view>List</menu_view>
+    <menu_search>Search</menu_search>
+    <!-- define the field translations -->
+    <field_id>Invoice Number</field_id>
+    <field_date_orig>Creation Date</field_date_orig>
+    <field_date_last>Last Updated</field_date_last>
+    <field_process_status>Approved?</field_process_status>
+    <field_billing_status>Balance Due</field_billing_status>
+    <field_refund_status>Refunded?</field_refund_status>
+    <field_print_status>Printed?</field_print_status>
+    <field_account_id>Account</field_account_id>
+    <field_account_billing_id>Billing Details</field_account_billing_id>
+    <field_affiliate_id>Affiliate ID</field_affiliate_id>
+    <field_campaign_id>Campaign</field_campaign_id>
+    <field_reseller_id>Reseller</field_reseller_id>
+    <field_checkout_plugin_id>Checkout Plugin</field_checkout_plugin_id>
+    <field_checkout_plugin_data>Gateway Response</field_checkout_plugin_data>
+    <field_tax_id>Tax Zone</field_tax_id>
+    <field_tax_amt>Tax Amount</field_tax_amt>
+    <field_discount_arr>Discount(s)</field_discount_arr>
+    <field_discount_amt>Discount Amount</field_discount_amt>
+    <field_total_amt>Invoice Total</field_total_amt>
+    <field_billed_amt>Billed Amount</field_billed_amt>
+    <field_billed_currency_id>Billing Currency</field_billed_currency_id>
+    <field_actual_billed_amt>Actual Billed Amount</field_actual_billed_amt>
+    <field_actual_billed_currency_id>Actual Billing Currency</field_actual_billed_currency_id>
+    <field_notice_count>Due Notices Sent</field_notice_count>
+    <field_notice_max>Max Due Notices</field_notice_max>
+    <field_notice_next_date>Next Notice Date</field_notice_next_date>
+    <field_grace_period>Grace Period (days)</field_grace_period>
+    <field_due_date>Due Date</field_due_date>
+    <field_suspend_billing>Suspend Billing Activity?</field_suspend_billing>
+    <!-- define the help text -->
+    <help_file> This module controls the invoicing </help_file>
+    <!-- define any custom resources -->
+    <statistics_new_invoices>New Invoices Created: %%count%%</statistics_new_invoices>
+    <affiliate_commissions>Affiliate Commissions</affiliate_commissions>
+    <products_ordered>Products/Services Ordered</products_ordered>
+    <print_invoice>View Printer Friendly Version</print_invoice>
+    <pay_invoice>Select Your Preferred Payment Option</pay_invoice>
+    <sales>Sales</sales>
+    <forcast>Forecast</forcast>
+    <quota>Quota</quota>
+    <arcredits>AR Credits</arcredits>
+    <arbalance>AR Balance</arbalance>
+    <users>Users</users>
+    <tickets>Tickets</tickets>
+    <affiliatesales>Affiliate Sales</affiliatesales>
+    <indicator>Indicator</indicator>
+    <period>Period</period>
+    <current>Current</current>
+    <previous>Previous</previous>
+    <change>Change</change>
+    <thisyear>This Year</thisyear>
+    <thismonth>This Month</thismonth>
+    <thisweek>This Week</thisweek>
+    <lastyear>Last Year</lastyear>
+    <lastmonth>Last Month</lastmonth>
+    <lastweek>Last Week</lastweek>
+    <today>Today</today>
+    <vs>vs</vs>
+    <weekly>Weekly</weekly>
+    <monthly>Monthly</monthly>
+    <yearly>Yearly</yearly>
+    <pay_amt>Payment Amount</pay_amt>
+    <ref_amt>Refund Amount</ref_amt>
+    <memo>Memo</memo>
+    <ref_comp>Invoice Refund Completed</ref_comp>
+    <rec_comp>Invoice Reconciliation Completed</rec_comp>
+    <rec_over>Customer overpaid by %%amt%%, please create a discount or apply this amount to another
+        invoice to balance this customnoer to balance the account. </rec_over>
+    <add_discount>Discount User</add_discount>
+    <add_view_items>View Items</add_view_items>
+    <add_finalize>Finalize Invoice</add_finalize>
+    <search_result_amount><![CDATA[The total amount of the Invoices dispayed on this page is <u>%%amount%%</u>.]]></search_result_amount>
+    <bill_force>Attempt Billing Now</bill_force>
+    
+    <search_memo>Memo Text</search_memo> 
+    <thank_you>Thank You!</thank_you>
+    <invoice_link>Click here to review your order details...</invoice_link>
+    <account_link>Click here to return to your account center...</account_link>
+    <thank_you_text><![CDATA[
+    	<p>We want to take this opportunity to thank you for your purchase! <br><br>
+		Please stick around a while and explore the rest of our product line while you are on our site! </p>
+		<p><a href="?_page=product:cat">We have so much to offer you... click here for more of our products and services. </a></p> 
+    ]]></thank_you_text>
+    <add_product>Select SKU of Product to add</add_product>
+    <add_domain>Add a Domain to Invoice</add_domain>
+    <add_ad_hoc>Add ad hoc item to Invioce</add_ad_hoc>
+    <recur_date_range>Billing Period: %%start%% - %%stop%%</recur_date_range>
+    <billing_pending>Pending Billing</billing_pending>
+    <paid>Paid in full</paid>
+    <due_invoices_notice><![CDATA[
+    	<p>You presently have unpaid invoices totaling <b>%%total%%</b>. </p> 
+    	<p>To pay all unpaid invoices now, please <a href="?_page=invoice:checkout_multiple"><b>CLICK HERE</b></a>.</p>
+    	<p>To select the invoices you wish to pay, please <a href="?_page=core:user_search&module=invoice&_next_page=user_search_show&invoice_refund_status=0&invoice_billing_status=0&_next_page_one=user_view">CLICK HERE</>.</p>
+    ]]></due_invoices_notice>
+    <due_invoices_pay><![CDATA[
+    	<p>The selected invoices total <b>%%total%%</b>. </p> 
+    	<p>To make payment, please select a payment option below.</p>
+    ]]></due_invoices_pay>
+    <pay_selected>Pay Selected Invoices</pay_selected>
+    
+    <title_items>Items Purchased</title_items>
+    <title_billing>Billing Details</title_billing>
+    <title_service>Services</title_service>
+    <title_affiliate><![CDATA[Affiliate & Campaign Details]]></title_affiliate>
+    <title_memo>Memos</title_memo> 
+    
+    <jump_pdf>Print Invoice</jump_pdf>
+    <jump_bill_force>Attempt Auto-billing Now</jump_bill_force>
+    <jump_refund>Refund Invoice</jump_refund>
+    <jump_reconcile>Reconcile Invoice</jump_reconcile>
+    <jump_void><![CDATA[Void Invoice & Services]]></jump_void>
+    <jump_approve><![CDATA[Approve Invoice & Services]]></jump_approve>
+    
+    <pdf_discounts>DISCOUNTS</pdf_discounts>
+    <pdf_total>TOTAL</pdf_total>
+    <pdf_paid>PAID</pdf_paid>
+    <pdf_due>DUE</pdf_due>
+    <pdf_date_due>DATE DUE</pdf_date_due>
+    <pdf_payment_status>PAYMENT STATUS</pdf_payment_status>
+    <pdf_invoice_number>INVOICE NUMBER</pdf_invoice_number>
+    <pdf_page>PAGE</pdf_page>
+    <pdf_date>DATE</pdf_date>
+    <pdf_invoice>INVOICE</pdf_invoice>
+    <pdf_sku_no>SKU NO</pdf_sku_no>
+    <pdf_description>DESCRIPTION</pdf_description>
+    <pdf_qty>QTY</pdf_qty>
+    <pdf_unit_cost>UNIT COST</pdf_unit_cost>
+    <pdf_total_cost>TOTAL COST</pdf_total_cost>
+    <pdf_tax>TAX</pdf_tax>
+</translate>

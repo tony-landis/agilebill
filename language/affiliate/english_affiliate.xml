@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>affiliate</name>
+    
+    <!-- define the block title translations -->
+    <title_add>Add New Affiliate</title_add>
+    <title_view>Affiliate Details</title_view>
+    <title_search>Search Affiliates</title_search>
+    <title_user_add>Affiliate Registration Form</title_user_add>
+    <title_statistics>Affiliate Statistics</title_statistics>
+    <title_campaigns><![CDATA[Affiliate Links &amp; Banners]]></title_campaigns>
+    
+    <!-- define the menu lable translations -->
+    <menu>Affiliates</menu>
+    <menu_add>Add</menu_add>
+    <menu_view>List</menu_view>
+    <menu_search>Search</menu_search>
+    <overview>Statistics</overview>
+    
+    <!-- define the field translations -->	
+    <field_id>Affiliate ID</field_id>	
+    <field_date_orig>Creation Date</field_date_orig>	
+    <field_date_last>Date of Last Change</field_date_last>	
+    <field_status>Active?</field_status>	
+    <field_account_id>Account</field_account_id>	
+    <field_avail_campaign_id>Available Campaigns</field_avail_campaign_id>	
+    <field_affiliate_plugin>Commission Payout Type</field_affiliate_plugin>	
+    <field_parent_affiliate_id>Referring Affiliate</field_parent_affiliate_id>	
+    <field_max_tiers>Maximum Tiers</field_max_tiers>	
+    <field_commission_minimum>Minimum Commission Required</field_commission_minimum>	
+    <field_new_commission_type>Commission Type for New Charges</field_new_commission_type>	
+    <field_new_commission_rate>Commissions for New Charges</field_new_commission_rate>	
+    <field_recurr_commission_type>Commission Type for Recurring Charges</field_recurr_commission_type>	
+    <field_recurr_commission_rate>Commissions for Recurring Charges</field_recurr_commission_rate>	
+    <field_recurr_max_commission_periods>Maximum Recurring Periods Commission Paid</field_recurr_max_commission_periods>	
+    <field_plugin_data>Commission Payout Details</field_plugin_data>
+    
+    <!-- define the help text -->
+    <help_file>
+        This module controls the various affiliate accounts and settings, commissions, etc.	
+    </help_file>
+    
+    <user_add_instruct>
+        Thank you for your interest in our affiliate program. Please read our commission rates and Payout options
+        below before proceeding.
+    </user_add_instruct>
+    <user_add_active>
+        Thank you for registering for an affiliate account. At this time your account has been
+        added and you may start referring new customers at once!
+    </user_add_active>
+    <user_add_inactive>
+        Thank you for your application for an affiliate account with us. We have recieved your
+        request and will notify you at once when it has been approved.
+    </user_add_inactive>
+     
+    <!-- define any custom resources -->
+    <error_acct_req>You must specify an account, please go back and fix this.</error_acct_req>
+    <error_template_invalid>The affiliate template you specified is not valid, please go back and fix this.</error_template_invalid>
+    <error_acct_aff_exist>The account you specified already has an affiliate account!</error_acct_aff_exist>
+    <error_not_authorized>The specified affiliate account no longer exists or you do not have permission to update it.</error_not_authorized>
+     
+    <none>No Commission</none>
+    <flat>Fixed Rate Commission</flat>
+    <percent>Percentage Based Commission</percent>
+    <affiliate_template>Affiliate Template</affiliate_template>
+    
+    <!-- define any plugin resources -->
+    <plugin_paypal_email>PayPal E-mail</plugin_paypal_email>
+    <plugin_moneybookers_email>MoneyBookers E-mail</plugin_moneybookers_email>
+    <plugin_ebullion_acct>E-Bullion Account Number</plugin_ebullion_acct>
+    
+    <plugin_mail_check_payee>Make Commission Checks Payable To</plugin_mail_check_payee>
+    <plugin_mail_check_address>Address</plugin_mail_check_address>
+    <plugin_mail_check_city>City</plugin_mail_check_city>
+    <plugin_mail_check_state>State/Province</plugin_mail_check_state>
+    <plugin_mail_check_zip>Zip/Postal Code</plugin_mail_check_zip>
+    <plugin_mail_check_email>Contact E-mail</plugin_mail_check_email>
+    
+    <sessions>Sessions Referred</sessions>
+    <accounts>Accounts Referred</accounts>
+    <invoices>Invoices Referred</invoices>
+    <commissions>Commissions Paid</commissions>
+    <commissions_due>Invoices Outstanding</commissions_due>
+    
+    <campaign_code>Get HTML Code</campaign_code>
+    <statistics_new_affiliates>New Affiliates</statistics_new_affiliates>
+    <graph_top>Top Affiliate Sales</graph_top>
+    <tier>Tier Number</tier>
+    
+</translate>

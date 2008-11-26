@@ -1,0 +1,121 @@
+<report>
+<title>TLD Statistics</title>  	
+	<level>  
+		<sql>SELECT A.domain_tld, count(A.id) as total, sum(B.total_amt) as total_amt from %%AGILE_DB_PREFIX%%service A join %%AGILE_DB_PREFIX%%invoice_item B on A.invoice_item_id=B.id</sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%% and A.active=1 and A.type LIKE '%domain%' </criteria>
+		<orderby>GROUP BY domain_tld ORDER BY total_amt DESC</orderby>
+		<indent>0</indent> 
+		<column>
+			<display>TLD</display>
+			<field>domain_tld</field> 
+			<visible>true</visible>
+		</column> 
+		<column>
+			<display>Total Registrations</display>
+			<field>total</field>
+			<total>true</total> 
+		</column>		 
+		<column>
+			<display>Total Sales</display>
+			<field>total_amt</field>
+			<total>true</total>
+			<total_format>dol,2</total_format>
+		</column>		 		 
+	</level>
+	
+	<break />
+	
+	<level>   
+		<htmlstyle>heading</htmlstyle> 
+		<sql>SELECT DISTINCT from_unixtime(A.date_orig,"%Y") as yearmonth, A.domain_tld, count(A.id) as total, sum(B.total_amt) as total_amt from %%AGILE_DB_PREFIX%%service A join %%AGILE_DB_PREFIX%%invoice_item B on A.invoice_item_id=B.id</sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%% and A.active=1 and A.type LIKE '%domain%' </criteria>
+		<orderby>GROUP BY yearmonth ORDER BY yearmonth</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Year:</display>
+			<field>yearmonth</field>
+			<aggregate>true</aggregate>
+			<width></width>
+			<format></format>
+			<group_children_by>true</group_children_by>
+			<visible>true</visible>
+			<hide_dups>false</hide_dups>
+			<sql></sql>
+			<sql_criteria></sql_criteria>
+			<condition></condition>
+			<total>false</total>
+			<total_format></total_format>
+			<link></link>
+		</column> 	
+		<level>
+			<sql>SELECT from_unixtime(A.date_orig,"%Y") as yearmonth, A.domain_tld, count(A.id) as total, sum(B.total_amt) as total_amt from %%AGILE_DB_PREFIX%%service A join %%AGILE_DB_PREFIX%%invoice_item B on A.invoice_item_id=B.id</sql>
+			<criteria>A.site_id = %%DEFAULT_SITE%% and A.active=1 and A.type LIKE '%domain%' </criteria>
+			<orderby>GROUP BY domain_tld ORDER BY total_amt DESC</orderby>
+			<indent>30</indent> 
+			<column>
+				<display>TLD</display>
+				<field>domain_tld</field> 
+				<visible>true</visible>
+			</column> 
+			<column>
+				<display>Total Registrations</display>
+				<field>total</field>
+				<total>true</total> 
+			</column>		 
+			<column>
+				<display>Total Sales</display>
+				<field>total_amt</field>
+				<total>true</total>
+				<total_format>dol,2</total_format>
+			</column>		 		 
+		</level> 
+	</level>
+	
+	<break />
+	
+	<level>   
+		<htmlstyle>heading</htmlstyle> 
+		<sql>SELECT DISTINCT from_unixtime(A.date_orig,"%M, %Y") as yearmonth, A.domain_tld, count(A.id) as total, sum(B.total_amt) as total_amt from %%AGILE_DB_PREFIX%%service A join %%AGILE_DB_PREFIX%%invoice_item B on A.invoice_item_id=B.id</sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%% and A.active=1 and A.type LIKE '%domain%' </criteria>
+		<orderby>GROUP BY yearmonth ORDER BY yearmonth</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Month, Year:</display>
+			<field>yearmonth</field>
+			<aggregate>true</aggregate>
+			<width></width>
+			<format></format>
+			<group_children_by>true</group_children_by>
+			<visible>true</visible>
+			<hide_dups>false</hide_dups>
+			<sql></sql>
+			<sql_criteria></sql_criteria>
+			<condition></condition>
+			<total>false</total>
+			<total_format></total_format>
+			<link></link>
+		</column> 	
+		<level>
+			<sql>SELECT from_unixtime(A.date_orig,"%M, %Y") as yearmonth, A.domain_tld, count(A.id) as total, sum(B.total_amt) as total_amt from %%AGILE_DB_PREFIX%%service A join %%AGILE_DB_PREFIX%%invoice_item B on A.invoice_item_id=B.id</sql>
+			<criteria>A.site_id = %%DEFAULT_SITE%% and A.active=1 and A.type LIKE '%domain%' </criteria>
+			<orderby>GROUP BY domain_tld ORDER BY total_amt DESC</orderby>
+			<indent>30</indent> 
+			<column>
+				<display>TLD</display>
+				<field>domain_tld</field> 
+				<visible>true</visible>
+			</column> 
+			<column>
+				<display>Total Registrations</display>
+				<field>total</field>
+				<total>true</total> 
+			</column>		 
+			<column>
+				<display>Total Sales</display>
+				<field>total_amt</field>
+				<total>true</total>
+				<total_format>dol,2</total_format>
+			</column>		 		 
+		</level> 
+	</level>	
+</report>

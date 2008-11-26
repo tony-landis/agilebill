@@ -1,0 +1,46 @@
+<install>
+	<module_properties>
+		<name>voip_rate</name>
+		<parent>voip</parent>
+		<notes><![CDATA[This module allows you to rate and bill CDRs]]></notes>
+		<menu_display>1</menu_display>
+		<dependancy>voip</dependancy>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<search>
+				<name>search</name>
+			</search>
+			<run>
+				<name>run</name>
+			</run>
+			<view>
+				<name>view</name>
+				<page><![CDATA[core:search&module=%%&_escape=1&_next_page_one=view]]></page>
+				<menu_display>1</menu_display>
+			</view>
+			<import>
+				<name>import</name>
+				<page><![CDATA[core:import_new&module=%%]]></page>
+				<menu_display>1</menu_display>
+			</import>
+			<add>
+				<name>add</name>
+				<menu_display>1</menu_display>
+			</add>			
+			<products>
+				<name>products</name>
+				<menu_display>1</menu_display>
+			</products>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<update>
+				<name>update</name>
+			</update>
+			<search_show>
+				<name>search_show</name>
+			</search_show> 
+		</module_method>
+	</sql_inserts>
+</install>

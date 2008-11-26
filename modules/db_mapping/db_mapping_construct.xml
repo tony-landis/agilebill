@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>db_mapping</module>
+    <!-- define the module table name -->
+    <table>db_mapping</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy/>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>name</order_by>
+    <!-- define the methods -->
+    <limit>25</limit> 
+    <index>
+        <name>name</name>
+        <type>status,type</type> 
+    </index>    
+    <field>
+        <id>
+            <type>I8</type>
+            <unique>1</unique> 
+        </id>
+        <site_id>
+            <type>I4</type> 
+        </site_id>
+        <name>
+            <type>C(128)</type>
+            <min_len>3</min_len>
+            <max_len>128</max_len>
+            <validate>any</validate>
+        </name>
+        <notes>
+            <type>X2</type>
+        </notes>
+        <status>
+            <type>L</type>
+        </status>
+        <type>
+            <type>C(16)</type>
+        </type>
+        <db_name>
+            <type>C(128)</type>
+            <min_len>1</min_len>
+            <max_len>128</max_len>
+            <validate>any</validate>
+        </db_name>
+        <db_host>
+            <type>C(128)</type>
+            <min_len>2</min_len>
+            <max_len>128</max_len>
+            <validate>any</validate>
+        </db_host>
+        <db_prefix>
+            <type>C(128)</type>
+        </db_prefix>
+        <db_user>
+            <type>C(128)</type>
+        </db_user>
+        <db_pass>
+            <type>C(128)</type>
+        </db_pass>
+        <cookie_name>
+            <type>C(128)</type>
+        </cookie_name>
+        <group_map>
+            <type>X</type>
+            <convert>array</convert>
+        </group_map>
+        <group_rank>
+            <type>X</type>
+            <convert>array</convert>
+        </group_rank>
+        <map_file>
+            <type>C(128)</type>
+            <min_len>4</min_len>
+            <max_len>128</max_len>
+        </map_file>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,name,notes,status,type,db_name,db_host,db_user,db_pass,db_prefix,cookie_name,group_map,map_file,group_rank</add>
+        <update>id,site_id,name,notes,status,type,db_name,db_host,db_user,db_pass,db_prefix,cookie_name,group_map,map_file,group_rank</update>
+        <delete>id,site_id,name,notes,status,type,db_name,db_host,db_user,db_pass,db_prefix,cookie_name,group_map,map_file,group_rank</delete>
+        <view>id,site_id,name,notes,status,type,db_name,db_host,db_user,db_pass,db_prefix,cookie_name,group_map,map_file,group_rank</view>
+        <search>id,site_id,name,notes,status,type,db_name,db_host,db_user,db_pass,db_prefix,cookie_name,group_map,map_file,group_rank</search>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

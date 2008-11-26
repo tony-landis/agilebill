@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+  <host_tld>
+       <id>1</id>
+       <site_id>1</site_id>
+       <status>1</status>
+       <name>com</name>
+       <taxable>0</taxable>
+       <whois_plugin>DEFAULT</whois_plugin>
+       <whois_plugin_data><![CDATA[a:2:{s:12:"whois_server";s:16:"whois.crsnic.net";s:14:"avail_response";s:12:"No match for";}]]></whois_plugin_data>
+       <registrar_plugin_id>1</registrar_plugin_id>
+       <registrar_plugin_data><![CDATA[a:1:{i:0;s:0:"";}]]></registrar_plugin_data>
+       <auto_search>1</auto_search>
+       <default_term_new>1</default_term_new>
+       <price_group><![CDATA[a:11:{i:0;a:3:{s:4:"show";s:1:"0";i:0;a:1:{s:8:"register";s:0:"";}i:2;a:1:{s:8:"register";s:0:"";}}i:1;a:3:{s:4:"show";s:1:"1";i:0;a:3:{s:8:"register";s:2:"10";s:5:"renew";s:2:"10";s:8:"transfer";s:2:"10";}i:2;a:3:{s:8:"register";s:2:"10";s:5:"renew";s:2:"10";s:8:"transfer";s:2:"10";}}i:2;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}i:3;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}i:4;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}i:5;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}i:6;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}i:7;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}i:8;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}i:9;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}i:10;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}}]]></price_group>
+  </host_tld>
+  <host_tld>
+       <id>2</id>
+       <site_id>1</site_id>
+       <status>1</status>
+       <name>net</name>
+       <taxable>1</taxable>
+       <whois_plugin>DEFAULT</whois_plugin>
+       <whois_plugin_data><![CDATA[a:2:{s:12:"whois_server";s:16:"whois.crsnic.net";s:14:"avail_response";s:12:"No match for";}]]></whois_plugin_data>
+       <registrar_plugin_id>1</registrar_plugin_id>
+       <registrar_plugin_data><![CDATA[a:1:{i:0;s:0:"";}]]></registrar_plugin_data>
+       <auto_search>1</auto_search>
+       <default_term_new>1</default_term_new>
+       <price_group><![CDATA[a:11:{i:0;a:3:{s:4:"show";s:1:"1";i:0;a:1:{s:8:"register";s:2:"10";}i:2;a:1:{s:8:"register";s:2:"10";}}i:1;a:3:{s:4:"show";s:1:"1";i:0;a:3:{s:8:"register";s:2:"15";s:5:"renew";s:2:"15";s:8:"transfer";s:2:"15";}i:2;a:3:{s:8:"register";s:2:"15";s:5:"renew";s:2:"15";s:8:"transfer";s:2:"15";}}i:2;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}i:3;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}i:4;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}i:5;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}i:6;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}i:7;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}i:8;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}i:9;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}i:10;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}}]]></price_group>
+  </host_tld>
+  <host_tld>
+       <id>3</id>
+       <site_id>1</site_id>
+       <status>1</status>
+       <name>org</name>
+       <taxable>1</taxable>
+       <whois_plugin>DEFAULT</whois_plugin>
+       <whois_plugin_data><![CDATA[a:2:{s:12:"whois_server";s:32:"whois.publicinterestregistry.net";s:14:"avail_response";s:9:"NOT FOUND";}]]></whois_plugin_data>
+       <registrar_plugin_id>1</registrar_plugin_id>
+       <registrar_plugin_data><![CDATA[a:1:{i:0;s:0:"";}]]></registrar_plugin_data>
+       <auto_search>1</auto_search>
+       <default_term_new>2</default_term_new>
+       <price_group><![CDATA[a:11:{i:0;a:3:{s:4:"show";s:1:"0";i:0;a:1:{s:8:"register";s:0:"";}i:2;a:1:{s:8:"register";s:0:"";}}i:1;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}i:2;a:3:{s:4:"show";s:1:"1";i:0;a:3:{s:8:"register";s:2:"20";s:5:"renew";s:2:"20";s:8:"transfer";s:2:"20";}i:2;a:3:{s:8:"register";s:2:"20";s:5:"renew";s:2:"20";s:8:"transfer";s:2:"20";}}i:3;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}i:4;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}i:5;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}i:6;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}i:7;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}i:8;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}i:9;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}i:10;a:3:{s:4:"show";s:1:"0";i:0;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}i:2;a:3:{s:8:"register";s:0:"";s:5:"renew";s:0:"";s:8:"transfer";s:0:"";}}}]]></price_group>
+  </host_tld>
+  <host_tld_id>
+       <id>3</id>
+  </host_tld_id>
+</install>

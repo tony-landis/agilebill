@@ -1,0 +1,125 @@
+<report>
+<title>User Preferences</title>
+	 
+	<level>
+		<title>By Language</title>
+		<sql>SELECT UCASE(language_id) as name, count(A.id) as total from %%AGILE_DB_PREFIX%%account A</sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+		<orderby>GROUP BY name ORDER BY total DESC</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Language</display>
+			<field>name</field>  
+		</column>
+		<column>
+			<display>Accounts</display>
+			<field>total</field> 
+		</column> 
+	</level>			
+	<break />
+	<graph type="bar" title="" width="500" height="200" direction="vertical">
+		<dataset>
+			<sql>SELECT UCASE(language_id) as name, count(A.id) as total from %%AGILE_DB_PREFIX%%account A</sql>
+			<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+			<orderby>GROUP BY name ORDER BY total DESC</orderby>
+		</dataset>
+	</graph>
+	<break />
+	
+		 
+		 
+	<level>
+		<title>By Currency</title>
+		<sql>SELECT UCASE(B.name) as name, count(A.id) as total from %%AGILE_DB_PREFIX%%account A join %%AGILE_DB_PREFIX%%currency B on (A.currency_id=B.id)</sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+		<orderby>GROUP BY name ORDER BY total DESC</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Currency</display>
+			<field>name</field>  
+		</column>
+		<column>
+			<display>Accounts</display>
+			<field>total</field> 
+		</column> 
+	</level>			
+	<break />
+	<graph type="bar" title="" width="500" height="300" direction="vertical">
+		<dataset>
+			<sql>SELECT UCASE(B.name) as name, count(A.id) as total from %%AGILE_DB_PREFIX%%account A join %%AGILE_DB_PREFIX%%currency B on (A.currency_id=B.id)</sql>
+			<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+			<orderby>GROUP BY name ORDER BY total DESC</orderby>
+		</dataset>
+	</graph>
+	<break />
+	
+			 
+	<level>
+		<title>By Site Theme</title>
+		<sql>SELECT UCASE(theme_id) as name, count(A.id) as total from %%AGILE_DB_PREFIX%%account A</sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+		<orderby>GROUP BY name ORDER BY total DESC</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Theme</display>
+			<field>name</field>  
+		</column>
+		<column>
+			<display>Accounts</display>
+			<field>total</field> 
+		</column> 
+	</level>			
+	<break />
+	<graph type="bar" title="" width="500" height="200" direction="vertical">
+		<dataset>
+			<sql>SELECT UCASE(theme_id) as name, count(A.id) as total from %%AGILE_DB_PREFIX%%account A</sql>
+			<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+			<orderby>GROUP BY name ORDER BY total DESC</orderby>
+		</dataset>
+	</graph>
+	<break />
+	 
+		 
+	<level>
+		<title>By Account Title</title>
+		<sql>SELECT UCASE(title) as name, count(A.id) as total from %%AGILE_DB_PREFIX%%account A</sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+		<orderby>GROUP BY name ORDER BY total DESC</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Title</display>
+			<field>name</field>  
+		</column>
+		<column>
+			<display>Accounts</display>
+			<field>total</field> 
+		</column> 
+	</level>			
+	<break />
+	<graph type="bar" title="" width="500" height="250" direction="vertical">
+		<dataset>
+			<sql>SELECT UCASE(title) as name, count(A.id) as total from %%AGILE_DB_PREFIX%%account A</sql>
+			<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+			<orderby>GROUP BY name ORDER BY total DESC</orderby>
+		</dataset>
+	</graph>
+	<break />
+	
+	
+	<level>
+		<title>By E-mail Formatting Preference</title>
+		<sql>SELECT UCASE(email_type) as name, count(A.id) as total from %%AGILE_DB_PREFIX%%account A</sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+		<orderby>GROUP BY name ORDER BY total DESC</orderby>
+		<indent>0</indent>
+		<column>
+			<display>0=Plain, 1=HTML Formatted</display>
+			<field>name</field>  
+		</column>
+		<column>
+			<display>Accounts</display>
+			<field>total</field> 
+		</column> 
+	</level>		 
+	 
+</report>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate> 	
+        <menu>VoIP</menu> 
+		<menu_config>VoIP Configuration</menu_config> 
+		
+        <field_date_orig>Date</field_date_orig>
+        <field_status>Invoiced?</field_status>
+        <field_sweep_type>Sweep Type</field_sweep_type>
+        <field_account_id>Account</field_account_id>
+        <field_product_id>Product SKU</field_product_id>
+        <field_service_id>Service</field_service_id>
+        <field_amount>Amount</field_amount>
+        <field_quantity>Quantity</field_quantity>
+        <field_taxable>Taxable</field_taxable>
+        <field_attributes>Attributes</field_attributes> 
+        <field_dst>From</field_dst>
+        <field_src>To</field_src>
+        <field_amount>Amount</field_amount>
+        <field_duration>Duration</field_duration>
+        <field_default_prefix>Default NPA prepended to US 7 digit dialing</field_default_prefix>
+        <field_prepaid_low_balance>Amount at which prepaid low balance email notifications are sent</field_prepaid_low_balance>
+		<field_auth_domain>Provisioning Auth Domain (eg: SER SIP domain)</field_auth_domain>
+		
+		<user_menu>My Voice Center</user_menu>
+		<user_features>Features</user_features>
+		<user_overview>Overview</user_overview>
+		<user_activity>Activity</user_activity>
+		<user_fax>Faxes</user_fax>
+		<user_voicemail>Voicemail</user_voicemail>
+		<user_blacklist>Blacklist</user_blacklist> 
+		<user_blacklist_add>Add a Blacklist</user_blacklist_add> 
+		<user_blacklist_list>List all Blacklists</user_blacklist_list> 
+		<user_callforwarding>Call Forwarding</user_callforwarding>
+		<user_busycallforwarding>Busy Call Forwarding</user_busycallforwarding>
+		<user_faxing>Faxing</user_faxing>
+		<user_failover>Failover Number</user_failover>
+		<user_remote_callforward>Remote Call Forwarding</user_remote_callforward>
+		<user_callwaiting>Call Waiting</user_callwaiting>
+		 
+		<out_calls>Placed Calls</out_calls>
+		<in_calls>Received Calls</in_calls>
+		<no_calls>No calls for this period</no_calls>
+		<out_calls_last>Last 25 Placed Calls</out_calls_last>
+		<in_calls_last>Last 25 Received Calls</in_calls_last>
+		<color_guide>Incoming call color guide</color_guide>
+		<color_a>Call answered</color_a>
+		<color_v>Call routed to voicemail</color_v>
+		<color_f>Call routed to fax</color_f>
+		<color_c>Prepaid Call</color_c>
+		
+		<phoneno>Phone Number</phoneno>
+		<vm1>Forward calls to voicemail after</vm1>
+		<seconds>seconds</seconds>
+		<vmemail>Send email notification to</vmemail>
+		<ringfor>Will ring for</ringfor>
+		<secbefore>seconds before being forwarded to</secbefore>
+		<busyforward>If this line is busy, then will forward the call to</busyforward>
+		<emailfaxes>Send new faxes for this line to e-mail address</emailfaxes>
+		<outageno>In the event of Internet outage, redirect calls for this line to</outageno>
+		<remoteforwardline>Forward calls for this line to</remoteforwardline>
+		<view_blacklist>View Blacklisted Numbers</view_blacklist>
+		<add_blacklist>Add Blacklisted Number</add_blacklist>
+		<callwaiting>Enable Call waiting. Note: In order for Busy Call Forwarding to work, you must disable Call Waiting.</callwaiting>
+		
+        <title_config>VoIP Configuration</title_config>
+		<type_random>Randomly Generated</type_random>
+        <type_reverse>Reverse of the DID assigned</type_reverse>
+        <type_same>Same as the DID assigned</type_same>
+        <field_default_vm_passwd>Default Voicemail PIN/Passcode</field_default_vm_passwd>
+        <field_secret_generation>Method used for SIP/IAX secret provisioning</field_secret_generation>
+        <field_intrastate_npas>Your Intrastate NPAs for calculations</field_intrastate_npas>
+        <field_intrastate_npas_note>(comma separated)</field_intrastate_npas_note>
+        <field_postpaid_only>(for post-paid rating only)</field_postpaid_only>
+        <field_perform_normalization>Perform CDR normalization</field_perform_normalization>
+        <field_normalization_min_len>Minimum length for a number to be normalized</field_normalization_min_len>		
+</translate>

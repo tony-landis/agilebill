@@ -1,0 +1,38 @@
+<report>
+<title>New Customers</title> 
+  <level>     
+	<sql>SELECT DISTINCT from_unixtime(A.date_orig,"%Y-%m-%d") as ymd from %%AGILE_DB_PREFIX%%account A</sql>  
+    <criteria>A.site_id = %%DEFAULT_SITE%%</criteria> 
+    <orderby>ORDER BY ymd DESC</orderby>
+	<indent>0</indent> 
+	<column> 
+		<field>ymd</field>
+		<display>Date</display>
+		<aggregate>true</aggregate>
+		<width></width>
+		<format></format>
+		<group_children_by>true</group_children_by>
+		<visible>true</visible>
+		<hide_dups>false</hide_dups>
+		<sql></sql>
+		<sql_criteria></sql_criteria>
+		<condition></condition>
+		<total>false</total>  
+	</column>		 	 
+	<level> 		
+		<sql>SELECT from_unixtime(A.date_orig,"%Y-%m-%d") as ymd, A.email, CONCAT(A.first_name,' ', A.last_name) as name from %%AGILE_DB_PREFIX%%account A</sql>  
+	    <criteria>A.site_id = %%DEFAULT_SITE%% </criteria>
+	    <orderby>ORDER BY name DESC</orderby>
+		<indent>0</indent> 
+		<column>
+			<display>Name</display>
+			<field>name</field> 
+		</column>  
+		<column>
+			<display>E-mail</display>
+			<field>email</field>  
+		</column>		
+	</level>		  
+	<break />	   
+  </level>				 
+</report>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate> 
+    <title_add>Add Net Terms</title_add> 
+    <title_view>View Net Terms</title_view>
+    
+    <menu>Net Terms</menu>
+    <menu_add>Add</menu_add> 
+    <menu_view>List</menu_view> 
+    	 
+	<field_status>Enabled?</field_status>	
+	<field_group_avail>Available to Groups</field_group_avail>	
+	<field_checkout_id>Available to Checkout Plugin</field_checkout_id>	
+	<field_name>Name</field_name>	
+	<field_sku>SKU</field_sku>	
+	<field_fee_type>Fee Type</field_fee_type>	
+	<field_fee>Late Fee</field_fee>	
+	<field_terms>Terms (eg: 15,30,90)</field_terms>	
+	<field_suspend_intervals>Suspend after Intervals</field_suspend_intervals>	
+	<field_enable_emails>Enable E-mails?</field_enable_emails>	
+	<field_sweep_type>Charge Sweep Type</field_sweep_type>	       			
+</translate>

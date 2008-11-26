@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+  <product_cat_translate>
+       <id>2</id>
+       <site_id>1</site_id>
+       <product_cat_id>1</product_cat_id>
+       <language_id>english</language_id>
+       <name>Sample Directory</name>
+       <description><![CDATA[You can edit this category as needed, of course you can include any html in this description that you like - <a href="http://google.com/" target="_blank">links</a>, 
+  images, <strong>font</strong> <font size="3">sizes</font> and <font color="#3399ff">colors</font>, 
+  etc...]]></description>
+  </product_cat_translate>
+  <product_cat_translate>
+       <id>3</id>
+       <site_id>1</site_id>
+       <product_cat_id>5</product_cat_id>
+       <language_id>english</language_id>
+       <name>Membership</name>
+       <description>View our selection of memberships</description>
+  </product_cat_translate>
+  <product_cat_translate>
+       <id>5</id>
+       <site_id>1</site_id>
+       <product_cat_id>7</product_cat_id>
+       <language_id>english</language_id>
+       <name>test</name>
+       <description>test</description>
+  </product_cat_translate>
+  <product_cat_translate_id>
+       <id>6</id>
+  </product_cat_translate_id>
+</install>

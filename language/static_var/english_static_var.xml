@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>static_var</name>
+    <!-- define the block title translations -->
+    <title_add>Add Custom Fields</title_add>
+    <title_update>Update Custom Field</title_update>
+    <title_view>View Custom Fields</title_view>
+    <!-- define the menu lable translations -->
+    <menu>Custom Fields</menu>
+    <menu_add>Add</menu_add>
+    <menu_view>List</menu_view>
+    <!-- define the field translations -->
+    <field_name>Custom Field Name</field_name>
+    <field_description>Description</field_description>
+    <field_input_format>Input Format</field_input_format>
+    <field_validation_type>Validation Type</field_validation_type>
+    <field_convert_type>Conversion Type</field_convert_type>
+    <!-- define the help file -->
+    <help_file> The Custom Field module defines specific field types that can be collected on your
+        own custom forms at registration and in tickers. </help_file>
+    <!-- define any custom resources -->
+    <small_text>Small text field</small_text>
+    <medium_text>Medium text field</medium_text>
+    <large_text>Large text area</large_text>
+    <dropdown_list>Dropdown list</dropdown_list>
+    <calendar>Calendar Popup</calendar>
+    <file_upload>File upload</file_upload>
+    <status>Status Select</status>
+    <checkbox>Checkbox</checkbox>
+    <hidden>Hidden Field</hidden>
+    <none>None</none>
+    <date>Date</date>
+    <md5>MD5 Encrypt</md5>
+    <rc5>RC5 Encrypt</rc5>
+    <crypt>Crypt Encrypt</crypt>
+    <gpg>GPG Encrypt</gpg>
+    <pgp>PGP Encrypt</pgp>
+    <array>Serialize Array</array>
+    <any>Any</any>
+    <email>Email</email>
+    <date>Date</date>
+    <address>Street Address</address>
+    <zip>Zip Code</zip>
+    <phone>Phone or Fax No.</phone>
+    <credit_card>Credit Card No.</credit_card>
+    <numeric>Any Number(s)</numeric>
+    <alphanumeric>Any Alpha-numberic data</alphanumeric>
+    <non_numeric>Any Non-numberic data</non_numeric>
+</translate>

@@ -1,0 +1,40 @@
+<install>
+	<module_properties>
+		<name>product_cat</name>
+		<parent>product</parent>
+		<notes><![CDATA[This module controls the product categories]]></notes>
+		<menu_display>1</menu_display>
+		<dependancy>product</dependancy>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<add>
+				<name>add</name>
+				<page><![CDATA[%%:add]]></page>
+				<menu_display>1</menu_display>
+			</add>
+			<search_form>
+				<name>search_form</name>
+				<notes><![CDATA[Allow users to view the search form]]></notes>
+			</search_form>
+			<search>
+				<name>search</name>
+			</search>
+			<view>
+				<name>view</name>
+				<page><![CDATA[core:search&module=%%&_escape=1&_next_page_one=view]]></page>
+				<menu_display>1</menu_display>
+			</view>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<update>
+				<name>update</name>
+			</update>
+			<search_show>
+				<name>search_show</name>
+				<notes><![CDATA[Allow users to view the search results]]></notes>
+			</search_show>
+		</module_method>
+	</sql_inserts>
+</install>

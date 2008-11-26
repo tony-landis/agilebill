@@ -1,0 +1,41 @@
+<report>
+<title>Services By SKU</title>  
+ 
+	<graph type="bar" title="" width="800" height="400" x_angle="0" direction="vertical">
+		<dataset>
+			<sql>SELECT sku, sum(price) as total_amt from %%AGILE_DB_PREFIX%%service A</sql>
+			<criteria>A.site_id = %%DEFAULT_SITE%% and A.active=1 </criteria>
+			<orderby>GROUP BY sku ORDER BY total_amt DESC</orderby>
+		</dataset>
+	</graph>
+	
+		<break />
+	
+	<level>
+		<title>All SKU's</title> 
+		<sql>SELECT sku, count(id) as total, sum(price) as total_amt from %%AGILE_DB_PREFIX%%service A</sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%% and A.active=1 </criteria>
+		<orderby>GROUP BY sku ORDER BY total_amt DESC</orderby>
+		<indent>0</indent>		
+		<column>
+			<display>SKU</display>
+			<field>sku</field> 
+			<visible>true</visible>
+			<user_criteria type="text" />
+		</column> 
+		<column>
+			<display>Total</display>
+			<field>total</field>
+			<total>true</total>
+			<format>num</format>
+		</column>		
+		<column>
+			<display>Sales Amount</display>
+			<field>total_amt</field>
+			<total>true</total>
+			<format>dol,2</format>
+			<total_format>dol,2</total_format>
+		</column>			 
+	</level>
+		 
+</report>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>product_cat</module>
+    <!-- define the module table name -->
+    <table>product_cat</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy>product</dependancy>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>position</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define database indexes -->
+    <index>
+        <status>status</status>
+        <position>position</position>
+        <name>name</name>
+    </index>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I4</type>
+            <unique>1</unique> 
+        </id>
+        <site_id>
+            <type>I4</type> 
+        </site_id>
+        <parent_id>
+        	 <type>I4</type> 
+        </parent_id>
+        <group_avail>
+            <type>X2</type>        
+            <convert>array</convert>
+            <validate>any</validate>
+        </group_avail>
+        <name>
+            <type>C(32)</type>
+            <min_len>2</min_len>
+            <max_len>32</max_len>
+            <validate>any</validate>
+        </name>
+        <notes>
+            <type>C(255)</type>
+        </notes>
+        <status>
+            <type>L</type>
+        </status>
+        <template>
+            <type>C(128)</type>
+        </template>
+        <thumbnail>
+            <type>C(128)</type>
+        </thumbnail>
+        <image>
+            <type>C(128)</type>
+        </image>
+        <position>
+            <type>I4</type> 
+        </position>
+        <max>
+            <type>I4</type>
+            <validate>numeric</validate>
+        </max>        
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,name,notes,status,template,thumbnail,image,position,max,group_avail,parent_id</add>
+        <update>id,site_id,name,notes,status,template,thumbnail,image,position,max,group_avail,parent_id</update>
+        <delete>id,site_id,name,notes,status,template,thumbnail,image,position,max,group_avail,parent_id</delete>
+        <view>id,site_id,name,notes,status,template,thumbnail,image,position,max,group_avail,parent_id</view>
+        <search>id,site_id,name,notes,status,template,thumbnail,image,position,max,group_avail,parent_id</search>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

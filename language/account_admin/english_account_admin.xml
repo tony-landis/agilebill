@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>account_admin</name>
+    
+    <!-- define the block title translations -->
+    <title_add>Add Account</title_add>
+    <title_update>Update Account</title_update>
+    <title_delete>Delete Account</title_delete>
+    <title_view>View Account</title_view>
+    <title_search>Search Accounts</title_search>
+    <title_list>List All Accounts</title_list>
+    <title_import>Import Accounts</title_import>
+    <title_mail>Send E-mail</title_mail>
+    
+    <!-- define the menu lable translations -->
+    <menu>Accounts</menu>
+    <menu_add>Add</menu_add>
+    <menu_view>List</menu_view>
+    <menu_search>Search</menu_search>
+    <menu_list>List All Accounts</menu_list>
+    <menu_import>Import Accounts</menu_import>
+    <menu_mail_one>Send E-mail</menu_mail_one> 
+    
+    <!-- define the field translations -->	
+    <field_id>Acount ID</field_id>	
+    <field_site_id>Site ID</field_site_id>	
+    <field_date_orig>Creation Date</field_date_orig>	
+    <field_date_last>Date of Last Update</field_date_last>	
+    <field_date_expire>Expiration Date</field_date_expire>	
+    <field_parent_id>Parent Account</field_parent_id>	
+    <field_language_id>Language</field_language_id>	
+    <field_country_id>Country</field_country_id>	
+    <field_affiliate_id>Affiliate</field_affiliate_id>	
+    <field_campaign_id>Campaign</field_campaign_id>	
+    <field_reseller_id>Reseller</field_reseller_id>	
+    <field_currency_id>Currency</field_currency_id>	
+    <field_theme_id>Theme</field_theme_id>	
+    <field_username>Username</field_username>	
+    <field_password>Password</field_password>	
+    <field_change_username>Update Username Requested</field_change_username>	
+    <field_change_password>Update Password Requested</field_change_password>	
+    <field_change_key>Username/Password Update Key</field_change_key>	
+    <field_secret_question>Secret Question</field_secret_question>	
+    <field_secret_answer>Secret Answer</field_secret_answer>	
+    <field_inherit_group>Child Accounts Inherit Parent's Groups?</field_inherit_group>	
+    <field_misc>Account Notes</field_misc>	
+    <field_status>Account Active?</field_status>	
+    <field_first_name>First Name</field_first_name>	
+    <field_middle_name>Middle Name</field_middle_name>	
+    <field_last_name>Last Name</field_last_name>	
+    <field_title>Title/Suffix</field_title>	
+    <field_email>E-mail Address</field_email>
+    <field_email_html>HTML E-mail OK?</field_email_html>
+    <field_address1>Street Address</field_address1>
+    <field_address2>Street Address 2</field_address2>
+    <field_city>City</field_city>
+    <field_state>State/Province</field_state>
+    <field_zip>Zip/Postal Code</field_zip>	
+    <field_company>Company</field_company> 
+    <field_invoice_delivery>Default Invoice Delivery Method</field_invoice_delivery> 
+	<field_invoice_show_itemized>Show itemized detail pages</field_invoice_show_itemized>
+	<field_invoice_grace>Invoice Grace Period (days)</field_invoice_grace>
+	<field_invoice_advance_gen>Invoice Advance Generation (days)</field_invoice_advance_gen>
+	<field_max_child>Max Child Accounts</field_max_child>
+    
+    <!-- define the help file -->
+    <overview>Statistics</overview> 
+    
+    <!-- define any custom resources --> 	
+    <mr>Mr.</mr>	
+    <ms>Ms.</ms>		
+    <mrs>Mrs.</mrs>
+    <miss>Miss.</miss>
+    <dr>Dr.</dr>
+    <prof>Prof</prof>
+    <staff_add_active>The user has been added, and the account has been set as active.</staff_add_active>
+    <staff_add_inactive>The user has been added, and the account has been set as inactive.</staff_add_inactive>
+    <password_change_instructions>The user has been e-mailed the password reset link and instructions</password_change_instructions>
+    <account_verify_instructions>The user has been e-mailed the account verification link and instructions</account_verify_instructions>
+    <resend_verify_email>Resend user verification e-mail</resend_verify_email>
+    <send_password_reset>Send user password reset link</send_password_reset>
+    <statistics_new_accounts>New Accounts Created: %%count%%</statistics_new_accounts>
+    <mail_from>From Account</mail_from>
+    <mail_to>To Account</mail_to>
+    <mail_subject>Subject</mail_subject>
+    <mail_message>Message</mail_message>
+    <mail_priority>High Priority?</mail_priority>
+    <mail_sent>The e-mail was sent to the specified account(s)</mail_sent>
+    <mail_multi>Send to all search results</mail_multi>
+    <account_nonexist>The specified account does not exist!</account_nonexist>
+    <account_group>Account Member of Group</account_group>
+    <account_non_group>Account Non-member of Group</account_non_group> 
+    <graph_top>Top User Sales</graph_top>   
+    <blank_to_autogen>Leave blank to allow the system auto-generate</blank_to_autogen>
+    <welcome_email>Send user welcome email?</welcome_email>
+    
+    <menu_overview>Account Overview</menu_overview>
+    <menu_details><![CDATA[Login &amp; Contact Details]]></menu_details>
+    <menu_settings>Account Settings</menu_settings>
+    <menu_custom_fields>Custom Fields</menu_custom_fields> 
+    <menu_notes>Notes</menu_notes>
+    <restore_overview>Click here to restore account overview...</restore_overview>
+    <last_activity>Last Activity</last_activity> 
+    <invoice_overview>Invoice Overview</invoice_overview>
+    <service_overview>Service Overview</service_overview>
+    
+    <jump><![CDATA[ ---- QUICK ACTIONS ---- ]]></jump>       
+    <jump_become>Become User</jump_become> 
+    <jump_merge>Merge User Accounts</jump_merge>
+    <jump_email>Send E-mail to User</jump_email>
+    <jump_verify_email>Resend Verification E-mail</jump_verify_email>
+    <jump_pw>Password Reminder</jump_pw>
+    <jump_suspend>Suspend User Login</jump_suspend>
+    <jump_unsuspend>Unsuspend User Login</jump_unsuspend>
+    <jump_refresh>Refresh View</jump_refresh>
+     
+    <jump_view><![CDATA[ ----- QUICK VIEW ----- ]]></jump_view>
+    <jump_memos>Memos</jump_memos>      
+    <jump_login_logs>Login Logs</jump_login_logs>
+    <jump_sessions>Sessions</jump_sessions>
+    <jump_invoices>Invoices</jump_invoices>
+    <jump_services>Services</jump_services>
+    <jump_billing>Billing Details</jump_billing>
+    <jump_discounts>Discounts</jump_discounts>
+    <jump_tickets>Tickets</jump_tickets>
+    <jump_affiliate>Affiliate Details</jump_affiliate>
+    <jump_subaccount>Sub-Accounts</jump_subaccount>
+    <jump_parentaccount>Parent Account</jump_parentaccount>
+    
+    <jump_add><![CDATA[ ----- QUICK ADD ----- ]]></jump_add> 
+    <jump_add_memo>Memo</jump_add_memo>    
+    <jump_add_invoice>Invoice</jump_add_invoice>
+    <jump_add_service>Service</jump_add_service> 
+    <jump_add_billing>Billing Details</jump_add_billing>
+    <jump_add_discount>Discount</jump_add_discount>
+    <jump_add_ticket>Ticket</jump_add_ticket>
+    <jump_add_affiliate>Affiliate</jump_add_affiliate>
+    <jump_add_subaccount>Sub-Account</jump_add_subaccount>
+    
+    <title_merge>Merge Account</title_merge>
+    <merge_account><![CDATA[
+    	Select the account you wish to merge with the current account.
+    	<br><br>
+    	This action will delete the selected account and associate all its
+    	invoices, services, logs, and other records with the current account.
+    	<br><br>
+    	<b>Warning:</b> This action cannot be undone!
+    ]]></merge_account>
+    <merge_err>An error occurred - unable to merge the selected accounts</merge_err>
+    <merge_ok>The selected accounts have been merged!</merge_ok>
+</translate>

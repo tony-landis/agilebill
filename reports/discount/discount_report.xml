@@ -1,0 +1,60 @@
+<report>
+<title>Discount Report</title>
+
+	<graph type="bar" title="" width="800" height="300" x_angle="0" direction="vertical">
+		<dataset>
+			<sql>SELECT discount, sum(amount) as amount from %%AGILE_DB_PREFIX%%invoice_item_discount A</sql>
+			<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+			<orderby>GROUP BY discount ORDER BY amount DESC</orderby>
+		</dataset>  
+	</graph>	
+	
+	<break />
+	
+	<level>
+		<sql>SELECT discount,invoice_id, count(invoice_id) as sales, sum(amount) as amount from %%AGILE_DB_PREFIX%%invoice_item_discount A</sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+		<orderby>GROUP BY discount ORDER BY amount DESC</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Discount Code</display>
+			<field>discount</field>
+			<aggregate>true</aggregate>
+			<visible>true</visible>
+		</column> 	
+		<column>
+			<display>Items Discounted</display>
+			<field>sales</field>
+			<total>true</total>
+		</column>
+		<column>
+			<display>Discount Amount</display>
+			<field>amount</field>
+			<total>true</total>
+			<format>dol,2</format>
+			<total_format>dol,2</total_format>
+		</column>
+	</level>
+	
+	<break />
+	 
+	<graph type="bar" title="" width="800" height="300" x_angle="0" direction="vertical">
+		<dataset>
+			<sql>SELECT from_unixtime(date_orig,"%Y") as yearmonth, sum(amount) as amount from %%AGILE_DB_PREFIX%%invoice_item_discount A</sql>
+			<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+			<orderby>GROUP BY yearmonth ORDER BY yearmonth DESC</orderby>
+		</dataset>
+	</graph>
+		
+	<break />
+	
+	<graph type="line" title="" width="800" height="300" x_angle="0" direction="vertical">
+		<dataset>
+			<sql>SELECT from_unixtime(date_orig,"%Y-%u") as yearmonth, sum(amount) as amount from %%AGILE_DB_PREFIX%%invoice_item_discount A</sql>
+			<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+			<orderby>GROUP BY yearmonth ORDER BY yearmonth ASC</orderby>
+		</dataset>
+	</graph>	
+	
+		
+</report>

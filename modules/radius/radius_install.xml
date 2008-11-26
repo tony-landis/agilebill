@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+
+        <!-- Define the main module properties -->
+        <module_properties>
+            <name>radius</name>
+            <parent></parent>
+            <notes>Controls radius provisioning</notes>
+            <menu_display>1</menu_display>
+            <dependancy></dependancy>
+            <sub_modules>radius_service</sub_modules>
+        </module_properties> 
+
+        <!-- Define any SQL inserts for this module -->
+        <sql_inserts>
+            <module_method>
+                <add>
+                    <module_id>%%module_id%%</module_id>
+                    <name>add</name> 
+                    <page>%%:add</page>
+                    <menu_display>1</menu_display>
+                </add>
+                <search_export>
+                    <module_id>%%module_id%%</module_id>
+                    <name>search_export</name> 
+                </search_export>
+                <update>
+                    <module_id>%%module_id%%</module_id>
+                    <name>update</name> 
+                </update>
+                <export_excel>
+                    <module_id>%%module_id%%</module_id>
+                    <name>export_excel</name> 
+                </export_excel>
+                <delete>
+                    <module_id>%%module_id%%</module_id>
+                    <name>delete</name> 
+                </delete>
+                <export_xml>
+                    <module_id>%%module_id%%</module_id>
+                    <name>export_xml</name> 
+                </export_xml>
+                <view>
+                    <module_id>%%module_id%%</module_id>
+                    <name>view</name> 
+                    <page>core:search&amp;module=%%&amp;_escape=1</page>
+                    <menu_display>1</menu_display>
+                </view>
+                <export_tab>
+                    <module_id>%%module_id%%</module_id>
+                    <name>export_tab</name> 
+                </export_tab>
+                <search>
+                    <module_id>%%module_id%%</module_id>
+                    <name>search</name> 
+                    <page>%%:search_form</page>
+                    <menu_display>1</menu_display> 
+                </search>
+                <search_form>
+                    <module_id>%%module_id%%</module_id>
+                    <name>search_form</name> 
+                </search_form>
+                <search_show>
+                    <module_id>%%module_id%%</module_id>
+                    <name>search_show</name> 
+                </search_show>
+                
+                <export_csv>
+                    <module_id>%%module_id%%</module_id>
+                    <name>export_csv</name> >
+                </export_csv>
+        </module_method>
+    </sql_inserts>
+</install>

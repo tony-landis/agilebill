@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct> 
+    <module>voip_local_lookup</module> 
+    <table>voip_local_lookup</table> 
+    <dependancy>voip</dependancy> 
+    <cache>0</cache> 
+    <order_by>id</order_by> 
+    <limit>35</limit> 
+    <index>
+    	<npa>npa,nxx</npa>
+    </index>
+    <field>
+        <id>
+            <type>I4</type> 
+            <unique>1</unique>
+        </id>
+        <site_id>
+            <type>I4</type> 
+        </site_id>
+        <npa>
+            <type>C(4)</type> 
+        </npa>
+        <nxx>
+            <type>C(4)</type> 
+        </nxx>
+        <grouping>
+        	<type>I4</type>
+        </grouping>
+     </field> 
+     <method>0</method> 
+     <trigger>0</trigger>
+</construct>

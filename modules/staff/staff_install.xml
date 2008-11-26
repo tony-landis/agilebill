@@ -1,0 +1,38 @@
+<install>
+	<module_properties>
+		<name>staff</name>
+		<parent>account_admin</parent>
+		<notes><![CDATA[This module controls the staff members]]></notes>
+		<menu_display>1</menu_display>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<search>
+				<name>search</name> 
+				<page><![CDATA[%%:search_form]]></page>
+				<menu_display>1</menu_display>
+			</search>
+			<view>
+				<name>view</name> 
+				<page><![CDATA[core:search&module=%%&_escape=1&_next_page_one=view]]></page>
+				<menu_display>1</menu_display>
+			</view>
+			<add>
+				<name>add</name> 
+				<menu_display>1</menu_display>
+			</add>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<update>
+				<name>update</name>
+			</update>
+			<search_form>
+				<name>search_form</name>
+			</search_form>
+			<search_show>
+				<name>search_show</name> 
+			</search_show>
+		</module_method>
+	</sql_inserts>
+</install>

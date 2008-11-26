@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>setup</name>
+	<!-- define the block title translations -->
+	<title_update>Main Setup</title_update>
+	<title_view>Main Setup</title_view>
+	<!-- define the menu lable translations -->
+	<menu>Setup</menu>
+	<menu_update>Site Setup</menu_update>
+	<menu__php_info>PHP Details</menu__php_info>
+	<!-- define the field translations -->
+	<field_id>ID</field_id>
+	<field_site_id>Site ID</field_site_id>
+	<field_country_id>Default Country</field_country_id>
+	<field_language_id>Default Language</field_language_id>
+	<field_currency_id>Default Currency</field_currency_id>
+	<field_weight_id>Default Weight </field_weight_id>
+	<field_theme_id>Default User Theme</field_theme_id>
+	<field_admin_theme_id>Default Admin Theme</field_admin_theme_id>
+	<field_group_id>Default Group</field_group_id>
+	<field_affiliate_template_id>Default Affiliate Template</field_affiliate_template_id>
+	<field_affiliate_id>Default Affiliate</field_affiliate_id>
+	<field_reseller_id>Default Reseller</field_reseller_id>
+	<field_setup_email_id>Default Email Setup</field_setup_email_id>
+	<field_ssl_url>SSL URL</field_ssl_url>
+	<field_nonssl_url>NON-SSL URL</field_nonssl_url>
+	<field_login_expire>Login Expiration Time (seconds)</field_login_expire>
+	<field_cookie_name>Cookie Name</field_cookie_name>
+	<field_cookie_expire>Cookie Expiration Time (seconds)</field_cookie_expire>
+	<field_session_ip_match>IP Matching For Sessions</field_session_ip_match>
+	<field_error_reporting>Error Reporting</field_error_reporting>
+	<field_site_name>Site Name</field_site_name>
+	<field_site_email>Site Email</field_site_email>
+	<field_time_format>Default Time Format</field_time_format>
+	<field_date_format>Default Date Format</field_date_format>
+	<field_date_time_format>Default Date-Time Format</field_date_time_format>
+	<field_decimal_place>Decimal Placement</field_decimal_place>
+	<field_debug>Debug</field_debug>
+	<field_login_attempt_try>Allowed Login Attempts</field_login_attempt_try>
+	<field_login_attempt_time>Login Attempt Period (in seconds)</field_login_attempt_time>
+	<field_login_attempt_lock>Login Lock Period (in seconds)</field_login_attempt_lock>
+	<field_search_expire>Search Expiration (in seconds)</field_search_expire>
+	<field_db_cache>Cache DB Queries?</field_db_cache>
+	<field_newsletter_registration>Show Newsletter Form on Registration page?</field_newsletter_registration>
+	<field_default_account_status>Require email validation on new accounts?</field_default_account_status>
+	<field_cache_sessions>Cache Sessions?</field_cache_sessions>
+	<field_weblog>Store Weblogs?</field_weblog>
+	<field_auto_affiliate>Auto Create Affiliate Account on new Account creation?</field_auto_affiliate>
+	<field_show_newsletter_link>Display newsletter link?</field_show_newsletter_link>
+	<field_show_contact_link>Display contact us link?</field_show_contact_link>
+	<field_show_domain_link>Display domain link?</field_show_domain_link>
+	<field_show_cart_link>Display cart link?</field_show_cart_link>
+	<field_show_checkout_link>Display checkout link?</field_show_checkout_link>
+	<field_show_product_link>Display products link?</field_show_product_link>
+	<field_show_cat_block>Display product categories block?</field_show_cat_block>
+	<field_show_file_block>Display file module block?</field_show_file_block>
+	<field_show_static_block>Display static page module block?</field_show_static_block>
+	<field_show_affiliate_link>Display affiliate link?</field_show_affiliate_link>
+	<field_show_affiliate_code>Display affiliate input block at checkout?</field_show_affiliate_code>
+	<field_show_ticket_link>Display ticket link?</field_show_ticket_link>
+	<field_show_discount_code>Display discount code block at checkout?</field_show_discount_code>
+	<field_os>Operating System</field_os>
+	<field_path_curl>Curl Path (if using binary version)</field_path_curl>
+	<field_billing_weekday>Default Billing Day of Month</field_billing_weekday>
+	<field_grace_period>Grace Period (days)</field_grace_period>
+	<field_max_billing_notice>Default Max Billing Notices</field_max_billing_notice>
+	<field_max_inv_gen_period>Generate Invoices how Long Prior to Due Date (days)</field_max_inv_gen_period>
+	<field_site_address>Company Address</field_site_address>
+	<field_site_city>Company City</field_site_city>
+	<field_site_state>Company State/Province</field_site_state>
+	<field_site_zip>Company Postal/ZIP code</field_site_zip>
+	<field_site_phone>Company Phone</field_site_phone>
+	<field_site_fax>Company Fax</field_site_fax>
+	<field_license_key>License Key</field_license_key>
+	<field_license_code>License Code</field_license_code>
+	<!-- error handling -->
+	<e_none>Error Reporting Off</e_none>
+	<e_error>Fatal errors that occur at runtime</e_error>
+	<e_warning>Non-fatal errors that occur at runtime</e_warning>
+	<e_parse>Parse errors (caused by invalid syntax)</e_parse>
+	<e_notice>Non-critical errors </e_notice>
+	<e_core_error>Fatal errors that occur at PHP engine startup</e_core_error>
+	<e_core_warning>Non-fatal errors that occur at PHP engine startup</e_core_warning>
+	<e_compile_error>Fatal errors that occur at script compile-time</e_compile_error>
+	<e_compile_warning>Non-fatal errors that occur at script compile-time</e_compile_warning>
+	<e_user_error>User-thrown fatal error</e_user_error>
+	<e_user_warning>User-thrown non-fatal error</e_user_warning>
+	<e_user_notice>User-thrown non-critical error</e_user_notice>
+	<e_all>The combined value of all available error levels</e_all>
+	<!-- date menu options -->
+	<date_option>select option</date_option>
+	<date_month_day>Day (01..31)</date_month_day>
+	<date_abbr_weekday>Abbr. Weekday (Mon)</date_abbr_weekday>
+	<date_full_weekday>Full Weekday (Monday)</date_full_weekday>
+	<date_month>Month (01..12)</date_month>
+	<date_abbr_month>Abbr Month (Mar)</date_abbr_month>
+	<date_full_month>Full Month (March)</date_full_month>
+	<date_year_two>Year (00..99)</date_year_two>
+	<date_year_four>Year (2004)</date_year_four>
+	<!-- date separator options -->
+	<sep_space>space</sep_space>
+	<sep_dash>dash</sep_dash>
+	<sep_slash>slash</sep_slash>
+	<sep_period>period</sep_period>
+	<sep_comma>comma</sep_comma> 
+</translate>

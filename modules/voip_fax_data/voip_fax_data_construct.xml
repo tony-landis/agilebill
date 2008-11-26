@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct> 
+    <module>voip_fax_data</module> 
+    <table>voip_fax_data</table> 
+    <dependancy>voip</dependancy> 
+    <cache>0</cache> 
+    <order_by>id</order_by>
+    <limit>35</limit>
+    <index>
+    	<faxid>fax_id</faxid>
+    </index>
+    <field>
+        <id>
+            <type>I4</type> 
+            <unique>1</unique>
+        </id>
+        <site_id>
+            <type>I4</type> 
+        </site_id>
+        <fax_id>
+            <type>I8</type> 
+        </fax_id>
+        <faxdata>
+            <type>B</type> 
+        </faxdata>
+     </field>0<method>
+     </method> 
+     <trigger>0</trigger>
+</construct>

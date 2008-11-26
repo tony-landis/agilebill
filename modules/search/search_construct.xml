@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>search</module>
+    <!-- define the module table name -->
+    <table>search</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy/>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by/>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define database indexes -->
+    <index>
+        <expire>date_expire</expire>
+        <sess>session_id</sess>
+        <acct>account_id</acct>
+        <module>module</module>
+    </index>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I8</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I8</type>
+            <index>1</index>
+        </site_id>
+        <date_orig>
+            <type>I8</type>
+        </date_orig>
+        <date_expire>
+            <type>I8</type>
+        </date_expire>
+        <session_id>
+            <type>C(32)</type>
+        </session_id>
+        <account_id>
+            <type>I8</type>
+        </account_id>
+        <module>
+            <type>C(64)</type>
+        </module>
+        <full_sql>
+            <type>X2</type>
+        </full_sql>
+        <order_by>
+            <type>C(255)</type>
+        </order_by>
+        <limit_no>
+            <type>I4</type>
+        </limit_no>
+        <results>
+            <type>I4</type>
+        </results>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method/>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

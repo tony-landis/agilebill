@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+    <!-- define the module name -->
+    <module>affiliate_template</module>
+    <!-- define the module table name -->
+    <table>affiliate_template</table>
+    <!-- define the module dependancy(s) -->
+    <dependancy>affiliate</dependancy>
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>name</order_by>
+    <!-- define the methods -->
+    <limit>25</limit>
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I4</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I4</type>
+            <index>1</index>
+        </site_id>
+        <affiliate_plugin>
+            <type>C(32)</type>
+        </affiliate_plugin>
+        <avail_campaign_id>
+            <type>X2</type>
+            <convert>array</convert>
+        </avail_campaign_id>
+        <status>
+            <type>L</type>
+        </status>
+        <name>
+            <type>C(32)</type>
+            <min_len>2</min_len>
+            <max_len>32</max_len>
+            <validate>any</validate>
+        </name>
+        <notes>
+            <type>X2</type>
+        </notes>
+        <max_tiers>
+            <type>I4</type>
+            <min_len>1</min_len>
+            <max_len>2</max_len>
+            <validate>numeric</validate>
+        </max_tiers>
+        <commission_minimum>
+            <type>F</type>
+            <min_len>1</min_len>
+            <max_len>12</max_len>
+            <validate>float</validate>
+        </commission_minimum>
+        <new_commission_type>
+            <type>L</type>
+        </new_commission_type>
+        <new_commission_rate>
+            <type>X2</type>
+            <convert>array</convert>
+        </new_commission_rate>
+        <recurr_commission_type>
+            <type>L</type>
+        </recurr_commission_type>
+        <recurr_commission_rate>
+            <type>X2</type>
+            <convert>array</convert>
+        </recurr_commission_rate>
+        <recurr_max_commission_periods>
+            <type>I4</type>
+        </recurr_max_commission_periods>
+    </field>
+    <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+    <method>
+        <add>id,site_id,affiliate_plugin,avail_campaign_id,status,name,notes,max_tiers,commission_minimum,new_commission_type,new_commission_rate,recurr_commission_type,recurr_commission_rate,recurr_max_commission_periods</add>
+        <update>id,site_id,affiliate_plugin,avail_campaign_id,status,name,notes,max_tiers,commission_minimum,new_commission_type,new_commission_rate,recurr_commission_type,recurr_commission_rate,recurr_max_commission_periods</update>
+        <delete>id,site_id,affiliate_plugin,avail_campaign_id,status,name,notes,max_tiers,commission_minimum,new_commission_type,new_commission_rate,recurr_commission_type,recurr_commission_rate,recurr_max_commission_periods</delete>
+        <view>id,site_id,affiliate_plugin,avail_campaign_id,status,name,notes,max_tiers,commission_minimum,new_commission_type,new_commission_rate,recurr_commission_type,recurr_commission_rate,recurr_max_commission_periods</view>
+        <search>id,site_id,affiliate_plugin,avail_campaign_id,status,name,notes,max_tiers,commission_minimum,new_commission_type,new_commission_rate,recurr_commission_type,recurr_commission_rate,recurr_max_commission_periods</search>
+    </method>
+    <!-- define the method triggers -->
+    <trigger>0</trigger>
+</construct>

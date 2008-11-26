@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+
+    <!-- define the module name -->
+    <module>file_category</module>
+
+    <!-- define the module table name -->
+    <table>file_category</table>
+
+    <!-- define the module dependancy(s) -->
+    <dependancy>file</dependancy>
+
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>sort_order</order_by>
+
+    <!-- define the methods -->
+    <limit>35</limit>
+
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I4</type>
+            <unique>1</unique>
+            <index>1</index>
+        </id>
+        <site_id>
+            <type>I4</type>
+            <index>1</index>
+        </site_id>
+        <date_orig>
+            <type>I8</type>
+            <convert>date-now</convert>
+        </date_orig>
+        <name>
+            <type>C(128)</type>
+            <min_len>1</min_len>
+            <max_len>128</max_len>
+            <validate>any</validate>
+        </name>
+        <description>
+            <type>X2</type>
+        </description>
+        <status>
+            <type>L</type>
+        </status>
+        <group_avail>
+            <type>C(255)</type>
+            <validate>any</validate>
+            <convert>array</convert>
+        </group_avail>
+        <sort_order>
+            <type>I4</type>
+        </sort_order>
+     </field>
+
+     <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+     <method>
+        <add>id,site_id,date_orig,name,description,status,group_avail,sort_order</add>
+        <update>id,site_id,date_orig,name,description,status,group_avail,sort_order</update>
+        <delete>id,site_id,date_orig,name,description,status,group_avail,sort_order</delete>
+        <view>id,site_id,date_orig,name,description,status,group_avail,sort_order</view>
+        <search>id,site_id,date_orig,name,description,status,group_avail,sort_order</search>
+     </method>
+
+     <!-- define the method triggers -->
+     <trigger>
+     </trigger>
+</construct>

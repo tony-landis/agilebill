@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>ticket</name>
+	<!-- define the block title translations -->
+	<title_add>Add Ticket</title_add>
+	<title_view>View Ticket</title_view>
+	<title_search>Search Tickets</title_search>
+	<!-- define the menu lable translations -->
+	<menu>Tickets</menu>
+	<menu_add>Add</menu_add>
+	<menu_view>List</menu_view>
+	<menu_search>Search</menu_search>
+	<menu_overview>Statistics</menu_overview>
+	
+	<!-- define the field translations -->
+	<field_date_orig>Creation Date</field_date_orig>
+	<field_date_last>Last Change</field_date_last>
+	<field_date_expire>Expiration Date</field_date_expire>
+	<field_account_id>User Account</field_account_id>
+	<field_department_id>Department</field_department_id>
+	<field_staff_id>Staff</field_staff_id>
+	<field_status>Status</field_status>
+	<field_priority>Priority</field_priority>
+	<field_subject>Subject</field_subject>
+	<field_body>Message</field_body>
+	<field_email>E-mail Address</field_email>
+	<field_last_reply>Response Status</field_last_reply>
+	<!-- define any custom resources -->
+	<required_department>A department to send this ticket to must be entered, please go back and correct this.</required_department>
+	<required_subject>A subject for this ticket is required, please go back and enter a subject.</required_subject>
+	<required_body>A message for this ticket is required, please go back and enter a message.</required_body>
+	<department_invalid>The specified department is invalid or inactive.</department_invalid>
+	<department_not_auth>You do not have access to the selected department</department_not_auth>
+	<close_ticket>Close Ticket</close_ticket>
+	<status_open>OPEN</status_open>
+	<status_hold>ON HOLD</status_hold>
+	<status_close>CLOSED</status_close>
+	<status_pending>PENDING</status_pending>
+	<priority_standard>Standard</priority_standard>
+	<priority_medium>Medium</priority_medium>
+	<priority_high>High</priority_high>
+	<priority_emergency>Emergency</priority_emergency>
+	<staff_wrote>Staff Wrote:</staff_wrote>
+	<user_wrote>You Wrote:</user_wrote>
+	<user_wrote_staff>User Wrote:</user_wrote_staff>
+	<user_select_department> If you wish to submit a new ticket, please select from the department
+		below. Once you select the correct department, you will be able to enter your message for
+		our staff to review. </user_select_department>
+	<user_ticket_list> Below are the existing tickets for your account, you can click the subject to
+		view the ticket details and add a response if needed. </user_ticket_list>
+	<user_no_existing_ticket>Your account has no associated tickets at this time.</user_no_existing_ticket>
+	<user_not_auth_add>Your account does not have access to add any new tickets at this time.</user_not_auth_add>
+	<user_not_auth_reopen>Your account does not have access to reopen this ticket</user_not_auth_reopen>
+	<user_not_auth_reopen_login>You do not have access to reopen this ticket, please try logging
+		into your account if you have one and retry</user_not_auth_reopen_login>
+	<user_add_response>If you wish to respond or add information to this ticket, please use the form
+		below</user_add_response>
+	<user_reopen_response>If you wish to reopen this this ticket, please use the form below</user_reopen_response>
+	<user_ticket_nonexist>You must provide authentication details below to retrieve this ticket!</user_ticket_nonexist>
+	<user_department_required>You must select the department to send your ticket to, please go back
+		and select a department.</user_department_required>
+	<user_update_success>Your response has been received and our staff has been notified</user_update_success>
+	<user_add_success>Your ticket has been received and our staff has been notified</user_add_success>
+	<staff_no_account> You do not have a staff account, please contact the administrator to have
+		your account setup as a ticket staff member. </staff_no_account>
+	<staff_response_required>A response is required if you wish to reply.</staff_response_required>
+	<staff_response_success>Your response has been recorded and the user has been notified.</staff_response_success>
+	<user_ticket_auth> In order to view your existing tickets, you must either login to your account
+		if one exists, or provide your E-mail addess and the the Key provided in our ticket
+		notification E-mail. </user_ticket_auth>
+	<user_pending_verify><![CDATA[
+		Further action on your part is required before we
+		can process your ticket, for one of two possible
+		reasons:
+		&#60;br&#62;&#60;br&#62;
+		1) The department you sent your ticket to
+		requires that you have an account with us and
+		maintain a particular subscription.
+		&#60;br&#62;&#60;br&#62;
+		2) The e-mail address you sent your request from
+		is not the same as the e-mail address on file in
+		your your account with us.
+		&#60;br&#62;&#60;br&#62;
+		To rectify this situation, please login below so we can
+		associate your request with your account and verify your details:
+	]]></user_pending_verify>
+	<key>Key</key>
+	<verify>Verify Details</verify>
+	<merge>Ticket Merge</merge>
+	<merge_confirm>Are you sure you wish to merge these tickets? Select Yes to merge the current ticket with the one selected.</merge_confirm>
+	<new>New</new>
+	<awaiting_reply>Awaiting Reply</awaiting_reply>
+	<awaiting_customer>Awaiting Customer</awaiting_customer>
+	<hold>On Hold</hold>
+	<resolved>Resolved</resolved>
+	<pending>Pending</pending>
+	<last_reply_user>Awaiting Customer</last_reply_user>
+	<last_reply_staff>Awaiting Reply</last_reply_staff>
+	<enable_user_notice>Notify user of update...</enable_user_notice>
+</translate>

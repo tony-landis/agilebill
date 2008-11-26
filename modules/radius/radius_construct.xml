@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+
+    <!-- define the module name -->
+    <module>radius</module>
+
+    <!-- define the module table name -->
+    <table>radius</table>
+
+    <!-- define the module dependancy(s) -->
+    <dependancy></dependancy>
+
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>id</order_by>
+
+    <!-- define the methods -->
+    <limit>35</limit>
+
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I8</type> 
+            <unique>1</unique>
+        </id>
+        <site_id>
+            <type>I4</type> 
+        </site_id>
+        <account_id>
+            <type>I4</type> 
+            <validate>any</validate> 
+        </account_id>
+        <service_id>
+            <type>I8</type> 
+            <asso_table>service</asso_table>
+            <asso_field>id</asso_field> 
+        </service_id>
+        <active>
+            <type>L</type> 
+        </active>
+        <sku>
+            <type>C(32)</type> 
+        </sku> 
+        <auth>
+            <type>C(16)</type> 
+        </auth>
+        <username>
+            <type>C(128)</type> 
+            <validate>any</validate> 
+        </username>
+        <password>
+            <type>C(128)</type> 
+        </password>
+        <service_type>
+            <type>C(128)</type> 
+        </service_type>
+        <session_limit>
+            <type>I4</type> 
+        </session_limit>
+        <idle_limit>
+            <type>I4</type> 
+        </idle_limit>
+        <port_limit>
+            <type>I4</type> 
+        </port_limit>
+        <analog>
+            <type>L</type> 
+        </analog>
+        <digital>
+            <type>L</type> 
+        </digital>
+        <filter_id>
+            <type>C(128)</type> 
+        </filter_id>
+        <netmask>
+            <type>C(128)</type> 
+        </netmask>
+        <framed_route>
+            <type>C(128)</type> 
+        </framed_route>
+        <speed_limit>
+            <type>I4</type> 
+        </speed_limit>
+        <static_ip>
+            <type>C(128)</type> 
+        </static_ip>
+        <profiles>
+            <type>C(128)</type> 
+        </profiles>
+        <time_bank>
+            <type>I4</type> 
+        </time_bank>
+     </field>
+
+     <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+     <method>
+        <add>id,site_id,account_id,service_id,active,sku,auth,username,password,service_type,session_limit,idle_limit,port_limit,analog,digital,filter_id,netmask,framed_route,speed_limit,static_ip,profiles,time_bank</add>
+        <search_export>id,site_id,account_id,service_id,active,sku,auth,username,password,service_type,session_limit,idle_limit,port_limit,analog,digital,filter_id,netmask,framed_route,speed_limit,static_ip,profiles,time_bank</search_export>
+        <update>id,site_id,account_id,service_id,active,sku,auth,username,password,service_type,session_limit,idle_limit,port_limit,analog,digital,filter_id,netmask,framed_route,speed_limit,static_ip,profiles,time_bank</update>
+        <export_excel>id,site_id,account_id,service_id,active,sku,auth,username,password,service_type,session_limit,idle_limit,port_limit,analog,digital,filter_id,netmask,framed_route,speed_limit,static_ip,profiles,time_bank</export_excel>
+        <delete>id,site_id,account_id,service_id,active,sku,auth,username,password,service_type,session_limit,idle_limit,port_limit,analog,digital,filter_id,netmask,framed_route,speed_limit,static_ip,profiles,time_bank</delete>
+        <export_xml>id,site_id,account_id,service_id,active,sku,auth,username,password,service_type,session_limit,idle_limit,port_limit,analog,digital,filter_id,netmask,framed_route,speed_limit,static_ip,profiles,time_bank</export_xml>
+        <view>id,site_id,account_id,service_id,active,sku,auth,username,password,service_type,session_limit,idle_limit,port_limit,analog,digital,filter_id,netmask,framed_route,speed_limit,static_ip,profiles,time_bank</view>
+        <export_tab>id,site_id,account_id,service_id,active,sku,auth,username,password,service_type,session_limit,idle_limit,port_limit,analog,digital,filter_id,netmask,framed_route,speed_limit,static_ip,profiles,time_bank</export_tab>
+        <search>id,site_id,account_id,service_id,active,sku,auth,username,password,service_type,session_limit,idle_limit,port_limit,analog,digital,filter_id,netmask,framed_route,speed_limit,static_ip,profiles,time_bank</search>
+        <export_csv>id,site_id,account_id,service_id,active,sku,auth,username,password,service_type,session_limit,idle_limit,port_limit,analog,digital,filter_id,netmask,framed_route,speed_limit,static_ip,profiles,time_bank</export_csv>
+     </method>
+
+     <!-- define the method triggers -->
+     <trigger>0</trigger>
+</construct>

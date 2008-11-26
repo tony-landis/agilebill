@@ -1,0 +1,63 @@
+<install>
+	<module_properties>
+		<name>module</name>
+		<parent>setup</parent>
+		<notes><![CDATA[Module Control..]]></notes>
+		<menu_display>1</menu_display>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<search>
+				<name>search</name>
+			</search>
+			<view>
+				<name>view</name>
+				<notes><![CDATA[Allow users to view records]]></notes>
+				<page><![CDATA[core:search&module=%%&_escape=1&_next_page_one=view]]></page>
+				<menu_display>1</menu_display>
+			</view>
+			<add>
+				<name>add</name>
+				<notes><![CDATA[Allow users to add records]]></notes>
+				<menu_display>1</menu_display>
+			</add>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<update>
+				<name>update</name>
+			</update>
+			<search_show>
+				<name>search_show</name>
+				<notes><![CDATA[Allow users to view the search results]]></notes>
+			</search_show>
+			<dev_add>
+				<name>dev_add</name>
+				<menu_display>1</menu_display>
+			</dev_add>
+			<failure>
+				<name>failure</name>
+			</failure>
+			<install>
+				<name>install</name>
+				<notes><![CDATA[Handles the installation of new modules...]]></notes>
+				<page><![CDATA[%%:install]]></page>
+				<menu_display>1</menu_display>
+			</install>
+			<translate>
+				<name>translate</name>
+			</translate>
+			<dev_install_gen>
+				<name>dev_install_gen</name>
+			</dev_install_gen>
+			<upgrade>
+				<name>upgrade</name>
+				<page><![CDATA[%%:upgrade]]></page>
+				<menu_display>1</menu_display>
+			</upgrade>
+			<remote_update>
+				<name>remote_update</name>
+			</remote_update>
+		</module_method>
+	</sql_inserts>
+</install>

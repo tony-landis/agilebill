@@ -1,0 +1,37 @@
+<report>
+<title>Staff Ticket Statistics</title>
+	<graph type="bar" title="" width="500" height="300">
+		<dataset>
+			<sql>SELECT B.nickname, count(A.id) as total from %%AGILE_DB_PREFIX%%ticket A join %%AGILE_DB_PREFIX%%staff B on A.staff_id=B.id</sql>
+			<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+			<orderby>GROUP BY nickname ORDER BY total DESC</orderby>
+		</dataset>
+	</graph> 
+	<break />  	
+	<level>
+		<sql>SELECT B.nickname, count(A.id) as total from %%AGILE_DB_PREFIX%%ticket A join %%AGILE_DB_PREFIX%%staff B on A.staff_id=B.id</sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+		<orderby>GROUP BY nickname ORDER BY total DESC</orderby>
+		<indent>0</indent> 
+		<column>
+			<display>Staff</display>
+			<field>nickname</field> 
+			<visible>true</visible>
+			<group_children_by>true</group_children_by>
+			<aggregate>true</aggregate>			
+		</column> 
+		<column>
+			<display>Tickets</display>
+			<field>total</field>
+			<total>true</total> 
+		</column>	 
+		<graph type="line" title="" width="600" height="180">
+			<dataset>
+				<sql>SELECT from_unixtime(A.date_orig,"%Y-%u") as yearmonth, count(A.id) as total, B.nickname from %%AGILE_DB_PREFIX%%ticket A left join %%AGILE_DB_PREFIX%%staff B on A.staff_id=B.id</sql>
+				<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+				<orderby>GROUP BY yearmonth ORDER BY yearmonth ASC</orderby>
+			</dataset>
+		</graph>				
+	 <break /> 	 
+	</level>	 
+</report>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    <name>module_method</name>
+    <!-- define the block title translations -->
+    <title_add>Add a Method</title_add>
+    <title_update>Update Method</title_update>
+    <title_view>View Methods</title_view>
+    <title_search>Search Methods</title_search>
+    <!-- define the menu lable translations -->
+    <menu>Methods</menu>
+    <menu_add>Add</menu_add>
+    <menu_search>Search</menu_search>
+    <!-- define the field translations -->
+    <field_module_id>Module Name</field_module_id>
+    <field_name>Method Name</field_name>
+    <field_notes>Notes</field_notes>
+    <field_page>Menu Page Link</field_page>
+    <field_menu_display>Display In Menu?</field_menu_display> 
+    <!-- define any custom resources -->
+    <authorized>Add to Group?</authorized>
+    <update_relation>Update Group Authorizations</update_relation>
+    <delete_all>Delete All Methods for this Group</delete_all>
+    <group_back>Go Back to Group Details</group_back>
+    <note_inherit>Note - Checkboxes that are greyed out indicate inheritance from parent
+    groups</note_inherit>
+</translate>

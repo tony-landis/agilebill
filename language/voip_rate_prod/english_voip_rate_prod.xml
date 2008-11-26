@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+	<name>voip_rate_prod</name>
+	
+	<title_add>Add Product Rate Association</title_add>
+	<title_view>View Product Rate Association</title_view> 
+	 
+	<field_product_id>Product SKU</field_product_id>
+	<field_voip_rate_id>Rate Name</field_voip_rate_id> 
+	
+</translate>

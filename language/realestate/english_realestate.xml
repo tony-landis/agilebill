@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<translate>
+    	<title_add>Add Property</title_add> 
+    	<title_view>View Properties</title_view> 
+    	<title_search>Search Properties</title_search> 
+     	
+        <menu>Realestate</menu> 
+		<menu_config>Configuration</menu_config> 
+    	<menu_add>Add Property</menu_add> 
+    	<menu_view>List Properties</menu_view> 
+    	<menu_search>Search Properties</menu_search> 
+    		
+		<user_menu>My Voice Center</user_menu>
+		<user_features>Features</user_features>
+		<user_overview>Overview</user_overview>
+		<user_activity>Activity</user_activity>
+		<user_fax>Faxes</user_fax>
+		<user_voicemail>Voicemail</user_voicemail>
+		<user_blacklist>Blacklist</user_blacklist> 
+		<user_blacklist_add>Add a Blacklist</user_blacklist_add> 
+		<user_blacklist_list>List all Blacklists</user_blacklist_list> 
+		<user_callforwarding>Call Forwarding</user_callforwarding>
+		<user_busycallforwarding>Busy Call Forwarding</user_busycallforwarding>
+		<user_faxing>Faxing</user_faxing>
+		<user_failover>Failover Number</user_failover>
+		<user_remote_callforward>Remote Call Forwarding</user_remote_callforward>
+		<user_callwaiting>Call Waiting</user_callwaiting>
+		
+		<mls>MLS Number</mls>
+		<price>Price</price>
+		<address>Address</address>
+</translate>

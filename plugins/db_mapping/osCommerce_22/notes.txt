@@ -1,0 +1,4 @@
+NOTES:
+
+Copy the password_funcs.php file to your /catalog/includes/ directory over the
+existing file by that name.

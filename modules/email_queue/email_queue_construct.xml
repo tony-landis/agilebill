@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<construct>
+
+    <!-- define the module name -->
+    <module>email_queue</module>
+
+    <!-- define the module table name -->
+    <table>email_queue</table>
+
+    <!-- define the module dependancy(s) -->
+    <dependancy></dependancy>
+
+    <!-- define the DB cache in seconds -->
+    <cache>0</cache>
+
+    <!-- define the default order_by field for SQL queries -->
+    <order_by>id</order_by>
+
+    <!-- define the methods -->
+    <limit>35</limit>
+
+    <!-- define the fields -->
+    <field>
+        <id>
+            <type>I8</type> 
+        </id>
+        <site_id>
+            <type>I4</type> 
+        </site_id>
+        <date_orig>
+            <type>I8</type> 
+            <convert>time</convert>
+        </date_orig>
+        <date_last>
+            <type>I8</type> 
+            <convert>date-now</convert>
+        </date_last>
+        <status>
+            <type>L</type> 
+        </status>
+        <account_id>
+            <type>C(128)</type> 
+        </account_id>
+        <email_template>
+            <type>C(128)</type>   
+        </email_template>
+        <sql1>
+            <type>C(128)</type> 
+        </sql1>
+        <sql2>
+            <type>C(128)</type> 
+        </sql2>
+        <sql3>
+            <type>C(128)</type> 
+        </sql3>
+        <sql4>
+            <type>C(128)</type> 
+        </sql4>
+        <sql5>
+            <type>C(128)</type> 
+        </sql5>
+        <var>
+            <type>X2</type> 
+        </var>
+     </field>
+
+     <!-- define all the methods for this class, and the fields they have access to, if applicable. -->
+     <method>
+        <add>id,site_id,date_orig,date_last,status,account_id,email_template,sql1,sql2,sql3,sql4,sql5,var</add>
+        <update>id,site_id,date_orig,date_last,status,account_id,email_template,sql1,sql2,sql3,sql4,sql5,var</update>
+        <delete>id,site_id,date_orig,date_last,status,account_id,email_template,sql1,sql2,sql3,sql4,sql5,var</delete>
+        <view>id,site_id,date_orig,date_last,status,account_id,email_template,sql1,sql2,sql3,sql4,sql5,var</view>
+        <search>id,site_id,date_orig,date_last,status,account_id,email_template,sql1,sql2,sql3,sql4,sql5,var</search>
+     </method>
+
+     <!-- define the method triggers -->
+     <trigger>0</trigger>
+</construct>

@@ -1,0 +1,2969 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+  <email_template_translate>
+       <id>2</id>
+       <site_id>1</site_id>
+       <email_template_id>4</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket ( %var_ticket_subject% )</subject>
+       <message_text><![CDATA[We have received your new ticket, dated %date%.
+
+You can view your ticket here:
+%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please provide the following information:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%
+]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have received your new ticket, dated %date%.<br />
+<br />
+You can view your ticket here:<br />
+<a target="_self" href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If prompted, please provide the following information:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+Thank you,<br />
+%site_name%<br />
+<br />
+</font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>3</id>
+       <site_id>1</site_id>
+       <email_template_id>5</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket ( %sql2_name% ) %var_ticket_subject%</subject>
+       <message_text><![CDATA[We have recieved a new ticket on %date%, with a priority of %var_ticket_priority%
+
+==================================================
+%var_ticket_subject% 
+==================================================
+%var_ticket_body%
+==================================================
+
+%url%admin.php?_page=ticket:view&id=%sql1_id%]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have recieved a new ticket on %date%, with a priority of <strong>%var_ticket_priority%</strong>.<br />
+<br />
+==================================================<br />
+<strong>%var_ticket_subject% </strong><br />
+==================================================<br />
+%var_ticket_body%<br />
+==================================================<br />
+ <br />
+<a href="%url%admin.php?_page=ticket:view&id=%sql1_id%" target="_self">%url%admin.php?_page=ticket:view&id=%sql1_id%</a><br />
+</font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>4</id>
+       <site_id>1</site_id>
+       <email_template_id>6</email_template_id>
+       <language_id>english</language_id>
+       <subject>Updated Ticket ( %sql1_subject% )</subject>
+       <message_text><![CDATA[This e-mail is to let you know we have recieved your response to your ticket, dated %date%.
+
+You can view your ticket here:
+%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please provide the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%
+]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">This e-mail is to let you know we have recieved your response to your ticket, dated %date%.<br />
+<br />
+You can view your ticket here:<br />
+<a target="_self" href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If prompted, please provide the following details:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+Thank you,<br />
+%site_name%<br />
+<br />
+</font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>5</id>
+       <site_id>1</site_id>
+       <email_template_id>7</email_template_id>
+       <language_id>english</language_id>
+       <subject>Updated Ticket ( %sql2_name% ) %sql1_subject%</subject>
+       <message_text><![CDATA[We have received a reply to a ticket at %date%, with a priority of %sql1_priority%.
+
+==================================================
+%sql1_subject%
+==================================================
+%var_ticket_reply%
+==================================================
+
+%url%admin.php?_page=ticket:view&id=%sql1_id%]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have received a reply to a ticket at %date%, with a priority of %sql1_priority%.<br />
+<br />
+==================================================<br />
+%sql1_subject%<br />
+==================================================<br />
+%var_ticket_reply%<br />
+==================================================<br />
+<br /><a href="%url%admin.php?_page=ticket:view&id=%sql1_id%" target="_self">%url%admin.php?_page=ticket:view&id=%sql1_id%</a></font><br />]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>6</id>
+       <site_id>1</site_id>
+       <email_template_id>9</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket (%var_ticket_subject% )</subject>
+       <message_text><![CDATA[Our staff has added a new ticket, dated %date%.
+
+You can view your ticket here:
+%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If promted, please provide the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+===========================================
+%var_ticket_subject% 
+===========================================
+%var_ticket_body%
+===========================================
+
+Thank you,
+%site_name%
+]]></message_text>
+       <message_html><![CDATA[Our staff has added a new ticket, dated %date%.<br />
+<br />
+You can view your ticket here:<br />
+<a target="_blank" href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If promted, please provide the following details:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+<hr width="100%" size="2" />Subject: %var_ticket_subject% <br />
+<hr width="100%" size="2" />%var_ticket_body%<br />
+<hr width="100%" size="2" /><br />
+Thank you,<br />
+%site_name%]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>7</id>
+       <site_id>1</site_id>
+       <email_template_id>8</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket ( %sql2_name% ) %var_ticket_subject%</subject>
+       <message_text><![CDATA[We have recieved a new staff issued ticket at %date%, with a priority of  %var_ticket_priority%.
+
+==================================================
+%var_ticket_subject%
+==================================================
+%var_ticket_body%
+==================================================
+
+%url%admin.php?_page=ticket:view&id=%sql1_id%]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have recieved a new staff issued ticket at %date%, with a priority of&nbsp; %var_ticket_priority%.<br />
+<br />
+==================================================<br />
+%var_ticket_subject%<br />
+==================================================<br />
+%var_ticket_body%<br />
+==================================================<br />
+<br />
+<a href="%url%admin.php?_page=ticket:view&id=%sql1_id%" target="_self">%url%admin.php?_page=ticket:view&id=%sql1_id%</a></font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>8</id>
+       <site_id>1</site_id>
+       <email_template_id>10</email_template_id>
+       <language_id>english</language_id>
+       <subject>Ticket Response [ %sql1_subject% ]</subject>
+       <message_text><![CDATA[This e-mail is to let you know we have responded to a ticket of yours on %date%.
+
+You can view your ticket here: %url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please enter the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+=============================================
+Subject: %sql1_subject%
+=============================================
+%var_message%
+=============================================
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<p><font size="2" face="verdana,arial,helvetica,sans-serif">This e-mail is to let you know we have responded  to a  ticket of yours on %date%.</font></p>
+<p><font size="2" face="verdana,arial,helvetica,sans-serif">You can view your ticket here: </font><font size="2"><a href="%url%?_page=ticket:user_view&id=%sql1_id%"><font face="verdana,arial,helvetica,sans-serif">%url%?_page=ticket:user_view&id=%sql1_id%</font></a></font></p>
+<p><font size="2" face="verdana,arial,helvetica,sans-serif">Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.</font> <br />
+</p>
+<p><font size="2">Subject: <u>%sql1_subject% </u></font></p>
+<pre>%var_message%</pre>
+<font size="2" face="verdana,arial,helvetica,sans-serif">
+</font><p><font size="2" face="verdana,arial,helvetica,sans-serif"><font size="2" face="verdana,arial,helvetica,sans-serif">Thank you,<br />
+%site_name%</font></font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>9</id>
+       <site_id>1</site_id>
+       <email_template_id>11</email_template_id>
+       <language_id>english</language_id>
+       <subject>Password Retrieval Link for %site_name%</subject>
+       <message_text><![CDATA[Dear %acct_first_name%,
+
+You (or someone who knows your email or username) has recently submitted a password retrieval request at our site.
+
+If this was you, you can click the link below to change your password. 
+The link expires in 15 minutes so be sure to do this right away:
+%ssl_url%?_page=account:password_reset&validate=%sql3%
+
+If the link above does not display as a link in your browser, you will need to paste it into the address bar of your browser instead.
+
+If you did not request a password retrieval at our site, then you can safetly ignore and delete this email.
+
+Thank you,
+%site_name%
+]]></message_text>
+       <message_html><![CDATA[<p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2">Dear %acct_first_name%,</font></p><p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2">You (or someone who knows your email or username) has recently submitted a password retrieval request at our site.</font></p><p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2">If this was you, you can click the link below to change your password. <br />The link expires in 15 minutes so be sure to do this right away:<br /><br /><a href="%ssl_url?_page=account:password_reset&validate=%sql1%">%ssl_url%?_page=account:password_reset&validate=%sql3%</a></font></p><p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2">If the link above does not display as a link in your browser, you will need to paste it into the address bar of your browser instead.</font></p><p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2">If you did not request a password retrieval at our site, then you can safetly ignore and delete this email.</font></p><p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2">Thank you,<br />%site_name%</font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>10</id>
+       <site_id>1</site_id>
+       <email_template_id>12</email_template_id>
+       <language_id>english</language_id>
+       <subject>%site_name%: User Registration Complete</subject>
+       <message_text>Dear %acct_first_name%,
+
+Thank you for registering with us!
+
+You can login to your account any time here:
+%ssl_url%?_page=account:account
+
+Thanks!
+%site_name%</message_text>
+       <message_html><![CDATA[<p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2">Dear %acct_first_name%,</font></p><p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2">Thank you for registering with us!</font></p><p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2">You can login to your account any time here:<br /><a href="%ssl_url%?_page=account:account">%ssl_url%?_page=account:account</a></font></p><p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2">Thanks!<br />%site_name%</font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>11</id>
+       <site_id>1</site_id>
+       <email_template_id>14</email_template_id>
+       <language_id>english</language_id>
+       <subject>%site_name%: Verification Required</subject>
+       <message_text><![CDATA[Dear %acct_first_name%,
+
+We have received your registration, but futher action on your part is requested in order to activate your account.
+
+Please click the link below in order to activate your account:
+%ssl_url%?_page=account:verify&verify=%sql3%
+
+If the text above does not show up as a clickable link, you can paste it to the address bar of your web browser. If you are not sure how to do this, or it does not work, then do the following:
+
+Go to %ssl_url%
+
+Click 'Verify Account'
+
+Enter the following code into the verification form:
+
+%sql3%
+
+Thank you!
+%site_name%]]></message_text>
+       <message_html><![CDATA[<p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2">Dear %acct_first_name%,</font></p><p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2">We have received your registration, but futher action on your part is requested in order to activate your account.</font></p><p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2"><strong>Please click the link below in order to activate your account:</strong><br /><a href="%ssl_url%?_page=account:verify&verify=%sql3%">%ssl_url%?_page=account:verify&verify=%sql3%</a></font></p><p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2">If the text above does not show up as a clickable link, you can paste it to the address bar of your web browser. If you are not sure how to do this, or it does not work, then do the following:</font></p><p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2">Go to <a href="%ssl_url%">%ssl_url%</a></font></p><p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2">Click <u>'Verify Account'</u></font></p><p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2">Enter the following code into the verification form:</font></p><p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2"><strong><u>%sql3%</u></strong></font></p><p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2">Thank you!<br />%site_name%</font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>12</id>
+       <site_id>1</site_id>
+       <email_template_id>15</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Account Created</subject>
+       <message_text>Dear %acct_first_name%,
+
+One of our staff members has just added your account to our system.
+
+The username assigned to your account is: %acct_username%
+
+For security reasons, you must choose your own password here:
+%ssl_url%?_page=account:password
+
+Once you set your password, you will be able to login to your account.
+
+Thank you,
+%site_name%</message_text>
+       <message_html><![CDATA[
+<p style="font-family: verdana,arial,helvetica,sans-serif;"><font size="2">Dear %acct_first_name%,</font></p>
+<p style="font-family: verdana,arial,helvetica,sans-serif;"><font size="2">One of our staff members has just added your account to our system.</font></p>
+<p style="font-family: verdana,arial,helvetica,sans-serif;"><font size="2">The username assigned to your account is: <strong><u>%acct_username%</u></strong></font></p>
+<p style="font-family: verdana,arial,helvetica,sans-serif;"><font size="2"><strong>For security reasons, you must choose your own password here:</strong><br /><a href="%ssl_url%?_page=account:password">%ssl_url%?_page=account:password</a></font></p>
+<p style="font-family: verdana,arial,helvetica,sans-serif;"><font size="2">Once you set your password, you will be able to login to your account.</font></p>
+<p style="font-family: verdana,arial,helvetica,sans-serif;"><font size="2">Thank you,<br />%site_name%</font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>13</id>
+       <site_id>1</site_id>
+       <email_template_id>16</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Account Created</subject>
+       <message_text><![CDATA[Dear %acct_first_name%,
+
+One of our staff members has just added your account to our system. Futher action on your part is required to validate your account.
+
+To validate your account, please click the link below:
+%ssl_url%?_page=account:verify&verify=%sql3%
+
+The username assigned to your account is: %acct_username%
+
+For security reasons, you must choose your own password here:
+%ssl_url%?_page=account:password
+
+Once you set your password and verify your account, you will be able to login to your account.
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2">Dear %acct_first_name%,</font></p><p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2">One of our staff members has just added your account to our system. Futher action on your part is required to validate your account.</font></p><p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2">To validate your account, please click the link below:<br /><a href="%ssl_url?_page=account:verify&verify=%sql3%">%ssl_url%?_page=account:verify&verify=%sql3%</a></font></p><p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2">The username assigned to your account is: <span style="FONT-WEIGHT: bold">%acct_username%</span></font></p><p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2">For security reasons, you must choose your own password here:<br /><a href="%ssl_url?_page=account:password">%ssl_url%?_page=account:password</a></font></p><p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2">Once you set your password and verify your account, you will be able to login to your account.</font></p><p style="FONT-FAMILY: verdana,arial,helvetica,sans-serif"><font size="2">Thank you,<br /><a href="%url%">%site_name%</a></font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>14</id>
+       <site_id>1</site_id>
+       <email_template_id>17</email_template_id>
+       <language_id>english</language_id>
+       <subject>How to change your %site_name% password</subject>
+       <message_text>Dear %acct_first_name%,
+
+We are sending you this e-mail because you indicated to our staff that you would like to change your account password.
+
+If you would like to change your password, just click this link:
+%ssl_url%?_page=account:password
+
+You can then enter either your username or e-mail address, and we will send you a link where you can change your password.
+
+Thank you,
+%site_name%</message_text>
+       <message_html><![CDATA[<p><font face="verdana,arial,helvetica,sans-serif" size="2">Dear %acct_first_name%,</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">We are sending you this e-mail because you indicated to our staff that you would like to change your account password.</font></p><p><font face="verdana,arial,helvetica,sans-serif"><font size="2"><strong>If you would like to change your password, just click this link:<br /></strong><a href="%ssl_url%?_page=account:password">%ssl_url%?_page=account:password</a></font></font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">You can then enter either your username or e-mail address, and we will send you a link where you can change your password.</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">Thank you,<br /><a href="%url%">%site_name%</a></font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>15</id>
+       <site_id>1</site_id>
+       <email_template_id>18</email_template_id>
+       <language_id>english</language_id>
+       <subject>Your Affiliate Account Complete</subject>
+       <message_text>Hello %acct_first_name%,
+
+This e-mail is to let you know that a member of our staff has set up an affiliate account on your behalf.
+
+For future reference, your Affiliate Id is %SQL3%
+
+You can visit the affiliate center at the link below to edit your account details, as well as view statistics, referrals, and commissions. 
+
+%url%?_page=affiliate:affiliate
+
+Thank you,
+%site_name%</message_text>
+       <message_html><![CDATA[<p><font size="2" face="verdana,arial,helvetica,sans-serif">Hello %acct_first_name%, </font></p><p><font size="2" face="verdana,arial,helvetica,sans-serif">This
+e-mail is to let you know that a member of our staff has set up an
+affiliate account on your behalf. For future reference, your Affiliate
+Id is %SQL3% You can visit the affiliate center at the link below to
+edit your account details, as well as view statistics, referrals, and
+commissions. </font></p><p><font size="2" face="verdana,arial,helvetica,sans-serif"><a href="%ssl_url%?_page=affiliate:affiliate" target="_self">%url%?_page=affiliate:affiliate</a> </font></p><p><font size="2" face="verdana,arial,helvetica,sans-serif">Thank you, <br /><a href="%url%">%site_name%</a></font> </p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>16</id>
+       <site_id>1</site_id>
+       <email_template_id>19</email_template_id>
+       <language_id>english</language_id>
+       <subject>Your affiliate account is ready</subject>
+       <message_text>Hello %acct_first_name%,
+
+This e-mail is to let you know that your affiliate account has been setup.
+
+For future reference, your affiliate Id is: %SQL3%
+
+You can visit the affiliate center at the link below to edit your account details, as well as view statistics, referrals, and commissions. 
+
+%url%?_page=affiliate:affiliate
+
+Thank you,
+%site_name%</message_text>
+       <message_html><![CDATA[<!--StartFragment -->&Acirc; <font size="2" face="verdana,arial,helvetica,sans-serif">Hello %acct_first_name%,</font><p><font size="2" face="verdana,arial,helvetica,sans-serif">This e-mail is to let you know that your affiliate account has been setup.</font></p><p><font size="2" face="verdana,arial,helvetica,sans-serif">For future reference, your affiliate Id is: %SQL3%</font></p><p><font size="2" face="verdana,arial,helvetica,sans-serif">You
+can visit the affiliate center at the link below to edit your account
+details, as well as view statistics, referrals, and commissions. </font></p><p><font size="2" face="verdana,arial,helvetica,sans-serif"><a href="%url%?_page=affiliate:affiliate" target="_self">%url%?_page=affiliate:affiliate</a></font></p><p><font size="2" face="verdana,arial,helvetica,sans-serif">Thank you,<br />%site_name%</font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>17</id>
+       <site_id>1</site_id>
+       <email_template_id>20</email_template_id>
+       <language_id>english</language_id>
+       <subject>Your affiliate application received</subject>
+       <message_text>Hello %acct_first_name%,
+
+This e-mail is to let you know that your affiliate account application has been recieved.
+
+You can visit the affiliate center at the link below to view the status of your application from time to time. We will also send you an e-mail when your affiliate account is activated. 
+
+%url%?_page=affiliate:affiliate
+
+Thank you,
+%site_name%</message_text>
+       <message_html><![CDATA[<p><font size="2" face="verdana,arial,helvetica,sans-serif">Hello %acct_first_name%,</font></p><p><font size="2" face="verdana,arial,helvetica,sans-serif">This e-mail is to let you know that your affiliate account application has been recieved.</font></p><p><font size="2" face="verdana,arial,helvetica,sans-serif">You
+can visit the affiliate center at the link below to view the status of
+your application from time to time. We will also send you an e-mail
+when your affiliate account is activated. </font></p><p><font size="2" face="verdana,arial,helvetica,sans-serif"><a href="%url?_page=affiliate:affiliate" target="_self">%url%?_page=affiliate:affiliate</a></font></p><p><font size="2" face="verdana,arial,helvetica,sans-serif">Thank you,<br />%site_name%</font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>18</id>
+       <site_id>1</site_id>
+       <email_template_id>21</email_template_id>
+       <language_id>english</language_id>
+       <subject>Affiliate Application Received</subject>
+       <message_text><![CDATA[A user has just submitted an affiliate application, you can view it here:
+
+%url%?_page=affiliate:view&id=%SQL3%
+]]></message_text>
+       <message_html><![CDATA[<p><font face="verdana,arial,helvetica,sans-serif" size="2">A user has just submitted an affiliate application, you can view it here:</font></p><p><a href="%url?_page=affiliate:view&id=%SQL3%"><font face="verdana,arial,helvetica,sans-serif" size="2">%url%?_page=affiliate:view&id=%SQL3%</font></a><br /></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>19</id>
+       <site_id>1</site_id>
+       <email_template_id>22</email_template_id>
+       <language_id>english</language_id>
+       <subject>%site_name% Order Confirmation</subject>
+       <message_text><![CDATA[Dear %acct_first_name%,
+
+This e-mail is to confirm that we have received your order dated %date%.
+
+The order number is %sql1_id%, and can be viewed online here:
+%ssl_url%?_page=invoice:user_view&id=%sql1_id%
+
+View Printable Invoice here:
+%ssl_url%?_page=invoice:pdf&id=%sql1_id%&_escape=true
+
+==============================================================
+Products Ordered
+==============================================================
+%products%
+==============================================================
+Order Total: %sql1_total_amt% %currency%
+==============================================================
+%sql2_email_template%
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<p><font face="verdana,arial,helvetica,sans-serif" size="2">Dear %acct_first_name%,</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">This e-mail is to confirm that we have received your order dated %date%.</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">The order number is %sql1_id%, and can be viewed online <strong><a href="%ssl_url%?_page=invoice:user_view&id=%sql1_id%">HERE</a></strong>:<br /></font><font face="verdana,arial,helvetica,sans-serif" size="2"><br />View Printable Invoice <strong><a href="%ssl_url%?_page=invoice:pdf&id=%sql1_id%&_escape=true">HERE</a></strong>:<br /></font><font face="verdana,arial,helvetica,sans-serif" size="2"><br />==============================================================<br /><strong>Products Ordered</strong><br />==============================================================<br />%products%<br />==============================================================<br /><strong>Order Total: %sql1_total_amt% %currency%<br /></strong>==============================================================<br /><em>%sql2_email_template%</em></font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">Thank you,<br /><a href="%url%">%site_name%</a></font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>20</id>
+       <site_id>1</site_id>
+       <email_template_id>23</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Invoice Alert [%sql1_id%]</subject>
+       <message_text><![CDATA[A new invoice has been created for %acct_first_name% %acct_last_name% on %date%.
+
+==============================================================
+Products Ordered
+==============================================================
+%products%
+==============================================================
+Order Total:   %sql1_total_amt% %currency%
+==============================================================
+
+Invoice Details:
+-> %url%?_page=invoice:view&id=%sql1_id%&tid=default_admin
+
+Print Invoice:
+-> %url%?_page=invoice:pdf&id=%sql1_id%&_escape=true&tid=default_admin
+
+User Details:
+-> %url%?_page=account_admin:view&id=%acct_id%&tid=default_admin
+]]></message_text>
+       <message_html><![CDATA[<p><font face="verdana,arial,helvetica,sans-serif" size="2">A new invoice has been created for <u>%acct_first_name% %acct_last_name%</u> on %date%.</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">==============================================================<br /><strong>Products Ordered</strong><br />==============================================================<br />%products%<br />==============================================================<br /><strong>Order Total:Â Â  %sql1_total_amt% %currency%</strong><br />==============================================================</font></p><p><a href="%url%?_page=invoice:view&id=%sql1_id%&tid=default_admin"><font face="verdana,arial,helvetica,sans-serif" size="2">Invoice Details</font></a><font face="verdana,arial,helvetica,sans-serif" size="2"> | </font><a href="%url%?_page=invoice:pdf&id=%sql1_id%&_escape=true&tid=default_admin"><font face="verdana,arial,helvetica,sans-serif" size="2">Print Invoice</font></a><font face="verdana,arial,helvetica,sans-serif" size="2"> | </font><a href="%url%?_page=account_admin:view&id=%acct_id%&tid=default_admin"><font face="verdana,arial,helvetica,sans-serif" size="2">User Details</font></a><font face="verdana,arial,helvetica,sans-serif" size="2">Â Â <br /></font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>21</id>
+       <site_id>1</site_id>
+       <email_template_id>24</email_template_id>
+       <language_id>english</language_id>
+       <subject>Invoice Due Notification [%sql1_id%]</subject>
+       <message_text><![CDATA[%acct_first_name%,
+
+This e-mail is to remind you that payment is due for invoice %sql1_id% by %sql3%.
+
+If you have already paid for this invoice, you may ignore this e-mail.
+
+Otherwise, please follow the link below to view the invoice details and make payment.
+
+%ssl_url%?_page=invoice:user_view&id=%sql1_id%
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<p><font face="verdana,arial,helvetica,sans-serif" size="2">%acct_first_name%,</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">This e-mail is to remind you that payment is due for invoice %sql1_id% by %sql3%<strong>.</strong></font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2"><strong>If you have already paid for this invoice, you may ignore this e-mail.</strong></font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">Otherwise, please follow the link below to view the invoice details and make payment.</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2"><a href="%ssl_url%?_page=invoice:user_view&id=%sql1_id%">%ssl_url%?_page=invoice:user_view&id=%sql1_id%</a></font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">Thank you,<br />%site_name%</font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>22</id>
+       <site_id>1</site_id>
+       <email_template_id>25</email_template_id>
+       <language_id>english</language_id>
+       <subject>Invoice Manual Processing [%sql1_id%]</subject>
+       <message_text><![CDATA[This alert is to notify you that manual processing/verification is required for invoice number %sql1_id%, which is due on %sql3%.
+
+Invoice Details:
+> %url%?_page=invoice:view&id=%sql1_id%&tid=default_admin
+
+Account Details:
+> %url%?_page=account_admin:view&id=%acct_id%&tid=default_admin
+]]></message_text>
+       <message_html><![CDATA[<p><font face="verdana,arial,helvetica,sans-serif" size="2">This alert is to notify you that manual processing/verification is required for invoice number %sql1_id%, which is due on %sql3%.</font></p><p align="center"><a href="%url%?_page=invoice:view&id=%sql1_id%&tid=default_admin"><font face="verdana,arial,helvetica,sans-serif" size="2">Invoice Details</font></a><font face="verdana,arial,helvetica,sans-serif" size="2">Â | </font><a href="%url%?_page=account_admin:view&id=%acct_id%&tid=default_admin"><font face="verdana,arial,helvetica,sans-serif" size="2">Account Details</font></a><br /></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>23</id>
+       <site_id>1</site_id>
+       <email_template_id>26</email_template_id>
+       <language_id>english</language_id>
+       <subject>Payment Received for Invoice %sql1_id%</subject>
+       <message_text><![CDATA[Dear %acct_first_name%,
+
+This e-mail is to notify you that we have recieved your payment for invoice number %sql1_id%.
+
+The total amount of the invoice is %sql1_total_amt%. To date, you have paid %sql1_billed_amt%. 
+
+For more details on this invoice, you can view it online at the link below:
+%url%?_page=invoice:user_view&id=%sql1_id%
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<p><font face="verdana,arial,helvetica,sans-serif" size="2">Dear %acct_first_name%,</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">This e-mail is to notify you that we have recieved your payment for invoice number %sql1_id%.</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">The total amount of the invoice isÂ %sql1_total_amt%. To date, you have paid %sql1_billed_amt%. </font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">For more details on this invoice, you can view it online at the link below:<br /><a href="%url%?_page=invoice:user_view&id=%sql1_id%">%url%?_page=invoice:user_view&id=%sql1_id%</a></font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">Thank you,<br /><a href="%url%">%site_name%</a></font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>24</id>
+       <site_id>1</site_id>
+       <email_template_id>27</email_template_id>
+       <language_id>english</language_id>
+       <subject>Payment Received for Invoice %sql1_id%</subject>
+       <message_text><![CDATA[This e-mail is to alert you that %acct_first_name% %acct_last_name% made a payment for invoice number %sql1_id%.
+
+Payment in the amount of %sql1_billed_amt% %sql2_three_digit% of the %sql1_total_amt% %sql2_three_digit% has been made.
+
+Invoice Details:
+> %url%?_page=invoice:view&id=%sql1_id%&tid=default_admin
+
+User Details:
+> %url%?_page=account_admin:view&id=%acct_id%&tid=default_admin
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<p><font face="verdana,arial,helvetica,sans-serif" size="2">This e-mail is to alert you that %acct_first_name% %acct_last_name% made a payment for invoice number %sql1_id%.</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">Payment in the amount of %sql1_billed_amt% %sql2_three_digit% of the %sql1_total_amt% %sql2_three_digit% has been made.</font></p><p align="center"><font face="verdana,arial,helvetica,sans-serif" size="2"><a href="%url%?_page=invoice:view&id=%sql1_id%&tid=default_admin">Invoice Details</a>Â |Â </font><font face="verdana,arial,helvetica,sans-serif" size="2"><a href="%url%?_page=account_admin:view&id=%acct_id%&tid=default_admin">User Details</a></font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>25</id>
+       <site_id>1</site_id>
+       <email_template_id>28</email_template_id>
+       <language_id>english</language_id>
+       <subject>Notice: Invoice %sql1_id% Due!</subject>
+       <message_text><![CDATA[Dear %acct_first_name%,
+
+Invoice number %sql1_id% is now overdue, please visit the link below for payment options. 
+
+%ssl_url%?_page=invoice:user_view&id=%sql1_id%
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<p><font face="verdana,arial,helvetica,sans-serif" size="2">Dear %acct_first_name%,</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">Invoice number %sql1_id% is now overdue, please visit the link below for payment options. </font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2"><a href="%ssl_url%?_page=invoice:user_view&id=%sql1_id%">%ssl_url%?_page=invoice:user_view&id=%sql1_id%</a></font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">Thank you,<br />%site_name%</font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>26</id>
+       <site_id>1</site_id>
+       <email_template_id>29</email_template_id>
+       <language_id>english</language_id>
+       <subject>Manual Approval Required for Invoice Number %sql1_id%</subject>
+       <message_text><![CDATA[This message is to notify you that payment has been recieved for invoice number %sql1_id% via %sql2_checkout_plugin% and manual approval is required.
+
+%url%admin.php?_page=invoice:view&id=%sql1_id%]]></message_text>
+       <message_html><![CDATA[<p><font size="2" face="verdana,arial,helvetica,sans-serif">This
+message is to notify you that payment has been recieved for invoice
+number %sql1_id% via %sql2_checkout_plugin% and manual approval is
+required.</font></p>
+<p><a target="_blank" href="%url%admin.php?_page=invoice:view&id=%sql1_id%"><font size="2" face="verdana,arial,helvetica,sans-serif" /></a><font size="2" face="verdana,arial,helvetica,sans-serif"><font size="2" face="verdana,arial,helvetica,sans-serif"><font size="2" face="verdana,arial,helvetica,sans-serif"><a>%url%admin.php?_page=invoice:view&id=%sql1_id%</a></font></font></font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>27</id>
+       <site_id>1</site_id>
+       <email_template_id>30</email_template_id>
+       <language_id>english</language_id>
+       <subject>Invoice Approved</subject>
+       <message_text><![CDATA[Dear %acct_first_name%,
+
+This alert is to notify you that invoice number %sql1_id% has been updated to approved status.
+
+You can view the details of this invoice below:
+%url%?_page=invoice:user_view&id=%sql1_id%
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<p><font face="verdana,arial,helvetica,sans-serif" size="2">Dear %acct_first_name%,</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">This alert is to notify you that invoice number %sql1_id% has been updated to approved status.</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">You can view the details of this invoice below:<br /><a href="%url%?_page=invoice:user_view&id=%sql1_id%">%url%?_page=invoice:user_view&id=%sql1_id%</a></font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">Thank you,<br />%site_name%</font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>28</id>
+       <site_id>1</site_id>
+       <email_template_id>31</email_template_id>
+       <language_id>english</language_id>
+       <subject>Manual Registrar Action Required</subject>
+       <message_text>%sql3%
+
+Account Details:
+%sql1_first_name% %sql1_middle_name% %sql1_last_name%
+%sql1_address1% %sql1_address2%
+%sql1_city%, %sql1_state% %sql1_zip%
+%sql1_email%</message_text>
+       <message_html><![CDATA[<p><font face="verdana,arial,helvetica,sans-serif" size="2">%sql3%</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2"><strong>Account Details:</strong><br />%sql1_first_name% %sql1_middle_name% %sql1_last_name%<br />%sql1_address1% %sql1_address2%<br />%sql1_city%, %sql1_state% %sql1_zip%<br />%sql1_email%</font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>29</id>
+       <site_id>1</site_id>
+       <email_template_id>32</email_template_id>
+       <language_id>english</language_id>
+       <subject><![CDATA[Registrar PGP & Forward: BulkRegister]]></subject>
+       <message_text>%sql3%</message_text>
+       <message_html><![CDATA[<pre>%sql3%</pre>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>30</id>
+       <site_id>1</site_id>
+       <email_template_id>33</email_template_id>
+       <language_id>english</language_id>
+       <subject>TAG (%sql2%) Domain Request</subject>
+       <message_text>%sql3%</message_text>
+       <message_html><![CDATA[<pre>%sql3%</pre>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>32</id>
+       <site_id>1</site_id>
+       <email_template_id>35</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Invoice Created [%sql1_id%]</subject>
+       <message_text><![CDATA[%acct_first_name%,
+
+This e-mail is a friendly reminder that invoice %sql1_id% has been automatically generated for the amount of %sql2% and that payment is due  by %sql3%.
+
+If you have already paid for this invoice, you may ignore this e-mail.
+
+Otherwise, please follow the link below to view the invoice details and make payment.
+
+%ssl_url%?_page=invoice:user_view&id=%sql1_id%
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<p><font face="verdana,arial,helvetica,sans-serif" size="2">%acct_first_name%,</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">This e-mail is a friendly reminder that invoice %sql1_id% has been automatically generated for the amount of %sql2% and that payment is dueÂ  by %sql3%.</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">If you have already paid for this invoice, you may ignore this e-mail.</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">Otherwise, please follow the link below to view the invoice details and make payment.</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2"><a href="%ssl_url%?_page=invoice:user_view&id=%sql1_id%">%url%?_page=invoice:user_view&id=%sql1_id%</a></font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">Thank you,<br />%site_name%</font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>33</id>
+       <site_id>1</site_id>
+       <email_template_id>36</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Invoice Created [%sql1_id%]</subject>
+       <message_text><![CDATA[This e-mail is to remind you that a new invoice numbered %sql1_id% has been generated for the amount of %sql2% and is due by %sql3%.
+
+%url%?_page=invoice:view&id=%sql1_id%&tid=default_admin]]></message_text>
+       <message_html><![CDATA[<p><font face="verdana,arial,helvetica,sans-serif" size="2">This e-mail is to remind you that a new invoice numbered %sql1_id% has been generated for the amount of %sql2% and is due by %sql3%.</font></p><p><a href="%url%?_page=invoice:view&id=%sql1_id%&tid=default_admin"><font face="verdana,arial,helvetica,sans-serif" size="2">%url%?_page=invoice:view&id=%sql1_id%&tid=default_admin</font></a></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>34</id>
+       <site_id>1</site_id>
+       <email_template_id>37</email_template_id>
+       <language_id>english</language_id>
+       <subject>Service Suspended for Invoice [%sql1_id%]</subject>
+       <message_text><![CDATA[%acct_first_name%,
+
+This e-mail is a friendly notice that service(s) for invoice %sql1_id% have been suspended due to nonpayment by %sql3%.
+
+Please follow the link below to view the invoice details and make payment.
+
+%ssl_url%?_page=invoice:user_view&id=%sql1_id%
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<p><font face="verdana,arial,helvetica,sans-serif" size="2">%acct_first_name%,</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">This e-mail is a friendly notice that service(s) for invoice %sql1_id% have been suspended due to nonpayment by %sql3%.</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">Please follow the link below to view the invoice details and make payment.</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2"><a href="%ssl_url%?_page=invoice:user_view&id=%sql1_id%">%ssl_url%?_page=invoice:user_view&id=%sql1_id%</a></font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">Thank you,<br />%site_name%</font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>35</id>
+       <site_id>1</site_id>
+       <email_template_id>38</email_template_id>
+       <language_id>english</language_id>
+       <subject>Service Suspended for Invoice [%sql1_id%]</subject>
+       <message_text><![CDATA[This e-mail is notice that service(s) for invoice %sql1_id% have been suspended due to nonpayment by %sql3%.
+
+%url%?_page=invoice:view&id=%sql1_id%&tid=default_admin]]></message_text>
+       <message_html><![CDATA[<p><font face="verdana,arial,helvetica,sans-serif" size="2">This e-mail is notice that service(s) for invoice %sql1_id% have been suspended due to nonpayment by %sql3%.</font></p><p><a href="%url%?_page=invoice:view&id=%sql1_id%&tid=default_admin"><font face="verdana,arial,helvetica,sans-serif" size="2">%url%?_page=invoice:view&id=%sql1_id%&tid=default_admin</font></a></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>36</id>
+       <site_id>1</site_id>
+       <email_template_id>39</email_template_id>
+       <language_id>english</language_id>
+       <subject>Hosting Details</subject>
+       <message_text>%acct_first_name%,
+
+This e-mail is to alert you that your hosting account has been setup. The details are as follows:
+ 
+Username: %sql1_host_username%
+Password: %sql1_host_password%
+
+Thank you,
+%site_name%</message_text>
+       <message_html><![CDATA[<p><font face="verdana,arial,helvetica,sans-serif" size="2">%acct_first_name%,</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">This e-mail is to alert you that your hosting account has been setup. The details are as follows:<br />Â <br />Username: %sql1_host_username%<br />Password: %sql1_host_password%</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">Thank you,<br />%site_name%</font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>37</id>
+       <site_id>1</site_id>
+       <email_template_id>40</email_template_id>
+       <language_id>english</language_id>
+       <subject>Hosting Updated</subject>
+       <message_text>%acct_first_name%,
+
+This e-mail is to alert you that your hosting account has been modified. The details are as follows:
+ 
+Username: %sql1_host_username%
+Password: %sql1_host_password%
+
+Thank you,
+%site_name%</message_text>
+       <message_html><![CDATA[<p><font face="verdana,arial,helvetica,sans-serif" size="2">%acct_first_name%,</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">This e-mail is to alert you that your hosting account has been modified. The details are as follows:<br />Â <br />Username: %sql1_host_username%<br />Password: %sql1_host_password%</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">Thank you,<br />%site_name%</font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>38</id>
+       <site_id>1</site_id>
+       <email_template_id>41</email_template_id>
+       <language_id>english</language_id>
+       <subject>Manual Provisioning: New Account</subject>
+       <message_text><![CDATA[This e-mail is to notify you that a new hosting service has been created that requires manual provisioning.
+
+Invoice No.: %sql1_invoice_id%
+Plan SKU: %sql1_sku%
+Username: %sql1_host_username%
+Password: %sql1_host_password%
+Ip Address: %sql1_host_ip%
+
+View the service:
+%url%?_page=service:view&id=%sql1_id%&tid=default_admin]]></message_text>
+       <message_html><![CDATA[<p><font face="verdana,arial,helvetica,sans-serif" size="2">This e-mail is to notify you that a new hosting service has been created that requires manual provisioning.</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">Invoice No.: %sql1_invoice_id%<br />Plan SKU: %sql1_sku%<br />Username: %sql1_host_username%<br />Password: %sql1_host_password%<br />Ip Address: %sql1_host_ip%</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">View the service:<br /></font><a href="%url%?_page=service:view&id=%sql1_id%&tid=default_admin"><font face="verdana,arial,helvetica,sans-serif" size="2">%url%?_page=service:view&id=%sql1_id%&tid=default_admin</font></a></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>39</id>
+       <site_id>1</site_id>
+       <email_template_id>42</email_template_id>
+       <language_id>english</language_id>
+       <subject>Manual Provisioning: Edit</subject>
+       <message_text><![CDATA[This e-mail is to notify you that a hosting service has been modified and may require manual provisioning.
+
+Invoice No.: %sql1_invoice_id%
+Plan SKU: %sql1_sku%
+Username: %sql1_host_username%
+Password: %sql1_host_password%
+Ip Address: %sql1_host_ip%
+
+View the service:
+%url%?_page=service:view&id=%sql1_id%&tid=default_admin]]></message_text>
+       <message_html><![CDATA[<p><font face="verdana,arial,helvetica,sans-serif" size="2">This e-mail is to notify you that a hosting service has been modified and may require manual provisioning.</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">Invoice No.: %sql1_invoice_id%<br />Plan SKU: %sql1_sku%<br />Username: %sql1_host_username%<br />Password: %sql1_host_password%<br />Ip Address: %sql1_host_ip%</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">View the service:<br /><a href="%url%?_page=service:view&id=%sql1_id%&tid=default_admin">%url%?_page=service:view&id=%sql1_id%&tid=default_admin</a></font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>40</id>
+       <site_id>1</site_id>
+       <email_template_id>43</email_template_id>
+       <language_id>english</language_id>
+       <subject>Manual Provisioing: Suspend</subject>
+       <message_text><![CDATA[This e-mail is to notify you that a hosting service has been deactivated and requires manual provisioning.
+
+Invoice No.: %sql1_invoice_id%
+Plan SKU: %sql1_sku%
+Username: %sql1_host_username%
+Password: %sql1_host_password%
+Ip Address: %sql1_host_ip%
+
+View the service:
+%url%?_page=service:view&id=%sql1_id%&tid=default_admin]]></message_text>
+       <message_html><![CDATA[<p><font face="verdana,arial,helvetica,sans-serif" size="2">This e-mail is to notify you that a hosting service has been deactivated and requires manual provisioning.</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">Invoice No.: %sql1_invoice_id%<br />Plan SKU: %sql1_sku%<br />Username: %sql1_host_username%<br />Password: %sql1_host_password%<br />Ip Address: %sql1_host_ip%</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">View the service:<br /></font><a href="%url%?_page=service:view&id=%sql1_id%&tid=default_admin"><font face="verdana,arial,helvetica,sans-serif" size="2">%url%?_page=service:view&id=%sql1_id%&tid=default_admin</font></a></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>41</id>
+       <site_id>1</site_id>
+       <email_template_id>44</email_template_id>
+       <language_id>english</language_id>
+       <subject>Manual Provisioning: Activate</subject>
+       <message_text><![CDATA[This e-mail is to notify you that a hosting service has been activated and requires manual provisioning.
+
+Invoice No.: %sql1_invoice_id%
+Plan SKU: %sql1_sku%
+Username: %sql1_host_username%
+Password: %sql1_host_password%
+Ip Address: %sql1_host_ip%
+
+View the service:
+%url%?_page=service:view&id=%sql1_id%&tid=default_admin]]></message_text>
+       <message_html><![CDATA[<p><font face="verdana,arial,helvetica,sans-serif" size="2">This e-mail is to notify you that a hosting service has been activated and requires manual provisioning.</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">Invoice No.: %sql1_invoice_id%<br />Plan SKU: %sql1_sku%<br />Username: %sql1_host_username%<br />Password: %sql1_host_password%<br />Ip Address: %sql1_host_ip%</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">View the service:<br /><a href="%url%?_page=service:view&id=%sql1_id%&tid=default_admin">%url%?_page=service:view&id=%sql1_id%&tid=default_admin</a></font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>42</id>
+       <site_id>1</site_id>
+       <email_template_id>45</email_template_id>
+       <language_id>english</language_id>
+       <subject>Manual Provisioning: Delete</subject>
+       <message_text>This e-mail is to notify you that a hosting service has been deleted and requires manual provisioning.
+
+Invoice No.: %sql1_invoice_id%
+Plan SKU: %sql1_sku%
+Username: %sql1_host_username%
+Password: %sql1_host_password%
+Ip Address: %sql1_host_ip%
+Domain: %sql1_domain_name%.%sql1_domain_tld%</message_text>
+       <message_html><![CDATA[<p><font face="verdana,arial,helvetica,sans-serif" size="2">This e-mail is to notify you that a hosting service has been deleted and requires manual provisioning.</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">Invoice No.: %sql1_invoice_id%<br />Plan SKU: %sql1_sku%<br />Username: %sql1_host_username%<br />Password: %sql1_host_password%<br />Ip Address: %sql1_host_ip%<br />Domain: <a href="%sql1_domain_name%.%sql1_domain_tld%">%sql1_domain_name%.%sql1_domain_tld%</a></font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>43</id>
+       <site_id>1</site_id>
+       <email_template_id>46</email_template_id>
+       <language_id>english</language_id>
+       <subject>Service Cancelation Confirmation</subject>
+       <message_text>%acct_first_name%,
+
+This e-mail is to notify you that your service id %sql1_id% for SKU %sql1_sku% has been canceled.
+
+Thank you,
+%site_name%</message_text>
+       <message_html><![CDATA[<p><font face="verdana,arial,helvetica,sans-serif" size="2">%acct_first_name%,</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">This e-mail is to notify you that your service id %sql1_id% for SKU %sql1_sku% has been canceled.</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">Thank you,<br />%site_name%</font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>44</id>
+       <site_id>1</site_id>
+       <email_template_id>47</email_template_id>
+       <language_id>english</language_id>
+       <subject>Service Cancelation</subject>
+       <message_text><![CDATA[This e-mail is to notify you that %acct_first_name% %acct_last_name%'s service id %sql1_id% for SKU %sql1_sku% has been canceled.]]></message_text>
+       <message_html><![CDATA[<font face="verdana,arial,helvetica,sans-serif" size="2">This e-mail is to notify you that %acct_first_name% %acct_last_name%'s service id %sql1_id% for SKU %sql1_sku% has been canceled.</font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>45</id>
+       <site_id>1</site_id>
+       <email_template_id>48</email_template_id>
+       <language_id>english</language_id>
+       <subject>Service Billing Schedule Change Requested</subject>
+       <message_text><![CDATA[This e-mail is to notify you that %acct_first_name% %acct_last_name% has requested a change of billing schedule for service id %sql1_id%.
+
+Current Billing Schedule: %sql2%
+Requested Billing Schedule: %sql3%
+
+View service details:
+%url%?_page=service:view&id=%sql1_id%&tid=default_admin
+
+View account details:
+%url%?_page=account_admin:view&id=%sql1_account_id%&tid=default_admin
+
+View invoice details:
+%url%?_page=invoice:view&id=%sql1_invoice_id%&tid=default_admin
+]]></message_text>
+       <message_html><![CDATA[<p><font face="verdana,arial,helvetica,sans-serif" size="2">This e-mail is to notify you that %acct_first_name% %acct_last_name% has requested a change of billing schedule for service id %sql1_id%.</font></p><p><font face="verdana,arial,helvetica,sans-serif" size="2">Current Billing Schedule: %sql2%<br />Requested Billing Schedule: %sql3%</font></p><p align="center"><font face="verdana,arial,helvetica,sans-serif" size="2"><a href="%url%?_page=service:view&id=%sql1_id%&tid=default_admin">View service details</a> | </font><font face="verdana,arial,helvetica,sans-serif" size="2"><a href="%url%?_page=account_admin:view&id=%sql1_account_id%">View account details</a> |Â </font><font face="verdana,arial,helvetica,sans-serif" size="2"><a href="%url%?_page=invoice:view&id=%sql1_invoice_id%&tid=default_admin">View invoice details</a><br /><br /></font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>104</id>
+       <site_id>1</site_id>
+       <email_template_id>104</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket ( %var_ticket_subject% )</subject>
+       <message_text><![CDATA[We have recently received your email dated %date% with the following subject:
+
+%var_ticket_subject%
+
+You can view your ticket here: %url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please enter the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have recently received your email dated %date% with the following subject:<br />
+<br />
+%var_ticket_subject%<br />
+<br />
+You can view your ticket here: <a target="_blank" href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If prompted, please enter the following details:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+Thank you,<br />
+%site_name%</font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>105</id>
+       <site_id>1</site_id>
+       <email_template_id>105</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket Received - Authorization Required</subject>
+       <message_text><![CDATA[We have recently received your e-mail dated %date% with the following subject:
+
+%var_ticket_subject%
+
+Further action on your part is required before we can process your request, for one of two possible reasons:
+
+1) The department you sent your request to requires that you have an account with us and maintain a particular subscription.
+
+2) The e-mail address you sent your request from is not the same as the e-mail address on file in your your account with us.
+
+To rectify this situation, please visit the link below and provide your login details so we can associate your request with an authorized account:
+ %url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please enter the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this e-mail, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<p><font size="2">We have recently received your e-mail dated <em>%date%</em> with the following subject:<br />
+<br />
+<u><strong>%var_ticket_subject%</strong></u><br />
+<br />
+Further action on your part is required before we can process your request, for one of two possible reasons:<br />
+<br />
+
+1) The department you sent your request to requires that you have an account with us and maintain a particular subscription.<br />
+<br />
+
+2) The e-mail address you sent your request from is not the same as the e-mail address on file in your your account with us.</font>
+
+
+
+
+</p><p><font size="2">To
+rectify this situation, please visit the link below and provide your
+login details so we can associate your request with an authorized
+account:</font></p><p> <font size="2"><strong><a target="_blank" href="%url%?_page=ticket:user_view&id=%sql1_id%"></a></strong></font><font size="2" face="verdana,arial,helvetica,sans-serif">You can view your ticket here: <a href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%" target="_blank">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If prompted, please enter the following details:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+</font><font size="2">Please do not reply to this e-mail, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+
+Thank you,<br />
+
+%site_name%</font>
+</p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>106</id>
+       <site_id>1</site_id>
+       <email_template_id>106</email_template_id>
+       <language_id>english</language_id>
+       <subject>Unable to Process your e-mail request</subject>
+       <message_text>We have recently received your e-mail dated %date% with the following subject:
+
+%var_ticket_subject%
+
+We regret to inform you that we are unable to process your request for the following reason:
+
+The department you sent your request to requires that you have an account with us and maintain a particular subscription.
+ 
+Please check the link below to see if there are any other departments which your account is authorized to access:
+
+%url%?_page=ticket:ticket
+
+If no available departments are listed at the link above, please contact customer service with your account details and request details for any additional requirements needed to access our ticket system.
+
+Please do not reply to this e-mail, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%
+</message_text>
+       <message_html><![CDATA[
+<p><font size="2" face="verdana,arial,helvetica,sans-serif">We have recently received your e-mail dated <em>%date%</em> with the following subject:<br />
+<br />
+<u>%var_ticket_subject%</u><br />
+<br />
+We regret to inform you that we are unable to process your request for the following reason:<br />
+<br />
+<em>The department you sent your request to requires that you have an account with us and maintain a particular subscription.</em><br />
+<br />
+
+Please check the link below to see if there are any other departments which your account is authorized to access:</font>
+
+
+
+  </p><p>
+</p><p> <font size="2" face="verdana,arial,helvetica,sans-serif"><strong><a target="_blank" href="%url%?_page=ticket:user_view&id=%sql1_id%">%url%?_page=ticket:ticket</a></strong><br />
+</font>
+</p><p> </p>
+<p><font size="2" face="verdana,arial,helvetica,sans-serif">If no available departments are listed at the link above, please
+contact customer service with your account details and request details
+for any additional requirements needed to access our ticket system.<br />
+<br />
+
+Please do not reply to this e-mail, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+
+Thank you,<br />
+
+%site_name%</font>
+
+</p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>616</id>
+       <site_id>1</site_id>
+       <email_template_id>616</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket ( %var_ticket_subject% )</subject>
+       <message_text><![CDATA[We have recently received your email dated %date% with the following subject:
+
+%var_ticket_subject%
+
+You can view your ticket here: %url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please enter the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have recently received your email dated %date% with the following subject:<br />
+<br />
+%var_ticket_subject%<br />
+<br />
+You can view your ticket here: <a target="_blank" href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If prompted, please enter the following details:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+Thank you,<br />
+%site_name%</font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>617</id>
+       <site_id>1</site_id>
+       <email_template_id>617</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket ( %var_ticket_subject% )</subject>
+       <message_text><![CDATA[We have recently received your email dated %date% with the following subject:
+
+%var_ticket_subject%
+
+You can view your ticket here: %url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please enter the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have recently received your email dated %date% with the following subject:<br />
+<br />
+%var_ticket_subject%<br />
+<br />
+You can view your ticket here: <a target="_blank" href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If prompted, please enter the following details:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+Thank you,<br />
+%site_name%</font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>618</id>
+       <site_id>1</site_id>
+       <email_template_id>618</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket ( %var_ticket_subject% )</subject>
+       <message_text><![CDATA[We have recently received your email dated %date% with the following subject:
+
+%var_ticket_subject%
+
+You can view your ticket here: %url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please enter the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have recently received your email dated %date% with the following subject:<br />
+<br />
+%var_ticket_subject%<br />
+<br />
+You can view your ticket here: <a target="_blank" href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If prompted, please enter the following details:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+Thank you,<br />
+%site_name%</font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>619</id>
+       <site_id>1</site_id>
+       <email_template_id>619</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket Received - Authorization Required</subject>
+       <message_text><![CDATA[We have recently received your e-mail dated %date% with the following subject:
+
+%var_ticket_subject%
+
+Further action on your part is required before we can process your request, for one of two possible reasons:
+
+1) The department you sent your request to requires that you have an account with us and maintain a particular subscription.
+
+2) The e-mail address you sent your request from is not the same as the e-mail address on file in your your account with us.
+
+To rectify this situation, please visit the link below and provide your login details so we can associate your request with an authorized account:
+ %url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please enter the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this e-mail, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<p><font size="2">We have recently received your e-mail dated <em>%date%</em> with the following subject:<br />
+<br />
+<u><strong>%var_ticket_subject%</strong></u><br />
+<br />
+Further action on your part is required before we can process your request, for one of two possible reasons:<br />
+<br />
+
+1) The department you sent your request to requires that you have an account with us and maintain a particular subscription.<br />
+<br />
+
+2) The e-mail address you sent your request from is not the same as the e-mail address on file in your your account with us.</font>
+
+
+
+
+</p><p><font size="2">To
+rectify this situation, please visit the link below and provide your
+login details so we can associate your request with an authorized
+account:</font></p><p> <font size="2"><strong><a target="_blank" href="%url%?_page=ticket:user_view&id=%sql1_id%"></a></strong></font><font size="2" face="verdana,arial,helvetica,sans-serif">You can view your ticket here: <a href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%" target="_blank">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If prompted, please enter the following details:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+</font><font size="2">Please do not reply to this e-mail, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+
+Thank you,<br />
+
+%site_name%</font>
+</p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>621</id>
+       <site_id>1</site_id>
+       <email_template_id>621</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket ( %sql2_name% ) %var_ticket_subject%</subject>
+       <message_text><![CDATA[We have recieved a new staff issued ticket at %date%, with a priority of  %var_ticket_priority%.
+
+==================================================
+%var_ticket_subject%
+==================================================
+%var_ticket_body%
+==================================================
+
+%url%admin.php?_page=ticket:view&id=%sql1_id%]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have recieved a new staff issued ticket at %date%, with a priority of&nbsp; %var_ticket_priority%.<br />
+<br />
+==================================================<br />
+%var_ticket_subject%<br />
+==================================================<br />
+%var_ticket_body%<br />
+==================================================<br />
+<br />
+<a href="%url%admin.php?_page=ticket:view&id=%sql1_id%" target="_self">%url%admin.php?_page=ticket:view&id=%sql1_id%</a></font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>622</id>
+       <site_id>1</site_id>
+       <email_template_id>622</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket (%var_ticket_subject% )</subject>
+       <message_text><![CDATA[Our staff has added a new ticket, dated %date%.
+
+You can view your ticket here:
+%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If promted, please provide the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+===========================================
+%var_ticket_subject% 
+===========================================
+%var_ticket_body%
+===========================================
+
+Thank you,
+%site_name%
+]]></message_text>
+       <message_html><![CDATA[Our staff has added a new ticket, dated %date%.<br />
+<br />
+You can view your ticket here:<br />
+<a target="_blank" href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If promted, please provide the following details:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+<hr width="100%" size="2" />Subject: %var_ticket_subject% <br />
+<hr width="100%" size="2" />%var_ticket_body%<br />
+<hr width="100%" size="2" /><br />
+Thank you,<br />
+%site_name%]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>623</id>
+       <site_id>1</site_id>
+       <email_template_id>623</email_template_id>
+       <language_id>english</language_id>
+       <subject>Ticket Response ( %sql1_subject% )</subject>
+       <message_text><![CDATA[This e-mail is to let you know we have responded to a ticket of yours on %date%.
+
+You can view your ticket here: %url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please enter the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+=============================================
+Subject: %sql1_subject%
+=============================================
+%var_message%
+=============================================
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<p><font size="2" face="verdana,arial,helvetica,sans-serif">This e-mail is to let you know we have responded  to a  ticket of yours on %date%.</font></p>
+<p><font size="2" face="verdana,arial,helvetica,sans-serif">You can view your ticket here: </font><font size="2"><a href="%url%?_page=ticket:user_view&id=%sql1_id%"><font face="verdana,arial,helvetica,sans-serif">%url%?_page=ticket:user_view&id=%sql1_id%</font></a></font></p>
+<p><font size="2" face="verdana,arial,helvetica,sans-serif">Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.</font> <br />
+</p>
+<p><font size="2">Subject: <u>%sql1_subject% </u></font></p>
+<pre>%var_message%</pre>
+<font size="2" face="verdana,arial,helvetica,sans-serif">
+</font><p><font size="2" face="verdana,arial,helvetica,sans-serif"><font size="2" face="verdana,arial,helvetica,sans-serif">Thank you,<br />
+%site_name%</font></font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>624</id>
+       <site_id>1</site_id>
+       <email_template_id>624</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket ( %var_ticket_subject% )</subject>
+       <message_text><![CDATA[We have received your new ticket, dated %date%.
+
+You can view your ticket here:
+%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please provide the following information:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%
+]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have received your new ticket, dated %date%.<br />
+<br />
+You can view your ticket here:<br />
+<a target="_self" href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If prompted, please provide the following information:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+Thank you,<br />
+%site_name%<br />
+<br />
+</font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>625</id>
+       <site_id>1</site_id>
+       <email_template_id>625</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket ( %sql2_name% ) %var_ticket_subject%</subject>
+       <message_text><![CDATA[We have recieved a new ticket on %date%, with a priority of %var_ticket_priority%
+
+==================================================
+%var_ticket_subject% 
+==================================================
+%var_ticket_body%
+==================================================
+
+%url%admin.php?_page=ticket:view&id=%sql1_id%]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have recieved a new ticket on %date%, with a priority of <strong>%var_ticket_priority%</strong>.<br />
+<br />
+==================================================<br />
+<strong>%var_ticket_subject% </strong><br />
+==================================================<br />
+%var_ticket_body%<br />
+==================================================<br />
+ <br />
+<a href="%url%admin.php?_page=ticket:view&id=%sql1_id%" target="_self">%url%admin.php?_page=ticket:view&id=%sql1_id%</a><br />
+</font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>626</id>
+       <site_id>1</site_id>
+       <email_template_id>626</email_template_id>
+       <language_id>english</language_id>
+       <subject>Updated Ticket ( %sql1_subject% )</subject>
+       <message_text><![CDATA[This e-mail is to let you know we have recieved your response to your ticket, dated %date%.
+
+You can view your ticket here:
+%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please provide the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%
+]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">This e-mail is to let you know we have recieved your response to your ticket, dated %date%.<br />
+<br />
+You can view your ticket here:<br />
+<a target="_self" href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If prompted, please provide the following details:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+Thank you,<br />
+%site_name%<br />
+<br />
+</font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>627</id>
+       <site_id>1</site_id>
+       <email_template_id>627</email_template_id>
+       <language_id>english</language_id>
+       <subject>Updated Ticket ( %sql2_name% ) %sql1_subject%</subject>
+       <message_text><![CDATA[We have received a reply to a ticket at %date%, with a priority of %sql1_priority%.
+
+==================================================
+%sql1_subject%
+==================================================
+%var_ticket_reply%
+==================================================
+
+%url%admin.php?_page=ticket:view&id=%sql1_id%]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have received a reply to a ticket at %date%, with a priority of %sql1_priority%.<br />
+<br />
+==================================================<br />
+%sql1_subject%<br />
+==================================================<br />
+%var_ticket_reply%<br />
+==================================================<br />
+<br /><a href="%url%admin.php?_page=ticket:view&id=%sql1_id%" target="_self">%url%admin.php?_page=ticket:view&id=%sql1_id%</a></font><br />]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>1620</id>
+       <site_id>1</site_id>
+       <email_template_id>620</email_template_id>
+       <language_id>english</language_id>
+       <subject>Unable to Process your e-mail request</subject>
+       <message_text>We have recently received your e-mail dated %date% with the following subject:
+
+%var_ticket_subject%
+
+We regret to inform you that we are unable to process your request for the following reason:
+
+The department you sent your request to requires that you have an account with us and maintain a particular subscription.
+ 
+Please check the link below to see if there are any other departments which your account is authorized to access:
+
+%url%?_page=ticket:ticket
+
+If no available departments are listed at the link above, please contact customer service with your account details and request details for any additional requirements needed to access our ticket system.
+
+Please do not reply to this e-mail, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%
+</message_text>
+       <message_html><![CDATA[
+<p><font size="2" face="verdana,arial,helvetica,sans-serif">We have recently received your e-mail dated <em>%date%</em> with the following subject:<br />
+<br />
+<u>%var_ticket_subject%</u><br />
+<br />
+We regret to inform you that we are unable to process your request for the following reason:<br />
+<br />
+<em>The department you sent your request to requires that you have an account with us and maintain a particular subscription.</em><br />
+<br />
+
+Please check the link below to see if there are any other departments which your account is authorized to access:</font>
+
+
+
+  </p><p>
+</p><p> <font size="2" face="verdana,arial,helvetica,sans-serif"><strong><a target="_blank" href="%url%?_page=ticket:user_view&id=%sql1_id%">%url%?_page=ticket:ticket</a></strong><br />
+</font>
+</p><p> </p>
+<p><font size="2" face="verdana,arial,helvetica,sans-serif">If no available departments are listed at the link above, please
+contact customer service with your account details and request details
+for any additional requirements needed to access our ticket system.<br />
+<br />
+
+Please do not reply to this e-mail, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+
+Thank you,<br />
+
+%site_name%</font>
+
+</p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>1622</id>
+       <site_id>1</site_id>
+       <email_template_id>628</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket ( %var_ticket_subject% )</subject>
+       <message_text><![CDATA[We have recently received your email dated %date% with the following subject:
+
+%var_ticket_subject%
+
+You can view your ticket here: %url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please enter the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have recently received your email dated %date% with the following subject:<br />
+<br />
+%var_ticket_subject%<br />
+<br />
+You can view your ticket here: <a target="_blank" href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If prompted, please enter the following details:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+Thank you,<br />
+%site_name%</font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>1623</id>
+       <site_id>1</site_id>
+       <email_template_id>629</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket Received - Authorization Required</subject>
+       <message_text><![CDATA[We have recently received your e-mail dated %date% with the following subject:
+
+%var_ticket_subject%
+
+Further action on your part is required before we can process your request, for one of two possible reasons:
+
+1) The department you sent your request to requires that you have an account with us and maintain a particular subscription.
+
+2) The e-mail address you sent your request from is not the same as the e-mail address on file in your your account with us.
+
+To rectify this situation, please visit the link below and provide your login details so we can associate your request with an authorized account:
+ %url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please enter the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this e-mail, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<p><font size="2">We have recently received your e-mail dated <em>%date%</em> with the following subject:<br />
+<br />
+<u><strong>%var_ticket_subject%</strong></u><br />
+<br />
+Further action on your part is required before we can process your request, for one of two possible reasons:<br />
+<br />
+
+1) The department you sent your request to requires that you have an account with us and maintain a particular subscription.<br />
+<br />
+
+2) The e-mail address you sent your request from is not the same as the e-mail address on file in your your account with us.</font>
+
+
+
+
+</p><p><font size="2">To
+rectify this situation, please visit the link below and provide your
+login details so we can associate your request with an authorized
+account:</font></p><p> <font size="2"><strong><a target="_blank" href="%url%?_page=ticket:user_view&id=%sql1_id%"></a></strong></font><font size="2" face="verdana,arial,helvetica,sans-serif">You can view your ticket here: <a href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%" target="_blank">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If prompted, please enter the following details:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+</font><font size="2">Please do not reply to this e-mail, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+
+Thank you,<br />
+
+%site_name%</font>
+</p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>1625</id>
+       <site_id>1</site_id>
+       <email_template_id>631</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket ( %sql2_name% ) %var_ticket_subject%</subject>
+       <message_text><![CDATA[We have recieved a new staff issued ticket at %date%, with a priority of  %var_ticket_priority%.
+
+==================================================
+%var_ticket_subject%
+==================================================
+%var_ticket_body%
+==================================================
+
+%url%admin.php?_page=ticket:view&id=%sql1_id%]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have recieved a new staff issued ticket at %date%, with a priority of&nbsp; %var_ticket_priority%.<br />
+<br />
+==================================================<br />
+%var_ticket_subject%<br />
+==================================================<br />
+%var_ticket_body%<br />
+==================================================<br />
+<br />
+<a href="%url%admin.php?_page=ticket:view&id=%sql1_id%" target="_self">%url%admin.php?_page=ticket:view&id=%sql1_id%</a></font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>1626</id>
+       <site_id>1</site_id>
+       <email_template_id>632</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket (%var_ticket_subject% )</subject>
+       <message_text><![CDATA[Our staff has added a new ticket, dated %date%.
+
+You can view your ticket here:
+%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If promted, please provide the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+===========================================
+%var_ticket_subject% 
+===========================================
+%var_ticket_body%
+===========================================
+
+Thank you,
+%site_name%
+]]></message_text>
+       <message_html><![CDATA[Our staff has added a new ticket, dated %date%.<br />
+<br />
+You can view your ticket here:<br />
+<a target="_blank" href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If promted, please provide the following details:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+<hr width="100%" size="2" />Subject: %var_ticket_subject% <br />
+<hr width="100%" size="2" />%var_ticket_body%<br />
+<hr width="100%" size="2" /><br />
+Thank you,<br />
+%site_name%]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>1627</id>
+       <site_id>1</site_id>
+       <email_template_id>633</email_template_id>
+       <language_id>english</language_id>
+       <subject>Ticket Response ( %sql1_subject% )</subject>
+       <message_text><![CDATA[This e-mail is to let you know we have responded to a ticket of yours on %date%.
+
+You can view your ticket here: %url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please enter the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+=============================================
+Subject: %sql1_subject%
+=============================================
+%var_message%
+=============================================
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<p><font size="2" face="verdana,arial,helvetica,sans-serif">This e-mail is to let you know we have responded  to a  ticket of yours on %date%.</font></p>
+<p><font size="2" face="verdana,arial,helvetica,sans-serif">You can view your ticket here: </font><font size="2"><a href="%url%?_page=ticket:user_view&id=%sql1_id%"><font face="verdana,arial,helvetica,sans-serif">%url%?_page=ticket:user_view&id=%sql1_id%</font></a></font></p>
+<p><font size="2" face="verdana,arial,helvetica,sans-serif">Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.</font> <br />
+</p>
+<p><font size="2">Subject: <u>%sql1_subject% </u></font></p>
+<pre>%var_message%</pre>
+<font size="2" face="verdana,arial,helvetica,sans-serif">
+</font><p><font size="2" face="verdana,arial,helvetica,sans-serif"><font size="2" face="verdana,arial,helvetica,sans-serif">Thank you,<br />
+%site_name%</font></font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>1628</id>
+       <site_id>1</site_id>
+       <email_template_id>634</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket ( %var_ticket_subject% )</subject>
+       <message_text><![CDATA[We have received your new ticket, dated %date%.
+
+You can view your ticket here:
+%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please provide the following information:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%
+]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have received your new ticket, dated %date%.<br />
+<br />
+You can view your ticket here:<br />
+<a target="_self" href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If prompted, please provide the following information:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+Thank you,<br />
+%site_name%<br />
+<br />
+</font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>1629</id>
+       <site_id>1</site_id>
+       <email_template_id>635</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket ( %sql2_name% ) %var_ticket_subject%</subject>
+       <message_text><![CDATA[We have recieved a new ticket on %date%, with a priority of %var_ticket_priority%
+
+==================================================
+%var_ticket_subject% 
+==================================================
+%var_ticket_body%
+==================================================
+
+%url%admin.php?_page=ticket:view&id=%sql1_id%]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have recieved a new ticket on %date%, with a priority of <strong>%var_ticket_priority%</strong>.<br />
+<br />
+==================================================<br />
+<strong>%var_ticket_subject% </strong><br />
+==================================================<br />
+%var_ticket_body%<br />
+==================================================<br />
+ <br />
+<a href="%url%admin.php?_page=ticket:view&id=%sql1_id%" target="_self">%url%admin.php?_page=ticket:view&id=%sql1_id%</a><br />
+</font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>1630</id>
+       <site_id>1</site_id>
+       <email_template_id>636</email_template_id>
+       <language_id>english</language_id>
+       <subject>Updated Ticket ( %sql1_subject% )</subject>
+       <message_text><![CDATA[This e-mail is to let you know we have recieved your response to your ticket, dated %date%.
+
+You can view your ticket here:
+%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please provide the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%
+]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">This e-mail is to let you know we have recieved your response to your ticket, dated %date%.<br />
+<br />
+You can view your ticket here:<br />
+<a target="_self" href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If prompted, please provide the following details:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+Thank you,<br />
+%site_name%<br />
+<br />
+</font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>1631</id>
+       <site_id>1</site_id>
+       <email_template_id>637</email_template_id>
+       <language_id>english</language_id>
+       <subject>Updated Ticket ( %sql2_name% ) %sql1_subject%</subject>
+       <message_text><![CDATA[We have received a reply to a ticket at %date%, with a priority of %sql1_priority%.
+
+==================================================
+%sql1_subject%
+==================================================
+%var_ticket_reply%
+==================================================
+
+%url%admin.php?_page=ticket:view&id=%sql1_id%]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have received a reply to a ticket at %date%, with a priority of %sql1_priority%.<br />
+<br />
+==================================================<br />
+%sql1_subject%<br />
+==================================================<br />
+%var_ticket_reply%<br />
+==================================================<br />
+<br /><a href="%url%admin.php?_page=ticket:view&id=%sql1_id%" target="_self">%url%admin.php?_page=ticket:view&id=%sql1_id%</a></font><br />]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>11624</id>
+       <site_id>1</site_id>
+       <email_template_id>630</email_template_id>
+       <language_id>english</language_id>
+       <subject>Unable to Process your e-mail request</subject>
+       <message_text>We have recently received your e-mail dated %date% with the following subject:
+
+%var_ticket_subject%
+
+We regret to inform you that we are unable to process your request for the following reason:
+
+The department you sent your request to requires that you have an account with us and maintain a particular subscription.
+ 
+Please check the link below to see if there are any other departments which your account is authorized to access:
+
+%url%?_page=ticket:ticket
+
+If no available departments are listed at the link above, please contact customer service with your account details and request details for any additional requirements needed to access our ticket system.
+
+Please do not reply to this e-mail, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%
+</message_text>
+       <message_html><![CDATA[
+<p><font size="2" face="verdana,arial,helvetica,sans-serif">We have recently received your e-mail dated <em>%date%</em> with the following subject:<br />
+<br />
+<u>%var_ticket_subject%</u><br />
+<br />
+We regret to inform you that we are unable to process your request for the following reason:<br />
+<br />
+<em>The department you sent your request to requires that you have an account with us and maintain a particular subscription.</em><br />
+<br />
+
+Please check the link below to see if there are any other departments which your account is authorized to access:</font>
+
+
+
+  </p><p>
+</p><p> <font size="2" face="verdana,arial,helvetica,sans-serif"><strong><a target="_blank" href="%url%?_page=ticket:user_view&id=%sql1_id%">%url%?_page=ticket:ticket</a></strong><br />
+</font>
+</p><p> </p>
+<p><font size="2" face="verdana,arial,helvetica,sans-serif">If no available departments are listed at the link above, please
+contact customer service with your account details and request details
+for any additional requirements needed to access our ticket system.<br />
+<br />
+
+Please do not reply to this e-mail, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+
+Thank you,<br />
+
+%site_name%</font>
+
+</p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>11626</id>
+       <site_id>1</site_id>
+       <email_template_id>638</email_template_id>
+       <language_id>english</language_id>
+       <subject>Your %site_name% Account</subject>
+       <message_text>%acct_first_name%,
+
+Your account has been blocked due to a high volume of logins from multiple IP addresses.
+
+Our system monitors all logins to ensure passwords are not shared with non-members. We have logged your username being used from %sql3% separate locations, which exceeds our limit of %sql2%.
+
+If you feel this is in error, please contact our customer service department.
+
+Thank you,
+%site_name%
+%url%</message_text>
+       <message_html><![CDATA[<font face="verdana,arial,helvetica,sans-serif">%acct_first_name%,<br />
+<br />
+Your account has been blocked due to a high volume of logins from multiple IP addresses.<br />
+<br />
+Our system monitors all logins to ensure passwords are not shared with
+non-members. We have logged your username being used from %sql3%
+separate locations, which exceeds our limit of %sql2%.<br />
+<br />
+If you feel this is in error, please contact our customer service department.<br />
+<br />
+Thank you,<br />
+%site_name%<br />
+<a target="_self" href="%url%">%url%</a></font><br />]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>11627</id>
+       <site_id>1</site_id>
+       <email_template_id>639</email_template_id>
+       <language_id>english</language_id>
+       <subject>Banned User %acct_first_name% %acct_last_name%</subject>
+       <message_text><![CDATA[This is an administrative note from AgileBill -  the account for %acct_first_name% %acct_last_name% has been banned for password sharing.
+
+%sql3% separate IPs have been logged for this account.
+
+User Details: %url%?_page=account_admin:view&id=%acct_id%
+ ]]></message_text>
+       <message_html><![CDATA[This is an administrative note from AgileBill -  the account for
+%acct_first_name% %acct_last_name% has been banned for password sharing.<br />
+<br />
+%sql3% separate IPs have been logged for this account.<br />
+<br />
+<a target="_self" href="%url%?_page=account_admin:view&id=%acct_id%">User Details</a><br />
+]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>11628</id>
+       <site_id>1</site_id>
+       <email_template_id>640</email_template_id>
+       <language_id>english</language_id>
+       <subject>Your Credit Card Expires Soon</subject>
+       <message_text><![CDATA[Dear %acct_first_name%,
+
+Your %sql1_card_type% on file ending with %sql1_card_num4% expires on %sql1_card_exp_month%/%sql1_card_exp_year%.
+
+Please login at the link below to update it so your service is not suspended.
+
+%ssl_url%?_page=account_billing:user_view&id=%sql1_id%
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[Dear %account_first_name%,<br />
+<br />
+Your %sql1_cart_type% on file ending with %sql2_card_num4% expires on %sql1_%/%sql1_%.<br />
+<br />
+Please login at the link below to update it so your service is not suspended.<br />
+<br />
+%ssl_url%?_page=account_billing:user_view&id=%sql1_id%<br />
+<br />
+Thank you,<br />
+%site_name%]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>11629</id>
+       <site_id>1</site_id>
+       <email_template_id>641</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket ( %var_ticket_subject% )</subject>
+       <message_text><![CDATA[We have recently received your email dated %date% with the following subject:
+
+%var_ticket_subject%
+
+You can view your ticket here: %url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please enter the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have recently received your email dated %date% with the following subject:<br />
+<br />
+%var_ticket_subject%<br />
+<br />
+You can view your ticket here: <a target="_blank" href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If prompted, please enter the following details:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+Thank you,<br />
+%site_name%</font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>11630</id>
+       <site_id>1</site_id>
+       <email_template_id>642</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket Received - Authorization Required</subject>
+       <message_text><![CDATA[We have recently received your e-mail dated %date% with the following subject:
+
+%var_ticket_subject%
+
+Further action on your part is required before we can process your request, for one of two possible reasons:
+
+1) The department you sent your request to requires that you have an account with us and maintain a particular subscription.
+
+2) The e-mail address you sent your request from is not the same as the e-mail address on file in your your account with us.
+
+To rectify this situation, please visit the link below and provide your login details so we can associate your request with an authorized account:
+ %url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please enter the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this e-mail, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<p><font size="2">We have recently received your e-mail dated <em>%date%</em> with the following subject:<br />
+<br />
+<u><strong>%var_ticket_subject%</strong></u><br />
+<br />
+Further action on your part is required before we can process your request, for one of two possible reasons:<br />
+<br />
+
+1) The department you sent your request to requires that you have an account with us and maintain a particular subscription.<br />
+<br />
+
+2) The e-mail address you sent your request from is not the same as the e-mail address on file in your your account with us.</font>
+
+
+
+
+</p><p><font size="2">To
+rectify this situation, please visit the link below and provide your
+login details so we can associate your request with an authorized
+account:</font></p><p> <font size="2"><strong><a target="_blank" href="%url%?_page=ticket:user_view&id=%sql1_id%"></a></strong></font><font size="2" face="verdana,arial,helvetica,sans-serif">You can view your ticket here: <a href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%" target="_blank">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If prompted, please enter the following details:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+</font><font size="2">Please do not reply to this e-mail, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+
+Thank you,<br />
+
+%site_name%</font>
+</p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>11632</id>
+       <site_id>1</site_id>
+       <email_template_id>644</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket ( %sql2_name% ) %var_ticket_subject%</subject>
+       <message_text><![CDATA[We have recieved a new staff issued ticket at %date%, with a priority of  %var_ticket_priority%.
+
+==================================================
+%sql1_email% - %var_ticket_subject%
+==================================================
+%var_ticket_body%
+==================================================
+
+%url%admin.php?_page=ticket:view&id=%sql1_id%]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have recieved a new staff issued ticket at %date%, with a priority of  %var_ticket_priority%.<br />
+<br />
+==================================================<br />%sql1_email% - %var_ticket_subject%<br />
+==================================================<br />
+%var_ticket_body%<br />
+==================================================<br />
+<br />
+<a target="_self" href="%url%admin.php?_page=ticket:view&id=%sql1_id%">%url%admin.php?_page=ticket:view&id=%sql1_id%</a></font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>11633</id>
+       <site_id>1</site_id>
+       <email_template_id>645</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket (%var_ticket_subject% )</subject>
+       <message_text><![CDATA[Our staff has added a new ticket, dated %date%.
+
+You can view your ticket here:
+%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If promted, please provide the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+===========================================
+%var_ticket_subject% 
+===========================================
+%var_ticket_body%
+===========================================
+
+Thank you,
+%site_name%
+]]></message_text>
+       <message_html><![CDATA[Our staff has added a new ticket, dated %date%.<br />
+<br />
+You can view your ticket here:<br />
+<a target="_blank" href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If promted, please provide the following details:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+<hr width="100%" size="2" />Subject: %var_ticket_subject% <br />
+<hr width="100%" size="2" />%var_ticket_body%<br />
+<hr width="100%" size="2" /><br />
+Thank you,<br />
+%site_name%]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>11634</id>
+       <site_id>1</site_id>
+       <email_template_id>646</email_template_id>
+       <language_id>english</language_id>
+       <subject>Ticket Response ( %sql1_subject% )</subject>
+       <message_text><![CDATA[This e-mail is to let you know we have responded to a ticket of yours on %date%.
+
+You can view your ticket here: %url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please enter the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+=============================================
+Subject: %sql1_subject%
+=============================================
+%var_message%
+=============================================
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<p><font size="2" face="verdana,arial,helvetica,sans-serif">This e-mail is to let you know we have responded  to a  ticket of yours on %date%.</font></p>
+<p><font size="2" face="verdana,arial,helvetica,sans-serif">You can view your ticket here: </font><font size="2"><a href="%url%?_page=ticket:user_view&id=%sql1_id%"><font face="verdana,arial,helvetica,sans-serif">%url%?_page=ticket:user_view&id=%sql1_id%</font></a></font></p>
+<p><font size="2" face="verdana,arial,helvetica,sans-serif">Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.</font> <br />
+</p>
+<p><font size="2">Subject: <u>%sql1_subject% </u></font></p>
+<pre>%var_message%</pre>
+<font size="2" face="verdana,arial,helvetica,sans-serif">
+</font><p><font size="2" face="verdana,arial,helvetica,sans-serif"><font size="2" face="verdana,arial,helvetica,sans-serif">Thank you,<br />
+%site_name%</font></font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>11635</id>
+       <site_id>1</site_id>
+       <email_template_id>647</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket ( %var_ticket_subject% )</subject>
+       <message_text><![CDATA[We have received your new ticket, dated %date%.
+
+You can view your ticket here:
+%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please provide the following information:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%
+]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have received your new ticket, dated %date%.<br />
+<br />
+You can view your ticket here:<br />
+<a target="_self" href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If prompted, please provide the following information:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+Thank you,<br />
+%site_name%<br />
+<br />
+</font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>11636</id>
+       <site_id>1</site_id>
+       <email_template_id>648</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket ( %sql2_name% ) %var_ticket_subject%</subject>
+       <message_text><![CDATA[We have recieved a new ticket on %date%, with a priority of %var_ticket_priority%
+
+==================================================
+%sql1_email% - %var_ticket_subject% 
+==================================================
+%var_ticket_body%
+==================================================
+
+%url%admin.php?_page=ticket:view&id=%sql1_id%]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have recieved a new ticket on %date%, with a priority of <strong>%var_ticket_priority%</strong>.<br />
+<br />
+==================================================<br />
+<strong>%sql1_email% - %var_ticket_subject% </strong><br />
+==================================================<br />
+%var_ticket_body%<br />
+==================================================<br />
+ <br />
+<a target="_self" href="%url%admin.php?_page=ticket:view&id=%sql1_id%">%url%admin.php?_page=ticket:view&id=%sql1_id%</a><br />
+</font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>11637</id>
+       <site_id>1</site_id>
+       <email_template_id>649</email_template_id>
+       <language_id>english</language_id>
+       <subject>Updated Ticket ( %sql1_subject% )</subject>
+       <message_text><![CDATA[This e-mail is to let you know we have recieved your response to your ticket, dated %date%.
+
+You can view your ticket here:
+%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please provide the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%
+]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">This e-mail is to let you know we have recieved your response to your ticket, dated %date%.<br />
+<br />
+You can view your ticket here:<br />
+<a target="_self" href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If prompted, please provide the following details:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+Thank you,<br />
+%site_name%<br />
+<br />
+</font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>11638</id>
+       <site_id>1</site_id>
+       <email_template_id>650</email_template_id>
+       <language_id>english</language_id>
+       <subject>Updated Ticket ( %sql2_name% ) %sql1_subject%</subject>
+       <message_text><![CDATA[We have received a reply to a ticket at %date%, with a priority of %sql1_priority%.
+
+==================================================
+%sql1_email% - %sql1_subject%
+==================================================
+%var_ticket_reply%
+==================================================
+
+%url%admin.php?_page=ticket:view&id=%sql1_id%]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have received a reply to a ticket at %date%, with a priority of %sql1_priority%.<br />
+<br />
+==================================================<br /><strong>%sql1_email% - %sql1_subject%</strong><br />
+==================================================<br />
+%var_ticket_reply%<br />
+==================================================<br />
+<br /><a target="_self" href="%url%admin.php?_page=ticket:view&id=%sql1_id%">%url%admin.php?_page=ticket:view&id=%sql1_id%</a></font><br />]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>111631</id>
+       <site_id>1</site_id>
+       <email_template_id>643</email_template_id>
+       <language_id>english</language_id>
+       <subject>Unable to Process your e-mail request</subject>
+       <message_text>We have recently received your e-mail dated %date% with the following subject:
+
+%var_ticket_subject%
+
+We regret to inform you that we are unable to process your request for the following reason:
+
+The department you sent your request to requires that you have an account with us and maintain a particular subscription.
+ 
+Please check the link below to see if there are any other departments which your account is authorized to access:
+
+%url%?_page=ticket:ticket
+
+If no available departments are listed at the link above, please contact customer service with your account details and request details for any additional requirements needed to access our ticket system.
+
+Please do not reply to this e-mail, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%
+</message_text>
+       <message_html><![CDATA[
+<p><font size="2" face="verdana,arial,helvetica,sans-serif">We have recently received your e-mail dated <em>%date%</em> with the following subject:<br />
+<br />
+<u>%var_ticket_subject%</u><br />
+<br />
+We regret to inform you that we are unable to process your request for the following reason:<br />
+<br />
+<em>The department you sent your request to requires that you have an account with us and maintain a particular subscription.</em><br />
+<br />
+
+Please check the link below to see if there are any other departments which your account is authorized to access:</font>
+
+
+
+  </p><p>
+</p><p> <font size="2" face="verdana,arial,helvetica,sans-serif"><strong><a target="_blank" href="%url%?_page=ticket:user_view&id=%sql1_id%">%url%?_page=ticket:ticket</a></strong><br />
+</font>
+</p><p> </p>
+<p><font size="2" face="verdana,arial,helvetica,sans-serif">If no available departments are listed at the link above, please
+contact customer service with your account details and request details
+for any additional requirements needed to access our ticket system.<br />
+<br />
+
+Please do not reply to this e-mail, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+
+Thank you,<br />
+
+%site_name%</font>
+
+</p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>111633</id>
+       <site_id>1</site_id>
+       <email_template_id>651</email_template_id>
+       <language_id>english</language_id>
+       <subject>Invoice %sql1_id% suspended for non-payment</subject>
+       <message_text><![CDATA[Dear %acct_first_name%,
+
+This e-mail is to inform you that Invoice # %sql1_id% and associated services have been suspended for non-payment. 
+
+This invoice was being billed on net terms and %sql3% intervals have passed and the invoice has not been paid in full.
+
+You can visit login to your account and view the invoice at %url%?_page=invoice:view&id=%sql1_id% to review the invoice and make payment.
+
+Regards,
+%site_name%]]></message_text>
+       <message_html><![CDATA[Dear %acct_first_name%,<br />
+
+
+<br />
+
+
+This e-mail is to inform you that Invoice # %sql1_id% and associated services have been suspended for non-payment. <br />
+
+
+<br />
+
+
+This invoice was being billed on net terms and %sql3% intervals have passed and the invoice has not been paid in full.<br />
+
+
+<br />
+
+
+You can visit login to your account and view the invoice at <a href="/sites/agilebill/sites/agilebill/sites/agilebill/%url%?_page=invoice:view&id=%sql1_id%" target="_self">%url%?_page=invoice:view&id=%sql1_id%</a> to review the invoice and make payment.<br />
+
+
+<br />
+
+
+Regards,<br />
+
+
+%site_name%]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>111634</id>
+       <site_id>1</site_id>
+       <email_template_id>652</email_template_id>
+       <language_id>english</language_id>
+       <subject>Late Fees for Invoice %sql1_id%</subject>
+       <message_text><![CDATA[Dear %acct_first_name%,
+
+This is a friendly notice to inform you that a late charge in the amount of %sql2% has been applied to your account. These charges are for invoice # %sql1_id%, which is presently being billed on net terms.
+
+You have %sql3% intervals remaining before the services associated with this invoice are suspended and collection activity may occur. In the meanwhile, we will continue to apply the late charges to your next invoice on each remaining interval.
+
+You may login to your account at and view your invoice at %url%?_page=invoice:user_view&id=%sql1_id% to make payment arrangements.
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[Dear %acct_first_name%,<br />
+
+
+<br />
+
+
+This is a friendly notice to inform you that a late charge in the
+amount of %sql2% has been applied to your account. These charges are
+for invoice # %sql1_id%, which is presently being billed on net terms.<br />
+
+
+<br />
+
+
+You have %sql3% intervals remaining before the services associated with
+this invoice are suspended and collection activity may occur. In the
+meanwhile, we will continue to apply the late charges to your next
+invoice on each remaining interval.<br />
+
+
+<br />
+
+
+You may login to your account at and view your invoice at
+<a href="/sites/agilebill/%url%?_page=invoice:user_view&id=%sql1_id%" target="_self"><u>%url%?_page=invoice:user_view&id=%sql1_id%</u></a> to make payment
+arrangements.<br />
+
+
+<br />
+
+
+Thank you,<br />
+
+
+%site_name%]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>111635</id>
+       <site_id>1</site_id>
+       <email_template_id>653</email_template_id>
+       <language_id>english</language_id>
+       <subject>Prepaid Pin Balance Low</subject>
+       <message_text>Dear %acct_first_name%,
+
+Your prepaid balance for Pin # %sql1_pin% is low.
+
+The balance is currently %sql3%.
+
+To replenish this card, please visit %url%?_page=product_cat:menu
+
+Thank you,
+%site_name%</message_text>
+       <message_html><![CDATA[Dear %acct_first_name%,<br />
+
+<br />
+
+Your prepaid balance for Pin # %sql1_pin% is low.<br />
+
+<br />
+
+The balance is currently %sql3%.<br />
+
+<br />
+
+To replenish this card, please visit <a href="http://dev.agilevoice.com/%url%?_page=product_cat:menu" target="_self">%url%?_page=product_cat:menu<br />
+</a><br />
+
+Thank you,<br />
+
+%site_name%<br />
+]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>111636</id>
+       <site_id>1</site_id>
+       <email_template_id>654</email_template_id>
+       <language_id>english</language_id>
+       <subject>Manual VoIP Provisioning [%sql3%]</subject>
+       <message_text>This e-mail is to inform you that we that the following action is needed for service id %sql1_id%:  %sql3%.
+
+Service Details:
+
+Product SKU: %sql1_sku% 
+Authenticate Username: %sql2_sip%
+Phone Number: %sql2_sip%
+Password: %sql2_data%</message_text>
+       <message_html><![CDATA[<p>This e-mail is to inform you that we that the following action is needed for service id %sql1_id%:  %sql3%.<br />
+<br />
+Service Details:<br />
+<br />
+Product SKU: %sql1_sku% <br />
+Authenticate Username: %sql2_sip%<br />
+Phone Number: %sql2_sip%<br />
+Password: %sql2_data% </p>
+]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>111637</id>
+       <site_id>1</site_id>
+       <email_template_id>655</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Prepaid Account</subject>
+       <message_text>Dear %acct_first_name%,
+
+This e-mail is to inform you that your new prepaid account has been setup.
+
+To use this prepaid account, please call %sql3% and from your phone number entered when you ordered ( %sql1_pin% ).
+ 
+Your balance for prepaid account number %sql1_pin% is presently %sql1_balance%.
+ 
+Thank you,
+%site_name%</message_text>
+       <message_html><![CDATA[Dear %acct_first_name%,<br />
+
+<br />
+
+This e-mail is to inform you that your new prepaid account has been setup.<br />
+
+<br />
+
+To use this prepaid account, please call %sql3% and from your phone number entered when you ordered ( %sql1_pin% ).<br />
+
+ <br />
+
+Your balance for prepaid account number %sql1_pin% is presently %sql1_balance%.<br />
+
+ <br />
+
+Thank you,<br />
+
+%site_name%<br />
+]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>111638</id>
+       <site_id>1</site_id>
+       <email_template_id>656</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Pin Number Added</subject>
+       <message_text>Dear %acct_first_name%,
+
+This e-mail is to inform you that your new pin number has been setup.
+
+To use this pin number, please call toll-free %sql3% and enter the pin code as %sql1_pin% when prompted.
+
+Your balance for pin # %sql1_pin% is presently %sql1_balance%.
+
+Thank you,
+%site_name%</message_text>
+       <message_html><![CDATA[Dear %acct_first_name%,<br />
+
+<br />
+
+This e-mail is to inform you that your new pin number has been setup.<br />
+
+<br />
+
+To use this pin number, please call toll-free %sql3% and enter the pin code as %sql1_pin% when prompted.<br />
+
+<br />
+
+Your balance for pin # %sql1_pin% is presently %sql1_balance%.<br />
+
+<br />
+
+Thank you,<br />
+
+%site_name%<br />
+]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>111639</id>
+       <site_id>1</site_id>
+       <email_template_id>657</email_template_id>
+       <language_id>english</language_id>
+       <subject>New VoIP Service Creation Notice</subject>
+       <message_text>Dear %acct_first_name%,
+
+This e-mail is to inform you that we have created a new VoIP service.
+
+Product SKU: %sql1_sku% 
+Your Authenticate Username: %sql2_sip%
+Your Phone Number: %sql2_sip%
+Your Password: %sql2_data%
+Your Voicemail PIN: %sql3_password%
+
+Thank you,
+%site_name%</message_text>
+       <message_html><![CDATA[<p>Dear %acct_first_name%,<br /><br />This e-mail is to inform you that we have created a new VoIP service.<br /><br />Product SKU: %sql1_sku% <br />Your Authenticate Username: %sql2_sip%<br />Your Phone Number: %sql2_sip%<br />Your Password: %sql2_data%<br />Your Voicemail PIN: %sql3_password%</p>
+<p>Thank you,<br />
+%site_name% <br />
+</p>
+]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>111640</id>
+       <site_id>1</site_id>
+       <email_template_id>658</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket ( %var_ticket_subject% )</subject>
+       <message_text><![CDATA[We have recently received your email dated %date% with the following subject:
+
+%var_ticket_subject%
+
+You can view your ticket here: %url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please enter the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have recently received your email dated %date% with the following subject:<br />
+<br />
+%var_ticket_subject%<br />
+<br />
+You can view your ticket here: <a target="_blank" href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If prompted, please enter the following details:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+Thank you,<br />
+%site_name%</font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>111641</id>
+       <site_id>1</site_id>
+       <email_template_id>659</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket Received - Authorization Required</subject>
+       <message_text><![CDATA[We have recently received your e-mail dated %date% with the following subject:
+
+%var_ticket_subject%
+
+Further action on your part is required before we can process your request, for one of two possible reasons:
+
+1) The department you sent your request to requires that you have an account with us and maintain a particular subscription.
+
+2) The e-mail address you sent your request from is not the same as the e-mail address on file in your your account with us.
+
+To rectify this situation, please visit the link below and provide your login details so we can associate your request with an authorized account:
+ %url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please enter the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this e-mail, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<p><font size="2">We have recently received your e-mail dated <em>%date%</em> with the following subject:<br />
+<br />
+<u><strong>%var_ticket_subject%</strong></u><br />
+<br />
+Further action on your part is required before we can process your request, for one of two possible reasons:<br />
+<br />
+
+1) The department you sent your request to requires that you have an account with us and maintain a particular subscription.<br />
+<br />
+
+2) The e-mail address you sent your request from is not the same as the e-mail address on file in your your account with us.</font>
+
+
+
+
+</p><p><font size="2">To
+rectify this situation, please visit the link below and provide your
+login details so we can associate your request with an authorized
+account:</font></p><p> <font size="2"><strong><a target="_blank" href="%url%?_page=ticket:user_view&id=%sql1_id%"></a></strong></font><font size="2" face="verdana,arial,helvetica,sans-serif">You can view your ticket here: <a href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%" target="_blank">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If prompted, please enter the following details:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+</font><font size="2">Please do not reply to this e-mail, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+
+Thank you,<br />
+
+%site_name%</font>
+</p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>111643</id>
+       <site_id>1</site_id>
+       <email_template_id>661</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket ( %sql2_name% ) %var_ticket_subject%</subject>
+       <message_text><![CDATA[We have recieved a new staff issued ticket at %date%, with a priority of  %var_ticket_priority%.
+
+==================================================
+%var_ticket_subject%
+==================================================
+%var_ticket_body%
+==================================================
+
+%url%admin.php?_page=ticket:view&id=%sql1_id%]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have recieved a new staff issued ticket at %date%, with a priority of&nbsp; %var_ticket_priority%.<br />
+<br />
+==================================================<br />
+%var_ticket_subject%<br />
+==================================================<br />
+%var_ticket_body%<br />
+==================================================<br />
+<br />
+<a href="%url%admin.php?_page=ticket:view&id=%sql1_id%" target="_self">%url%admin.php?_page=ticket:view&id=%sql1_id%</a></font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>111644</id>
+       <site_id>1</site_id>
+       <email_template_id>662</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket (%var_ticket_subject% )</subject>
+       <message_text><![CDATA[Our staff has added a new ticket, dated %date%.
+
+You can view your ticket here:
+%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If promted, please provide the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+===========================================
+%var_ticket_subject% 
+===========================================
+%var_ticket_body%
+===========================================
+
+Thank you,
+%site_name%
+]]></message_text>
+       <message_html><![CDATA[Our staff has added a new ticket, dated %date%.<br />
+<br />
+You can view your ticket here:<br />
+<a target="_blank" href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If promted, please provide the following details:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+<hr width="100%" size="2" />Subject: %var_ticket_subject% <br />
+<hr width="100%" size="2" />%var_ticket_body%<br />
+<hr width="100%" size="2" /><br />
+Thank you,<br />
+%site_name%]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>111645</id>
+       <site_id>1</site_id>
+       <email_template_id>663</email_template_id>
+       <language_id>english</language_id>
+       <subject>Ticket Response ( %sql1_subject% )</subject>
+       <message_text><![CDATA[This e-mail is to let you know we have responded to a ticket of yours on %date%.
+
+You can view your ticket here: %url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please enter the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+=============================================
+Subject: %sql1_subject%
+=============================================
+%var_message%
+=============================================
+
+Thank you,
+%site_name%]]></message_text>
+       <message_html><![CDATA[<p><font size="2" face="verdana,arial,helvetica,sans-serif">This e-mail is to let you know we have responded  to a  ticket of yours on %date%.</font></p>
+<p><font size="2" face="verdana,arial,helvetica,sans-serif">You can view your ticket here: </font><font size="2"><a href="%url%?_page=ticket:user_view&id=%sql1_id%"><font face="verdana,arial,helvetica,sans-serif">%url%?_page=ticket:user_view&id=%sql1_id%</font></a></font></p>
+<p><font size="2" face="verdana,arial,helvetica,sans-serif">Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.</font> <br />
+</p>
+<p><font size="2">Subject: <u>%sql1_subject% </u></font></p>
+<pre>%var_message%</pre>
+<font size="2" face="verdana,arial,helvetica,sans-serif">
+</font><p><font size="2" face="verdana,arial,helvetica,sans-serif"><font size="2" face="verdana,arial,helvetica,sans-serif">Thank you,<br />
+%site_name%</font></font></p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>111646</id>
+       <site_id>1</site_id>
+       <email_template_id>664</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket ( %var_ticket_subject% )</subject>
+       <message_text><![CDATA[We have received your new ticket, dated %date%.
+
+You can view your ticket here:
+%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please provide the following information:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%
+]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have received your new ticket, dated %date%.<br />
+<br />
+You can view your ticket here:<br />
+<a target="_self" href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If prompted, please provide the following information:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+Thank you,<br />
+%site_name%<br />
+<br />
+</font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>111647</id>
+       <site_id>1</site_id>
+       <email_template_id>665</email_template_id>
+       <language_id>english</language_id>
+       <subject>New Ticket ( %sql2_name% ) %var_ticket_subject%</subject>
+       <message_text><![CDATA[We have recieved a new ticket on %date%, with a priority of %var_ticket_priority%
+
+==================================================
+%var_ticket_subject% 
+==================================================
+%var_ticket_body%
+==================================================
+
+%url%admin.php?_page=ticket:view&id=%sql1_id%]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have recieved a new ticket on %date%, with a priority of <strong>%var_ticket_priority%</strong>.<br />
+<br />
+==================================================<br />
+<strong>%var_ticket_subject% </strong><br />
+==================================================<br />
+%var_ticket_body%<br />
+==================================================<br />
+ <br />
+<a href="%url%admin.php?_page=ticket:view&id=%sql1_id%" target="_self">%url%admin.php?_page=ticket:view&id=%sql1_id%</a><br />
+</font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>111648</id>
+       <site_id>1</site_id>
+       <email_template_id>666</email_template_id>
+       <language_id>english</language_id>
+       <subject>Updated Ticket ( %sql1_subject% )</subject>
+       <message_text><![CDATA[This e-mail is to let you know we have recieved your response to your ticket, dated %date%.
+
+You can view your ticket here:
+%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%
+
+If prompted, please provide the following details:
+E-mail: %var_email%
+Key: %var_key%
+
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%
+]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">This e-mail is to let you know we have recieved your response to your ticket, dated %date%.<br />
+<br />
+You can view your ticket here:<br />
+<a target="_self" href="%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%">%url%?_page=ticket:user_view&id=%sql1_id%&email=%var_email%&key=%var_key%</a><br />
+<br />
+If prompted, please provide the following details:<br />
+E-mail: %var_email%<br />
+Key: %var_key%<br />
+<br />
+Please do not reply to this email, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+Thank you,<br />
+%site_name%<br />
+<br />
+</font>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>111649</id>
+       <site_id>1</site_id>
+       <email_template_id>667</email_template_id>
+       <language_id>english</language_id>
+       <subject>Updated Ticket ( %sql2_name% ) %sql1_subject%</subject>
+       <message_text><![CDATA[We have received a reply to a ticket at %date%, with a priority of %sql1_priority%.
+
+==================================================
+%sql1_subject%
+==================================================
+%var_ticket_reply%
+==================================================
+
+%url%admin.php?_page=ticket:view&id=%sql1_id%]]></message_text>
+       <message_html><![CDATA[<font size="2" face="verdana,arial,helvetica,sans-serif">We have received a reply to a ticket at %date%, with a priority of %sql1_priority%.<br />
+<br />
+==================================================<br />
+%sql1_subject%<br />
+==================================================<br />
+%var_ticket_reply%<br />
+==================================================<br />
+<br /><a href="%url%admin.php?_page=ticket:view&id=%sql1_id%" target="_self">%url%admin.php?_page=ticket:view&id=%sql1_id%</a></font><br />]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>1111642</id>
+       <site_id>1</site_id>
+       <email_template_id>660</email_template_id>
+       <language_id>english</language_id>
+       <subject>Unable to Process your e-mail request</subject>
+       <message_text>We have recently received your e-mail dated %date% with the following subject:
+
+%var_ticket_subject%
+
+We regret to inform you that we are unable to process your request for the following reason:
+
+The department you sent your request to requires that you have an account with us and maintain a particular subscription.
+ 
+Please check the link below to see if there are any other departments which your account is authorized to access:
+
+%url%?_page=ticket:ticket
+
+If no available departments are listed at the link above, please contact customer service with your account details and request details for any additional requirements needed to access our ticket system.
+
+Please do not reply to this e-mail, this message was generated automatically and your response will not be seen by our staff.
+
+Thank you,
+%site_name%
+</message_text>
+       <message_html><![CDATA[
+<p><font size="2" face="verdana,arial,helvetica,sans-serif">We have recently received your e-mail dated <em>%date%</em> with the following subject:<br />
+<br />
+<u>%var_ticket_subject%</u><br />
+<br />
+We regret to inform you that we are unable to process your request for the following reason:<br />
+<br />
+<em>The department you sent your request to requires that you have an account with us and maintain a particular subscription.</em><br />
+<br />
+
+Please check the link below to see if there are any other departments which your account is authorized to access:</font>
+
+
+
+  </p><p>
+</p><p> <font size="2" face="verdana,arial,helvetica,sans-serif"><strong><a target="_blank" href="%url%?_page=ticket:user_view&id=%sql1_id%">%url%?_page=ticket:ticket</a></strong><br />
+</font>
+</p><p> </p>
+<p><font size="2" face="verdana,arial,helvetica,sans-serif">If no available departments are listed at the link above, please
+contact customer service with your account details and request details
+for any additional requirements needed to access our ticket system.<br />
+<br />
+
+Please do not reply to this e-mail, this message was generated automatically and your response will not be seen by our staff.<br />
+<br />
+
+Thank you,<br />
+
+%site_name%</font>
+
+</p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate>
+       <id>1111644</id>
+       <site_id>1</site_id>
+       <email_template_id>668</email_template_id>
+       <language_id>english</language_id>
+       <subject>Advance Billing Notification from %site_name%</subject>
+       <message_text>Dear %acct_first_name%,
+
+This message is a friendly alert that an invoice in the amount of %sql2_symbol%%sql1_price% %sql2_three_digit% is set to generate shortly and will be due on %sql3%.
+
+(This amount does not reflect any appicable discounts, taxes, and usage charges, if any)
+
+If you wish to modify your service(s) with us prior to the automatic generation, please visit your account area at %url%. Please make sure your billing information is up to date so we can process the invoice without any service delays.
+
+Thank you,
+%site_name%</message_text>
+       <message_html><![CDATA[<p>Dear %acct_first_name%,</p><p><br />
+This message is a friendly alert that an invoice in the amount of
+%sql2_symbol%%sql1_price% %sql2_three_digit% is set to generate shortly
+and will be due on %sql3%.<br />
+<br />
+(This amount does not reflect any appicable discounts, taxes, and usage charges, if any)<br />
+<br />
+If you wish to modify your service(s) with us prior to the automatic generation, please visit your account area at <a href="svn/trunk/svn/trunk/svn/trunk/%url%" target="_self">%url%</a>. Please make sure your billing information is up to date so we can process the invoice without any service delays.<br />
+<br />
+Thank you,<br />
+%site_name%</p>]]></message_html>
+  </email_template_translate>
+  <email_template_translate_id>
+       <id>1111644</id>
+  </email_template_translate_id>
+  <email_template_translate_id>
+       <id>1111644</id>
+  </email_template_translate_id>
+</install>

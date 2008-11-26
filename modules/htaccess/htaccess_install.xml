@@ -1,0 +1,37 @@
+<install>
+	<module_properties>
+		<name>htaccess</name>
+		<parent>htaccess</parent>
+		<notes><![CDATA[This module provides allows you to protect local/remote directories using htaccess.]]></notes>
+		<menu_display>1</menu_display>
+		<sub_modules>htaccess_dir,htaccess_exclude</sub_modules>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<search>
+				<name>search</name>
+			</search>
+			<view>
+				<name>view</name>
+				<notes><![CDATA[Allow users to view records]]></notes>
+				<page><![CDATA[core:search&module=%%&_escape=1&_next_page_one=view]]></page>
+				<menu_display>1</menu_display>
+			</view>
+			<add>
+				<name>add</name>
+				<notes><![CDATA[Allow users to add records]]></notes>
+				<menu_display>1</menu_display>
+			</add>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<update>
+				<name>update</name>
+			</update>
+			<search_show>
+				<name>search_show</name>
+				<notes><![CDATA[Allow users to view the search results]]></notes>
+			</search_show>
+		</module_method>
+	</sql_inserts>
+</install>

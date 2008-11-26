@@ -1,0 +1,40 @@
+<install>
+	<module_properties>
+		<name>host_server</name>
+		<parent>host_server</parent>
+		<notes><![CDATA[This module controls the servers your new accounts/domains can be provisioned on.]]></notes>
+		<menu_display>1</menu_display>
+		<sub_modules>host_tld,host_registrar_plugin</sub_modules>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<add>
+				<name>add</name>
+				<page><![CDATA[%%:add]]></page>
+				<menu_display>1</menu_display>
+			</add>
+			<update>
+				<name>update</name>
+			</update>
+			<search>
+				<name>search</name>
+			</search>
+			<search_form>
+				<name>search_form</name>
+				<notes><![CDATA[Allow users to view the search form]]></notes>
+			</search_form>
+			<view>
+				<name>view</name>
+				<page><![CDATA[core:search&module=%%&_escape=1]]></page>
+				<menu_display>1</menu_display>
+			</view>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<search_show>
+				<name>search_show</name>
+				<notes><![CDATA[Allow users to view the search results]]></notes>
+			</search_show>
+		</module_method>
+	</sql_inserts>
+</install>

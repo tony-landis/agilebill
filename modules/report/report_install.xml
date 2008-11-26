@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+
+        <!-- Define the main module properties -->
+        <module_properties>
+            <name>report</name>
+            <parent>report</parent>
+            <notes>Generate XML/XSL reports from the AgileBill database</notes>
+            <menu_display>1</menu_display>
+            <dependancy></dependancy>
+            <sub_modules></sub_modules>
+        </module_properties> 
+
+        <!-- Define any SQL inserts for this module -->
+        <sql_inserts>
+            <module_method> 
+                <view> 
+                    <name>view</name> 
+                    <page>%%:main</page>
+                    <menu_display>1</menu_display>
+                </view> 
+                <task_cleanup>
+                	<name>task_cleanup</name>
+                </task_cleanup>  
+        </module_method>
+    </sql_inserts>
+</install>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+
+        <!-- Define the main module properties -->
+        <module_properties>
+            <name>voip_did_plugin</name>
+            <parent>voip</parent>
+            <notes>This module controls the various did plugins</notes>
+            <menu_display>1</menu_display>
+            <dependancy>voip</dependancy>
+            <sub_modules></sub_modules>
+        </module_properties> 
+
+        <!-- Define any SQL inserts for this module -->
+        <sql_inserts>
+            <module_method>
+                <add> 
+                    <name>add</name> 
+                    <page>%%:add</page>
+                    <menu_display>1</menu_display>
+                </add>
+                <update> 
+                    <name>update</name> 
+                </update>
+                <delete> 
+                    <name>delete</name> 
+                </delete>
+                <view> 
+                    <name>view</name> 
+                    <page>core:search&amp;module=%%&amp;_escape=1</page>
+                    <menu_display>1</menu_display>
+                </view>
+                <search> 
+                    <name>search</name> 
+                </search> 
+                <search_show> 
+                    <name>search_show</name> 
+                </search_show>
+                
+        </module_method>
+    </sql_inserts>
+</install>

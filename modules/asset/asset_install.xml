@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install> 
+        <module_properties>
+            <name>asset</name>
+            <parent>asset</parent>
+            <notes>Manage assets that can be assigned to services and maintain their availibility status</notes>
+            <menu_display>1</menu_display>
+            <dependancy></dependancy>
+            <sub_modules>asset_pool</sub_modules>
+        </module_properties>  
+        <sql_inserts>
+            <module_method>
+                <add> 
+                    <name>add</name> 
+                    <page>%%:add</page>
+                    <menu_display>1</menu_display>
+                </add>
+                <update> 
+                    <name>update</name> 
+                </update>
+                <delete> 
+                    <name>delete</name> 
+                </delete>
+                <view> 
+                    <name>view</name> 
+                    <page>core:search&amp;module=%%&amp;_escape=1</page>
+                    <menu_display>1</menu_display>
+                </view>
+                <search> 
+                    <name>search</name> 
+                    <page>%%:search_form</page>
+                    <menu_display>1</menu_display>
+                </search>
+                <search_form> 
+                    <name>search_form</name> 
+                </search_form>
+                <search_show> 
+                    <name>search_show</name> 
+                </search_show> 
+                <import> 
+                    <name>import</name> 
+                    <page>%%:import</page>
+                    <menu_display>1</menu_display>                    
+                </import>                 
+        </module_method>
+    </sql_inserts>
+</install>

@@ -1,0 +1,31 @@
+<install>
+	<module_properties>
+		<name>voip_rate_prod</name>
+		<parent>voip</parent>
+		<notes><![CDATA[This module allows you to associate call rates to products]]></notes>
+		<menu_display>0</menu_display>
+		<dependancy>voip</dependancy>
+	</module_properties>
+	<sql_inserts>
+		<module_method>
+			<search>
+				<name>search</name>
+			</search>
+			<view>
+				<name>view</name> 
+			</view>
+			<add>
+				<name>add</name> 
+			</add>
+			<delete>
+				<name>delete</name>
+			</delete>
+			<update>
+				<name>update</name>
+			</update>
+			<search_show>
+				<name>search_show</name>
+			</search_show>
+		</module_method>
+	</sql_inserts>
+</install>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install> 
+        <module_properties>
+            <name>voip_cdr</name>
+            <parent>voip</parent>
+            <notes>This module stores the VoIP call detail records (CDR)</notes>
+            <menu_display>1</menu_display>
+            <dependancy>voip</dependancy>
+            <sub_modules></sub_modules>
+        </module_properties>  
+        <sql_inserts>
+            <module_method>
+                <add> 
+                    <name>add</name> 
+                </add>
+                <search_export> 
+                    <name>search_export</name> 
+                </search_export>
+                <update> 
+                    <name>update</name> 
+                </update>
+                <export_excel> 
+                    <name>export_excel</name> 
+                </export_excel>
+                <delete> 
+                    <name>delete</name> 
+                </delete>
+                <export_xml> 
+                    <name>export_xml</name> 
+                </export_xml>
+                <view> 
+                    <name>view</name> 
+                    <page>core:search&amp;module=%%&amp;_escape=1</page>
+                    <menu_display>1</menu_display>
+                </view>
+                <export_tab> 
+                    <name>export_tab</name> 
+                </export_tab>
+                <search> 
+                    <name>search</name> 
+                    <page>%%:search_form</page>
+                    <menu_display>1</menu_display>
+                </search>
+                <search_form> 
+                    <name>search_form</name> 
+                </search_form>
+                <search_show> 
+                    <name>search_show</name> 
+                </search_show> 
+                <export_csv> 
+                    <name>export_csv</name> 
+                </export_csv>
+        </module_method>
+    </sql_inserts>
+</install>

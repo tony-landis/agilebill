@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<install>
+  <setup_email>
+       <id>1</id>
+       <site_id>1</site_id>
+       <name>Default E-mail Config</name>
+       <type>0</type>
+       <from_name>Company.com</from_name>
+       <from_email>email@company.com</from_email>
+       <piping>0</piping>
+       <piping_action>0</piping_action>
+  </setup_email>
+  <setup_email_id>
+       <id>4</id>
+  </setup_email_id>
+</install>

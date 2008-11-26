@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="com.logicboxes.foundation.sfnb.management.Fund" xmlns:impl="com.logicboxes.foundation.sfnb.management.Fund" xmlns:intf="com.logicboxes.foundation.sfnb.management.Fund" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+ <wsdl:types>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="com.logicboxes.foundation.sfnb.management.Fund">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="ArrayOf_xsd_int">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="xsd:int[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <element name="ArrayOf_xsd_int" nillable="true" type="impl:ArrayOf_xsd_int"/>
+  </schema>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xml.apache.org/xml-soap">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="Map">
+    <sequence>
+     <element name="item" minOccurs="0" maxOccurs="unbounded">
+      <complexType>
+       <all>
+        <element name="key" type="xsd:anyType"/>
+        <element name="value" type="xsd:anyType"/>
+       </all>
+      </complexType>
+     </element>
+    </sequence>
+   </complexType>
+   <element name="Map" nillable="true" type="apachesoap:Map"/>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="payCustomerTransactionRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="invoiceTransIdArr" type="impl:ArrayOf_xsd_int"/>
+
+      <wsdl:part name="debitNoteIdArr" type="impl:ArrayOf_xsd_int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCustomerAvailableBalanceRequest">
+
+      <wsdl:part name="userName" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+      <wsdl:part name="role" type="xsd:string"/>
+
+      <wsdl:part name="langpref" type="xsd:string"/>
+
+      <wsdl:part name="parentid" type="xsd:int"/>
+
+      <wsdl:part name="customerId" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCustomerAvailableBalanceResponse">
+
+      <wsdl:part name="getCustomerAvailableBalanceReturn" type="apachesoap:Map"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="payCustomerTransactionResponse">
+
+      <wsdl:part name="payCustomerTransactionReturn" type="apachesoap:Map"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Fund">
+
+      <wsdl:operation name="payCustomerTransaction" parameterOrder="userName password role langpref parentid invoiceTransIdArr debitNoteIdArr">
+
+         <wsdl:input name="payCustomerTransactionRequest" message="impl:payCustomerTransactionRequest"/>
+
+         <wsdl:output name="payCustomerTransactionResponse" message="impl:payCustomerTransactionResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerAvailableBalance" parameterOrder="userName password role langpref parentid customerId">
+
+         <wsdl:input name="getCustomerAvailableBalanceRequest" message="impl:getCustomerAvailableBalanceRequest"/>
+
+         <wsdl:output name="getCustomerAvailableBalanceResponse" message="impl:getCustomerAvailableBalanceResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="FundServiceSoapBinding" type="impl:Fund">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="payCustomerTransaction">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="payCustomerTransactionRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.management.Fund"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="payCustomerTransactionResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.management.Fund"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomerAvailableBalance">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCustomerAvailableBalanceRequest">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.management.Fund"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCustomerAvailableBalanceResponse">
+
+            <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="com.logicboxes.foundation.sfnb.management.Fund"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="FundService">
+
+      <wsdl:port name="FundService" binding="impl:FundServiceSoapBinding">
+
+         <wsdlsoap:address location="http://www.foundationapi.com:9090/anacreon/servlet/rpcrouter"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

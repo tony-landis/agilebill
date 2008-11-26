@@ -1,0 +1,114 @@
+<report>
+<title>Breakdown By Region</title>
+	 
+	<level>
+		<title>By Country</title>
+		<sql>SELECT UCASE(B.name) as name, count(A.id) as total from %%AGILE_DB_PREFIX%%account A join %%AGILE_DB_PREFIX%%country B on (A.country_id=B.id)</sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+		<orderby>GROUP BY name ORDER BY total DESC</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Country</display>
+			<field>name</field>  
+		</column>
+		<column>
+			<display>Accounts</display>
+			<field>total</field>
+			<total>true</total>
+		</column> 
+	</level>			
+	<break />
+	<graph type="bar" title="" width="900" height="300" direction="vertical">
+		<dataset>
+			<sql>SELECT B.name, count(A.id) as total from %%AGILE_DB_PREFIX%%account A join %%AGILE_DB_PREFIX%%country B on (A.country_id=B.id)</sql>
+			<criteria>A.site_id = %%DEFAULT_SITE%%</criteria>
+			<orderby>GROUP BY name ORDER BY total DESC</orderby>
+		</dataset>
+	</graph>
+	<break />
+	
+
+	<level>
+		<title>By Region</title>
+		<sql>SELECT UCASE(A.state) as state, UCASE(B.name) as country, count(A.id) as total from %%AGILE_DB_PREFIX%%account A join %%AGILE_DB_PREFIX%%country B on (A.country_id=B.id)</sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%% and A.state!='' and A.state IS NOT NULL</criteria>
+		<orderby>GROUP BY state ORDER BY total DESC</orderby>
+		<indent>0</indent> 
+		<column>
+			<display>State/Province</display>
+			<field>state</field>  
+		</column>		
+		<column>
+			<display>Country</display>
+			<field>country</field>  
+		</column>		
+		<column>
+			<display>Accounts</display>
+			<field>total</field>
+			<total>true</total>
+		</column> 
+	</level>			
+	<break /> 
+	
+	
+
+	<level>
+		<title>By Region/City</title>
+		<sql>SELECT UCASE(CONCAT(A.city, ", ", A.state)) as region, UCASE(A.city) as city, UCASE(A.state) as state, UCASE(B.name) as country, count(A.id) as total from %%AGILE_DB_PREFIX%%account A join %%AGILE_DB_PREFIX%%country B on (A.country_id=B.id)</sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%% and A.state!='' and A.state IS NOT NULL and A.city!='' and A.city IS NOT NULL</criteria>
+		<orderby>GROUP BY region ORDER BY total DESC</orderby>
+		<indent>0</indent>
+		<column>
+			<display>City</display>
+			<field>city</field>  
+		</column>
+		<column>
+			<display>State/Province</display>
+			<field>state</field>  
+		</column>		
+		<column>
+			<display>Country</display>
+			<field>country</field>  
+		</column>		
+		<column>
+			<display>Accounts</display>
+			<field>total</field>
+			<total>true</total>
+		</column> 
+	</level>			
+	<break />  
+	
+	
+	<level>
+		<title>By Postcode</title>
+		<sql>SELECT UCASE(A.zip) as region, UCASE(A.city) as city, UCASE(A.state) as state, UCASE(B.name) as country, count(A.id) as total from %%AGILE_DB_PREFIX%%account A join %%AGILE_DB_PREFIX%%country B on (A.country_id=B.id)</sql>
+		<criteria>A.site_id = %%DEFAULT_SITE%% and A.zip!='' and A.zip IS NOT NULL</criteria>
+		<orderby>GROUP BY region ORDER BY total DESC</orderby>
+		<indent>0</indent>
+		<column>
+			<display>Postal Code/ZIP Code</display>
+			<field>region</field>  
+		</column> 		
+		<column>
+			<display>City</display>
+			<field>city</field>  
+		</column>
+		<column>
+			<display>State/Province</display>
+			<field>state</field>  
+		</column>			
+		<column>
+			<display>Country</display>
+			<field>country</field>  
+		</column>		
+		<column>
+			<display>Accounts</display>
+			<field>total</field>
+			<total>true</total>
+		</column> 
+	</level>			
+	<break />	
+	
+	
+
+</report>

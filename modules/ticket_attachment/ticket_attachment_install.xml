@@ -1,0 +1,11 @@
+<install>
+	<module_properties>
+		<name>ticket_attachment</name>
+		<parent>ticket</parent>
+		<notes><![CDATA[Contains files attached to tickets]]></notes>
+		<menu_display></menu_display>
+	</module_properties>
+	<sql_inserts>
+		<module_method></module_method>
+	</sql_inserts>
+</install>
