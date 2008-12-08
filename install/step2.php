@@ -6,7 +6,7 @@ Done!<br><br>
  
 <?php if (is_array($modules)) { ?>
 <b>Please select any optional modules you wish to install</b></p>
-<form>
+<form name="form1" method="post"> 
   <table width="100%" cellspacing="3" cellpadding="4" bordercolor="#FFFFFF">
     <?php for($i=0; $i<count($modules); $i++) { ?>
     <tr valign="top" bgcolor="#F3F3F3"> 
