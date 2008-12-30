@@ -83,26 +83,27 @@ class voip_prepaid
 	{
 		include_once(PATH_MODULES.'email_template/email_template.inc.php');
 
-		if (defined $this->lowBalance)
+		// do not run task if lowBalance is not set
+		if ($this->lowBalance == false)
+			return;
+
+		// delete expired pins?
+		// $delrs = & $db->Execute(sqlDelete($db,"voip_prepaid"," date_expire <> 0 and date_expire is not null and date_expire > ".time()));
+
+		// get low balances and notify
+		$db=&DB();
+		$rs = & $db->Execute($sql = sqlSelect($db,"voip_prepaid","*", "balance <= $this->lowBalance and (bulk is null or bulk=0) and (date_email is null or date_email = 0) "));
+		if($rs && $rs->RecordCount() > 0)
 		{
-			// delete expired pins?
-			// $delrs = & $db->Execute(sqlDelete($db,"voip_prepaid"," date_expire <> 0 and date_expire is not null and date_expire > ".time()));
-
-			// get low balances and notify
-			$db=&DB();
-			$rs = & $db->Execute($sql = sqlSelect($db,"voip_prepaid","*", "balance <= $this->lowBalance and (bulk is null or bulk=0) and (date_email is null or date_email = 0) "));
-			if($rs && $rs->RecordCount() > 0)
+			while(!$rs->EOF)
 			{
-				while(!$rs->EOF)
-				{
-					# send the user the details
-					$email = new email_template;
-					$email->send('voip_balance_prepaid', $rs->fields['account_id'], $rs->fields['id'], '', number_format($rs->fields['balance'],4));
+				# send the user the details
+				$email = new email_template;
+				$email->send('voip_balance_prepaid', $rs->fields['account_id'], $rs->fields['id'], '', number_format($rs->fields['balance'],4));
 
-					# update the record
-					$db->Execute( sqlUpdate($db, "voip_prepaid", array('date_email'=>time()),"id={$rs->fields['id']}"));
-					$rs->MoveNext();
-				}
+				# update the record
+				$db->Execute( sqlUpdate($db, "voip_prepaid", array('date_email'=>time()),"id={$rs->fields['id']}"));
+				$rs->MoveNext();
 			}
 		}
 	}
