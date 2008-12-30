@@ -27,27 +27,30 @@ class voip_prepaid
 		$db =& DB();
 		$rs = $db->Execute(sqlSelect($db,"voip","prepaid_low_balance","id=::".DEFAULT_SITE."::"));
 		
-		# e-mail user's once when balance reaches this amount:
-		$this->lowBalance = $rs->fields[0];
-		$this->pinLenth = 10; 		// up to 10
+		if ($rs && $rs->RecordCount() > 0)
+		{
+			# e-mail user's once when balance reaches this amount:
+			$this->lowBalance = $rs->fields[0];
+			$this->pinLenth = 10; 		// up to 10
 
-		# name of this module:
-		$this->module = "voip_prepaid";
+			# name of this module:
+			$this->module = "voip_prepaid";
 
-		# location of the construct XML file:
-		$this->xml_construct = PATH_MODULES . "" . $this->module . "/" . $this->module . "_construct.xml";
+			# location of the construct XML file:
+			$this->xml_construct = PATH_MODULES . "" . $this->module . "/" . $this->module . "_construct.xml";
 
-		# open the construct file for parsing
-		$C_xml = new CORE_xml;
-		$construct = $C_xml->xml_to_array($this->xml_construct);
+			# open the construct file for parsing
+			$C_xml = new CORE_xml;
+			$construct = $C_xml->xml_to_array($this->xml_construct);
 
-		$this->method   = $construct["construct"]["method"]; 
-		$this->field    = $construct["construct"]["field"];
-		$this->table 	= $construct["construct"]["table"];
-		$this->module 	= $construct["construct"]["module"];
-		$this->cache	= $construct["construct"]["cache"];
-		$this->order_by = $construct["construct"]["order_by"];
-		$this->limit	= $construct["construct"]["limit"];
+			$this->method   = $construct["construct"]["method"]; 
+			$this->field    = $construct["construct"]["field"];
+			$this->table 	= $construct["construct"]["table"];
+			$this->module 	= $construct["construct"]["module"];
+			$this->cache	= $construct["construct"]["cache"];
+			$this->order_by = $construct["construct"]["order_by"];
+			$this->limit	= $construct["construct"]["limit"];
+		}
 	}
 
 	/** generate a new pin */
