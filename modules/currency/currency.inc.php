@@ -132,15 +132,16 @@ class currency
 		// Fetch all active currencies
 		$currencies = array();
 		$rs = $db->Execute(sqlSelect($db, "currency", "*", "status=1"));
-		if ($rs && $rs->RecordCount() > 0)
+		if ($rs)
 		{
 		   while (!$rs->EOF)
 		   {
 		      $currencies[$rs->fields['id']] = $rs->fields;
 		      $rs->MoveNext();
 		   }
+
+		   $rs->Close();
 		}
-		$rs->Close();
 
 		foreach ($currencies as $currFrom)
 		{
