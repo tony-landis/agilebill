@@ -330,11 +330,11 @@
                 title_service
                 {/translate}</font></a> |
 				
-				{if $list->is_installed("affiliate") } |
+				{if $list->is_installed("affiliate") }
 				<a href="#" onClick="hideAll();document.getElementById('affiliate').style.display='block';"> <font color="#FFFFFF"> 
                 {translate module=invoice}
                 title_affiliate
-                {/translate}</font></a> 				
+                {/translate}</font></a> |
 				{/if}
 				 				
 				<a href="#" onClick="hideAll();showMemos({$service.id});"> 
