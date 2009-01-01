@@ -1,137 +1,193 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>{$lang_insert_table_title}</title>
-<script language="javascript" type="text/javascript" src="../../tiny_mce_popup.js"></script>
-<script language="javascript" type="text/javascript">
-function insertTable() {
-	if (window.opener) {
-		var args = new Array();
-		args["cols"] = document.forms[0].cols.value;
-		args["rows"] = document.forms[0].rows.value;
-		args["border"] = document.forms[0].border.value;
-		args["cellpadding"] = document.forms[0].cellpadding.value;
-		args["cellspacing"] = document.forms[0].cellspacing.value;
-		args["width"] = document.forms[0].width.value;
-		args["height"] = document.forms[0].height.value;
-		args["align"] = document.forms[0].align.options[document.forms[0].align.selectedIndex].value;
-		args["className"] = document.forms[0].styleSelect.options[document.forms[0].styleSelect.selectedIndex].value;
-
-		window.opener.tinyMCE.execCommand("mceInsertTable", false, args);
-		top.close();
-	}
-}
-
-function init() {
-	for (var i=0; i<document.forms[0].align.options.length; i++) {
-		if (document.forms[0].align.options[i].value == tinyMCE.getWindowArg('align'))
-			document.forms[0].align.options.selectedIndex = i;
-	}
-
-	var className = tinyMCE.getWindowArg('className');
-	var styleSelectElm = document.forms[0].styleSelect;
-	var stylesAr = tinyMCE.getParam('theme_advanced_styles', false);
-	if (stylesAr) {
-		stylesAr = stylesAr.split(';');
-
-		for (var i=0; i<stylesAr.length; i++) {
-			var key, value;
-
-			key = stylesAr[i].split('=')[0];
-			value = stylesAr[i].split('=')[1];
-
-			styleSelectElm.options[styleSelectElm.length] = new Option(key, value);
-			if (value == className)
-				styleSelectElm.options.selectedIndex = styleSelectElm.options.length-1;
-		}
-	} else {
-		var csses = tinyMCE.getCSSClasses(tinyMCE.getWindowArg('editor_id'));
-		for (var i=0; i<csses.length; i++) {
-			styleSelectElm.options[styleSelectElm.length] = new Option(csses[i], csses[i]);
-			if (csses[i] == className)
-				styleSelectElm.options.selectedIndex = styleSelectElm.options.length-1;
-		}
-	}
-
-	if (tinyMCE.getWindowArg('action') == "update") {
-		document.forms[0].cols.disabled = true;
-		document.forms[0].rows.disabled = true;
-	}
-
-	var formObj = document.forms[0];
-	formObj.cols.value = tinyMCE.getWindowArg('cols');
-	formObj.rows.value = tinyMCE.getWindowArg('rows');
-	formObj.border.value = tinyMCE.getWindowArg('border');
-	formObj.cellpadding.value = tinyMCE.getWindowArg('cellpadding');
-	formObj.cellspacing.value = tinyMCE.getWindowArg('cellspacing');
-	formObj.width.value = tinyMCE.getWindowArg('width');
-	formObj.height.value = tinyMCE.getWindowArg('height');
-	formObj.insert.value = tinyMCE.getLang('lang_' + tinyMCE.getWindowArg('action')); 
-
-	window.focus();
-}
-
-function cancelAction() {
-	top.close();
-}
-</script>
+	<title>{#table_dlg.title}</title>
+	<script type="text/javascript" src="../../tiny_mce_popup.js"></script>
+	<script type="text/javascript" src="../../utils/mctabs.js"></script>
+	<script type="text/javascript" src="../../utils/form_utils.js"></script>
+	<script type="text/javascript" src="../../utils/validate.js"></script>
+	<script type="text/javascript" src="../../utils/editable_selects.js"></script>
+	<script type="text/javascript" src="js/table.js"></script>
+	<link href="css/table.css" rel="stylesheet" type="text/css" />
+	<base target="_self" />
 </head>
-<body onload="window.focus();init();">
-<form onsubmit="insertTable();return false;">
-  <table border="0" cellpadding="0" cellspacing="0" width="100%">
-    <tr>
-      <td align="center" valign="middle"><table border="0" cellpadding="4" cellspacing="0">
-          <tr>
-            <td colspan="4" class="title">{$lang_insert_table_title}</td>
-          </tr>
-          <tr>
-            <td>{$lang_insert_table_cols}:</td>
-            <td><input name="cols" type="text" id="cols" value="" size="3" maxlength="3"></td>
-            <td>{$lang_insert_table_rows}:</td>
-            <td><input name="rows" type="text" id="rows" value="" size="3" maxlength="3"></td>
-          </tr>
-          <tr>
-            <td>{$lang_insert_table_cellpadding}:</td>
-            <td><input name="cellpadding" type="text" id="cellpadding" value="" size="3" maxlength="3"></td>
-            <td>{$lang_insert_table_cellspacing}:</td>
-            <td><input name="cellspacing" type="text" id="cellspacing" value="" size="3" maxlength="3"></td>
-          </tr>
-          <tr>
-            <td>{$lang_insert_table_align}:</td>
-            <td><select name="align">
-                <option value="">{$lang_insert_table_align_default}</option>
-                <option value="center">{$lang_insert_table_align_middle}</option>
-                <option value="left">{$lang_insert_table_align_left}</option>
-                <option value="right">{$lang_insert_table_align_right}</option>
-              </select></td>
-            <td>{$lang_insert_table_border}:</td>
-            <td><input name="border" type="text" id="border" value="" size="3" maxlength="3"></td>
-          </tr>
-          <tr>
-            <td>{$lang_insert_table_width}:</td>
-            <td><input name="width" type="text" id="width" value="" size="4" maxlength="4"></td>
-            <td>{$lang_insert_table_height}: </td>
-            <td><input name="height" type="text" id="height" value="" size="4" maxlength="4"></td>
-          </tr>
-          <tr>
-            <td>{$lang_insert_table_class}:</td>
-            <td>
-			 <select name="styleSelect">
-                <option value="" selected>-- {$lang_theme_style_select} --</option>
-             </select></td>
-            <td align="right">&nbsp;</td>
-            <td align="right">&nbsp;</td>
-          </tr>
-          <tr>
-            <td><input type="button" id="insert" name="insert" value="{$lang_insert}" onclick="insertTable();"></td>
-            <td align="right">&nbsp;</td>
-            <td align="right">&nbsp;</td>
-            <td align="right"><input type="button" id="cancel" name="cancel" value="{$lang_cancel}" onclick="cancelAction();"></td>
-          </tr>
-        </table></td>
-    </tr>
-  </table>
-</form>
+<body id="table" style="display: none">
+	<form onsubmit="insertTable();return false;" action="#">
+		<div class="tabs">
+			<ul>
+				<li id="general_tab" class="current"><span><a href="javascript:mcTabs.displayTab('general_tab','general_panel');" onmousedown="return false;">{#table_dlg.general_tab}</a></span></li>
+				<li id="advanced_tab"><span><a href="javascript:mcTabs.displayTab('advanced_tab','advanced_panel');" onmousedown="return false;">{#table_dlg.advanced_tab}</a></span></li>
+			</ul>
+		</div>
+
+		<div class="panel_wrapper">
+			<div id="general_panel" class="panel current">
+				<fieldset>
+					<legend>{#table_dlg.general_props}</legend>
+					  <table border="0" cellpadding="4" cellspacing="0" width="100%">
+							  <tr>
+								<td><label id="colslabel" for="cols">{#table_dlg.cols}</label></td>
+								<td><input id="cols" name="cols" type="text" value="" size="3" maxlength="3" class="required number min1 mceFocus" /></td>
+								<td><label id="rowslabel" for="rows">{#table_dlg.rows}</label></td>
+								<td><input id="rows" name="rows" type="text" value="" size="3" maxlength="3" class="required number min1" /></td>
+							  </tr>
+							  <tr>
+								<td><label id="cellpaddinglabel" for="cellpadding">{#table_dlg.cellpadding}</label></td>
+								<td><input id="cellpadding" name="cellpadding" type="text" value="" size="3" maxlength="3" class="number" /></td>
+								<td><label id="cellspacinglabel" for="cellspacing">{#table_dlg.cellspacing}</label></td>
+								<td><input id="cellspacing" name="cellspacing" type="text" value="" size="3" maxlength="3" class="number" /></td>
+							  </tr>
+							  <tr>
+								<td><label id="alignlabel" for="align">{#table_dlg.align}</label></td>
+								<td><select id="align" name="align">
+									<option value="">{#not_set}</option>
+									<option value="center">{#table_dlg.align_middle}</option>
+									<option value="left">{#table_dlg.align_left}</option>
+									<option value="right">{#table_dlg.align_right}</option>
+								  </select></td>
+								<td><label id="borderlabel" for="border">{#table_dlg.border}</label></td>
+								<td><input id="border" name="border" type="text" value="" size="3" maxlength="3" onchange="changedBorder();" class="number" /></td>
+							  </tr>
+							  <tr id="width_row">
+								<td><label id="widthlabel" for="width">{#table_dlg.width}</label></td>
+								<td><input name="width" type="text" id="width" value="" size="4" maxlength="4" onchange="changedSize();" class="size" /></td>
+								<td><label id="heightlabel" for="height">{#table_dlg.height}</label></td>
+								<td><input name="height" type="text" id="height" value="" size="4" maxlength="4" onchange="changedSize();" class="size" /></td>
+							  </tr>
+							  <tr id="styleSelectRow">
+								<td><label id="classlabel" for="class">{#class_name}</label></td>
+								<td colspan="3">
+								 <select id="class" name="class" class="mceEditableSelect">
+									<option value="" selected>{#not_set}</option>
+								 </select></td>
+							  </tr>
+							  <tr>
+								<td class="column1"><label for="caption">{#table_dlg.caption}</label></td> 
+								<td><input id="caption" name="caption" type="checkbox" class="checkbox" value="true" /></td> 
+							  </tr>
+							</table>
+				</fieldset>
+			</div>
+
+			<div id="advanced_panel" class="panel">
+				<fieldset>
+					<legend>{#table_dlg.advanced_props}</legend>
+
+					<table border="0" cellpadding="0" cellspacing="4">
+						<tr>
+							<td class="column1"><label for="id">{#table_dlg.id}</label></td> 
+							<td><input id="id" name="id" type="text" value="" class="advfield" /></td> 
+						</tr>
+
+						<tr>
+							<td class="column1"><label for="summary">{#table_dlg.summary}</label></td> 
+							<td><input id="summary" name="summary" type="text" value="" class="advfield" /></td> 
+						</tr>
+
+						<tr>
+							<td><label for="style">{#table_dlg.style}</label></td>
+							<td><input type="text" id="style" name="style" value="" class="advfield" onchange="changedStyle();" /></td>
+						</tr>
+
+						<tr>
+							<td class="column1"><label id="langlabel" for="lang">{#table_dlg.langcode}</label></td> 
+							<td>
+								<input id="lang" name="lang" type="text" value="" class="advfield" />
+							</td> 
+						</tr>
+
+						<tr>
+							<td class="column1"><label for="backgroundimage">{#table_dlg.bgimage}</label></td> 
+							<td>
+								<table border="0" cellpadding="0" cellspacing="0">
+									<tr>
+										<td><input id="backgroundimage" name="backgroundimage" type="text" value="" class="advfield" onchange="changedBackgroundImage();" /></td>
+										<td id="backgroundimagebrowsercontainer">&nbsp;</td>
+									</tr>
+								</table>
+							</td> 
+						</tr>
+
+						<tr>
+							<td class="column1"><label for="frame">{#table_dlg.frame}</label></td> 
+							<td>
+								<select id="frame" name="frame" class="advfield"> 
+										<option value="">{#not_set}</option>
+										<option value="void">{#table_dlg.rules_void}</option>
+										<option value="above">{#table_dlg.rules_above}</option> 
+										<option value="below">{#table_dlg.rules_below}</option> 
+										<option value="hsides">{#table_dlg.rules_hsides}</option> 
+										<option value="lhs">{#table_dlg.rules_lhs}</option> 
+										<option value="rhs">{#table_dlg.rules_rhs}</option> 
+										<option value="vsides">{#table_dlg.rules_vsides}</option> 
+										<option value="box">{#table_dlg.rules_box}</option> 
+										<option value="border">{#table_dlg.rules_border}</option> 
+								</select>
+							</td> 
+						</tr>
+
+						<tr>
+							<td class="column1"><label for="rules">{#table_dlg.rules}</label></td> 
+							<td>
+								<select id="rules" name="rules" class="advfield"> 
+										<option value="">{#not_set}</option> 
+										<option value="none">{#table_dlg.frame_none}</option>
+										<option value="groups">{#table_dlg.frame_groups}</option>
+										<option value="rows">{#table_dlg.frame_rows}</option>
+										<option value="cols">{#table_dlg.frame_cols}</option>
+										<option value="all">{#table_dlg.frame_all}</option>
+									</select>
+							</td> 
+						</tr>
+
+						<tr>
+							<td class="column1"><label for="dir">{#table_dlg.langdir}</label></td> 
+							<td>
+								<select id="dir" name="dir" class="advfield"> 
+										<option value="">{#not_set}</option> 
+										<option value="ltr">{#table_dlg.ltr}</option> 
+										<option value="rtl">{#table_dlg.rtl}</option> 
+								</select>
+							</td> 
+						</tr>
+
+						<tr>
+							<td class="column1"><label for="bordercolor">{#table_dlg.bordercolor}</label></td> 
+							<td>
+								<table border="0" cellpadding="0" cellspacing="0">
+									<tr>
+										<td><input id="bordercolor" name="bordercolor" type="text" value="" size="9" onchange="updateColor('bordercolor_pick','bordercolor');changedColor();" /></td>
+										<td id="bordercolor_pickcontainer">&nbsp;</td>
+									</tr>
+								</table>
+							</td> 
+						</tr>
+
+						<tr>
+							<td class="column1"><label for="bgcolor">{#table_dlg.bgcolor}</label></td> 
+							<td>
+								<table border="0" cellpadding="0" cellspacing="0">
+									<tr>
+										<td><input id="bgcolor" name="bgcolor" type="text" value="" size="9" onchange="updateColor('bgcolor_pick','bgcolor');changedColor();" /></td>
+										<td id="bgcolor_pickcontainer">&nbsp;</td>
+									</tr>
+								</table>
+							</td> 
+						</tr>
+					</table>
+				</fieldset>
+			</div>
+		</div>
+
+		<div class="mceActionPanel">
+			<div style="float: left">
+				<input type="submit" id="insert" name="insert" value="{#insert}" />
+			</div>
+
+			<div style="float: right">
+				<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+			</div>
+		</div>
+	</form>
 </body>
 </html>

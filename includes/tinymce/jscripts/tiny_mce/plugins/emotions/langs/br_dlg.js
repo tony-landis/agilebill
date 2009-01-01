@@ -1,0 +1,20 @@
+tinyMCE.addI18n('br.emotions_dlg',{
+title:"Inserir emoticon",
+desc:"Emoticons",
+cool:"Fixe",
+cry:"Chor\u00C3\u0083\u00C2\u00A3o",
+embarassed:"Embara\u00C3\u0083\u00C2\u00A7ado",
+foot_in_mouth:"Disse asneira",
+frown:"Decep\u00C3\u0083\u00C2\u00A7\u00C3\u0083\u00C2\u00A3o",
+innocent:"Inocente",
+kiss:"Beijo",
+laughing:"Riso",
+money_mouth:"Avarez",
+sealed:"Boca Fechada",
+smile:"Sorriso",
+surprised:"Surpresa",
+tongue_out:"L\u00C3\u0083\u00C2\u00ADngua de fora",
+undecided:"Indeciso",
+wink:"Piscadela",
+yell:"Irado"
+});
