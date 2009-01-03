@@ -33,7 +33,7 @@ class advance_notice
 		/* get the max invoice days from the setup_invoice table */
 		if(!$this->advance_days) {
 			$setup = $db->Execute(sqlSelect($db,"setup_invoice","advance_notice","advance_notice>0 and advance_notice != '' and advance_notice is not null"));
-			if(!$setup && !$setup->RecordCount()) return false; 
+			if(!$setup->RecordCount()) return false; 
 			 $this->advance_days = $setup->fields['advance_notice'];
 		}
 
