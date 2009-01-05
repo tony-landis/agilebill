@@ -23,33 +23,20 @@ class CORE_vars
 	var $f;
 	function CORE_vars()
 	{
-		if (phpversion() >= "4.1.0")
-		{	
-			global $_GET, $_POST;
-			if(isset($_GET) && count($_GET) > 0)
-			{
-				reset ( $_GET );
-				while ( list ($key, $val) = each ( $_GET ) ) {
-					$newkey=ereg_replace ('amp;', '', $key );
-					$this->f["$newkey"] = $val;
-				}
-				reset ( $_GET );
-			}
-			if(isset($_POST) && count($_POST) > 0)
-			{
-				reset ( $_POST );
-				while ( list ($key, $val) = each ( $_POST ) ) $this->f["$key"] = $val;
-				reset ( $_POST );
-			}                	
-		}
-		else
+		if(isset($_GET) && count($_GET) > 0)
 		{
-			global $HTTP_POST_VARS, $HTTP_GET_VARS; 
-			if(isset($HTTP_POST_VARS) && count($HTTP_POST_VARS) > 0)  
-				$this->f = $HTTP_POST_VARS;
-			elseif(isset($HTTP_GET_VARS) && count($HTTP_GET_VARS) > 0)  
-				$this->f = $HTTP_GET_VARS;	 
+			reset ( $_GET );
+			while ( list ($key, $val) = each ( $_GET ) ) {
+				$this->f["$key"] = $val;
+			}
+			reset ( $_GET );
 		}
+		if(isset($_POST) && count($_POST) > 0)
+		{
+			reset ( $_POST );
+			while ( list ($key, $val) = each ( $_POST ) ) $this->f["$key"] = $val;
+			reset ( $_POST );
+		}                	
 
 		// set the shortcuts:
 		if(!isset($this->f["_page"]))
