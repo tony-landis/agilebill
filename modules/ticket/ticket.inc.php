@@ -537,7 +537,6 @@ class ticket
 			// insert any attachments
 			if(!empty($arr['attach']) && is_array($arr['attach'])) {
 				foreach($arr['attach'] as $attach) {
-					require_once('includes/pear/Compat/Function/file_get_contents.php');
 					@$data = file_get_contents($attach['tmp']);
 					if(!empty($data)) {
 						// get file size

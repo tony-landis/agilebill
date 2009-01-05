@@ -13,9 +13,9 @@
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    CVS: $Id: Replace.php,v 1.12 2005/10/02 06:29:39 cellog Exp $
+ * @version    CVS: $Id: Replace.php,v 1.17 2008/05/13 21:28:20 cellog Exp $
  * @link       http://pear.php.net/package/PEAR
  * @since      File available since Release 1.4.0a1
  */
@@ -28,9 +28,9 @@ require_once 'PEAR/Task/Common.php';
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    Release: 1.4.5
+ * @version    Release: 1.7.2
  * @link       http://pear.php.net/package/PEAR
  * @since      Class available since Release 1.4.0a1
  */
@@ -47,7 +47,7 @@ class PEAR_Task_Replace extends PEAR_Task_Common
      * @param PEAR_Config
      * @static
      */
-    function validateXml($pkg, $xml, &$config, $fileXml)
+    function validateXml($pkg, $xml, $config, $fileXml)
     {
         if (!isset($xml['attribs'])) {
             return array(PEAR_TASK_ERROR_NOATTRIBS);
@@ -89,7 +89,7 @@ class PEAR_Task_Replace extends PEAR_Task_Common
             }
         } else {
             return array(PEAR_TASK_ERROR_WRONG_ATTRIB_VALUE, 'type', $xml['attribs']['type'],
-                array('pear-config', 'package-info'));
+                array('pear-config', 'package-info', 'php-const'));
         }
         return true;
     }
@@ -126,7 +126,7 @@ class PEAR_Task_Replace extends PEAR_Task_Common
                 }
                 if ($a['to'] == 'master_server') {
                     $chan = $this->registry->getChannel($pkg->getChannel());
-                    if ($chan) {
+                    if (!PEAR::isError($chan)) {
                         $to = $chan->getServer();
                     } else {
                         $this->logger->log(0, "$dest: invalid pear-config replacement: $a[to]");

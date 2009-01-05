@@ -13,9 +13,9 @@
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    CVS: $Id: Dependency2.php,v 1.48 2005/10/29 21:23:19 cellog Exp $
+ * @version    CVS: $Id: Dependency2.php,v 1.56 2008/01/03 20:26:35 cellog Exp $
  * @link       http://pear.php.net/package/PEAR
  * @since      File available since Release 1.4.0a1
  */
@@ -35,9 +35,9 @@ require_once 'PEAR/Validate.php';
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    Release: 1.4.5
+ * @version    Release: 1.7.2
  * @link       http://pear.php.net/package/PEAR
  * @since      Class available since Release 1.4.0a1
  */
@@ -85,11 +85,18 @@ class PEAR_Dependency2
                               $state = PEAR_VALIDATE_INSTALLING)
     {
         $this->_config = &$config;
-        $this->_registry = &$config->getRegistry();
         if (!class_exists('PEAR_DependencyDB')) {
             require_once 'PEAR/DependencyDB.php';
         }
+        if (isset($installoptions['packagingroot'])) {
+            // make sure depdb is in the right location
+            $config->setInstallRoot($installoptions['packagingroot']);
+        }
+        $this->_registry = &$config->getRegistry();
         $this->_dependencydb = &PEAR_DependencyDB::singleton($config);
+        if (isset($installoptions['packagingroot'])) {
+            $config->setInstallRoot(false);
+        }
         $this->_options = $installoptions;
         $this->_state = $state;
         if (!class_exists('OS_Guess')) {
@@ -518,7 +525,7 @@ class PEAR_Dependency2
      */
     function getPEARVersion()
     {
-        return '1.4.5';
+        return '1.7.2';
     }
 
     function validatePearinstallerDependency($dep)
@@ -860,53 +867,185 @@ class PEAR_Dependency2
             $dp->setPackageFile($downloaded[$i]);
             $params[$i] = &$dp;
         }
-        $deps = $this->_dependencydb->getDependentPackageDependencies($this->_currentPackage);
-        $fail = false;
-        if ($deps) {
-            foreach ($deps as $channel => $info) {
-                foreach ($info as $package => $ds) {
-                    foreach ($ds as $d) {
-                        $d['dep']['package'] = $d['dep']['name'];
-                        $checker = &new PEAR_Dependency2($this->_config, $this->_options,
-                            array('channel' => $channel, 'package' => $package), $this->_state);
-                        $dep = $d['dep'];
-                        $required = $d['type'] == 'required';
-                        $ret = $checker->_validatePackageUninstall($dep, $required, $params, $dl);
-                        if (is_array($ret)) {
-                            $dl->log(0, $ret[0]);
-                        } elseif (PEAR::isError($ret)) {
-                            $dl->log(0, $ret->getMessage());
-                            $fail = true;
+        // check cache
+        $memyselfandI = strtolower($this->_currentPackage['channel']) . '/' .
+            strtolower($this->_currentPackage['package']);
+        if (isset($dl->___uninstall_package_cache)) {
+            $badpackages = $dl->___uninstall_package_cache;
+            if (isset($badpackages[$memyselfandI]['warnings'])) {
+                foreach ($badpackages[$memyselfandI]['warnings'] as $warning) {
+                    $dl->log(0, $warning[0]);
+                }
+            }
+            if (isset($badpackages[$memyselfandI]['errors'])) {
+                foreach ($badpackages[$memyselfandI]['errors'] as $error) {
+                    if (is_array($error)) {
+                        $dl->log(0, $error[0]);
+                    } else {
+                        $dl->log(0, $error->getMessage());
+                    }
+                }
+                if (isset($this->_options['nodeps']) || isset($this->_options['force'])) {
+                    return $this->warning(
+                        'warning: %s should not be uninstalled, other installed packages depend ' .
+                        'on this package');
+                } else {
+                    return $this->raiseError(
+                        '%s cannot be uninstalled, other installed packages depend on this package');
+                }
+            }
+            return true;
+        }
+        // first, list the immediate parents of each package to be uninstalled
+        $perpackagelist = array();
+        $allparents = array();
+        foreach ($params as $i => $param) {
+            $a = array('channel' => strtolower($param->getChannel()),
+                      'package' => strtolower($param->getPackage()));
+            $deps = $this->_dependencydb->getDependentPackages($a);
+            if ($deps) {
+                foreach ($deps as $d) {
+                    $pardeps = $this->_dependencydb->getDependencies($d);
+                    foreach ($pardeps as $dep) {
+                        if (strtolower($dep['dep']['channel']) == $a['channel'] &&
+                              strtolower($dep['dep']['name']) == $a['package']) {
+                            if (!isset($perpackagelist[$a['channel'] . '/' . $a['package']])) {
+                                $perpackagelist[$a['channel'] . '/' . $a['package']] = array();
+                            }
+                            $perpackagelist[$a['channel'] . '/' . $a['package']][]
+                                = array($d['channel'] . '/' . $d['package'], $dep);
+                            if (!isset($allparents[$d['channel'] . '/' . $d['package']])) {
+                                $allparents[$d['channel'] . '/' . $d['package']] = array();
+                            }
+                            if (!isset($allparents[$d['channel'] . '/' . $d['package']][$a['channel'] . '/' . $a['package']])) {
+                                $allparents[$d['channel'] . '/' . $d['package']][$a['channel'] . '/' . $a['package']] = array();
+                            }
+                            $allparents[$d['channel'] . '/' . $d['package']]
+                                       [$a['channel'] . '/' . $a['package']][]
+                                = array($d, $dep);
                         }
                     }
                 }
             }
         }
-        if ($fail) {
-            if (isset($this->_options['nodeps']) || isset($this->_options['force'])) {
-                return $this->warning(
-                    'warning: %s should not be uninstalled, other installed packages depend ' .
-                    'on this package');
-            } else {
-                return $this->raiseError(
-                    '%s cannot be uninstalled, other installed packages depend on this package');
+        // next, remove any packages from the parents list that are not installed
+        $remove = array();
+        foreach ($allparents as $parent => $d1) {
+            foreach ($d1 as $d) {
+                if ($this->_registry->packageExists($d[0][0]['package'], $d[0][0]['channel'])) {
+                    continue;
+                }
+                $remove[$parent] = true;
+            }
+        }
+        // next remove any packages from the parents list that are not passed in for
+        // uninstallation
+        foreach ($allparents as $parent => $d1) {
+            foreach ($d1 as $d) {
+                foreach ($params as $param) {
+                    if (strtolower($param->getChannel()) == $d[0][0]['channel'] &&
+                          strtolower($param->getPackage()) == $d[0][0]['package']) {
+                        // found it
+                        continue 3;
+                    }
+                }
+                $remove[$parent] = true;
+            }
+        }
+        // remove all packages whose dependencies fail
+        // save which ones failed for error reporting
+        $badchildren = array();
+        do {
+            $fail = false;
+            foreach ($remove as $package => $unused) {
+                if (!isset($allparents[$package])) {
+                    continue;
+                }
+                foreach ($allparents[$package] as $kid => $d1) {
+                    foreach ($d1 as $depinfo) {
+                        if ($depinfo[1]['type'] != 'optional') {
+                            if (isset($badchildren[$kid])) {
+                                continue;
+                            }
+                            $badchildren[$kid] = true;
+                            $remove[$kid] = true;
+                            $fail = true;
+                            continue 2;
+                        }
+                    }
+                }
+                if ($fail) {
+                    // start over, we removed some children
+                    continue 2;
+                }
+            }
+        } while ($fail);
+        // next, construct the list of packages that can't be uninstalled
+        $badpackages = array();
+        $save = $this->_currentPackage;
+        foreach ($perpackagelist as $package => $packagedeps) {
+            foreach ($packagedeps as $parent) {
+                if (!isset($remove[$parent[0]])) {
+                    continue;
+                }
+                $packagename = $this->_registry->parsePackageName($parent[0]);
+                $packagename['channel'] = $this->_registry->channelAlias($packagename['channel']);
+                $pa = $this->_registry->getPackage($packagename['package'], $packagename['channel']);
+                $packagename['package'] = $pa->getPackage();
+                $this->_currentPackage = $packagename;
+                // parent is not present in uninstall list, make sure we can actually
+                // uninstall it (parent dep is optional)
+                $parentname['channel'] = $this->_registry->channelAlias($parent[1]['dep']['channel']);
+                $pa = $this->_registry->getPackage($parent[1]['dep']['name'], $parent[1]['dep']['channel']);
+                $parentname['package'] = $pa->getPackage();
+                $parent[1]['dep']['package'] = $parentname['package'];
+                $parent[1]['dep']['channel'] = $parentname['channel'];
+                if ($parent[1]['type'] == 'optional') {
+                    $test = $this->_validatePackageUninstall($parent[1]['dep'], false, $dl);
+                    if ($test !== true) {
+                        $badpackages[$package]['warnings'][] = $test;
+                    }
+                } else {
+                    $test = $this->_validatePackageUninstall($parent[1]['dep'], true, $dl);
+                    if ($test !== true) {
+                        $badpackages[$package]['errors'][] = $test;
+                    }
+                }
+            }
+        }
+        $this->_currentPackage = $save;
+        $dl->___uninstall_package_cache = $badpackages;
+        if (isset($badpackages[$memyselfandI])) {
+            if (isset($badpackages[$memyselfandI]['warnings'])) {
+                foreach ($badpackages[$memyselfandI]['warnings'] as $warning) {
+                    $dl->log(0, $warning[0]);
+                }
+            }
+            if (isset($badpackages[$memyselfandI]['errors'])) {
+                foreach ($badpackages[$memyselfandI]['errors'] as $error) {
+                    if (is_array($error)) {
+                        $dl->log(0, $error[0]);
+                    } else {
+                        $dl->log(0, $error->getMessage());
+                    }
+                }
+                if (isset($this->_options['nodeps']) || isset($this->_options['force'])) {
+                    return $this->warning(
+                        'warning: %s should not be uninstalled, other installed packages depend ' .
+                        'on this package');
+                } else {
+                    return $this->raiseError(
+                        '%s cannot be uninstalled, other installed packages depend on this package');
+                }
             }
         }
         return true;
     }
 
-    function _validatePackageUninstall($dep, $required, $params, &$dl)
+    function _validatePackageUninstall($dep, $required, $dl)
     {
-        $dep['package'] = $dep['name'];
         $depname = $this->_registry->parsedPackageNameToString($dep, true);
-        $found = false;
-        foreach ($params as $param) {
-            if ($param->isEqual($this->_currentPackage)) {
-                $found = true;
-                break;
-            }
-        }
-        $version = $this->_registry->packageinfo($dep['name'], 'version',
+        $version = $this->_registry->packageinfo($dep['package'], 'version',
             $dep['channel']);
         if (!$version) {
             return true;
@@ -923,15 +1062,15 @@ class PEAR_Dependency2
         if (!isset($dep['min']) && !isset($dep['max'])) {
             if ($required) {
                 if (!isset($this->_options['nodeps']) && !isset($this->_options['force'])) {
-                    return $this->raiseError('%s' . $extra . ' is required by installed package "' .
-                        $depname . '"');
+                    return $this->raiseError('"' . $depname . '" is required by ' .
+                        'installed package %s' . $extra);
                 } else {
-                    return $this->warning('warning: %s' . $extra .
-                        ' is required by installed package "' . $depname . '"');
+                    return $this->warning('warning: "' . $depname . '" is required by ' .
+                        'installed package %s' . $extra);
                 }
             } else {
-                return $this->warning('%s' . $extra .
-                    ' can be optionally used by installed package "' . $depname . '"');
+                return $this->warning('"' . $depname . '" can be optionally used by ' .
+                        'installed package %s' . $extra);
             }
         }
         $fail = false;
@@ -945,54 +1084,19 @@ class PEAR_Dependency2
                 $fail = true;
             }
         }
-        if ($fail) {
-            if ($found) {
-                if (!isset($dl->___checked[$this->_currentPackage['channel']]
-                      [$this->_currentPackage['package']])) {
-                    $dl->___checked[$this->_currentPackage['channel']]
-                      [$this->_currentPackage['package']] = true;
-                    $deps = $this->_dependencydb->getDependentPackageDependencies(
-                        $this->_currentPackage);
-                    if ($deps) {
-                        foreach ($deps as $channel => $info) {
-                            foreach ($info as $package => $ds) {
-                                foreach ($ds as $d) {
-                                    $d['dep']['package'] = $d['dep']['name'];
-                                    $checker = &new PEAR_Dependency2($this->_config, $this->_options,
-                                        array('channel' => $channel, 'package' => $package),
-                                        $this->_state);
-                                    $dep = $d['dep'];
-                                    $required = $d['type'] == 'required';
-                                    $ret = $checker->_validatePackageUninstall($dep, $required, $params,
-                                        $dl);
-                                    if (PEAR::isError($ret)) {
-                                        $fail = true;
-                                        break 3;
-                                    }
-                                }
-                            }
-                            $fail = false;
-                        }
-                    }
-                } else {
-                    return true;
-                }
-            }
-            if (!$fail) {
-                return true;
-            }
-            if ($required) {
-                if (!isset($this->_options['nodeps']) && !isset($this->_options['force'])) {
-                    return $this->raiseError($depname . $extra . ' is required by installed package' .
-                        ' "%s"');
-                } else {
-                    return $this->warning('warning: ' . $depname . $extra .
-                        ' is required by installed package "%s"');
-                }
+        // we re-use this variable, preserve the original value
+        $saverequired = $required;
+        if ($required) {
+            if (!isset($this->_options['nodeps']) && !isset($this->_options['force'])) {
+                return $this->raiseError($depname . $extra . ' is required by installed package' .
+                    ' "%s"');
             } else {
-                return $this->warning($depname . $extra . ' can be optionally used by installed package' .
-                        ' "%s"');
+                return $this->raiseError('warning: ' . $depname . $extra .
+                    ' is required by installed package "%s"');
             }
+        } else {
+            return $this->warning($depname . $extra . ' can be optionally used by installed package' .
+                    ' "%s"');
         }
         return true;
     }

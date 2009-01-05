@@ -24,7 +24,7 @@
  * @author     Jesper Veggerby <pear.nosey@veggerby.dk>
  * @copyright  Copyright (C) 2003, 2004 Jesper Veggerby Hansen
  * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
- * @version    CVS: $Id: Logarithmic.php,v 1.13 2005/09/25 17:52:17 nosey Exp $
+ * @version    CVS: $Id: Logarithmic.php,v 1.15 2006/03/02 12:35:57 nosey Exp $
  * @link       http://pear.php.net/package/Image_Graph
  */
  
@@ -63,6 +63,8 @@ class Image_Graph_Axis_Logarithmic extends Image_Graph_Axis
     {
         parent::Image_Graph_Axis($type);
         $this->showLabel(IMAGE_GRAPH_LABEL_MINIMUM + IMAGE_GRAPH_LABEL_MAXIMUM);
+        $this->_minimum = 1;
+        $this->_minimumSet = true;
     }
 
     /**
@@ -81,31 +83,6 @@ class Image_Graph_Axis_Logarithmic extends Image_Graph_Axis
     }
 
     /**
-     * Forces the minimum value of the axis.
-     *
-     * For an logarithimc axis this is always 0
-     *
-     * @param double $minimum The minumum value to use on the axis
-     */
-    function forceMinimum($minimum)
-    {
-        parent::forceMinimum(0);
-    }
-
-    /**
-     * Gets the minimum value the axis will show.
-     *
-     * For an logarithimc axis this is always 0
-     *
-     * @return double The minumum value
-     * @access private
-     */
-    function _getMinimum()
-    {
-        return 0;
-    }
-
-    /**
      * Preprocessor for values, ie for using logarithmic axis
      *
      * @param double $value The value to preprocess
@@ -114,7 +91,7 @@ class Image_Graph_Axis_Logarithmic extends Image_Graph_Axis
      */
     function _value($value)
     {
-        return log10($value);
+        return log10($value) - log10($this->_minimum);
     }
 
     /**
@@ -148,7 +125,7 @@ class Image_Graph_Axis_Logarithmic extends Image_Graph_Axis
             return pow(10, $base+1);
         }
 
-        return 1;
+        return max(1, $this->_minimum);
     }
 
     /**

@@ -25,7 +25,7 @@
  * @author     Jesper Veggerby <pear.nosey@veggerby.dk>
  * @copyright  Copyright (C) 2003, 2004 Jesper Veggerby Hansen
  * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
- * @version    CVS: $Id: Canvas.php,v 1.5 2005/09/30 18:59:35 nosey Exp $
+ * @version    CVS: $Id: Canvas.php,v 1.7 2006/02/28 22:46:25 nosey Exp $
  * @link       http://pear.php.net/pepr/pepr-proposal-show.php?id=212
  */
 
@@ -356,7 +356,17 @@ class Image_Canvas
         $this->_polygon = array();
         $this->_font = $this->_defaultFont;
     }
-
+    
+    /**
+     * Reset the canvas.
+     *
+     * Includes fillstyle, linestyle, thickness and polygon
+     */
+    function reset() 
+    {
+        $this->_reset();
+    }
+    
     /**
      * Draw a line end
      *
@@ -587,6 +597,20 @@ class Image_Canvas
     function image($params)
     {
     }
+    
+    /**
+     * Set clipping to occur
+     * 
+     * Parameter array:
+     * 
+     * 'x0': int X point of Upper-left corner
+     * 'y0': int X point of Upper-left corner
+     * 'x1': int X point of lower-right corner
+     * 'y1': int Y point of lower-right corner
+     */
+    function setClipping($params = false) 
+    {
+    }       
 
     /**
      * Start a group.

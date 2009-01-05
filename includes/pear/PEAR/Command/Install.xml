@@ -35,8 +35,13 @@
    <installroot>
     <shortopt>R</shortopt>
     <arg>DIR</arg>
-    <doc>root directory used when installing files (ala PHP&apos;s INSTALL_ROOT)</doc>
+    <doc>root directory used when installing files (ala PHP&apos;s INSTALL_ROOT), use packagingroot for RPM</doc>
    </installroot>
+   <packagingroot>
+    <shortopt>P</shortopt>
+    <arg>DIR</arg>
+    <doc>root directory used when packaging files, like RPM packaging</doc>
+   </packagingroot>
    <ignore-errors>
     <doc>force install even if there were errors</doc>
    </ignore-errors>

@@ -13,9 +13,9 @@
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    CVS: $Id: Validate.php,v 1.44 2005/11/14 14:07:43 cellog Exp $
+ * @version    CVS: $Id: Validate.php,v 1.52 2008/01/03 20:26:36 cellog Exp $
  * @link       http://pear.php.net/package/PEAR
  * @since      File available since Release 1.4.0a1
  */
@@ -36,9 +36,9 @@ require_once 'PEAR/Validator/PECL.php';
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    Release: 1.4.5
+ * @version    Release: 1.7.2
  * @link       http://pear.php.net/package/PEAR
  * @since      Class available since Release 1.4.0a1
  */
@@ -68,7 +68,7 @@ class PEAR_Validate
      */
     function _validPackageName($name)
     {
-        return (bool) preg_match('/^' . $this->packageregex . '$/', $name);
+        return (bool) preg_match('/^' . $this->packageregex . '\\z/', $name);
     }
 
     /**
@@ -80,7 +80,7 @@ class PEAR_Validate
     {
         if ($validatepackagename) {
             if (strtolower($name) == strtolower($validatepackagename)) {
-                return (bool) preg_match('/^[a-zA-Z0-9_]+(?:\.[a-zA-Z0-9_]+)*$/', $name);
+                return (bool) preg_match('/^[a-zA-Z0-9_]+(?:\.[a-zA-Z0-9_]+)*\\z/', $name);
             }
         }
         return $this->_validPackageName($name);
@@ -95,7 +95,7 @@ class PEAR_Validate
      */
     function validGroupName($name)
     {
-        return (bool) preg_match('/^' . _PEAR_COMMON_PACKAGE_NAME_PREG . '$/', $name);
+        return (bool) preg_match('/^' . _PEAR_COMMON_PACKAGE_NAME_PREG . '\\z/', $name);
     }
 
     /**
@@ -188,7 +188,8 @@ class PEAR_Validate
         if ($this->_packagexml->getPackagexmlVersion() == '1.0') {
             $this->validateState();
             $this->validateFilelist();
-        } elseif ($this->_packagexml->getPackagexmlVersion() == '2.0') {
+        } elseif ($this->_packagexml->getPackagexmlVersion() == '2.0' ||
+                  $this->_packagexml->getPackagexmlVersion() == '2.1') {
             $this->validateTime();
             $this->validateStability();
             $this->validateDeps();
@@ -207,7 +208,8 @@ class PEAR_Validate
     {
         if ($this->_state == PEAR_VALIDATE_PACKAGING ||
               $this->_state == PEAR_VALIDATE_NORMAL) {
-            if ($this->_packagexml->getPackagexmlVersion() == '2.0' &&
+            if (($this->_packagexml->getPackagexmlVersion() == '2.0' ||
+                 $this->_packagexml->getPackagexmlVersion() == '2.1') &&
                   $this->_packagexml->getExtends()) {
                 $version = $this->_packagexml->getVersion() . '';
                 $name = $this->_packagexml->getPackage();
@@ -286,6 +288,13 @@ class PEAR_Validate
             case 'beta' :
                 // check for a package that extends a package,
                 // like Foo and Foo2
+                if ($this->_state == PEAR_VALIDATE_PACKAGING) {
+                    if (substr($versioncomponents[2], 1, 2) == 'rc') {
+                        $this->_addFailure('version', 'Release Candidate versions ' .
+                            'must have capital RC, not lower-case rc');
+                        return false;
+                    }
+                }
                 if (!$this->_packagexml->getExtends()) {
                     if ($versioncomponents[0] == '1') {
                         if ($versioncomponents[2]{0} == '0') {
@@ -438,17 +447,18 @@ class PEAR_Validate
     {
         if ($this->_state == PEAR_VALIDATE_NORMAL ||
               $this->_state == PEAR_VALIDATE_PACKAGING) {
-            if (!preg_match('/\d\d\d\d\-\d\d\-\d\d/',
-                  $this->_packagexml->getDate())) {
+
+            if (!preg_match('/(\d\d\d\d)\-(\d\d)\-(\d\d)/',
+                  $this->_packagexml->getDate(), $res) ||
+                  count($res) < 4
+                  || !checkdate($res[2], $res[3], $res[1])
+                ) {
                 $this->_addFailure('date', 'invalid release date "' .
                     $this->_packagexml->getDate() . '"');
                 return false;
             }
-            if (strtotime($this->_packagexml->getDate()) == -1) {
-                $this->_addFailure('date', 'invalid release date "' .
-                    $this->_packagexml->getDate() . '"');
-                return false;
-            }
+
+
             if ($this->_state == PEAR_VALIDATE_PACKAGING &&
                   $this->_packagexml->getDate() != date('Y-m-d')) {
                 $this->_addWarning('date', 'Release Date "' .

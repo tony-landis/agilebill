@@ -13,9 +13,9 @@
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  2005 The PHP Group
+ * @copyright  2005-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    CVS: $Id: Pickle.php,v 1.4 2005/09/27 04:12:52 cellog Exp $
+ * @version    CVS: $Id: Pickle.php,v 1.8 2008/01/29 03:21:01 cellog Exp $
  * @link       http://pear.php.net/package/PEAR
  * @since      File available since Release 1.4.1
  */
@@ -31,9 +31,9 @@ require_once 'PEAR/Command/Common.php';
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  2005 The PHP Group
+ * @copyright  2005-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    Release: 1.4.5
+ * @version    Release: 1.7.2
  * @link       http://pear.php.net/package/PEAR
  * @since      Class available since Release 1.4.1
  */
@@ -63,8 +63,8 @@ disk in the current directory as "package.xml".  Note that
 only simple package.xml 2.0 will be converted.  package.xml 2.0 with:
 
  - dependency types other than required/optional PECL package/ext/php/pearinstaller
- - more than one extsrcrelease
- - extbinrelease, phprelease, or bundle release type
+ - more than one extsrcrelease or zendextsrcrelease
+ - zendextbinrelease, extbinrelease, phprelease, or bundle release type
  - dependency groups
  - ignore tags in release filelist
  - tasks other than replace
@@ -115,7 +115,7 @@ generate both package.xml.
         if (!class_exists('PEAR_Common')) {
             require_once 'PEAR/Common.php';
         }
-        if (!class_exists('PEAR/PackageFile.php')) {
+        if (!class_exists('PEAR_PackageFile')) {
             require_once 'PEAR/PackageFile.php';
         }
         $a = &new PEAR_PackageFile($config, $debug, $tmpdir);
@@ -156,7 +156,7 @@ generate both package.xml.
         require_once 'PEAR/PackageFile/v1.php';
         $pf = new PEAR_PackageFile_v1;
         $pf->setConfig($this->config);
-        if (is_array($pf2->getPackageType() != 'extsrc')) {
+        if ($pf2->getPackageType() != 'extsrc' && $pf2->getPackageType() != 'zendextsrc') {
             return $this->raiseError('Cannot safely convert "' . $packagexml .
             '", is not an extension source package.  Using a PEAR_PackageFileManager-based ' .
             'script is an option');
@@ -307,7 +307,7 @@ generate both package.xml.
         $release = $pf2->getReleases();
         if (isset($releases[0])) {
             return $this->raiseError('Cannot safely process "' . $packagexml . '" contains ' 
-            . 'multiple extsrcrelease tags.  Using a PEAR_PackageFileManager-based script ' .
+            . 'multiple extsrcrelease/zendextsrcrelease tags.  Using a PEAR_PackageFileManager-based script ' .
             'or the convert command is an option');
         }
         if ($configoptions = $pf2->getConfigureOptions()) {

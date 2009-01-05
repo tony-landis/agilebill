@@ -24,7 +24,7 @@
  * @author     Jesper Veggerby <pear.nosey@veggerby.dk>
  * @copyright  Copyright (C) 2003, 2004 Jesper Veggerby Hansen
  * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
- * @version    CVS: $Id: Horizontal.php,v 1.10 2005/08/24 20:35:58 nosey Exp $
+ * @version    CVS: $Id: Horizontal.php,v 1.11 2006/02/28 22:48:07 nosey Exp $
  * @link       http://pear.php.net/package/Image_Graph
  */
 
@@ -115,7 +115,7 @@ class Image_Graph_Layout_Horizontal extends Image_Graph_Layout
             $this->_percentage = max(0, min(100, $percentage));
         }
         $this->_split();
-        $this->_padding = 0;
+        $this->_padding = array('left' => 0, 'top' => 0, 'right' => 0, 'bottom' => 0);
     }
 
     /**

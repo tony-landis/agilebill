@@ -24,7 +24,7 @@
  * @author     Jesper Veggerby <pear.nosey@veggerby.dk>
  * @copyright  Copyright (C) 2003, 2004 Jesper Veggerby Hansen
  * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
- * @version    CVS: $Id: Layout.php,v 1.11 2005/09/14 20:27:25 nosey Exp $
+ * @version    CVS: $Id: Layout.php,v 1.12 2006/02/28 22:48:07 nosey Exp $
  * @link       http://pear.php.net/package/Image_Graph
  */
 
@@ -71,7 +71,7 @@ class Image_Graph_Layout extends Image_Graph_Plotarea_Element
     function Image_Graph_Layout()
     {
         parent::Image_Graph_Element();
-        $this->_padding = 2;
+        $this->_padding = array('left' => 2, 'top' => 2, 'right' => 2, 'bottom' => 2);
     }
 
     /**
@@ -146,10 +146,10 @@ class Image_Graph_Layout extends Image_Graph_Plotarea_Element
             );
 
             $this->_setCoords(
-                $left + $this->_padding,
-                $top + $this->_padding,
-                $right - $this->_padding,
-                $bottom - $this->_padding
+                $left + $this->_padding['left'],
+                $top + $this->_padding['top'],
+                $right - $this->_padding['right'],
+                $bottom - $this->_padding['bottom']
             );
         }
     }

@@ -13,9 +13,9 @@
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    CVS: $Id: ChannelFile.php,v 1.73 2005/08/21 05:01:37 cellog Exp $
+ * @version    CVS: $Id: ChannelFile.php,v 1.80 2008/01/03 20:26:34 cellog Exp $
  * @link       http://pear.php.net/package/PEAR
  * @since      File available since Release 1.4.0a1
  */
@@ -150,9 +150,9 @@ $GLOBALS['_PEAR_CHANNELS_MIRROR_TYPES'] =  array('server');
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    Release: 1.4.5
+ * @version    Release: 1.7.2
  * @link       http://pear.php.net/package/PEAR
  * @since      Class available since Release 1.4.0a1
  */
@@ -284,7 +284,7 @@ class PEAR_ChannelFile {
             if ($result !== true) {
                 if ($result->getCode() == 1) {
                     $this->_stack->push(PEAR_CHANNELFILE_ERROR_NO_XML_EXT, 'error',
-                        array('error' => $error));
+                        array('error' => $result->getMessage()));
                 } else {
                     $this->_stack->push(PEAR_CHANNELFILE_ERROR_CANT_MAKE_PARSER, 'error');
                 }
@@ -322,6 +322,20 @@ class PEAR_ChannelFile {
             $a = false;
             return $a;
         }
+        return $a;
+    }
+
+    /**
+     * Unlike {@link fromArray()} this does not do any validation
+     * @param array
+     * @static
+     * @return PEAR_ChannelFile
+     */
+    function &fromArrayWithErrors($data, $compatibility = false,
+                                  $stackClass = 'PEAR_ErrorStack')
+    {
+        $a = new PEAR_ChannelFile($compatibility, $stackClass);
+        $a->_fromArray($data);
         return $a;
     }
     
@@ -377,21 +391,16 @@ class PEAR_ChannelFile {
      */
     function fromXmlFile($descfile)
     {
-        if (!@is_file($descfile) || !is_readable($descfile) ||
-             (!$fp = @fopen($descfile, 'r'))) {
+        if (!file_exists($descfile) || !is_file($descfile) || !is_readable($descfile) ||
+             (!$fp = fopen($descfile, 'r'))) {
             require_once 'PEAR.php';
             return PEAR::raiseError("Unable to open $descfile");
         }
 
         // read the whole thing so we only get one cdata callback
         // for each block of cdata
-        if (function_exists('file_get_contents')) {
-            fclose($fp);
-            $data = file_get_contents($descfile);
-        } else {
-            $data = fread($fp, filesize($descfile));
-            fclose($fp);
-        }
+        fclose($fp);
+        $data = file_get_contents($descfile);
         return $this->fromXmlString($data);
     }
 
@@ -664,8 +673,11 @@ class PEAR_ChannelFile {
                 $this->_validateError(PEAR_CHANNELFILE_ERROR_NOVALIDATE_NAME);
             }
             if (!isset($info['validatepackage']['attribs']['version'])) {
+                $content = isset($info['validatepackage']['_content']) ?
+                    $info['validatepackage']['_content'] :
+                    null;
                 $this->_validateError(PEAR_CHANNELFILE_ERROR_NOVALIDATE_VERSION,
-                    array('package' => @$info['validatepackage']['_content']));
+                    array('package' => $content));
             }
         }
         if (isset($info['servers']['primary']['attribs']['port']) &&
@@ -699,7 +711,6 @@ class PEAR_ChannelFile {
             if (!isset($info['servers']['mirror'][0])) {
                 $info['servers']['mirror'] = array($info['servers']['mirror']);
             }
-            $i = 0;
             foreach ($info['servers']['mirror'] as $mirror) {
                 if (!isset($mirror['attribs']['host'])) {
                     $this->_validateError(PEAR_CHANNELFILE_ERROR_NO_HOST,
@@ -1002,10 +1013,8 @@ class PEAR_ChannelFile {
             } else {
                 return false;
             }
-            $server = $mirror;
         } else {
             $rest = $this->_channelInfo['servers']['primary']['rest'];
-            $server = $this->getServer();
         }
         if (!isset($rest['baseurl'][0])) {
             $rest['baseurl'] = array($rest['baseurl']);
@@ -1143,7 +1152,6 @@ class PEAR_ChannelFile {
                     array('mirror' => $mirror));
                 return false;
             }
-            $setmirror = false;
             if (isset($this->_channelInfo['servers']['mirror'][0])) {
                 foreach ($this->_channelInfo['servers']['mirror'] as $i => $mir) {
                     if ($mirror == $mir['attribs']['host']) {
@@ -1176,7 +1184,6 @@ class PEAR_ChannelFile {
                     array('mirror' => $mirror));
                 return false;
             }
-            $setmirror = false;
             if (isset($this->_channelInfo['servers']['mirror'][0])) {
                 foreach ($this->_channelInfo['servers']['mirror'] as $i => $mir) {
                     if ($mirror == $mir['attribs']['host']) {
@@ -1231,7 +1238,6 @@ class PEAR_ChannelFile {
                     array('mirror' => $mirror));
                 return false;
             }
-            $setmirror = false;
             if (isset($this->_channelInfo['servers']['mirror'][0])) {
                 foreach ($this->_channelInfo['servers']['mirror'] as $i => $mir) {
                     if ($mirror == $mir['attribs']['host']) {
@@ -1343,6 +1349,7 @@ class PEAR_ChannelFile {
         if (isset($this->_channelInfo['name'])) {
             return $this->_channelInfo['name'];
         }
+        return '';
     }
 
     /**
@@ -1376,6 +1383,12 @@ class PEAR_ChannelFile {
         }
         $set = array('attribs' => array('version' => $version), '_content' => $name);
         if (!isset($this->_channelInfo['servers']['primary'][$type]['function'])) {
+            if (!isset($this->_channelInfo['servers'])) {
+                $this->_channelInfo['servers'] = array('primary' =>
+                    array($type => array()));
+            } elseif (!isset($this->_channelInfo['servers']['primary'])) {
+                $this->_channelInfo['servers']['primary'] = array($type => array());
+            }
             $this->_channelInfo['servers']['primary'][$type]['function'] = $set;
             $this->_isValid = false;
             return true;
@@ -1395,7 +1408,6 @@ class PEAR_ChannelFile {
      */
     function addMirrorFunction($mirror, $type, $version, $name = '')
     {
-        $found = false;
         if (!isset($this->_channelInfo['servers']['mirror'])) {
             $this->_validateError(PEAR_CHANNELFILE_ERROR_MIRROR_NOT_FOUND,
                 array('mirror' => $mirror));
@@ -1440,7 +1452,6 @@ class PEAR_ChannelFile {
     function setBaseURL($resourceType, $url, $mirror = false)
     {
         if ($mirror) {
-            $found = false;
             if (!isset($this->_channelInfo['servers']['mirror'])) {
                 $this->_validateError(PEAR_CHANNELFILE_ERROR_MIRROR_NOT_FOUND,
                     array('mirror' => $mirror));
@@ -1463,6 +1474,9 @@ class PEAR_ChannelFile {
             $setmirror = &$this->_channelInfo['servers']['primary'];
         }
         $set = array('attribs' => array('type' => $resourceType), '_content' => $url);
+        if (!isset($setmirror['rest'])) {
+            $setmirror['rest'] = array();
+        }
         if (!isset($setmirror['rest']['baseurl'])) {
             $setmirror['rest']['baseurl'] = $set;
             $this->_isValid = false;

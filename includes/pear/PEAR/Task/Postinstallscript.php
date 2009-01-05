@@ -13,9 +13,9 @@
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    CVS: $Id: Postinstallscript.php,v 1.16 2005/10/19 04:52:54 cellog Exp $
+ * @version    CVS: $Id: Postinstallscript.php,v 1.20 2008/05/13 21:28:20 cellog Exp $
  * @link       http://pear.php.net/package/PEAR
  * @since      File available since Release 1.4.0a1
  */
@@ -31,9 +31,9 @@ require_once 'PEAR/Task/Common.php';
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    Release: 1.4.5
+ * @version    Release: 1.7.2
  * @link       http://pear.php.net/package/PEAR
  * @since      Class available since Release 1.4.0a1
  */
@@ -62,7 +62,7 @@ class PEAR_Task_Postinstallscript extends PEAR_Task_Common
      * @param array the entire parsed <file> tag
      * @static
      */
-    function validateXml($pkg, $xml, &$config, $fileXml)
+    function validateXml($pkg, $xml, $config, $fileXml)
     {
         if ($fileXml['role'] != 'php') {
             return array(PEAR_TASK_ERROR_INVALID, 'Post-install script "' .
@@ -80,10 +80,14 @@ class PEAR_Task_Postinstallscript extends PEAR_Task_Common
                 $fileXml['name'] . '" could not be retrieved for processing!');
         } else {
             $analysis = $pkg->analyzeSourceCode($file, true);
-            if (PEAR::isError($analysis)) {
+            if (!$analysis) {
                 PEAR::popErrorHandling();
+                $warnings = '';
+                foreach ($pkg->getValidationWarnings() as $warn) {
+                    $warnings .= $warn['message'] . "\n";
+                }
                 return array(PEAR_TASK_ERROR_INVALID, 'Analysis of post-install script "' .
-                    $fileXml['name'] . '" failed');
+                    $fileXml['name'] . '" failed: ' . $warnings);
             }
             if (count($analysis['declared_classes']) != 1) {
                 PEAR::popErrorHandling();

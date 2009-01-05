@@ -1,6 +1,6 @@
 <?php
 /**
- * PEAR_FTP
+ * PEAR_XMLParser
  *
  * PHP versions 4 and 5
  *
@@ -14,9 +14,9 @@
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
  * @author     Stephan Schmidt (original XML_Unserializer code)
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    CVS: $Id: XMLParser.php,v 1.10 2005/09/25 03:49:02 cellog Exp $
+ * @version    CVS: $Id: XMLParser.php,v 1.13 2008/01/03 20:26:36 cellog Exp $
  * @link       http://pear.php.net/package/PEAR
  * @since      File available since Release 1.4.0a1
  */
@@ -27,9 +27,9 @@
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
  * @author     Stephan Schmidt (original XML_Unserializer code)
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    Release: 1.4.5
+ * @version    Release: 1.7.2
  * @link       http://pear.php.net/package/PEAR
  * @since      Class available since Release 1.4.0a1
  */
@@ -91,12 +91,12 @@ class PEAR_XMLParser
             if (strpos($data, 'encoding="UTF-8"')) {
                 $data = utf8_decode($data);
             }
-            $xp = @xml_parser_create('ISO-8859-1');
+            $xp = xml_parser_create('ISO-8859-1');
         } else {
             if (strpos($data, 'encoding="UTF-8"')) {
-                $xp = @xml_parser_create('UTF-8');
+                $xp = xml_parser_create('UTF-8');
             } else {
-                $xp = @xml_parser_create('ISO-8859-1');
+                $xp = xml_parser_create('ISO-8859-1');
             }
         }
         xml_parser_set_option($xp, XML_OPTION_CASE_FOLDING, 0);

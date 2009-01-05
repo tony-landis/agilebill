@@ -13,9 +13,9 @@
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2006 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    CVS: $Id: Common.php,v 1.9 2005/11/01 22:28:42 cellog Exp $
+ * @version    CVS: $Id: Common.php,v 1.12 2006/10/19 23:55:32 cellog Exp $
  * @link       http://pear.php.net/package/PEAR
  * @since      File available since Release 1.4.0a1
  */
@@ -28,9 +28,9 @@
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2006 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    Release: 1.4.5
+ * @version    Release: 1.7.2
  * @link       http://pear.php.net/package/PEAR
  * @since      Class available since Release 1.4.0a1
  */
@@ -94,13 +94,13 @@ class PEAR_Installer_Role_Common
             }
         } elseif ($roleInfo['unusualbaseinstall']) {
             $dest_dir = $save_destdir = $this->config->get($roleInfo['locationconfig'],
-                    null, $pkg->getChannel()) . DIRECTORY_SEPARATOR . $pkg->getPackage();
+                    $layer, $pkg->getChannel()) . DIRECTORY_SEPARATOR . $pkg->getPackage();
             if (!empty($atts['baseinstalldir'])) {
                 $dest_dir .= DIRECTORY_SEPARATOR . $atts['baseinstalldir'];
             }
         } else {
             $dest_dir = $save_destdir = $this->config->get($roleInfo['locationconfig'],
-                    null, $pkg->getChannel()) . DIRECTORY_SEPARATOR . $pkg->getPackage();
+                    $layer, $pkg->getChannel()) . DIRECTORY_SEPARATOR . $pkg->getPackage();
         }
         if (dirname($file) != '.' && empty($atts['install-as'])) {
             $dest_dir .= DIRECTORY_SEPARATOR . dirname($file);

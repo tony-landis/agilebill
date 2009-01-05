@@ -13,9 +13,9 @@
  * @category   pear
  * @package    PEAR
  * @author     Alexander Merz <alexmerz@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    CVS: $Id: Mirror.php,v 1.15 2005/05/04 04:39:04 cellog Exp $
+ * @version    CVS: $Id: Mirror.php,v 1.20 2008/04/11 01:16:40 dufuz Exp $
  * @link       http://pear.php.net/package/PEAR
  * @since      File available since Release 1.2.0
  */
@@ -31,9 +31,9 @@ require_once 'PEAR/Command/Common.php';
  * @category   pear
  * @package    PEAR
  * @author     Alexander Merz <alexmerz@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    Release: 1.4.5
+ * @version    Release: 1.7.2
  * @link       http://pear.php.net/package/PEAR
  * @since      Class available since Release 1.2.0
  */
@@ -98,7 +98,7 @@ packages within preferred_state ({config preferred_state}) will be downloaded'
     * @param array $options the command options before the command
     * @param array $params the stuff after the command name
     * @return bool true if succesful
-    * @throw PEAR_Error 
+    * @throw PEAR_Error
     */
     function doDownloadAll($command, $options, $params)
     {
@@ -113,10 +113,13 @@ packages within preferred_state ({config preferred_state}) will be downloaded'
         $this->config->set('default_channel', $channel);
         $this->ui->outputData('Using Channel ' . $this->config->get('default_channel'));
         $chan = $reg->getChannel($channel);
+        if (PEAR::isError($chan)) {
+            return $this->raiseError($chan);
+        }
         if ($chan->supportsREST($this->config->get('preferred_mirror')) &&
               $base = $chan->getBaseURL('REST1.0', $this->config->get('preferred_mirror'))) {
             $rest = &$this->config->getREST('1.0', array());
-            $remoteInfo = array_flip($rest->listPackages($base));
+            $remoteInfo = array_flip($rest->listPackages($base, $channel));
         } else {
             $remote = &$this->config->getRemote();
             $stable = ($this->config->get('preferred_state') == 'stable');
@@ -129,8 +132,11 @@ packages within preferred_state ({config preferred_state}) will be downloaded'
         if (PEAR::isError($cmd)) {
             return $cmd;
         }
+        $this->ui->outputData('Using Preferred State of ' .
+            $this->config->get('preferred_state'));
+        $this->ui->outputData('Gathering release information, please wait...');
         /**
-         * Error handling not necessary, because already done by 
+         * Error handling not necessary, because already done by
          * the download command
          */
         PEAR::staticPushErrorHandling(PEAR_ERROR_RETURN);

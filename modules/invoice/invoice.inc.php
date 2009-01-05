@@ -704,7 +704,6 @@ class invoice
 
 		# echo the custom tracking code to the screen:
 		if(!is_file(PATH_FILES.'tracking.txt')) return false;
-		require_once('includes/pear/Compat/Function/file_get_contents.php');
 		$tracking = file_get_contents(PATH_FILES.'tracking.txt');
 		$tracking = ereg_replace('%%amount%%', "$total_amount", $tracking);
 		$tracking = ereg_replace('%%invoice%%', $invoice, $tracking);

@@ -25,7 +25,7 @@
  * @author     Jesper Veggerby <pear.nosey@veggerby.dk>
  * @copyright  Copyright (C) 2003, 2004 Jesper Veggerby Hansen
  * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
- * @version    CVS: $Id: PDF.php,v 1.5 2005/10/28 09:54:40 nosey Exp $
+ * @version    CVS: $Id: PDF.php,v 1.6 2006/04/11 21:12:41 nosey Exp $
  * @link       http://pear.php.net/pepr/pepr-proposal-show.php?id=212
  */
  
@@ -301,8 +301,6 @@ class Image_Canvas_PDF extends Image_Canvas
             }
         }
 
-        $this->_pdflib = $this->_version();
-
         $addPage = true;
         if ((isset($param['pdf'])) && (is_resource($param['pdf']))) {
             $this->_pdf =& $param['pdf'];
@@ -329,6 +327,8 @@ class Image_Canvas_PDF extends Image_Canvas
             pdf_begin_page($this->_pdf, $this->_pageWidth, $this->_pageHeight);
         }
         $this->_reset();
+
+        $this->_pdflib = $this->_version();
     }
 
     /**
@@ -543,7 +543,7 @@ class Image_Canvas_PDF extends Image_Canvas
         $color = (isset($params['color']) ? $params['color'] : false);
         if ($this->_setLineStyle($color)) {
             pdf_moveto($this->_pdf, $this->_getX($params['x0']), $this->_getY($params['y0']));
-            pdf_lineto($this->_pdf, $this->_getX($params['x1']), $this->_getY($params['x1']));
+            pdf_lineto($this->_pdf, $this->_getX($params['x1']), $this->_getY($params['y1']));
             pdf_stroke($this->_pdf);
         }
         parent::line($params);
@@ -646,7 +646,7 @@ class Image_Canvas_PDF extends Image_Canvas
         $line = $this->_setLineStyle($lineColor);
         $fill = $this->_setFillStyle($fillColor);
         if (($line) || ($fill)) {
-            pdf_rect($this->_pdf, $this->_getX(min($x0, $x1)), $this->_getY(max($y0, $y1)), abs($x1 - $x0), abs($y1 - $y0));
+            pdf_rect($this->_pdf, min($x0, $x1), min($y0, $y1), abs($x1 - $x0), abs($y1 - $y0));
             if (($line) && ($fill)) {
                 pdf_fill_stroke($this->_pdf);
             } elseif ($line) {
@@ -672,10 +672,10 @@ class Image_Canvas_PDF extends Image_Canvas
      */
     function ellipse($params)
     {
-        $x = $this->_getX($params['x']);
-        $y = $this->_getY($params['y']);
-        $rx = $this->_getX($params['rx']);
-        $ry = $this->_getY($params['ry']);
+        $x = $params['x'];
+        $y = $params['y'];
+        $rx = $params['rx'];
+        $ry = $params['ry'];
         $fillColor = (isset($params['fill']) ? $params['line'] : false);
         $lineColor = (isset($params['line']) ? $params['line'] : false);
 
@@ -823,7 +823,9 @@ class Image_Canvas_PDF extends Image_Canvas
             $x = $x - ($textWidth / 2);
         }
 
-        if ($alignment['vertical'] == 'top') {
+        $y -= $textHeight;
+
+        if ($alignment['vertical'] == 'bottom') {
             $y = $y + $textHeight;
         } elseif ($alignment['vertical'] == 'center') {
             $y = $y + ($textHeight / 2);
@@ -833,7 +835,7 @@ class Image_Canvas_PDF extends Image_Canvas
             $color = $this->_font['color'];
         }
 
-        pdf_show_xy($this->_pdf, $text, $this->_getX($x), $this->_getY($y));
+        pdf_show_xy($this->_pdf, $text, $x, $y);
 
         parent::addText($params);
     }
@@ -901,7 +903,7 @@ class Image_Canvas_PDF extends Image_Canvas
             $scale = max(($height/$height_), ($width/$width_));
         }   
 
-        pdf_place_image($this->_pdf, $image, $this->_getX($x), $this->_getY($y), $scale);
+        pdf_place_image($this->_pdf, $image, $x, $y, $scale);
         pdf_close_image($this->_pdf, $image);
         
         parent::image($params);
@@ -980,8 +982,11 @@ class Image_Canvas_PDF extends Image_Canvas
     function _version()
     {
         $result = false;
+        $version = '';
         if (function_exists('pdf_get_majorversion')) {
             $version = pdf_get_majorversion();
+        } else if (function_exists('pdf_get_value')) {
+            $version = pdf_get_value($this->_pdf, 'major', 0);                
         } else {
             ob_start();
             phpinfo(8);
@@ -993,12 +998,12 @@ class Image_Canvas_PDF extends Image_Canvas
             {
                 $version = $result[1];
             }
-        }
-
+        }               
+        
         if (ereg('([0-9]{1,2})\.[0-9]{1,2}(\.[0-9]{1,2})?', trim($version), $result)) {
             return $result[1];
         } else {
-            return 0;
+            return $version;
         }
     }
 

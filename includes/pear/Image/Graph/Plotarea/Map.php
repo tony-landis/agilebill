@@ -24,7 +24,7 @@
  * @author     Jesper Veggerby <pear.nosey@veggerby.dk>
  * @copyright  Copyright (C) 2003, 2004 Jesper Veggerby Hansen
  * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
- * @version    CVS: $Id: Map.php,v 1.9 2005/08/24 20:36:01 nosey Exp $
+ * @version    CVS: $Id: Map.php,v 1.10 2006/02/28 22:48:07 nosey Exp $
  * @link       http://pear.php.net/package/Image_Graph
  */
 
@@ -119,7 +119,7 @@ class Image_Graph_Plotarea_Map extends Image_Graph_Plotarea
      */
     function _fillLeft()
     {
-        return $this->_left + $this->_padding;
+        return $this->_left + $this->_padding['left'];
     }
 
     /**
@@ -130,7 +130,7 @@ class Image_Graph_Plotarea_Map extends Image_Graph_Plotarea
      */
     function _fillTop()
     {
-        return $this->_top + $this->_padding;
+        return $this->_top + $this->_padding['top'];
     }
 
     /**
@@ -141,7 +141,7 @@ class Image_Graph_Plotarea_Map extends Image_Graph_Plotarea
      */
     function _fillRight()
     {
-        return $this->_right - $this->_padding;
+        return $this->_right - $this->_padding['right'];
     }
 
     /**
@@ -152,7 +152,7 @@ class Image_Graph_Plotarea_Map extends Image_Graph_Plotarea
      */
     function _fillBottom()
     {
-        return $this->_bottom - $this->_padding;
+        return $this->_bottom - $this->_padding['bottom'];
     }
 
     /**

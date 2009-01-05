@@ -14,9 +14,9 @@
  * @package    PEAR
  * @author     Stig Bakken <ssb@php.net>
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    CVS: $Id: Remote.php,v 1.74 2005/09/11 18:00:20 cellog Exp $
+ * @version    CVS: $Id: Remote.php,v 1.80 2008/01/03 20:26:36 cellog Exp $
  * @link       http://pear.php.net/package/PEAR
  * @since      File available since Release 0.1
  */
@@ -38,9 +38,9 @@ require_once 'PEAR/Config.php';
  * @package    PEAR
  * @author     Stig Bakken <ssb@php.net>
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    Release: 1.4.5
+ * @version    Release: 1.7.2
  * @link       http://pear.php.net/package/PEAR
  * @since      Class available since Release 0.1
  */
@@ -91,13 +91,8 @@ class PEAR_Remote extends PEAR
         if (!$fp) {
             return null;
         }
-        if (function_exists('file_get_contents')) {
-            fclose($fp);
-            $content = file_get_contents($filename);
-        } else {
-            $content  = fread($fp, filesize($filename));
-            fclose($fp);
-        }
+        fclose($fp);
+        $content = file_get_contents($filename);
         $result   = array(
             'age'        => time() - filemtime($filename),
             'lastChange' => filemtime($filename),
@@ -151,7 +146,7 @@ class PEAR_Remote extends PEAR
 
         $server_channel = $this->config->get('default_channel');
         $channel = $this->_registry->getChannel($server_channel);
-        if ($channel) {
+        if (!PEAR::isError($channel)) {
             $mirror = $this->config->get('preferred_mirror');
             if ($channel->getMirror($mirror)) {
                 if ($channel->supports('xmlrpc', $method, $mirror)) {
@@ -182,14 +177,19 @@ class PEAR_Remote extends PEAR
         if ($this->cache !== null && $this->cache['age'] < $cachettl) {
             return $this->cache['content'];
         }
+        $fp = false;
         if (extension_loaded("xmlrpc")) {
             $result = call_user_func_array(array(&$this, 'call_epi'), $args);
             if (!PEAR::isError($result)) {
                 $this->saveCache($_args, $result);
             }
             return $result;
-        } elseif (!@include_once 'XML/RPC.php') {
+        } elseif (!($fp = fopen('XML/RPC.php', 'r', true))) {
             return $this->raiseError("For this remote PEAR operation you need to load the xmlrpc extension or install XML_RPC");
+        }
+        include_once 'XML/RPC.php';
+        if ($fp) {
+            fclose($fp);
         }
 
         array_shift($args);
@@ -207,13 +207,13 @@ class PEAR_Remote extends PEAR
         }
         $proxy_host = $proxy_port = $proxy_user = $proxy_pass = '';
         if ($proxy = parse_url($this->config->get('http_proxy'))) {
-            $proxy_host = @$proxy['host'];
+            $proxy_host = isset($proxy['host']) ? $proxy['host'] : null;
             if (isset($proxy['scheme']) && $proxy['scheme'] == 'https') {
                 $proxy_host = 'https://' . $proxy_host;
             }
-            $proxy_port = @$proxy['port'];
-            $proxy_user = @urldecode(@$proxy['user']);
-            $proxy_pass = @urldecode(@$proxy['pass']);
+            $proxy_port = isset($proxy['port']) ? $proxy['port'] : 8080;
+            $proxy_user = isset($proxy['user']) ? urldecode($proxy['user']) : null;
+            $proxy_pass = isset($proxy['pass']) ? urldecode($proxy['pass']) : null;
         }
         $shost = $server_host;
         if ($channel->getSSL()) {
@@ -251,33 +251,12 @@ class PEAR_Remote extends PEAR
 
     function call_epi($method)
     {
-        do {
-            if (extension_loaded("xmlrpc")) {
-                break;
-            }
-            if (OS_WINDOWS) {
-                $ext = 'dll';
-            } elseif (PHP_OS == 'HP-UX') {
-                $ext = 'sl';
-            } elseif (PHP_OS == 'AIX') {
-                $ext = 'a';
-            } else {
-                $ext = 'so';
-            }
-            $ext = OS_WINDOWS ? 'dll' : 'so';
-            @dl("xmlrpc-epi.$ext");
-            if (extension_loaded("xmlrpc")) {
-                break;
-            }
-            @dl("xmlrpc.$ext");
-            if (extension_loaded("xmlrpc")) {
-                break;
-            }
-            return $this->raiseError("unable to load xmlrpc extension");
-        } while (false);
+        if (!extension_loaded("xmlrpc")) {
+            return $this->raiseError("xmlrpc extension is not loaded");
+        }
         $server_channel = $this->config->get('default_channel');
         $channel = $this->_registry->getChannel($server_channel);
-        if ($channel) {
+        if (!PEAR::isError($channel)) {
             $mirror = $this->config->get('preferred_mirror');
             if ($channel->getMirror($mirror)) {
                 if ($channel->supports('xmlrpc', $method, $mirror)) {
@@ -307,13 +286,13 @@ class PEAR_Remote extends PEAR
         if ($http_proxy = $this->config->get('http_proxy')) {
             $proxy = parse_url($http_proxy);
             $proxy_host = $proxy_port = $proxy_user = $proxy_pass = '';
-            $proxy_host = @$proxy['host'];
+            $proxy_host = isset($proxy['host']) ? $proxy['host'] : null;
             if (isset($proxy['scheme']) && $proxy['scheme'] == 'https') {
-                $proxy_host = 'ssl://' . $proxy_host;
+                $proxy_host = 'https://' . $proxy_host;
             }
-            $proxy_port = @$proxy['port'];
-            $proxy_user = @urldecode(@$proxy['user']);
-            $proxy_pass = @urldecode(@$proxy['pass']);
+            $proxy_port = isset($proxy['port']) ? $proxy['port'] : null;
+            $proxy_user = isset($proxy['user']) ? urldecode($proxy['user']) : null;
+            $proxy_pass = isset($proxy['pass']) ? urldecode($proxy['pass']) : null;
             $fp = @fsockopen($proxy_host, $proxy_port);
             $use_proxy = true;
             if ($channel->getSSL()) {

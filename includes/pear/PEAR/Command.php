@@ -14,9 +14,9 @@
  * @package    PEAR
  * @author     Stig Bakken <ssb@php.net>
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    CVS: $Id: Command.php,v 1.35 2005/11/01 05:39:23 cellog Exp $
+ * @version    CVS: $Id: Command.php,v 1.39 2008/01/03 20:26:34 cellog Exp $
  * @link       http://pear.php.net/package/PEAR
  * @since      File available since Release 0.1
  */
@@ -33,6 +33,12 @@ require_once 'PEAR/XMLParser.php';
  * @var array command => implementing class
  */
 $GLOBALS['_PEAR_Command_commandlist'] = array();
+
+/**
+ * List of commands and their descriptions
+ * @var array command => description
+ */
+$GLOBALS['_PEAR_Command_commanddesc'] = array();
 
 /**
  * List of shortcuts to common commands.
@@ -92,9 +98,9 @@ $GLOBALS['_PEAR_Command_objects'] = array();
  * @package    PEAR
  * @author     Stig Bakken <ssb@php.net>
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    Release: 1.4.5
+ * @version    Release: 1.7.2
  * @link       http://pear.php.net/package/PEAR
  * @since      Class available since Release 0.1
  */
@@ -230,6 +236,9 @@ class PEAR_Command
         $parser = new PEAR_XMLParser;
         if ($dir === null) {
             $dir = dirname(__FILE__) . '/Command';
+        }
+        if (!is_dir($dir)) {
+            return PEAR::raiseError("registerCommands: opendir($dir) '$dir' does not exist or is not a directory");
         }
         $dp = @opendir($dir);
         if (empty($dp)) {

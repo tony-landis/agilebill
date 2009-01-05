@@ -13,9 +13,9 @@
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    CVS: $Id: v1.php,v 1.20 2005/09/25 03:49:00 cellog Exp $
+ * @version    CVS: $Id: v1.php,v 1.27 2008/01/03 20:55:16 cellog Exp $
  * @link       http://pear.php.net/package/PEAR
  * @since      File available since Release 1.4.0a1
  */
@@ -28,7 +28,7 @@ require_once 'PEAR/PackageFile/v1.php';
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
  * @version    Release: @PEAR-VER@
  * @link       http://pear.php.net/package/PEAR
@@ -66,14 +66,15 @@ class PEAR_PackageFile_Parser_v1
      * @param string contents of package.xml file, version 1.0
      * @return bool success of parsing
      */
-    function parse($data, $file, $archive = false)
+    function &parse($data, $file, $archive = false)
     {
         if (!extension_loaded('xml')) {
             return PEAR::raiseError('Cannot create xml parser for parsing package.xml, no xml extension');
         }
-        $xp = @xml_parser_create();
+        $xp = xml_parser_create();
         if (!$xp) {
-            return PEAR::raiseError('Cannot create xml parser for parsing package.xml');
+            $a = &PEAR::raiseError('Cannot create xml parser for parsing package.xml');
+            return $a;
         }
         xml_set_object($xp, $this);
         xml_set_element_handler($xp, '_element_start_1_0', '_element_end_1_0');
@@ -96,8 +97,9 @@ class PEAR_PackageFile_Parser_v1
             $code = xml_get_error_code($xp);
             $line = xml_get_current_line_number($xp);
             xml_parser_free($xp);
-            return PEAR::raiseError(sprintf("XML error: %s at line %d",
+            $a = &PEAR::raiseError(sprintf("XML error: %s at line %d",
                            $str = xml_error_string($code), $line), 2);
+            return $a;
         }
 
         xml_parser_free($xp);
@@ -132,6 +134,8 @@ class PEAR_PackageFile_Parser_v1
         foreach (explode("\n", $str) as $line) {
             if (substr($line, 0, $indent_len) == $indent) {
                 $data .= substr($line, $indent_len) . "\n";
+            } elseif (trim(substr($line, 0, $indent_len))) {
+                $data .= ltrim($line);
             }
         }
         return $data;
@@ -167,7 +171,7 @@ class PEAR_PackageFile_Parser_v1
                 if (array_key_exists('name', $attribs) && $attribs['name'] != '/') {
                     $attribs['name'] = preg_replace(array('!\\\\+!', '!/+!'), array('/', '/'),
                         $attribs['name']);
-                    if (strrpos($attribs['name'], '/') == strlen($attribs['name']) - 1) {
+                    if (strrpos($attribs['name'], '/') === strlen($attribs['name']) - 1) {
                         $attribs['name'] = substr($attribs['name'], 0,
                             strlen($attribs['name']) - 1);
                     }

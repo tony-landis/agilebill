@@ -24,7 +24,7 @@
  * @author     Jesper Veggerby <pear.nosey@veggerby.dk>
  * @copyright  Copyright (C) 2003, 2004 Jesper Veggerby Hansen
  * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
- * @version    CVS: $Id: Radar.php,v 1.7 2005/08/24 20:36:02 nosey Exp $
+ * @version    CVS: $Id: Radar.php,v 1.8 2006/02/28 22:48:07 nosey Exp $
  * @link       http://pear.php.net/package/Image_Graph
  */
 
@@ -54,7 +54,7 @@ class Image_Graph_Plotarea_Radar extends Image_Graph_Plotarea
     function Image_Graph_Plotarea_Radar()
     {
         parent::Image_Graph_Element();
-        $this->_padding = 10;
+        $this->_padding = array('left' => 10, 'top' => 10, 'right' => 10, 'bottom' => 10);
         $this->_axisX =& Image_Graph::factory('Image_Graph_Axis_Radar');
         $this->_axisX->_setParent($this);
         $this->_axisY =& Image_Graph::factory('Image_Graph_Axis', IMAGE_GRAPH_AXIS_Y);

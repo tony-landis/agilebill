@@ -133,7 +133,7 @@ use the &quot;slide&quot; option to move the release tag.
   <shortcut>pd</shortcut>
   <options />
   <doc>
-List all depencies the package has.</doc>
+List all dependencies the package has.</doc>
  </package-dependencies>
  <sign>
   <summary>Sign a package distribution file</summary>

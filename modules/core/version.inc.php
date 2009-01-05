@@ -34,7 +34,6 @@ $fp = fopen('http://agileco.com/Version.txt', "r");
 $abv = fread($fp, 255);
 fclose($fp);
 # get encoding version
-require_once('includes/pear/Compat/Function/file_get_contents.php'); 
 $tmp = file_get_contents(PATH_AGILE.'index.php');
 
 if(eregi('ioncube', $tmp))

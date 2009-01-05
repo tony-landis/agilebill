@@ -24,7 +24,7 @@
  * @author     Jesper Veggerby <pear.nosey@veggerby.dk>
  * @copyright  Copyright (C) 2003, 2004 Jesper Veggerby Hansen
  * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
- * @version    CVS: $Id: Pie.php,v 1.17 2005/09/29 18:21:24 nosey Exp $
+ * @version    CVS: $Id: Pie.php,v 1.19 2005/11/27 22:21:16 nosey Exp $
  * @link       http://pear.php.net/package/Image_Graph
  */
 
@@ -82,6 +82,20 @@ class Image_Graph_Plot_Pie extends Image_Graph_Plot
      * @var int
      */
     var $_diameter = false;
+    
+    /**
+     * Group items below this limit together as "the rest"
+     * @access private
+     * @var double
+     */
+    var $_restGroupLimit = false;
+
+    /**
+     * Rest group title
+     * @access private
+     * @var string
+     */
+    var $_restGroupTitle = 'The rest';
 
     /**
      * Perform the actual drawing on the legend.
@@ -200,11 +214,34 @@ class Image_Graph_Plot_Pie extends Image_Graph_Plot
 
                 $dataset->_reset();
                 $currentY = 0;
+                $the_rest = 0;
                 while ($point = $dataset->_next()) {
-                    if ((!is_object($this->_dataSelector)) ||
-                         ($this->_dataSelector->select($point))
-                    ) {
-                        $point = $this->_getMarkerData(
+                    if (($this->_restGroupLimit !== false) && ($point['Y'] <= $this->_restGroupLimit)) {
+                        $the_rest += $point['Y'];
+                    }
+                    else {
+                        if ((!is_object($this->_dataSelector)) ||
+                             ($this->_dataSelector->select($point))
+                        ) {
+                            $point = $this->_getMarkerData(
+                                $point,
+                                false,
+                                false,
+                                $totals
+                            );
+                            if (is_array($point)) {
+                                $this->_marker->_drawMarker(
+                                    $point['MARKER_X'],
+                                    $point['MARKER_Y'],
+                                    $point
+                                );
+                            }
+                        }
+                    }
+                }
+                if ($the_rest > 0) {
+                    $point = array('X' => $this->_restGroupTitle, 'Y' => $the_rest);                   
+                    $point = $this->_getMarkerData(
                             $point,
                             false,
                             false,
@@ -217,7 +254,6 @@ class Image_Graph_Plot_Pie extends Image_Graph_Plot
                                 $point
                             );
                         }
-                    }
                 }
                 $number++;
             }
@@ -272,6 +308,20 @@ class Image_Graph_Plot_Pie extends Image_Graph_Plot
     {
         $this->_diameter = $diameter;
     }
+    
+    /**
+     * Set the limit for the y-value, where values below are grouped together
+     * as "the rest"
+     * 
+     * @param double $limit The limit
+     * @param string $title The title to display in the legends (default 'The
+     * rest')
+     */
+    function setRestGroup($limit, $title = 'The rest')
+    {
+        $this->_restGroupLimit = $limit;
+        $this->_restGroupTitle = $title;
+    }    
     
     /**
      * Get the diameter of the plot
@@ -342,13 +392,61 @@ class Image_Graph_Plot_Pie extends Image_Graph_Plot
                 $radius1 = ($number + 1) * $dr;
             }
 
+            $the_rest = 0;
             while ($point = $dataset->_next()) {
+                if (($this->_restGroupLimit !== false) && ($point['Y'] <= $this->_restGroupLimit)) {
+                    $the_rest += $point['Y'];
+                }
+                else {
+                    $angle1 = 360 * ($currentY / $totalY) + $this->_startingAngle;
+                    $currentY += $this->_angleDirection * $point['Y'];
+                    $angle2 = 360 * ($currentY / $totalY) + $this->_startingAngle;
+    
+                    $x = $point['X'];
+                    $id = $point['ID'];
+    
+                    $dX = 0;
+                    $dY = 0;
+                    $explodeRadius = 0;
+                    if ((is_array($this->_explode)) && (isset($this->_explode[$x]))) {
+                        $explodeRadius = $this->_explode[$x];
+                    } elseif (is_numeric($this->_explode)) {
+                        $explodeRadius = $this->_explode;
+                    }
+    
+                    if ($explodeRadius > 0) {
+                        $dX = $explodeRadius * cos(deg2rad(($angle1 + $angle2) / 2));
+                        $dY = $explodeRadius * sin(deg2rad(($angle1 + $angle2) / 2));
+                    }
+    
+                    $ID = $point['ID'];
+                    $this->_getFillStyle($ID);
+                    $this->_getLineStyle($ID);
+                    $this->_canvas->pieslice(
+                        $this->_mergeData(
+                            $point,
+                        	array(
+                        		'x' => $centerX + $dX, 
+                        		'y' => $centerY + $dY, 
+                        		'rx' => $radius1, 
+                        		'ry' => $radius1, 
+                        		'v1' => $angle1, 
+                        		'v2' => $angle2, 
+                        		'srx' => $radius0, 
+                        		'sry' => $radius0
+                        	)
+                        )
+                    );
+                }
+            }
+            
+            if ($the_rest > 0) {
                 $angle1 = 360 * ($currentY / $totalY) + $this->_startingAngle;
-                $currentY += $this->_angleDirection * $point['Y'];
+                $currentY += $this->_angleDirection * $the_rest;
                 $angle2 = 360 * ($currentY / $totalY) + $this->_startingAngle;
 
-                $x = $point['X'];
-                $id = $point['ID'];
+                $x = 'rest';
+                $id = 'rest';
 
                 $dX = 0;
                 $dY = 0;
@@ -364,22 +462,22 @@ class Image_Graph_Plot_Pie extends Image_Graph_Plot
                     $dY = $explodeRadius * sin(deg2rad(($angle1 + $angle2) / 2));
                 }
 
-                $ID = $point['ID'];
+                $ID = $id;
                 $this->_getFillStyle($ID);
                 $this->_getLineStyle($ID);
                 $this->_canvas->pieslice(
                     $this->_mergeData(
                         $point,
-                    	array(
-                    		'x' => $centerX + $dX, 
-                    		'y' => $centerY + $dY, 
-                    		'rx' => $radius1, 
-                    		'ry' => $radius1, 
-                    		'v1' => $angle1, 
-                    		'v2' => $angle2, 
-                    		'srx' => $radius0, 
-                    		'sry' => $radius0
-                    	)
+                        array(
+                            'x' => $centerX + $dX, 
+                            'y' => $centerY + $dY, 
+                            'rx' => $radius1, 
+                            'ry' => $radius1, 
+                            'v1' => $angle1, 
+                            'v2' => $angle2, 
+                            'srx' => $radius0, 
+                            'sry' => $radius0
+                        )
                     )
                 );
             }
@@ -401,6 +499,7 @@ class Image_Graph_Plot_Pie extends Image_Graph_Plot
         if (is_array($this->_dataset)) {
             
             $this->_canvas->startGroup(get_class($this) . '_' . $this->_title);
+            $this->_clip(true);
             
             $totals = $this->_getTotals();
             $totals['CENTER_X'] = (int) (($this->_left + $this->_right) / 2);
@@ -419,11 +518,65 @@ class Image_Graph_Plot_Pie extends Image_Graph_Plot
                 $count++;
     
                 $dataset->_reset();
+                $the_rest = 0;
                 while ($point = $dataset->_next()) {
                     $caption = $point['X'];
-    
+                    if (($this->_restGroupLimit !== false) && ($point['Y'] <= $this->_restGroupLimit)) {
+                        $the_rest += $point['Y'];
+                    }
+                    else {    
+                        $this->_canvas->setFont($param['font']);
+                        $width = 20 + $param['width'] + $this->_canvas->textWidth($caption);
+                        $param['maxwidth'] = max($param['maxwidth'], $width);
+                        $x2 = $param['x'] + $width;
+                        $y2 = $param['y'] + $param['height']+5;
+                            
+                        if ((($param['align'] & IMAGE_GRAPH_ALIGN_VERTICAL) != 0) && ($y2 > $param['bottom'])) {
+                            $param['y'] = $param['top'];
+                            $param['x'] = $x2;
+                            $y2 = $param['y'] + $param['height'];
+                        } elseif ((($param['align'] & IMAGE_GRAPH_ALIGN_VERTICAL) == 0) && ($x2 > $param['right'])) {
+                            $param['x'] = $param['left'];
+                            $param['y'] = $y2;
+                            $x2 = $param['x'] + 20 + $param['width'] + $this->_canvas->textWidth($caption);
+                        }
+        
+                        $x = $x0 = $param['x'];
+                        $y = $param['y'];
+                        $y0 = $param['y'] - $param['height']/2;
+                        $x1 = $param['x'] + $param['width'];
+                        $y1 = $param['y'] + $param['height']/2;
+        
+                        if (!isset($param['simulate'])) {
+                            $this->_getFillStyle($point['ID']);
+                            $this->_getLineStyle($point['ID']);
+                            $this->_drawLegendSample($x0, $y0, $x1, $y1);
+        
+                            if (($this->_marker) && ($dataset) && ($param['show_marker'])) {
+                                $prevPoint = $dataset->_nearby(-2);
+                                $nextPoint = $dataset->_nearby();
+        
+                                $p = $this->_getMarkerData($point, $nextPoint, $prevPoint, $totals);
+                                if (is_array($point)) {
+                                    $p['MARKER_X'] = $x+$param['width']/2;
+                                    $p['MARKER_Y'] = $y;
+                                    unset ($p['AVERAGE_Y']);
+                                    $this->_marker->_drawMarker($p['MARKER_X'], $p['MARKER_Y'], $p);
+                                }
+                            }
+                            $this->write($x + $param['width'] +10, $y, $caption, IMAGE_GRAPH_ALIGN_CENTER_Y | IMAGE_GRAPH_ALIGN_LEFT, $param['font']);
+                        }
+        
+                        if (($param['align'] & IMAGE_GRAPH_ALIGN_VERTICAL) != 0) {
+                            $param['y'] = $y2;
+                        } else {
+                            $param['x'] = $x2;
+                        }                        
+                    }
+                }
+                if ($the_rest > 0) {
                     $this->_canvas->setFont($param['font']);
-                    $width = 20 + $param['width'] + $this->_canvas->textWidth($caption);
+                    $width = 20 + $param['width'] + $this->_canvas->textWidth($this->_restGroupTitle);
                     $param['maxwidth'] = max($param['maxwidth'], $width);
                     $x2 = $param['x'] + $width;
                     $y2 = $param['y'] + $param['height']+5;
@@ -435,7 +588,7 @@ class Image_Graph_Plot_Pie extends Image_Graph_Plot
                     } elseif ((($param['align'] & IMAGE_GRAPH_ALIGN_VERTICAL) == 0) && ($x2 > $param['right'])) {
                         $param['x'] = $param['left'];
                         $param['y'] = $y2;
-                        $x2 = $param['x'] + 20 + $param['width'] + $this->_canvas->textWidth($caption);
+                        $x2 = $param['x'] + 20 + $param['width'] + $this->_canvas->textWidth($this->_restGroupTitle);
                     }
     
                     $x = $x0 = $param['x'];
@@ -445,23 +598,11 @@ class Image_Graph_Plot_Pie extends Image_Graph_Plot
                     $y1 = $param['y'] + $param['height']/2;
     
                     if (!isset($param['simulate'])) {
-                        $this->_getFillStyle($point['ID']);
-                        $this->_getLineStyle($point['ID']);
+                        $this->_getFillStyle('rest');
+                        $this->_getLineStyle('rest');
                         $this->_drawLegendSample($x0, $y0, $x1, $y1);
     
-                        if (($this->_marker) && ($dataset) && ($param['show_marker'])) {
-                            $prevPoint = $dataset->_nearby(-2);
-                            $nextPoint = $dataset->_nearby();
-    
-                            $p = $this->_getMarkerData($point, $nextPoint, $prevPoint, $totals);
-                            if (is_array($point)) {
-                                $p['MARKER_X'] = $x+$param['width']/2;
-                                $p['MARKER_Y'] = $y;
-                                unset ($p['AVERAGE_Y']);
-                                $this->_marker->_drawMarker($p['MARKER_X'], $p['MARKER_Y'], $p);
-                            }
-                        }
-                        $this->write($x + $param['width'] +10, $y, $caption, IMAGE_GRAPH_ALIGN_CENTER_Y | IMAGE_GRAPH_ALIGN_LEFT, $param['font']);
+                        $this->write($x + $param['width'] + 10, $y, $this->_restGroupTitle, IMAGE_GRAPH_ALIGN_CENTER_Y | IMAGE_GRAPH_ALIGN_LEFT, $param['font']);
                     }
     
                     if (($param['align'] & IMAGE_GRAPH_ALIGN_VERTICAL) != 0) {
@@ -472,6 +613,7 @@ class Image_Graph_Plot_Pie extends Image_Graph_Plot
                 }
             }
             unset($keys);
+            $this->_clip(false);
             $this->_canvas->endGroup();
         }
     }

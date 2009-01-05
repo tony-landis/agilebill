@@ -13,9 +13,9 @@
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    CVS: $Id: REST.php,v 1.15 2005/09/24 04:15:13 cellog Exp $
+ * @version    CVS: $Id: REST.php,v 1.31 2008/05/13 18:03:36 cellog Exp $
  * @link       http://pear.php.net/package/PEAR
  * @since      File available since Release 1.4.0a1
  */
@@ -32,9 +32,9 @@ require_once 'PEAR/XMLParser.php';
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    Release: 1.4.5
+ * @version    Release: 1.7.2
  * @link       http://pear.php.net/package/PEAR
  * @since      Class available since Release 1.4.0a1
  */
@@ -59,14 +59,14 @@ class PEAR_REST
      *                    parsed using PEAR_XMLParser
      * @return string|array
      */
-    function retrieveCacheFirst($url, $accept = false, $forcestring = false)
+    function retrieveCacheFirst($url, $accept = false, $forcestring = false, $channel = false)
     {
         $cachefile = $this->config->get('cache_dir') . DIRECTORY_SEPARATOR .
             md5($url) . 'rest.cachefile';
-        if (@file_exists($cachefile)) {
+        if (file_exists($cachefile)) {
             return unserialize(implode('', file($cachefile)));
         }
-        return $this->retrieveData($url, $accept, $forcestring);
+        return $this->retrieveData($url, $accept, $forcestring, $channel);
     }
 
     /**
@@ -77,7 +77,7 @@ class PEAR_REST
      *                    parsed using PEAR_XMLParser
      * @return string|array
      */
-    function retrieveData($url, $accept = false, $forcestring = false)
+    function retrieveData($url, $accept = false, $forcestring = false, $channel = false)
     {
         $cacheId = $this->getCacheId($url);
         if ($ret = $this->useLocalCache($url, $cacheId)) {
@@ -85,7 +85,7 @@ class PEAR_REST
         }
         if (!isset($this->_options['offline'])) {
             $trieddownload = true;
-            $file = $this->downloadHttp($url, $cacheId ? $cacheId['lastChange'] : false, $accept);
+            $file = $this->downloadHttp($url, $cacheId ? $cacheId['lastChange'] : false, $accept, $channel);
         } else {
             $trieddownload = false;
             $file = false;
@@ -106,9 +106,15 @@ class PEAR_REST
             }
             return $ret;
         }
-        $headers = $file[2];
-        $lastmodified = $file[1];
-        $content = $file[0];
+        if (is_array($file)) {
+            $headers = $file[2];
+            $lastmodified = $file[1];
+            $content = $file[0];
+        } else {
+            $content = $file;
+            $lastmodified = false;
+            $headers = array();
+        }
         if ($forcestring) {
             $this->saveCache($url, $content, $lastmodified, false, $cacheId);
             return $content;
@@ -133,7 +139,7 @@ class PEAR_REST
         } else {
             // assume XML
             $parser = new PEAR_XMLParser;
-            $parser->parse($file);
+            $parser->parse($content);
             $content = $parser->getData();
         }
         $this->saveCache($url, $content, $lastmodified, false, $cacheId);
@@ -145,7 +151,7 @@ class PEAR_REST
         if ($cacheid === null) {
             $cacheidfile = $this->config->get('cache_dir') . DIRECTORY_SEPARATOR .
                 md5($url) . 'rest.cacheid';
-            if (@file_exists($cacheidfile)) {
+            if (file_exists($cacheidfile)) {
                 $cacheid = unserialize(implode('', file($cacheidfile)));
             } else {
                 return false;
@@ -163,7 +169,7 @@ class PEAR_REST
     {
         $cacheidfile = $this->config->get('cache_dir') . DIRECTORY_SEPARATOR .
             md5($url) . 'rest.cacheid';
-        if (@file_exists($cacheidfile)) {
+        if (file_exists($cacheidfile)) {
             $ret = unserialize(implode('', file($cacheidfile)));
             return $ret;
         } else {
@@ -175,7 +181,7 @@ class PEAR_REST
     {
         $cachefile = $this->config->get('cache_dir') . DIRECTORY_SEPARATOR .
             md5($url) . 'rest.cachefile';
-        if (@file_exists($cachefile)) {
+        if (file_exists($cachefile)) {
             return unserialize(implode('', file($cachefile)));
         } else {
             return PEAR::raiseError('No cached content available for "' . $url . '"');
@@ -198,10 +204,21 @@ class PEAR_REST
         if ($cacheid === null && $nochange) {
             $cacheid = unserialize(implode('', file($cacheidfile)));
         }
+
         $fp = @fopen($cacheidfile, 'wb');
         if (!$fp) {
-            return false;
+            $cache_dir = $this->config->get('cache_dir');
+            if (!is_dir($cache_dir)) {
+                System::mkdir(array('-p', $cache_dir));
+                $fp = @fopen($cacheidfile, 'wb');
+                if (!$fp) {
+                    return false;
+                }
+            } else {
+                return false;
+            }
         }
+
         if ($nochange) {
             fwrite($fp, serialize(array(
                 'age'        => time(),
@@ -218,7 +235,9 @@ class PEAR_REST
         fclose($fp);
         $fp = @fopen($cachefile, 'wb');
         if (!$fp) {
-            @unlink($cacheidfile);
+            if (file_exists($cacheidfile)) {
+                @unlink($cacheidfile);
+            }
             return false;
         }
         fwrite($fp, serialize($contents));
@@ -247,7 +266,7 @@ class PEAR_REST
      *
      * @access public
      */
-    function downloadHttp($url, $lastmodified = null, $accept = false)
+    function downloadHttp($url, $lastmodified = null, $accept = false, $channel = false)
     {
         $info = parse_url($url);
         if (!isset($info['scheme']) || !in_array($info['scheme'], array('http', 'https'))) {
@@ -267,19 +286,15 @@ class PEAR_REST
             $path = $info['path'];
         }
         $proxy_host = $proxy_port = $proxy_user = $proxy_pass = '';
-        if ($this->config->get('http_proxy')&& 
+        if ($this->config->get('http_proxy')&&
               $proxy = parse_url($this->config->get('http_proxy'))) {
-            $proxy_host = @$proxy['host'];
+            $proxy_host = isset($proxy['host']) ? $proxy['host'] : null;
             if (isset($proxy['scheme']) && $proxy['scheme'] == 'https') {
                 $proxy_host = 'ssl://' . $proxy_host;
             }
-            $proxy_port = @$proxy['port'];
-            $proxy_user = @$proxy['user'];
-            $proxy_pass = @$proxy['pass'];
-
-            if ($proxy_port == '') {
-                $proxy_port = 8080;
-            }
+            $proxy_port = isset($proxy['port']) ? $proxy['port'] : 8080;
+            $proxy_user = isset($proxy['user']) ? urldecode($proxy['user']) : null;
+            $proxy_pass = isset($proxy['pass']) ? urldecode($proxy['pass']) : null;
         }
         if (empty($port)) {
             if (isset($info['scheme']) && $info['scheme'] == 'https') {
@@ -293,6 +308,7 @@ class PEAR_REST
         } else {
             $request = "GET $path HTTP/1.1\r\n";
         }
+        $request .= "Host: $host:$port\r\n";
 
         $ifmodifiedsince = '';
         if (is_array($lastmodified)) {
@@ -305,10 +321,10 @@ class PEAR_REST
         } else {
             $ifmodifiedsince = ($lastmodified ? "If-Modified-Since: $lastmodified\r\n" : '');
         }
-        $request .= "Host: $host:$port\r\n" . $ifmodifiedsince .
-            "User-Agent: PEAR/1.4.5/PHP/" . PHP_VERSION . "\r\n";
-        $username = $this->config->get('username');
-        $password = $this->config->get('password');
+        $request .= $ifmodifiedsince .
+            "User-Agent: PEAR/1.7.2/PHP/" . PHP_VERSION . "\r\n";
+        $username = $this->config->get('username', null, $channel);
+        $password = $this->config->get('password', null, $channel);
         if ($username && $password) {
             $tmp = base64_encode("$username:$password");
             $request .= "Authorization: Basic $tmp\r\n";
@@ -320,6 +336,7 @@ class PEAR_REST
         if ($accept) {
             $request .= 'Accept: ' . implode(', ', $accept) . "\r\n";
         }
+        $request .= "Accept-Encoding:\r\n";
         $request .= "Connection: close\r\n";
         $request .= "\r\n";
         if ($proxy_host != '') {
@@ -340,14 +357,14 @@ class PEAR_REST
         fwrite($fp, $request);
         $headers = array();
         while (trim($line = fgets($fp, 1024))) {
-            if (preg_match('/^([^:]+):\s+(.*)\s*$/', $line, $matches)) {
+            if (preg_match('/^([^:]+):\s+(.*)\s*\\z/', $line, $matches)) {
                 $headers[strtolower($matches[1])] = trim($matches[2]);
             } elseif (preg_match('|^HTTP/1.[01] ([0-9]{3}) |', $line, $matches)) {
                 if ($matches[1] == 304 && ($lastmodified || ($lastmodified === false))) {
                     return false;
                 }
                 if ($matches[1] != 200) {
-                    return PEAR::raiseError("File http://$host:$port$path not valid (received: $line)");
+                    return PEAR::raiseError("File http://$host:$port$path not valid (received: $line)", (int) $matches[1]);
                 }
             }
         }

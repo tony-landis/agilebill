@@ -13,9 +13,9 @@
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    CVS: $Id: v2.php,v 1.17 2005/09/25 03:49:00 cellog Exp $
+ * @version    CVS: $Id: v2.php,v 1.21 2008/01/03 20:26:37 cellog Exp $
  * @link       http://pear.php.net/package/PEAR
  * @since      File available since Release 1.4.0a1
  */
@@ -29,7 +29,7 @@ require_once 'PEAR/PackageFile/v2.php';
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
  * @version    Release: @PEAR-VER@
  * @link       http://pear.php.net/package/PEAR
@@ -70,6 +70,8 @@ class PEAR_PackageFile_Parser_v2 extends PEAR_XMLParser
         foreach (explode("\n", $str) as $line) {
             if (substr($line, 0, $indent_len) == $indent) {
                 $data .= substr($line, $indent_len) . "\n";
+            } else {
+                $data .= $line . "\n";
             }
         }
         return $data;
@@ -97,7 +99,7 @@ class PEAR_PackageFile_Parser_v2 extends PEAR_XMLParser
      *               a subclass
      * @return PEAR_PackageFile_v2
      */
-    function parse($data, $file, $archive = false, $class = 'PEAR_PackageFile_v2')
+    function &parse($data, $file, $archive = false, $class = 'PEAR_PackageFile_v2')
     {
         if (PEAR::isError($err = parent::parse($data, $file))) {
             return $err;

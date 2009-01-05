@@ -744,7 +744,6 @@ class Level_Base {
 	 */
 	function addFieldCriteria($sql, $bIsAggregate = false, $field = '')
 	{
-		require_once PATH_INCLUDES . 'pear/Compat/Function/stripos.php';
 		$this->lev_setting['SQL_criteria'] = 
 			$this->addToFilter($this->lev_setting['SQL_criteria'], 
 			$sql, $bIsAggregate);
@@ -870,7 +869,6 @@ class Level_Base {
 	
 	function find_next_sql_keyword($sql,$offset=0)
 	{
-		require_once PATH_INCLUDES . 'pear/Compat/Function/stripos.php';
 		$ret = false;
 		if(is_string($sql) && is_numeric($offset)) {
 			$arr = array(
@@ -898,7 +896,6 @@ class Level_Base {
 	
 	function shuffleSQL($sql, $groupBy='')
 	{
-		require_once PATH_INCLUDES . 'pear/Compat/Function/stripos.php';
 		if( ($p=stripos($sql,'HAVING')) !== false) {
 			# found a having clause
 			$leading = '';

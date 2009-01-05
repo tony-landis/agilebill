@@ -24,7 +24,7 @@
  * @author     Jesper Veggerby <pear.nosey@veggerby.dk>
  * @copyright  Copyright (C) 2003, 2004 Jesper Veggerby Hansen
  * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
- * @version    CVS: $Id: Dot.php,v 1.10 2005/08/03 21:21:56 nosey Exp $
+ * @version    CVS: $Id: Dot.php,v 1.11 2005/11/27 22:21:16 nosey Exp $
  * @link       http://pear.php.net/package/Image_Graph
  */
 
@@ -83,8 +83,12 @@ class Image_Graph_Plot_Dot extends Image_Graph_Plot
         }
 
         $this->_canvas->startGroup(get_class($this) . '_' . $this->_title);
-        
+
+        $this->_clip(true);
+                
         $this->_drawMarker();
+        
+        $this->_clip(false);
         
         $this->_canvas->endGroup();
         

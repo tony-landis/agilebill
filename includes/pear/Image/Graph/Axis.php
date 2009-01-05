@@ -24,7 +24,7 @@
  * @author     Jesper Veggerby <pear.nosey@veggerby.dk>
  * @copyright  Copyright (C) 2003, 2004 Jesper Veggerby Hansen
  * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
- * @version    CVS: $Id: Axis.php,v 1.33 2005/10/05 20:51:22 nosey Exp $
+ * @version    CVS: $Id: Axis.php,v 1.35 2006/02/28 22:48:07 nosey Exp $
  * @link       http://pear.php.net/package/Image_Graph
  */
  
@@ -182,12 +182,16 @@ require_once 'Image/Graph/Plotarea/Element.php';
         1 => array(
             'interval' => 1,
             'type' => 'auto',
-            'tick' => array('start' => -2, 'end' => 2),
+            'tick' => array(
+                'start' => -2, 
+                'end' => 2, 
+                'color' => false // default color
+            ),
             'showtext' => true,
             'showoffset' => false,
             'font' => array(),
             'offset' => 0,
-            'position' => 'outside'
+            'position' => 'outside',            
         )
     );
 
@@ -628,7 +632,7 @@ require_once 'Image/Graph/Plotarea/Element.php';
         if ((($this->_type == IMAGE_GRAPH_AXIS_X) && (!$this->_transpose)) ||
            (($this->_type != IMAGE_GRAPH_AXIS_X) && ($this->_transpose))) 
         {
-            if ($this->_invert) {
+            if ($this->_invert) {                
                 return max($this->_left, $this->_right - $this->_axisPadding['high'] - $this->_delta * $this->_value($value));
             } else {
                 return min($this->_right, $this->_left + $this->_axisPadding['low'] + $this->_delta * $this->_value($value));
@@ -702,9 +706,9 @@ require_once 'Image/Graph/Plotarea/Element.php';
         if ($this->_axisValueSpan == 0) {
             $this->_delta = false;
         } elseif ($this->_type == IMAGE_GRAPH_AXIS_X) {
-            $this->_delta = (($this->_transpose ? $this->height() : $this->width()) - ($this->_axisPadding['low'] + $this->_axisPadding['high'])) / $this->_axisValueSpan;
+            $this->_delta = (($this->_transpose ? $this->height() : $this->width()) - ($this->_axisPadding['low'] + $this->_axisPadding['high'])) / ($this->_axisValueSpan + ($this->_pushValues ? 1 : 0));
         } else {
-            $this->_delta = (($this->_transpose ? $this->width() : $this->height()) - ($this->_axisPadding['low'] + $this->_axisPadding['high'])) / $this->_axisValueSpan;
+            $this->_delta = (($this->_transpose ? $this->width() : $this->height()) - ($this->_axisPadding['low'] + $this->_axisPadding['high'])) / ($this->_axisValueSpan + ($this->_pushValues ? 1 : 0));
         }
     }        
     
@@ -1168,9 +1172,9 @@ require_once 'Image/Graph/Plotarea/Element.php';
                             } else {
                                 $this->write(
                                     $labelPosition,
-                                    $this->_top + 3 + $offset,                                                                   
+                                    $this->_top + 6 + $offset + $font['size'] * (substr_count($labelText, "\n") + 1),                                                                   
                                     $labelText,
-                                    IMAGE_GRAPH_ALIGN_TOP | IMAGE_GRAPH_ALIGN_CENTER_X,
+                                    IMAGE_GRAPH_ALIGN_BOTTOM | IMAGE_GRAPH_ALIGN_CENTER_X,
                                     $font
                                 );
                             }
@@ -1199,9 +1203,9 @@ require_once 'Image/Graph/Plotarea/Element.php';
                             if ($labelInside) {
                                 $this->write(
                                     $labelPosition,
-                                    $this->_bottom + 3 + $offset,
+                                    $this->_bottom + 6 + $offset + $font['size'] * (substr_count($labelText, "\n") + 1),
                                     $labelText,
-                                    IMAGE_GRAPH_ALIGN_TOP | IMAGE_GRAPH_ALIGN_CENTER_X,
+                                    IMAGE_GRAPH_ALIGN_BOTTOM | IMAGE_GRAPH_ALIGN_CENTER_X,
                                     $font
                                 );
                             } else {
@@ -1262,12 +1266,12 @@ require_once 'Image/Graph/Plotarea/Element.php';
                                     IMAGE_GRAPH_ALIGN_CENTER_X | IMAGE_GRAPH_ALIGN_BOTTOM,
                                     $font
                                 );
-                            } else {
+                            } else {                                
                                 $this->write(
                                     $labelPosition,
-                                    $this->_top + 3 + $offset,
+                                    $this->_top + 6 + $offset + $font['size'] * (substr_count($labelText, "\n") + 1),
                                     $labelText,
-                                    IMAGE_GRAPH_ALIGN_CENTER_X | IMAGE_GRAPH_ALIGN_TOP,
+                                    IMAGE_GRAPH_ALIGN_CENTER_X | IMAGE_GRAPH_ALIGN_BOTTOM,
                                     $font
                                 );
                             }
@@ -1276,15 +1280,40 @@ require_once 'Image/Graph/Plotarea/Element.php';
                 }
             }
 
+            $tickColor = false;
             if (isset($this->_labelOptions[$level]['tick'])) {
-                $tickStart = $this->_labelOptions[$level]['tick']['start'];
-                $tickEnd = $this->_labelOptions[$level]['tick']['end'];
-            } else {
+                if (isset($this->_labelOptions[$level]['tick']['start'])) {                
+                    $tickStart = $this->_labelOptions[$level]['tick']['start'];
+                } else {
+                    $tickStart = false;
+                }
+
+                if (isset($this->_labelOptions[$level]['tick']['end'])) {                
+                    $tickEnd = $this->_labelOptions[$level]['tick']['end'];
+                } else {
+                    $tickEnd = false;
+                }
+                                    
+                if ((isset($this->_labelOptions[$level]['tick']['color'])) && ($this->_labelOptions[$level]['tick']['color'] !== false)) {
+                    $tickColor = $this->_labelOptions[$level]['tick']['color'];
+                }
+            }
+            
+            if ($tickStart === false) {
                 $tickStart = -2;
+            }
+            
+            if ($tickEnd === false) {
                 $tickEnd = 2;
             }
 
-            $this->_getLineStyle();
+            if ($tickColor !== false) {
+                $this->_canvas->setLineColor($tickColor);
+            }
+            else {
+                $this->_getLineStyle();
+            }
+            
             if ($this->_type == IMAGE_GRAPH_AXIS_Y) {
                 if ($tickStart === 'auto') {
                     $tickStart = -$offset;
@@ -1389,8 +1418,14 @@ require_once 'Image/Graph/Plotarea/Element.php';
             }
                 
             if ($this->_showArrow) {
-                $data['end1'] = 'arrow2';
-                $data['size1'] = 7;
+                if ($this->_getMaximum() <= 0) {
+                    $data['end0'] = 'arrow2';
+                    $data['size0'] = 7;
+                }
+                else {
+                    $data['end1'] = 'arrow2';
+                    $data['size1'] = 7;
+                }
             } 
             
             $this->_canvas->line($data);
@@ -1427,8 +1462,14 @@ require_once 'Image/Graph/Plotarea/Element.php';
                     );
             }
             if ($this->_showArrow) {
-                $data['end1'] = 'arrow2';
-                $data['size1'] = 7;
+                if ($this->_getMaximum() <= 0) {
+                    $data['end0'] = 'arrow2';
+                    $data['size0'] = 7;
+                }
+                else {
+                    $data['end1'] = 'arrow2';
+                    $data['size1'] = 7;
+                }
             } 
             $this->_canvas->line($data);
 
@@ -1464,8 +1505,14 @@ require_once 'Image/Graph/Plotarea/Element.php';
                     );
             }
             if ($this->_showArrow) {
-                $data['end1'] = 'arrow2';
-                $data['size1'] = 7;
+                if ($this->_getMaximum() <= 0) {
+                    $data['end0'] = 'arrow2';
+                    $data['size0'] = 7;
+                }
+                else {
+                    $data['end1'] = 'arrow2';
+                    $data['size1'] = 7;
+                }
             } 
             $this->_canvas->line($data);            
 

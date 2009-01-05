@@ -24,7 +24,7 @@
  * @author     Jesper Veggerby <pear.nosey@veggerby.dk>
  * @copyright  Copyright (C) 2003, 2004 Jesper Veggerby Hansen
  * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
- * @version    CVS: $Id: Odo.php,v 1.2 2005/09/30 18:59:19 nosey Exp $
+ * @version    CVS: $Id: Odo.php,v 1.3 2005/11/27 22:21:16 nosey Exp $
  * @link       http://pear.php.net/package/Image_Graph
  */
 
@@ -639,7 +639,8 @@ class Image_Graph_Plot_Odo extends Image_Graph_Plot
         if (is_array($this->_dataset)) {
 
             $this->_canvas->startGroup(get_class($this) . '_' . $this->_title);
-
+            $this->_clip(true);
+            
             $totals = $this->_getTotals();
             $totals['CENTER_X'] = (int) (($this->_left + $this->_right) / 2);
             $totals['CENTER_Y'] = (int) (($this->_top + $this->_bottom) / 2);
@@ -710,6 +711,7 @@ class Image_Graph_Plot_Odo extends Image_Graph_Plot
                 }
             }
             unset($keys);
+            $this->_clip(false);
             $this->_canvas->endGroup();
         }
     }
