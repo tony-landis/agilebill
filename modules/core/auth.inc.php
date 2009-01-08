@@ -20,8 +20,6 @@
 	
 class CORE_auth
 {
-
-	var $auth_groups;
 	var $auth_modules;
 	var $auth_methods;
 	var $account=false;
@@ -83,6 +81,11 @@ class CORE_auth
 			$this->module = Array("0");
 		} else {
 			$this->group_list($this->account); 
+			if (!$this->group) {
+				$this->group = array ('0');
+				$this->module = array ('0');
+				return;
+			}
 		$db = &DB();
 		$p = AGILE_DB_PREFIX;
 		$sql="SELECT DISTINCT MM.module_id, GM.method_id, GM.group_id,  
@@ -91,15 +94,15 @@ class CORE_auth
 			FROM {$p}group_method as GM 
 			LEFT JOIN {$p}module as M on (GM.module_id=M.id and M.site_id=".DEFAULT_SITE.")
 			LEFT JOIN {$p}module_method as MM on (GM.method_id=MM.id and MM.site_id=".DEFAULT_SITE.") "; 
-		for($i=0; $i<count($this->auth_groups); $i++)
-		if($i==0) $sql .= "WHERE GM.group_id={$this->auth_groups[$i]} ";
-		else      $sql .= "OR GM.group_id={$this->auth_groups[$i]} "; 
-		$sql .= "AND GM.site_id=".DEFAULT_SITE." ORDER BY M.name,MM.name";
+		for($i=0; $i<count($this->group); $i++)
+		if($i==0) $sql .= "WHERE (GM.group_id={$this->group[$i]} ";
+		else      $sql .= "OR GM.group_id={$this->group[$i]} "; 
+		$sql .= ") AND GM.site_id=".DEFAULT_SITE." ORDER BY M.name,MM.name";
 		$result=$db->Execute($sql); 
 			if($result === false)
 			{
 				global $C_debug;
-				$C_debug->error('core:auth.inc.php','menu_update', $db->ErrorMsg() . '<br><br>' .$q);
+				$C_debug->error('core:auth.inc.php','auth_update', $db->ErrorMsg() . '<br><br>' .$q);
 				return;        			
 			} 
 			while (!$result->EOF) {
