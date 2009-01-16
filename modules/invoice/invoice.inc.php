@@ -1188,7 +1188,7 @@ class invoice
 		$currency_symbol=$C_list->format_currency[DEFAULT_CURRENCY]['symbol'];
  		
 		# Get the paid/due invoice statistics
-		$rs = $db->Execute($sql=sqlSelect($db,"invoice","date_orig,total_amt,billing_status,refund_status,billed_amt,suspend_billing","date_orig >= $start && date_orig <= $end"));
+		$rs = $db->Execute($sql=sqlSelect($db,"invoice","date_orig,total_amt,billing_status,refund_status,billed_amt,suspend_billing","date_orig >= $start and date_orig <= $end"));
 		if($rs && $rs->RecordCount()) { 
 			while(!$rs->EOF) {
 				$day = date("j", $rs->fields['date_orig']);
