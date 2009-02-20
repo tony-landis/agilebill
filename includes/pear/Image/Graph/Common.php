@@ -23,7 +23,7 @@
  * @author     Jesper Veggerby <pear.nosey@veggerby.dk>
  * @copyright  Copyright (C) 2003, 2004 Jesper Veggerby Hansen
  * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
- * @version    CVS: $Id: Common.php,v 1.14 2005/10/05 20:51:21 nosey Exp $
+ * @version    CVS: $Id: Common.php,v 1.16 2006/02/28 22:48:07 nosey Exp $
  * @link       http://pear.php.net/package/Image_Graph
  */
 
@@ -125,7 +125,7 @@ class Image_Graph_Common
             foreach ($keys as $key) {
                 if (is_object($this->_elements[$key])) {
                     $this->_elements[$key]->_setParent($this);
-                    @$result =& $this->_elements[$key]->_reset();
+                    $result =& $this->_elements[$key]->_reset();
                     if (PEAR::isError($result)) {
                         return $result;
                     }
@@ -241,11 +241,16 @@ class Image_Graph_Common
      */
     function _error($text, $params = false, $error_code = IMAGE_GRAPH_ERROR_GENERIC)
     {       
-        foreach ($params as $name => $key) {
-            if (isset($parameters)) {
-                $parameters .= ' ';
+        if ((is_array($params)) && (count($params) > 0)) {
+            foreach ($params as $name => $key) {
+                if (isset($parameters)) {
+                    $parameters .= ' ';
+                } 
+                else {
+                    $parameters = '';
+                }
+                $parameters .= $name . '=' . $key;
             }
-            $parameters .= $name . '=' . $key;
         }        
         $error =& PEAR::raiseError(
             $text .

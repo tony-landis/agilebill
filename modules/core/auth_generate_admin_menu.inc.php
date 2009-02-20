@@ -90,8 +90,8 @@ function auth_generate_admin_menu($menu_obj)
 
 	 // Generate the main modules:
 	$js = '';
-	$js .= ".|Overview|javascript:openUrl('?_page=core:admin');||includes/aptree/img/icons/info.gif\n";
-	$js .= ".|Exit Administration|javascript:exitAdmin();||includes/aptree/img/icons/info.gif\n";
+	$js .= ".|Overview|javascript:openUrl('?_page=core:admin');\n";
+	$js .= ".|Exit Administration|javascript:exitAdmin();\n";
 	$js .= ".|Misc\n";
 	$js .= "..|Documentation|http://agilebill.com/documentation|||mainFrame\n";
 	$js .= "..|Agileco News|http://forum.agileco.com/forumdisplay.php?f=26|||mainFrame\n";
@@ -100,54 +100,29 @@ function auth_generate_admin_menu($menu_obj)
 	 for($i=1; $i<=count($module_arr); $i++)
 	 {
 		$name = $module_arr[$i]['name'];
-		# if($i>1) $js.=',';
 		$js .= ".|{$name}\n";
 
 		// Generate the main methods:
 		for($ii=0; $ii<count($module_arr[$i]['methods']); $ii++) {
 			$name = $module_arr[$i]['methods'][$ii]['name'];
 			$page  = $module_arr[$i]['methods'][$ii]['page'];
-			if(eregi('add', $page))
-			$img = 'paper';
-			elseif(eregi('core:search', $page))
-			$img = 'list';
-			elseif(eregi('search_form', $page))
-			$img = 'search';
-			else
-			$img = 'info';
 
-			$js .= "..|{$name}|javascript:openUrl('?_page={$page}')||includes/aptree/img/icons/{$img}.gif\n";
-#                    $js .=',
-#  ["|'.$name.'", "javascript:openUrl(\'?_page='.$page.'\')", "includes/aptree/img/icons/'.$img.'.gif",,, ""]';
+			$js .= "..|{$name}|javascript:openUrl('?_page={$page}')\n";
 		}
 
 		// Generate the sub modules:
 		for($ii=0; $ii<count(@$module_arr[$i]['sub_name']); $ii++) {
 			$name = $module_arr[$i]['sub_name'][$ii];
-#                    $js .=',
-#    ["|'.$name.'",     ,"includes/aptree/img/icons/support.gif",,, "",,"2"]';
-
-			$js .= "..|{$name}|#||includes/aptree/img/icons/support.gif\n";
+			$js .= "..|{$name}|#\n";
 			// Generate the sub methods:
 			for($iii=0; $iii<count($module_arr[$i]['sub_methods'][$ii]); $iii++)
 			{
 				$name = $module_arr[$i]['sub_methods'][$ii][$iii]['name'];
 				$page = $module_arr[$i]['sub_methods'][$ii][$iii]['page'];
-				if(eregi('add', $page))
-				$img = 'paper';
-				elseif(eregi('core:search', $page))
-				$img = 'list';
-				elseif(eregi('search_form', $page))
-				$img = 'search';
-				else
-				$img = 'info';
-#                        $js .=',
-#      ["||'.$name.'", "javascript:openUrl(\'?_page='.$page.'\')", "includes/aptree/img/icons/'.$img.'.gif",,, ""]';
-				$js .= "...|{$name}|javascript:openUrl('?_page={$page}')||includes/aptree/img/icons/{$img}.gif\n";
+				$js .= "...|{$name}|javascript:openUrl('?_page={$page}')\n";
 			}
 		}
 	 } 
-	# print_r($module_arr);
 
 	# set the dates for the quicksearch
 	$smarty->assign('today_start', $C_list->date(mktime(0,0,0,date("m"),date("d"), date("Y"))));

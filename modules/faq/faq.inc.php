@@ -55,14 +55,13 @@ class faq
 	{
 		$db = &DB(); 
 		if(!empty($VAR['faq_autofill']) && strlen($VAR['faq_autofill']) > 3)  { 
-			$dbm = new CORE_database();
 			$result = $db->Execute(
-				$sql = $dbm->sql_select(
+				$sql = sqlSelect(
+					$db,
 					Array( 'faq_translate', 'faq' ),		 
 					Array( 'A.*', 'B.name' ),			 
 					" A.faq_id = B.id AND MATCH(A.question, A.answer) AGAINST(".$db->qstr($VAR['faq_autofill'].'*')." IN BOOLEAN MODE)",  
-					"",  
-					&$db
+					""
 				)
 			);  
 		} 
@@ -96,14 +95,13 @@ class faq
 	{
 		if (!empty($VAR['id'])) {
 			$db = &DB();
-			$dbm = new CORE_database();
 			$rs = $db->Execute( 
-				$sql = $dbm->sql_select( 
+				$sql = sqlSelect( 
+					$db,
 					Array( 'faq_translate', 'faq', 'faq_category' ),		 
 					Array( 'A.*', 'B.name', 'C.group_avail' ),			 
 					" B.id = ::".$VAR['id'].":: AND B.id = A.faq_id AND A.language_id = '".SESS_LANGUAGE."' AND B.status = 1 AND C.status = 1 ",  
-					"",  
-					&$db
+					""
 				)
 			); 	        	    	        	    	
 		}
@@ -126,25 +124,23 @@ class faq
 	{
 		$db = &DB(); 
 		if(!empty($VAR['search']) && strlen($VAR['search']) > 3)  { 
-			$dbm = new CORE_database();
 			$result = $db->Execute(
-				$sql = $dbm->sql_select(
+				$sql = sqlSelect(
+					$db,
 					Array( 'faq_translate', 'faq', 'faq_category'  ),		 
 					Array( 'A.*', 'B.name', 'C.group_avail' ),			 
 					"  A.faq_id = B.id AND B.faq_category_id = C.id AND MATCH(A.question, A.answer) AGAINST(".$db->qstr($VAR['search'].'*')." IN BOOLEAN MODE) AND B.status = 1 AND C.status=1",  
-					"",  
-					&$db
+					""
 				)
 			);  
 		} elseif (!empty($VAR['category_id'])) {
-			$dbm = new CORE_database();
 			$result = $db->Execute(  
-				$sql = $dbm->sql_select( 
+				$sql = sqlSelect( 
+					$db,
 					Array( 'faq_translate', 'faq', 'faq_category' ),		 
 					Array( 'A.*', 'B.name', 'C.group_avail' ),			 
 					" B.faq_category_id = ::".$VAR['category_id'].":: AND B.id = A.faq_id AND B.faq_category_id = C.id AND A.language_id = '".SESS_LANGUAGE."' AND B.status = 1 AND C.status=1",  
-					"",  
-					&$db
+					""
 				)
 			);         		
 		} 
@@ -175,14 +171,13 @@ class faq
 	function faq_categories($VAR) 
 	{
 		$db = &DB();
-		$dbm = new CORE_database();
 			$rs = $db->Execute( $sql= 
-				$sql = $dbm->sql_select(
+				$sql = sqlSelect(
+				$db,
 				'faq_category',
 				'*' ,
 				" status=1 ",
-				"sort_order,name,date_orig",
-				&$db
+				"sort_order,name,date_orig"
 			)
 		);
 

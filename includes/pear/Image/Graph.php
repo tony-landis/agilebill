@@ -23,7 +23,7 @@
  * @author     Jesper Veggerby <pear.nosey@veggerby.dk>
  * @copyright  Copyright (C) 2003, 2004 Jesper Veggerby Hansen
  * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
- * @version    CVS: $Id: Graph.php,v 1.57 2005/10/05 20:51:22 nosey Exp $
+ * @version    CVS: $Id: Graph.php,v 1.58 2005/11/27 18:48:05 nosey Exp $
  * @link       http://pear.php.net/package/Image_Graph
  */
 
@@ -162,9 +162,7 @@ class Image_Graph extends Image_Graph_Element
             $this->_canvas =& $params;
             $width = $this->_canvas->getWidth();
             $height = $this->_canvas->getHeight();
-        }
-
-        if (is_int($params)) {
+        } elseif (is_numeric($params)) {
             $width = $params;
         }
 

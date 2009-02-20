@@ -25,7 +25,7 @@
  * @author     Jesper Veggerby <pear.nosey@veggerby.dk>
  * @copyright  Copyright (C) 2003, 2004 Jesper Veggerby Hansen
  * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
- * @version    CVS: $Id: ImageMap.php,v 1.6 2005/08/17 17:59:11 nosey Exp $
+ * @version    CVS: $Id: ImageMap.php,v 1.8 2006/10/24 18:58:16 nosey Exp $
  * @link       http://pear.php.net/pepr/pepr-proposal-show.php?id=212
  */
 
@@ -68,7 +68,7 @@ class Image_Canvas_ImageMap extends Image_Canvas
             if (isset($params['htmltags'])) {
                 foreach ($params['htmltags'] as $key => $value) {
                     $tags .= ' ';
-                    if (strpos($value, '"') >= 0) {
+                    if (strpos($value, '"') !== false) {
                         $tags .= $key . '=\'' . $value . '\'';
                     } else {
                         $tags .= $key . '="' . $value . '"';
@@ -331,7 +331,7 @@ class Image_Canvas_ImageMap extends Image_Canvas
     function save($params = false)
     {
         parent::save($params);
-        $file = fopen($param['filename'], 'w+');
+        $file = fopen($params['filename'], 'w+');
         fwrite($file, $this->toHtml($params));        
         fclose($file);
     }

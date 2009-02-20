@@ -704,7 +704,6 @@ class invoice
 
 		# echo the custom tracking code to the screen:
 		if(!is_file(PATH_FILES.'tracking.txt')) return false;
-		require_once('includes/pear/Compat/Function/file_get_contents.php');
 		$tracking = file_get_contents(PATH_FILES.'tracking.txt');
 		$tracking = ereg_replace('%%amount%%', "$total_amount", $tracking);
 		$tracking = ereg_replace('%%invoice%%', $invoice, $tracking);
@@ -1189,7 +1188,7 @@ class invoice
 		$currency_symbol=$C_list->format_currency[DEFAULT_CURRENCY]['symbol'];
  		
 		# Get the paid/due invoice statistics
-		$rs = $db->Execute($sql=sqlSelect($db,"invoice","date_orig,total_amt,billing_status,refund_status,billed_amt,suspend_billing","date_orig >= $start && date_orig <= $end"));
+		$rs = $db->Execute($sql=sqlSelect($db,"invoice","date_orig,total_amt,billing_status,refund_status,billed_amt,suspend_billing","date_orig >= $start and date_orig <= $end"));
 		if($rs && $rs->RecordCount()) { 
 			while(!$rs->EOF) {
 				$day = date("j", $rs->fields['date_orig']);

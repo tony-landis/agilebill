@@ -15,9 +15,9 @@
  * @author     Stig Bakken <ssb@php.net>
  * @author     Tomas V. V. Cox <cox@idecnet.com>
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    CVS: $Id: Common.php,v 1.152 2005/11/12 02:26:59 cellog Exp $
+ * @version    CVS: $Id: Common.php,v 1.160 2008/01/03 20:26:34 cellog Exp $
  * @link       http://pear.php.net/package/PEAR
  * @since      File available since Release 0.1.0
  * @deprecated File deprecated since Release 1.4.0a1
@@ -35,32 +35,32 @@ require_once 'PEAR.php';
  */
 define('PEAR_COMMON_ERROR_INVALIDPHP', 1);
 define('_PEAR_COMMON_PACKAGE_NAME_PREG', '[A-Za-z][a-zA-Z0-9_]+');
-define('PEAR_COMMON_PACKAGE_NAME_PREG', '/^' . _PEAR_COMMON_PACKAGE_NAME_PREG . '$/');
+define('PEAR_COMMON_PACKAGE_NAME_PREG', '/^' . _PEAR_COMMON_PACKAGE_NAME_PREG . '\\z/');
 
 // this should allow: 1, 1.0, 1.0RC1, 1.0dev, 1.0dev123234234234, 1.0a1, 1.0b1, 1.0pl1
 define('_PEAR_COMMON_PACKAGE_VERSION_PREG', '\d+(?:\.\d+)*(?:[a-zA-Z]+\d*)?');
-define('PEAR_COMMON_PACKAGE_VERSION_PREG', '/^' . _PEAR_COMMON_PACKAGE_VERSION_PREG . '$/i');
+define('PEAR_COMMON_PACKAGE_VERSION_PREG', '/^' . _PEAR_COMMON_PACKAGE_VERSION_PREG . '\\z/i');
 
 // XXX far from perfect :-)
 define('_PEAR_COMMON_PACKAGE_DOWNLOAD_PREG', '(' . _PEAR_COMMON_PACKAGE_NAME_PREG .
     ')(-([.0-9a-zA-Z]+))?');
 define('PEAR_COMMON_PACKAGE_DOWNLOAD_PREG', '/^' . _PEAR_COMMON_PACKAGE_DOWNLOAD_PREG .
-    '$/');
+    '\\z/');
 
-define('_PEAR_CHANNELS_NAME_PREG', '[A-Za-z][a-zA-Z0-9_\.]+');
-define('PEAR_CHANNELS_NAME_PREG', '/^' . _PEAR_CHANNELS_NAME_PREG . '$/');
+define('_PEAR_CHANNELS_NAME_PREG', '[A-Za-z][a-zA-Z0-9\.]+');
+define('PEAR_CHANNELS_NAME_PREG', '/^' . _PEAR_CHANNELS_NAME_PREG . '\\z/');
 
 // this should allow any dns or IP address, plus a path - NO UNDERSCORES ALLOWED
-define('_PEAR_CHANNELS_SERVER_PREG', '[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*(\/[a-zA-Z0-9-]+)*');
-define('PEAR_CHANNELS_SERVER_PREG', '/^' . _PEAR_CHANNELS_SERVER_PREG . '$/i');
+define('_PEAR_CHANNELS_SERVER_PREG', '[a-zA-Z0-9\-]+(?:\.[a-zA-Z0-9\-]+)*(\/[a-zA-Z0-9\-]+)*');
+define('PEAR_CHANNELS_SERVER_PREG', '/^' . _PEAR_CHANNELS_SERVER_PREG . '\\z/i');
 
 define('_PEAR_CHANNELS_PACKAGE_PREG',  '(' ._PEAR_CHANNELS_SERVER_PREG . ')\/('
          . _PEAR_COMMON_PACKAGE_NAME_PREG . ')');
-define('PEAR_CHANNELS_PACKAGE_PREG', '/^' . _PEAR_CHANNELS_PACKAGE_PREG . '$/i');
+define('PEAR_CHANNELS_PACKAGE_PREG', '/^' . _PEAR_CHANNELS_PACKAGE_PREG . '\\z/i');
 
 define('_PEAR_COMMON_CHANNEL_DOWNLOAD_PREG', '(' . _PEAR_CHANNELS_NAME_PREG . ')::('
     . _PEAR_COMMON_PACKAGE_NAME_PREG . ')(-([.0-9a-zA-Z]+))?');
-define('PEAR_COMMON_CHANNEL_DOWNLOAD_PREG', '/^' . _PEAR_COMMON_CHANNEL_DOWNLOAD_PREG . '$/');
+define('PEAR_COMMON_CHANNEL_DOWNLOAD_PREG', '/^' . _PEAR_COMMON_CHANNEL_DOWNLOAD_PREG . '\\z/');
 
 /**
  * List of temporary files and directories registered by
@@ -126,9 +126,9 @@ $GLOBALS['_PEAR_Common_script_phases'] = array('pre-install', 'post-install', 'p
  * @author     Stig Bakken <ssb@php.net>
  * @author     Tomas V. V. Cox <cox@idecnet.com>
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    Release: 1.4.5
+ * @version    Release: 1.7.2
  * @link       http://pear.php.net/package/PEAR
  * @since      Class available since Release 1.4.0a1
  * @deprecated This class will disappear, and its components will be spread
@@ -159,7 +159,7 @@ class PEAR_Common extends PEAR
 
     /**
      * Configuration object (PEAR_Config).
-     * @var object
+     * @var PEAR_Config
      */
     var $config = null;
 
@@ -453,7 +453,9 @@ class PEAR_Common extends PEAR
             unset($arr['dependencies']);
             unset($arr['phprelease']);
             unset($arr['extsrcrelease']);
+            unset($arr['zendextsrcrelease']);
             unset($arr['extbinrelease']);
+            unset($arr['zendextbinrelease']);
             unset($arr['bundle']);
             unset($arr['lead']);
             unset($arr['developer']);
@@ -660,13 +662,8 @@ class PEAR_Common extends PEAR
         if (!$fp = @fopen($file, "r")) {
             return false;
         }
-        if (function_exists('file_get_contents')) {
-            fclose($fp);
-            $contents = file_get_contents($file);
-        } else {
-            $contents = fread($fp, filesize($file));
-            fclose($fp);
-        }
+        fclose($fp);
+        $contents = file_get_contents($file);
         $tokens = token_get_all($contents);
 /*
         for ($i = 0; $i < sizeof($tokens); $i++) {

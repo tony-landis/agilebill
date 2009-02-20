@@ -26,8 +26,8 @@ an automatic conversion will be made to a package.xml 1.0.  Note that
 only simple package.xml 2.0 will be converted.  package.xml 2.0 with:
 
  - dependency types other than required/optional PECL package/ext/php/pearinstaller
- - more than one extsrcrelease
- - extbinrelease, phprelease, or bundle release type
+ - more than one extsrcrelease/zendextsrcrelease
+ - zendextbinrelease, extbinrelease, phprelease, or bundle release type
  - dependency groups
  - ignore tags in release filelist
  - tasks other than replace

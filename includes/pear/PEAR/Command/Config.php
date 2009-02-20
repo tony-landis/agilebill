@@ -14,9 +14,9 @@
  * @package    PEAR
  * @author     Stig Bakken <ssb@php.net>
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    CVS: $Id: Config.php,v 1.48 2005/09/24 04:25:33 cellog Exp $
+ * @version    CVS: $Id: Config.php,v 1.56 2008/01/03 20:26:36 cellog Exp $
  * @link       http://pear.php.net/package/PEAR
  * @since      File available since Release 0.1
  */
@@ -33,9 +33,9 @@ require_once 'PEAR/Command/Common.php';
  * @package    PEAR
  * @author     Stig Bakken <ssb@php.net>
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    Release: 1.4.5
+ * @version    Release: 1.7.2
  * @link       http://pear.php.net/package/PEAR
  * @since      Class available since Release 0.1
  */
@@ -155,8 +155,14 @@ and uninstall).
 
     function doConfigShow($command, $options, $params)
     {
+        if (is_array($params)) {
+            $layer = isset($params[0]) ? $params[0] : NULL;
+        } else {
+            $layer = NULL;
+        }
+
         // $params[0] -> the layer
-        if ($error = $this->_checkLayer(@$params[0])) {
+        if ($error = $this->_checkLayer($layer)) {
             return $this->raiseError("config-show:$error");
         }
         $keys = $this->config->getKeys();
@@ -170,7 +176,7 @@ and uninstall).
         $data = array('caption' => 'Configuration (channel ' . $channel . '):');
         foreach ($keys as $key) {
             $type = $this->config->getType($key);
-            $value = $this->config->get($key, @$params[0], $channel);
+            $value = $this->config->get($key, $layer, $channel);
             if ($type == 'password' && $value) {
                 $value = '********';
             }
@@ -184,7 +190,7 @@ and uninstall).
         foreach ($this->config->getLayers() as $layer) {
             $data['data']['Config Files'][] = array(ucfirst($layer) . ' Configuration File', 'Filename' , $this->config->getConfFile($layer));
         }
-        
+
         $this->ui->outputData($data, $command);
         return true;
     }
@@ -194,27 +200,38 @@ and uninstall).
 
     function doConfigGet($command, $options, $params)
     {
-        // $params[0] -> the parameter
-        // $params[1] -> the layer
-        if ($error = $this->_checkLayer(@$params[1])) {
-            return $this->raiseError("config-get:$error");
+        if (!is_array($params)) {
+            $args_cnt = 0;
+        } else {
+            $args_cnt  = count($params);
         }
-        $channel = isset($options['channel']) ? $options['channel'] :
-            $this->config->get('default_channel');
+
+        switch ($args_cnt) {
+            case 1:
+                $config_key = $params[0];
+                $layer = NULL;
+                break;
+            case 2:
+                $config_key = $params[0];
+                $layer = $params[1];
+                if ($error = $this->_checkLayer($layer)) {
+                    return $this->raiseError("config-get:$error");
+                }
+                break;
+            case 0:
+            default:
+                return $this->raiseError("config-get expects 1 or 2 parameters");
+        }
+
+        $channel = isset($options['channel']) ? $options['channel'] : $this->config->get('default_channel');
         $reg = &$this->config->getRegistry();
+
         if (!$reg->channelExists($channel)) {
             return $this->raiseError('Channel "' . $channel . '" does not exist');
         }
-        if (sizeof($params) < 1 || sizeof($params) > 2) {
-            return $this->raiseError("config-get expects 1 or 2 parameters");
-        } else {
-            if (count($params) == 1) {
-                $layer = null;
-            } else {
-                $layer = $params[1];
-            }
-            $this->ui->outputData($this->config->get($params[0], $layer, $channel), $command);
-        }
+
+        $this->ui->outputData($this->config->get($config_key, $layer, $channel), $command);
+
         return true;
     }
 
@@ -231,7 +248,7 @@ and uninstall).
             $failmsg .= "config-set expects 2 or 3 parameters";
             return PEAR::raiseError($failmsg);
         }
-        if ($error = $this->_checkLayer(@$params[2])) {
+        if (isset($params[2]) && ($error = $this->_checkLayer($params[2]))) {
             $failmsg .= $error;
             return PEAR::raiseError("config-set:$failmsg");
         }
@@ -333,10 +350,14 @@ and uninstall).
         $config->noRegistry();
         $config->set('php_dir', $windows ? "$root\\pear\\php" : "$root/pear/php", 'user');
         $config->set('data_dir', $windows ? "$root\\pear\\data" : "$root/pear/data");
+        $config->set('www_dir', $windows ? "$root\\pear\\www" : "$root/pear/www");
+        $config->set('cfg_dir', $windows ? "$root\\pear\\cfg" : "$root/pear/cfg");
         $config->set('ext_dir', $windows ? "$root\\pear\\ext" : "$root/pear/ext");
         $config->set('doc_dir', $windows ? "$root\\pear\\docs" : "$root/pear/docs");
         $config->set('test_dir', $windows ? "$root\\pear\\tests" : "$root/pear/tests");
         $config->set('cache_dir', $windows ? "$root\\pear\\cache" : "$root/pear/cache");
+        $config->set('download_dir', $windows ? "$root\\pear\\download" : "$root/pear/download");
+        $config->set('temp_dir', $windows ? "$root\\pear\\temp" : "$root/pear/temp");
         $config->set('bin_dir', $windows ? "$root\\pear" : "$root/pear");
         $config->writeConfigFile();
         $this->_showConfig($config);
@@ -372,7 +393,7 @@ and uninstall).
                 array(ucfirst($layer) . ' Configuration File', 'Filename' ,
                     $config->getConfFile($layer));
         }
-        
+
         $this->ui->outputData($data, 'config-show');
         return true;
     }

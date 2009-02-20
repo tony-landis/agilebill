@@ -13,9 +13,9 @@
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    CVS: $Id: Role.php,v 1.12 2005/11/01 06:18:14 cellog Exp $
+ * @version    CVS: $Id: Role.php,v 1.20 2008/01/03 20:26:36 cellog Exp $
  * @link       http://pear.php.net/package/PEAR
  * @since      File available since Release 1.4.0a1
  */
@@ -25,14 +25,13 @@
  */
 require_once 'PEAR/Installer/Role/Common.php';
 require_once 'PEAR/XMLParser.php';
-//$GLOBALS['_PEAR_INSTALLER_ROLES'] = array();
 /**
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    Release: 1.4.5
+ * @version    Release: 1.7.2
  * @link       http://pear.php.net/package/PEAR
  * @since      Class available since Release 1.4.0a1
  */
@@ -55,7 +54,7 @@ class PEAR_Installer_Role
             if (!$info['config_vars']) {
                 continue;
             }
-            $config->_addConfigVars($info['config_vars']);
+            $config->_addConfigVars($class, $info['config_vars']);
         }
     }
 
@@ -86,8 +85,7 @@ class PEAR_Installer_Role
     /**
      * Get a list of file roles that are valid for the particular release type.
      *
-     * For instance, src files serve no purpose in regular php releases.  php files
-     * serve no purpose in extsrc or extbin releases
+     * For instance, src files serve no purpose in regular php releases.
      * @param string
      * @param bool clear cache
      * @return array
@@ -134,6 +132,7 @@ class PEAR_Installer_Role
             unset($ret);
         }
         if (!isset($ret)) {
+            $ret = array();
             foreach ($GLOBALS['_PEAR_INSTALLER_ROLES'] as $role => $okreleases) {
                 if ($okreleases['installable']) {
                     $ret[] = strtolower(str_replace('PEAR_Installer_Role_', '', $role));
@@ -163,6 +162,7 @@ class PEAR_Installer_Role
             unset($ret);
         }
         if (!isset($ret)) {
+            $ret = array();
             foreach ($GLOBALS['_PEAR_INSTALLER_ROLES'] as $role => $okreleases) {
                 if ($okreleases['honorsbaseinstall']) {
                     $ret[] = strtolower(str_replace('PEAR_Installer_Role_', '', $role));
@@ -189,6 +189,7 @@ class PEAR_Installer_Role
             unset($ret);
         }
         if (!isset($ret)) {
+            $ret = array();
             foreach ($GLOBALS['_PEAR_INSTALLER_ROLES'] as $role => $okreleases) {
                 if ($okreleases['phpfile']) {
                     $ret[] = strtolower(str_replace('PEAR_Installer_Role_', '', $role));
@@ -212,13 +213,17 @@ class PEAR_Installer_Role
      */
     function registerRoles($dir = null)
     {
+        $GLOBALS['_PEAR_INSTALLER_ROLES'] = array();
         $parser = new PEAR_XMLParser;
         if ($dir === null) {
             $dir = dirname(__FILE__) . '/Role';
         }
+        if (!file_exists($dir) || !is_dir($dir)) {
+            return PEAR::raiseError("registerRoles: opendir($dir) failed: does not exist/is not directory");
+        }
         $dp = @opendir($dir);
         if (empty($dp)) {
-            return PEAR::raiseError("registerRoles: opendir($dir) failed");
+            return PEAR::raiseError("registerRoles: opendir($dir) failed: $php_errmsg");
         }
         while ($entry = readdir($dp)) {
             if ($entry{0} == '.' || substr($entry, -4) != '.xml') {
@@ -226,7 +231,7 @@ class PEAR_Installer_Role
             }
             $class = "PEAR_Installer_Role_".substr($entry, 0, -4);
             // List of roles
-            if (empty($GLOBALS['_PEAR_INSTALLER_ROLES'][$class])) {
+            if (!isset($GLOBALS['_PEAR_INSTALLER_ROLES'][$class])) {
                 $file = "$dir/$entry";
                 $parser->parse(file_get_contents($file));
                 $data = $parser->getData();
@@ -236,7 +241,7 @@ class PEAR_Installer_Role
                 $GLOBALS['_PEAR_INSTALLER_ROLES'][$class] = $data;
             }
         }
-        @closedir($dp);
+        closedir($dp);
         ksort($GLOBALS['_PEAR_INSTALLER_ROLES']);
         PEAR_Installer_Role::getBaseinstallRoles(true);
         PEAR_Installer_Role::getInstallableRoles(true);

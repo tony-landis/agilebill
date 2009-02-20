@@ -24,7 +24,7 @@
  * @author     Jesper Veggerby <pear.nosey@veggerby.dk>
  * @copyright  Copyright (C) 2003, 2004 Jesper Veggerby Hansen
  * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
- * @version    CVS: $Id: Legend.php,v 1.15 2005/09/30 18:59:18 nosey Exp $
+ * @version    CVS: $Id: Legend.php,v 1.16 2006/02/28 22:48:07 nosey Exp $
  * @link       http://pear.php.net/package/Image_Graph
  */
 
@@ -81,7 +81,7 @@ class Image_Graph_Legend extends Image_Graph_Layout
     function Image_Graph_Legend()
     {
         parent::Image_Graph_Layout();
-        $this->_padding = 5;
+        $this->_padding = array('left' => 5, 'top' => 5, 'right' => 5, 'bottom' => 5);
     }
 
     /**
@@ -120,13 +120,13 @@ class Image_Graph_Legend extends Image_Graph_Layout
      */
     function _parameterArray($simulate = false)
     {
-        $param['left'] = $this->_left + $this->_padding;
-        $param['top'] = $this->_top + $this->_padding;
-        $param['right'] = $this->_right - $this->_padding;
-        $param['bottom'] = $this->_bottom - $this->_padding;
+        $param['left'] = $this->_left + $this->_padding['left'];
+        $param['top'] = $this->_top + $this->_padding['top'];
+        $param['right'] = $this->_right - $this->_padding['right'];
+        $param['bottom'] = $this->_bottom - $this->_padding['bottom'];
         $param['align'] = $this->_alignment;
-        $param['x'] = $this->_left + $this->_padding;
-        $param['y'] = $this->_top + $this->_padding;
+        $param['x'] = $this->_left + $this->_padding['left'];
+        $param['y'] = $this->_top + $this->_padding['top'];
         $param['width'] = 16;
         $param['height'] = 16;
         $param['show_marker'] = $this->_showMarker;
@@ -166,7 +166,7 @@ class Image_Graph_Legend extends Image_Graph_Layout
                 unset($keys2);
             }
             unset($keys);
-            return abs($param['y'] - $param0['y']) + 2*$this->_padding;
+            return abs($param['y'] - $param0['y']) + $this->_padding['top'] + $this->_padding['bottom'];
         } else {
             return parent::height();
         }
@@ -234,15 +234,15 @@ class Image_Graph_Legend extends Image_Graph_Layout
             }
 
             if (($this->_alignment & IMAGE_GRAPH_ALIGN_BOTTOM) != 0) {
-                $y = $this->_parent->_fillBottom() - $h - $this->_padding;
+                $y = $this->_parent->_fillBottom() - $h - $this->_padding['bottom'];
             } else {
-                $y = $this->_parent->_fillTop() + $this->_padding;
+                $y = $this->_parent->_fillTop() + $this->_padding['top'];
             }
 
             if (($this->_alignment & IMAGE_GRAPH_ALIGN_LEFT) != 0) {
-                $x = $this->_parent->_fillLeft() + $this->_padding;
+                $x = $this->_parent->_fillLeft() + $this->_padding['left'];
             } else {
-                $x = $this->_parent->_fillRight() - $w - $this->_padding;
+                $x = $this->_parent->_fillRight() - $w - $this->_padding['right'];
             }
 
             $this->_setCoords($x, $y, $x + $w, $y + $h);

@@ -13,9 +13,9 @@
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    CVS: $Id: v1.php,v 1.69 2005/09/25 03:48:59 cellog Exp $
+ * @version    CVS: $Id: v1.php,v 1.74 2008/01/03 20:26:37 cellog Exp $
  * @link       http://pear.php.net/package/PEAR
  * @since      File available since Release 1.4.0a1
  */
@@ -33,9 +33,9 @@ require_once 'PEAR/PackageFile/v2.php';
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    Release: 1.4.5
+ * @version    Release: 1.7.2
  * @link       http://pear.php.net/package/PEAR
  * @since      Class available since Release 1.4.0a1
  */
@@ -52,7 +52,7 @@ class PEAR_PackageFile_Generator_v1
 
     function getPackagerVersion()
     {
-        return '1.4.5';
+        return '1.7.2';
     }
 
     /**
@@ -206,7 +206,7 @@ class PEAR_PackageFile_Generator_v1
             );
         $ret = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
         $ret .= "<!DOCTYPE package SYSTEM \"http://pear.php.net/dtd/package-1.0\">\n";
-        $ret .= "<package version=\"1.0\" packagerversion=\"1.4.5\">\n" .
+        $ret .= "<package version=\"1.0\" packagerversion=\"1.7.2\">\n" .
 " <name>$pkginfo[package]</name>";
         if (isset($pkginfo['extends'])) {
             $ret .= "\n<extends>$pkginfo[extends]</extends>";
@@ -321,7 +321,10 @@ class PEAR_PackageFile_Generator_v1
                 $ret .= $this->recursiveXmlFilelist($pkginfo['filelist']);
             } else {
                 foreach ($pkginfo['filelist'] as $file => $fa) {
-                    @$ret .= "$indent   <file role=\"$fa[role]\"";
+                    if (!isset($fa['role'])) {
+                        $fa['role'] = '';
+                    }
+                    $ret .= "$indent   <file role=\"$fa[role]\"";
                     if (isset($fa['baseinstalldir'])) {
                         $ret .= ' baseinstalldir="' .
                             $this->_fixXmlEncoding($fa['baseinstalldir']) . '"';
@@ -348,7 +351,7 @@ class PEAR_PackageFile_Generator_v1
                             }
                             $ret .= "/>\n";
                         }
-                        @$ret .= "$indent   </file>\n";
+                        $ret .= "$indent   </file>\n";
                     }
                 }
             }
@@ -680,7 +683,9 @@ class PEAR_PackageFile_Generator_v1
         }
         $ret = new $class;
         $ret->setConfig($this->_packagefile->_config);
-        $ret->setLogger($this->_packagefile->_logger);
+        if (isset($this->_packagefile->_logger) && is_object($this->_packagefile->_logger)) {
+            $ret->setLogger($this->_packagefile->_logger);
+        }
         $ret->fromArray($arr);
         return $ret;
     }
@@ -695,7 +700,7 @@ class PEAR_PackageFile_Generator_v1
         $peardep = array('pearinstaller' =>
             array('min' => '1.4.0b1')); // this is a lot safer
         $required = $optional = array();
-        $release['dependencies'] = array();
+        $release['dependencies'] = array('required' => array());
         if ($this->_packagefile->hasDeps()) {
             foreach ($this->_packagefile->getDeps() as $dep) {
                 if (!isset($dep['optional']) || $dep['optional'] == 'no') {

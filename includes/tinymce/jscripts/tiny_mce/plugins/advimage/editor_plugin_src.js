@@ -1,28 +1,47 @@
-/* Import plugin specific language pack */
-tinyMCE.importPluginLanguagePack('advimage', 'en,de,sv,zh_cn,cs,fa,fr_ca,fr');
-
 /**
- * Insert image template function.
+ * $Id: editor_plugin_src.js 677 2008-03-07 13:52:41Z spocke $
+ *
+ * @author Moxiecode
+ * @copyright Copyright © 2004-2008, Moxiecode Systems AB, All rights reserved.
  */
-function TinyMCE_advimage_getInsertImageTemplate() {
-    var template = new Array();
 
-    template['file']   = '../../plugins/advimage/image.htm';
-    template['width']  = 380;
-    template['height'] = 380; 
+(function() {
+	tinymce.create('tinymce.plugins.AdvancedImagePlugin', {
+		init : function(ed, url) {
+			// Register commands
+			ed.addCommand('mceAdvImage', function() {
+				// Internal image object like a flash placeholder
+				if (ed.dom.getAttrib(ed.selection.getNode(), 'class').indexOf('mceItem') != -1)
+					return;
 
-    // Language specific width and height addons
-    template['width']  += tinyMCE.getLang('lang_insert_image_delta_width', 0);
-    template['height'] += tinyMCE.getLang('lang_insert_image_delta_height', 0);
+				ed.windowManager.open({
+					file : url + '/image.htm',
+					width : 480 + parseInt(ed.getLang('advimage.delta_width', 0)),
+					height : 385 + parseInt(ed.getLang('advimage.delta_height', 0)),
+					inline : 1
+				}, {
+					plugin_url : url
+				});
+			});
 
-    return template;
-}
+			// Register buttons
+			ed.addButton('image', {
+				title : 'advimage.image_desc',
+				cmd : 'mceAdvImage'
+			});
+		},
 
-/**
- * Setup content function.
- */
-function TinyMCE_advimage_handleEvent(editor_id, body, doc) {
-	// Convert all links to absolute
+		getInfo : function() {
+			return {
+				longname : 'Advanced image',
+				author : 'Moxiecode Systems AB',
+				authorurl : 'http://tinymce.moxiecode.com',
+				infourl : 'http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/advimage',
+				version : tinymce.majorVersion + "." + tinymce.minorVersion
+			};
+		}
+	});
 
-	alert(editor_id + "," + body.innerHTML);
-}
+	// Register plugin
+	tinymce.PluginManager.add('advimage', tinymce.plugins.AdvancedImagePlugin);
+})();

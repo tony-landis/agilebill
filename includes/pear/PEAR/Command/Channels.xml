@@ -86,8 +86,13 @@ alias.
   <function>doDiscover</function>
   <shortcut>di</shortcut>
   <options />
-  <doc>&lt;package&gt;
-List the files in an installed package.
+  <doc>[&lt;channel.xml&gt;|&lt;channel name&gt;]
+Initialize a channel from its server and create a local channel.xml.
+If &lt;channel name&gt; is in the format &quot;&lt;username&gt;:&lt;password&gt;@&lt;channel&gt;&quot; then
+&lt;username&gt; and &lt;password&gt; will be set as the login username/password for
+&lt;channel&gt;. Use caution when passing the username/password in this way, as
+it may allow other users on your computer to briefly view your username/
+password via the system's process list.
 </doc>
  </channel-discover>
 </commands>

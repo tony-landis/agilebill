@@ -24,7 +24,7 @@
  * @author     Jesper Veggerby <pear.nosey@veggerby.dk>
  * @copyright  Copyright (C) 2003, 2004 Jesper Veggerby Hansen
  * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
- * @version    CVS: $Id: Function.php,v 1.6 2005/08/24 20:35:59 nosey Exp $
+ * @version    CVS: $Id: Function.php,v 1.7 2005/11/11 17:53:44 nosey Exp $
  * @link       http://pear.php.net/package/Image_Graph
  */
 
@@ -84,7 +84,7 @@ class Image_Graph_DataPreprocessor_Function extends Image_Graph_DataPreprocessor
     function _process($value)
     {
         $function = $this->_dataFunction;
-        return $function ($value);
+        return call_user_func($function, $value);
     }
 
 }

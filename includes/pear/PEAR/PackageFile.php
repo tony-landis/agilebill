@@ -13,9 +13,9 @@
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    CVS: $Id: PackageFile.php,v 1.31 2005/09/15 20:42:25 cellog Exp $
+ * @version    CVS: $Id: PackageFile.php,v 1.41 2008/01/03 20:26:36 cellog Exp $
  * @link       http://pear.php.net/package/PEAR
  * @since      File available since Release 1.4.0a1
  */
@@ -39,9 +39,9 @@ define('PEAR_PACKAGEFILE_ERROR_INVALID_PACKAGEVERSION', 2);
  * @category   pear
  * @package    PEAR
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    Release: 1.4.5
+ * @version    Release: 1.7.2
  * @link       http://pear.php.net/package/PEAR
  * @since      Class available since Release 1.4.0a1
  */
@@ -186,9 +186,9 @@ class PEAR_PackageFile
     function &fromXmlString($data, $state, $file, $archive = false)
     {
         if (preg_match('/<package[^>]+version="([0-9]+\.[0-9]+)"/', $data, $packageversion)) {
-            if (!in_array($packageversion[1], array('1.0', '2.0'))) {
+            if (!in_array($packageversion[1], array('1.0', '2.0', '2.1'))) {
                 return PEAR::raiseError('package.xml version "' . $packageversion[1] .
-                    '" is not supported, only 1.0 and 2.0 are supported.');
+                    '" is not supported, only 1.0, 2.0, and 2.1 are supported.');
             }
             $object = &$this->parserFactory($packageversion[1]);
             if ($this->_logger) {
@@ -306,7 +306,8 @@ class PEAR_PackageFile
             $tar->popErrorHandling();
         }
         if (!is_array($content)) {
-            if (is_string($file) && strlen($file < 255) && !@is_file($file)) {
+            if (is_string($file) && strlen($file < 255) &&
+                  (!file_exists($file) || !@is_file($file))) {
                 $ret = PEAR::raiseError("could not open file \"$file\"");
                 return $ret;
             }
@@ -332,7 +333,7 @@ class PEAR_PackageFile
                 $xml = $name;
                 break;
             } elseif (ereg('package.xml$', $name, $match)) {
-                $xml = $match[0];
+                $xml = $name;
                 break;
             }
         }
@@ -342,13 +343,46 @@ class PEAR_PackageFile
             $tmpdir = System::mkTemp(array('-d', 'pear'));
             PEAR_PackageFile::addTempFile($tmpdir);
         }
+        $this->_extractErrors();
+        PEAR::staticPushErrorHandling(PEAR_ERROR_CALLBACK, array($this, '_extractErrors'));
         if (!$xml || !$tar->extractList(array($xml), $tmpdir)) {
+            $extra = implode("\n", $this->_extractErrors());
+            if ($extra) {
+                $extra = ' ' . $extra;
+            }
+            PEAR::staticPopErrorHandling();
             $ret = PEAR::raiseError('could not extract the package.xml file from "' .
-                $origfile . '"');
+                $origfile . '"' . $extra);
             return $ret;
         }
+        PEAR::staticPopErrorHandling();
         $ret = &PEAR_PackageFile::fromPackageFile("$tmpdir/$xml", $state, $origfile);
         return $ret;
+    }
+
+    /**
+     * helper for extracting Archive_Tar errors
+     * @var array
+     * @access private
+     */
+    var $_extractErrors = array();
+
+    /**
+     * helper callback for extracting Archive_Tar errors
+     *
+     * @param PEAR_Error|null $err
+     * @return array
+     * @access private
+     */
+    function _extractErrors($err = null)
+    {
+        static $errors = array();
+        if ($err === null) {
+            $e = $errors;
+            $errors = array();
+            return $e;
+        }
+        $errors[] = $err->getMessage();
     }
 
     /**
@@ -366,24 +400,16 @@ class PEAR_PackageFile
     function &fromPackageFile($descfile, $state, $archive = false)
     {
         if (is_string($descfile) && strlen($descfile) < 255 &&
-             !@is_file($descfile) || !is_readable($descfile) ||
-             (!$fp = @fopen($descfile, 'r'))) {
+             (!file_exists($descfile) || !is_file($descfile) || !is_readable($descfile) ||
+             (!$fp = @fopen($descfile, 'r')))) {
             $a = PEAR::raiseError("Unable to open $descfile");
             return $a;
         }
 
         // read the whole thing so we only get one cdata callback
         // for each block of cdata
-        if (function_exists('file_get_contents')) {
-            @fclose($fp);
-            $data = file_get_contents($descfile);
-        } else {
-            $data = '';
-            while (!feof($fp)) {
-                $data .= @fread($fp, 8192);
-            }
-            fclose($fp);
-        }
+        fclose($fp);
+        $data = file_get_contents($descfile);
         $ret = &PEAR_PackageFile::fromXmlString($data, $state, $descfile, $archive);
         return $ret;
     }
@@ -404,6 +430,18 @@ class PEAR_PackageFile
      */
     function &fromAnyFile($info, $state)
     {
+        if (is_dir($info)) {
+            $dir_name = realpath($info);
+            if (file_exists($dir_name . '/package.xml')) {
+                $info = PEAR_PackageFile::fromPackageFile($dir_name .  '/package.xml', $state);
+            } elseif (file_exists($dir_name .  '/package2.xml')) {
+                $info = PEAR_PackageFile::fromPackageFile($dir_name .  '/package2.xml', $state);
+            } else {
+                $info = PEAR::raiseError("No package definition found in '$info' directory");
+            }
+            return $info;
+        }
+
         $fp = false;
         if (is_string($info) && strlen($info) < 255 &&
              (file_exists($info) || ($fp = @fopen($info, 'r')))) {

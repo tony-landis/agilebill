@@ -14,9 +14,9 @@
  * @package    PEAR
  * @author     Stig Bakken <ssb@php.net>
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    CVS: $Id: Common.php,v 1.29 2005/04/13 04:29:58 cellog Exp $
+ * @version    CVS: $Id: Common.php,v 1.36 2008/01/03 20:26:36 cellog Exp $
  * @link       http://pear.php.net/package/PEAR
  * @since      File available since Release 0.1
  */
@@ -33,9 +33,9 @@ require_once 'PEAR.php';
  * @package    PEAR
  * @author     Stig Bakken <ssb@php.net>
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    Release: 1.4.5
+ * @version    Release: 1.7.2
  * @link       http://pear.php.net/package/PEAR
  * @since      Class available since Release 0.1
  */
@@ -74,7 +74,7 @@ class PEAR_Command_Common extends PEAR
 
     var $_deps_type_trans = array(
                                   'pkg' => 'package',
-                                  'extension' => 'extension',
+                                  'ext' => 'extension',
                                   'php' => 'PHP',
                                   'prog' => 'external program',
                                   'ldlib' => 'external library for linking',
@@ -145,7 +145,12 @@ class PEAR_Command_Common extends PEAR
         if (isset($shortcuts[$command])) {
             $command = $shortcuts[$command];
         }
-        return @$this->commands[$command]['options'];
+        if (isset($this->commands[$command]) &&
+              isset($this->commands[$command]['options'])) {
+            return $this->commands[$command]['options'];
+        } else {
+            return null;
+        }
     }
 
     // }}}
@@ -192,12 +197,19 @@ class PEAR_Command_Common extends PEAR
     function getHelp($command)
     {
         $config = &PEAR_Config::singleton();
-        $help = @$this->commands[$command]['doc'];
+        if (!isset($this->commands[$command])) {
+            return "No such command \"$command\"";
+        }
+        $help = null;
+        if (isset($this->commands[$command]['doc'])) {
+            $help = $this->commands[$command]['doc'];
+        }
         if (empty($help)) {
             // XXX (cox) Fallback to summary if there is no doc (show both?)
-            if (!$help = @$this->commands[$command]['summary']) {
+            if (!isset($this->commands[$command]['summary'])) {
                 return "No help for command \"$command\"";
             }
+            $help = $this->commands[$command]['summary'];
         }
         if (preg_match_all('/{config\s+([^\}]+)}/e', $help, $matches)) {
             foreach($matches[0] as $k => $v) {
@@ -223,7 +235,7 @@ class PEAR_Command_Common extends PEAR
             $help = "Options:\n";
             foreach ($this->commands[$command]['options'] as $k => $v) {
                 if (isset($v['arg'])) {
-                    if ($v['arg']{0} == '(') {
+                    if ($v['arg'][0] == '(') {
                         $arg = substr($v['arg'], 1, -1);
                         $sapp = " [$arg]";
                         $lapp = "[=$arg]";
@@ -236,9 +248,9 @@ class PEAR_Command_Common extends PEAR
                 }
                 if (isset($v['shortopt'])) {
                     $s = $v['shortopt'];
-                    @$help .= "  -$s$sapp, --$k$lapp\n";
+                    $help .= "  -$s$sapp, --$k$lapp\n";
                 } else {
-                    @$help .= "  --$k$lapp\n";
+                    $help .= "  --$k$lapp\n";
                 }
                 $p = "        ";
                 $doc = rtrim(str_replace("\n", "\n$p", $v['doc']));
@@ -254,19 +266,21 @@ class PEAR_Command_Common extends PEAR
 
     function run($command, $options, $params)
     {
-        $func = @$this->commands[$command]['function'];
-        if (empty($func)) {
+        if (empty($this->commands[$command]['function'])) {
             // look for shortcuts
             foreach (array_keys($this->commands) as $cmd) {
-                if (@$this->commands[$cmd]['shortcut'] == $command) {
-                    $command = $cmd;
-                    $func = @$this->commands[$command]['function'];
-                    if (empty($func)) {
+                if (isset($this->commands[$cmd]['shortcut']) && $this->commands[$cmd]['shortcut'] == $command) {
+                    if (empty($this->commands[$cmd]['function'])) {
                         return $this->raiseError("unknown command `$command'");
+                    } else {
+                        $func = $this->commands[$cmd]['function'];
                     }
+                    $command = $cmd;
                     break;
                 }
             }
+        } else {
+            $func = $this->commands[$command]['function'];
         }
         return $this->$func($command, $options, $params);
     }

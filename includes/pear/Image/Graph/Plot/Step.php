@@ -24,7 +24,7 @@
  * @author     Jesper Veggerby <pear.nosey@veggerby.dk>
  * @copyright  Copyright (C) 2003, 2004 Jesper Veggerby Hansen
  * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
- * @version    CVS: $Id: Step.php,v 1.14 2005/10/05 20:51:21 nosey Exp $
+ * @version    CVS: $Id: Step.php,v 1.15 2005/11/27 22:21:16 nosey Exp $
  * @link       http://pear.php.net/package/Image_Graph
  */
 
@@ -107,6 +107,7 @@ class Image_Graph_Plot_Step extends Image_Graph_Plot
         }
 
         $this->_canvas->startGroup(get_class($this) . '_' . $this->_title);
+        $this->_clip(true);
         
         if ($this->_multiType == 'stacked100pct') {
             $total = $this->_getTotals();
@@ -190,6 +191,7 @@ class Image_Graph_Plot_Step extends Image_Graph_Plot
         }
         unset($keys);
         $this->_drawMarker();
+        $this->_clip(false);
         $this->_canvas->endGroup();
         return true;
     }

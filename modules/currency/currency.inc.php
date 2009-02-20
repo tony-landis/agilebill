@@ -124,5 +124,62 @@ class currency
 		$db = new CORE_database;
 		 $db->search_show($VAR, $this, $type);
 	}
+
+	function task($VAR)
+	{
+		$db = &DB();
+
+		// Fetch all active currencies
+		$currencies = array();
+		$rs = $db->Execute(sqlSelect($db, "currency", "*", "status=1"));
+		if ($rs)
+		{
+		   while (!$rs->EOF)
+		   {
+		      $currencies[$rs->fields['id']] = $rs->fields;
+		      $rs->MoveNext();
+		   }
+
+		   $rs->Close();
+		}
+
+		foreach ($currencies as $currFrom)
+		{
+		   $conversions = array();
+		   foreach ($currencies as $currTo)
+		   {
+		      // Get currency conversion
+		      if ($currFrom['three_digit'] != $currTo['three_digit'])
+		      {
+		         $ch = curl_init('http://www.xe.net/ucc/convert.cgi?Amount=1&From=' . $currFrom['three_digit'] . '&To=' . $currTo['three_digit']);
+		         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+		         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 3);
+		         curl_setopt($ch, CURLOPT_CRLF, true);
+		         $resp = curl_exec ($ch);
+		         curl_close ($ch);
+
+                         $m = array();
+		         preg_match('/[0-9.]+\s*' . $currFrom['three_digit'] . '\s*=\s*([0-9.]+)\s*' . $currTo['three_digit'] . '/', $resp, $m);
+		      }
+		      else
+		      {
+		         // Conversion to/from same currency is always 1.
+		         $m = array(1 => '1');
+		      }
+
+		      if (sizeof($m) > 0)
+		      {
+		         $conversions[$currTo['id']] = array (
+		             'rate' => $m[1]
+		            ,'iso' => $currTo['three_digit']
+		         );
+		      }
+		   }
+
+		   // Update conversions array
+		   $db->Execute('UPDATE ' . AGILE_DB_PREFIX . 'currency SET convert_array = ' . $db->qstr(serialize($conversions)) . ' WHERE id = ' . $db->qstr($currFrom['id']) . ' AND site_id = ' . $db->qstr($currFrom['site_id']));
+		}
+	}
 }
 ?>

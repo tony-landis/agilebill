@@ -1,38 +1,154 @@
-// PL lang variables
-
-tinyMCELang['lang_bold_desc'] = 'Pogrubienie';
-tinyMCELang['lang_italic_desc'] = 'Pochylenie';
-tinyMCELang['lang_underline_desc'] = 'Podkre¶lenie';
-tinyMCELang['lang_striketrough_desc'] = 'Przekre¶lenie';
-tinyMCELang['lang_justifyleft_desc'] = 'Wyrównaj do lewej';
-tinyMCELang['lang_justifycenter_desc'] = 'Wy¶rodkowanie';
-tinyMCELang['lang_justifyright_desc'] = 'Wyrównaj do prawej';
-tinyMCELang['lang_justifyfull_desc'] = 'Wyjustowanie';
-tinyMCELang['lang_bullist_desc'] = 'Lista nieuporz±dkowana';
-tinyMCELang['lang_numlist_desc'] = 'Lista uporz±dkowana';
-tinyMCELang['lang_outdent_desc'] = 'Wysuniêcie';
-tinyMCELang['lang_indent_desc'] = 'Wciêcie';
-tinyMCELang['lang_undo_desc'] = 'Cofnij';
-tinyMCELang['lang_redo_desc'] = 'Ponów';
-tinyMCELang['lang_link_desc'] = 'Wstaw ³±cze';
-tinyMCELang['lang_unlink_desc'] = 'Usuñ ³±cze';
-tinyMCELang['lang_image_desc'] = 'Wstaw obrazek';
-tinyMCELang['lang_cleanup_desc'] = 'Oczy¶æ kod';
-tinyMCELang['lang_focus_alert'] = 'Pole edytora musi byæ aktywne zanim ta funkcja zostanie u¿yta.';
-tinyMCELang['lang_edit_confirm'] = 'Czy chcesz u¿yæ trybu WYSIWYG dla tego pola tekstowego ?';
-tinyMCELang['lang_insert_link_title'] = 'Wstaw/edtytuj ³±cze';
-tinyMCELang['lang_insert'] = 'Wstaw';
-tinyMCELang['lang_update'] = 'Wstaw';
-tinyMCELang['lang_cancel'] = 'Anuluj';
-tinyMCELang['lang_insert_link_url'] = 'Adres URL';
-tinyMCELang['lang_insert_link_target'] = 'Cel';
-tinyMCELang['lang_insert_link_target_same'] = 'Otwórze ³±cze w tym samym oknie';
-tinyMCELang['lang_insert_link_target_blank'] = 'Otwórz ³±cze w nowym oknie';
-tinyMCELang['lang_insert_image_title'] = 'Wstaw/Edytuj zdjêcie';
-tinyMCELang['lang_insert_image_src'] = 'Adres zdjêcia';
-tinyMCELang['lang_insert_image_alt'] = 'Opis zdjêcia';
-tinyMCELang['lang_help_desc'] = 'Pomoc';
-tinyMCELang['lang_bold_img'] = "bold.gif";
-tinyMCELang['lang_italic_img'] = "italic.gif";
-tinyMCELang['lang_underline_img'] = "underline.gif";
-tinyMCELang['lang_clipboard_msg'] = 'Copy/Cut/Paste is not available in Mozilla and Firefox.\nDo you want more information about this issue?';
+tinyMCE.addI18n({pl:{
+common:{
+edit_confirm:"Czy chcesz usu trybu WYSIWYG dla tego pola formularza?",
+apply:"Zastosuj",
+insert:"Wstaw",
+update:"Aktualizuj",
+cancel:"Anuluj",
+close:"Zamknij",
+browse:"Przegl\u0105daj",
+class_name:"Klasa",
+not_set:"-- Brak --",
+clipboard_msg:"Akcje Kopiuj/Wytnij/Wklej nie s\u0105 dost\u0119pne w Mozilli i Firefox.\nCzy chcesz wi\u0119cej informacji o tym problemie?",
+clipboard_no_support:"Aktualnie nie jest wspomagany przez Twoj\u0105 przegl\u0105dark\u0119, u\u017Cyj skr\u00F3t\u00F3w klawiaturowych w zamian.",
+popup_blocked:"Zauwa\u017Cyli\u015Bmy, \u017Ce Twoje blokowanie wyskakuj\u0105cych okienek wy\u0142\u0105czy\u0142o okno, kt\u00F3re dostarcza funkcjonalno\u015B\u0107 aplikacji. B\u0119dziesz potrzebowa\u0142 wy\u0142\u0105czy\u0107 blokowanie wyskakuj\u0105cych okienek na tej stronie aby w pe\u0142ni wykorzysta\u0107 to narz\u0119dzie.",
+invalid_data:"B\u0142\u0105d: Zosta\u0142y wprowadzone b\u0142\u0119dne dane, s\u0105 zaznaczone na czerwono.",
+more_colors:"Wi\u0119cej kolor\u00F3w"
+},
+contextmenu:{
+align:"Wyr\u00F3wnanie",
+left:"Lewy",
+center:"\u015Arodkowy",
+right:"Prawy",
+full:"Wype\u0142niony"
+},
+insertdatetime:{
+date_fmt:"%Y-%m-%d",
+time_fmt:"%H:%M:%S",
+insertdate_desc:"Wstaw dat\u0119",
+inserttime_desc:"Wstaw czas",
+months_long:"Stycze\u0144, Luty, Marzec, Kwiecie\u0144, Maj, Czerwiec, Lipiec, Sierpie\u0144, Wrzesie\u0144, Pa\u017Adziernik, Listopad, Grudzie\u0144",
+months_short:"Sty,Lut,Mar,Kwi,Maj,Cze,Lip,Sie,Wrz,Pa\u017A,Lis,Gru",
+day_long:"Niedziela, Poniedzia\u0142ek, Wtorek, \u015Aroda, Czwartek, Pi\u0105tek, Sobota, Niedziela",
+day_short:"N,Pn,Wt,\u015Ar,Cz,Pt,So,N"
+},
+print:{
+print_desc:"Drukuj"
+},
+preview:{
+preview_desc:"Podgl\u0105d"
+},
+directionality:{
+ltr_desc:"Kierunek od lewej do prawej",
+rtl_desc:"Kierunek od prawej do lewej"
+},
+layer:{
+insertlayer_desc:"Wklej now\u0105 warstw\u0119",
+forward_desc:"Przesu\u0144 do przodu",
+backward_desc:"Przesu\u0144 w ty\u0142",
+absolute_desc:"Prze\u0142\u0105cz pozycjonowanie absolutne",
+content:"Nowa warstwa..."
+},
+save:{
+save_desc:"Zachowaj",
+cancel_desc:"Anuluj wszystkie zmiany"
+},
+nonbreaking:{
+nonbreaking_desc:"Wklej tward\u0105 spacj\u0119"
+},
+iespell:{
+iespell_desc:"Sprawd\u017A pisowni\u0119",
+download:"ieSpell nie wykryte. Czy przeprowadzi\u0107 instalacj\u0119 tego komponentu?"
+},
+advhr:{
+advhr_desc:"Pozioma linia"
+},
+emotions:{
+emotions_desc:"Emotikony"
+},
+searchreplace:{
+search_desc:"Znajd\u017A",
+replace_desc:"Znajd\u017A/Zamie\u0144"
+},
+advimage:{
+image_desc:"Wstaw/edytuj obraz"
+},
+advlink:{
+link_desc:"Wstaw/edytuj link"
+},
+xhtmlxtras:{
+cite_desc:"Cytat",
+abbr_desc:"Skr\u00F3t",
+acronym_desc:"Akronim",
+del_desc:"Usuni\u0119cie",
+ins_desc:"Wstawienie",
+attribs_desc:"Wstaw / Edytuj atrybuty"
+},
+style:{
+desc:"Edytuj Style CSS"
+},
+paste:{
+paste_text_desc:"Wklej jako zwyk\u0142y tekst",
+paste_word_desc:"Wklej z Worda",
+selectall_desc:"Zaznacz wszystko"
+},
+paste_dlg:{
+text_title:"U\u017Cyj CTRL+V na swojej klawiaturze \u017Ceby wklei\u0107 tekst do okna.",
+text_linebreaks:"Zachowaj ko\u0144ce linii.",
+word_title:"U\u017Cyj CTRL+V na swojej klawiaturze \u017Ceby wklei\u0107 tekst do okna."
+},
+table:{
+desc:"Wstaw now\u0105 tabel\u0119",
+row_before_desc:"Wstaw nowy wiersz przed...",
+row_after_desc:"Wstaw nowy wiersz po...",
+delete_row_desc:"Usu\u0144 wiersz",
+col_before_desc:"Wstaw kolumn\u0119 przed...",
+col_after_desc:"Wstaw kolumn\u0119 po...",
+delete_col_desc:"Usu\u0144 kolumn\u0119",
+split_cells_desc:"Podziel kom\u00F3rk\u0119",
+merge_cells_desc:"Po\u0142\u0105cz kom\u00F3rki",
+row_desc:"W\u0142a\u015Bciwo\u015Bci wiersza",
+cell_desc:"W\u0142a\u015Bciwo\u015Bci kom\u00F3rki",
+props_desc:"W\u0142a\u015Bciwo\u015Bci tabeli",
+paste_row_before_desc:"Wklej wiersz przed...",
+paste_row_after_desc:"Wklej wiersz po...",
+cut_row_desc:"Wytnij wiersz...",
+copy_row_desc:"Kopiuj wiersz...",
+del:"Usu\u0144 tabel\u0119",
+row:"Wiersz",
+col:"Kolumna",
+cell:"Kom\u00F3rka"
+},
+autosave:{
+unload_msg:"Zmiany, kt\u00F3re zrobi\u0142e\u015B zostan\u0105 utracone je\u015Bli opu\u015Bcisz t\u0119 stron\u0119."
+},
+fullscreen:{
+desc:"Prze\u0142\u0105cz tryb pe\u0142noekranowy"
+},
+media:{
+desc:"Wstaw/Edytuj wbudowane media",
+edit:"Edytuj wbudowane media"
+},
+fullpage:{
+desc:"W\u0142a\u015Bciwo\u015Bci dokumentu"
+},
+template:{
+desc:"Wstaw szablon dokumentu"
+},
+visualchars:{
+desc:"Graficzna kontrola pisma w\u0142\u0105cz/wy\u0142\u0105cz."
+},
+spellchecker:{
+desc:"Sprawdzanie pisowni",
+menu:"Ustawienia sprawdzania pisowni",
+ignore_word:"Ignoruj s\u0142owo",
+ignore_words:"Ignoruj wszystkie",
+langs:"J\u0119zyki",
+wait:"Prosz\u0119 poczeka\u0107...",
+sug:"Sugestie",
+no_sug:"Brak sugestii",
+no_mpell:"\u017Badnych brakuj\u0105cych nie znaleziono."
+},
+pagebreak:{
+desc:"Wstaw lini\u0119."
+}}});

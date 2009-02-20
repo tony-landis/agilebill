@@ -14,9 +14,9 @@
  * @package    PEAR
  * @author     Stig Bakken <ssb@php.net>
  * @author     Gregory Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    CVS: $Id: Guess.php,v 1.20 2005/10/26 19:33:03 cellog Exp $
+ * @version    CVS: $Id: Guess.php,v 1.26 2008/01/03 20:26:34 cellog Exp $
  * @link       http://pear.php.net/package/PEAR
  * @since      File available since PEAR 0.1
  */
@@ -91,9 +91,9 @@
  * @package    PEAR
  * @author     Stig Bakken <ssb@php.net>
  * @author     Gregory Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    Release: 1.4.5
+ * @version    Release: 1.7.2
  * @link       http://pear.php.net/package/PEAR
  * @since      Class available since Release 0.1
  */
@@ -201,11 +201,14 @@ class OS_Guess
         if ($glibc !== false) {
             return $glibc; // no need to run this multiple times
         }
+        $major = $minor = 0;
         include_once "System.php";
-        if (!file_exists('/usr/bin/cpp') || !is_executable('/usr/bin/cpp')) {
-            // Use glibc's <features.h> header file to
-            // get major and minor version number:
-            if ($features_file = @fopen('/usr/include/features.h', 'rb') ) {
+        // Use glibc's <features.h> header file to
+        // get major and minor version number:
+        if (@file_exists('/usr/include/features.h') &&
+              @is_readable('/usr/include/features.h')) {
+            if (!@file_exists('/usr/bin/cpp') || !@is_executable('/usr/bin/cpp')) {
+                $features_file = fopen('/usr/include/features.h', 'rb');
                 while (!feof($features_file)) {
                     $line = fgets($features_file, 8192);
                     if (!$line || (strpos($line, '#define') === false)) {
@@ -236,29 +239,27 @@ class OS_Guess
                     return $glibc = '';
                 }
                 return $glibc = 'glibc' . trim($glibc_major) . "." . trim($glibc_minor) ;
+            } // no cpp
+            $tmpfile = System::mktemp("glibctest");
+            $fp = fopen($tmpfile, "w");
+            fwrite($fp, "#include <features.h>\n__GLIBC__ __GLIBC_MINOR__\n");
+            fclose($fp);
+            $cpp = popen("/usr/bin/cpp $tmpfile", "r");
+            while ($line = fgets($cpp, 1024)) {
+                if ($line{0} == '#' || trim($line) == '') {
+                    continue;
+                }
+                if (list($major, $minor) = explode(' ', trim($line))) {
+                    break;
+                }
             }
-            return $glibc = '';
-        }
-        $tmpfile = System::mktemp("glibctest");
-        $fp = fopen($tmpfile, "w");
-        fwrite($fp, "#include <features.h>\n__GLIBC__ __GLIBC_MINOR__\n");
-        fclose($fp);
-        $cpp = popen("/usr/bin/cpp $tmpfile", "r");
-        $major = $minor = 0;
-        while ($line = fgets($cpp, 1024)) {
-            if ($line{0} == '#' || trim($line) == '') {
-                continue;
-            }
-            if (list($major, $minor) = explode(' ', trim($line))) {
-                break;
-            }
-        }
-        pclose($cpp);
-        unlink($tmpfile);
-        if (!($major && $minor) && is_link('/lib/libc.so.6')) {
+            pclose($cpp);
+            unlink($tmpfile);
+        } // features.h
+        if (!($major && $minor) && @is_link('/lib/libc.so.6')) {
             // Let's try reading the libc.so.6 symlink
-            if (ereg('^libc-([.*])\.so$', basename(readlink('/lib/libc.so.6')), $matches)) {
-                list($major, $minor) = explode('.', $matches);
+            if (ereg('^libc-(.*)\.so$', basename(readlink('/lib/libc.so.6')), $matches)) {
+                list($major, $minor) = explode('.', $matches[1]);
             }
         }
         if (!($major && $minor)) {

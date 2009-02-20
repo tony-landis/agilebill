@@ -24,7 +24,7 @@
  * @author     Jesper Veggerby <pear.nosey@veggerby.dk>
  * @copyright  Copyright (C) 2003, 2004 Jesper Veggerby Hansen
  * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
- * @version    CVS: $Id: Category.php,v 1.17 2005/10/05 20:51:23 nosey Exp $
+ * @version    CVS: $Id: Category.php,v 1.19 2006/03/02 12:15:17 nosey Exp $
  * @link       http://pear.php.net/package/Image_Graph
  */
  
@@ -93,7 +93,7 @@ class Image_Graph_Axis_Category extends Image_Graph_Axis
      */
     function _getMaximum()
     {
-        return count($this->_labels) - ($this->_pushValues ? 0 : 1);
+        return count($this->_labels) - 1;
     }
 
     /**
@@ -124,9 +124,14 @@ class Image_Graph_Axis_Category extends Image_Graph_Axis
     /**
      * Forces the minimum value of the axis
      *
-     * A minimum cannot be set on a SequentialAxis, it is always 0.
+     * <b>A minimum cannot be set on this type of axis</b>
+     * 
+     * To modify the labels which are displayed on the axis, instead use 
+     * setLabelInterval($labels) where $labels is an array containing the 
+     * values/labels the axis should display. <b>Note!</b> Only values in
+     * this array will then be displayed on the graph!
      *
-     * @param double $minimum The minumum value to use on the axis
+     * @param double $minimum A minimum cannot be set on this type of axis
      */
     function forceMinimum($minimum, $userEnforce = true)
     {
@@ -135,10 +140,14 @@ class Image_Graph_Axis_Category extends Image_Graph_Axis
     /**
      * Forces the maximum value of the axis
      *
-     * A maximum cannot be set on a SequentialAxis, it is always the number
-     * of labels passed to the constructor.
+     * <b>A maximum cannot be set on this type of axis</b>
+     * 
+     * To modify the labels which are displayed on the axis, instead use 
+     * setLabelInterval($labels) where $labels is an array containing the 
+     * values/labels the axis should display. <b>Note!</b> Only values in
+     * this array will then be displayed on the graph!
      *
-     * @param double $maximum The maximum value to use on the axis
+     * @param double $maximum A maximum cannot be set on this type of axis
      */
     function forceMaximum($maximum, $userEnforce = true)
     {
@@ -147,13 +156,15 @@ class Image_Graph_Axis_Category extends Image_Graph_Axis
     /**
      * Sets an interval for where labels are shown on the axis.
      *
-     * The label interval is rounded to nearest integer value
+     * The label interval is rounded to nearest integer value.
      *
      * @param double $labelInterval The interval with which labels are shown
      */
     function setLabelInterval($labelInterval = 'auto', $level = 1)
     {
-        if ($labelInterval == 'auto') {
+        if (is_array($labelInterval)) {
+            parent::setLabelInterval($labelInterval);
+        } elseif ($labelInterval == 'auto') {
             parent::setLabelInterval(1);
         } else {
             parent::setLabelInterval(round($labelInterval));

@@ -1,43 +1,98 @@
-/* Import plugin specific language pack */
-tinyMCE.importPluginLanguagePack('save', 'en,zh_cn,cs,fa,fr_ca,fr,de');
-
 /**
- * Returns the HTML contents of the save control.
+ * $Id: editor_plugin_src.js 851 2008-05-26 15:38:49Z spocke $
+ *
+ * @author Moxiecode
+ * @copyright Copyright © 2004-2008, Moxiecode Systems AB, All rights reserved.
  */
-function TinyMCE_save_getControlHTML(control_name) {
-	switch (control_name) {
-		case "save":
-			return '<img id="{$editor_id}_save" src="{$pluginurl}/images/save.gif" title="{$lang_save_desc}" width="20" height="20" class="mceButtonNormal" onmouseover="tinyMCE.switchClass(this,\'mceButtonOver\');" onmouseout="tinyMCE.switchClass(this,\'mceButtonNormal\');" onmousedown="tinyMCE.switchClass(this,\'mceButtonDown\');" onclick="tinyMCE.execInstanceCommand(\'{$editor_id}\',\'mceSave\');" />';
-	}
-	return "";
-}
 
-/**
- * Executes the save command.
- */
-function TinyMCE_save_execCommand(editor_id, element, command, user_interface, value) {
-	// Handle commands
-	switch (command) {
-		case "mceSave":
-			var formObj = tinyMCE.selectedInstance.formElement.form;
+(function() {
+	tinymce.create('tinymce.plugins.Save', {
+		init : function(ed, url) {
+			var t = this;
 
-			if (formObj) {
-				tinyMCE.triggerSave();
+			t.editor = ed;
 
-				// Disable all UI form elements that TinyMCE created
-				for (var i=0; i<formObj.elements.length; i++) {
-					var elementId = formObj.elements[i].name ? formObj.elements[i].name : formObj.elements[i].id;
+			// Register commands
+			ed.addCommand('mceSave', t._save, t);
+			ed.addCommand('mceCancel', t._cancel, t);
 
-					if (elementId.indexOf('mce_editor_') == 0)
-						formObj.elements[i].disabled = true;
+			// Register buttons
+			ed.addButton('save', {title : 'save.save_desc', cmd : 'mceSave'});
+			ed.addButton('cancel', {title : 'save.cancel_desc', cmd : 'mceCancel'});
+
+			ed.onNodeChange.add(t._nodeChange, t);
+			ed.addShortcut('ctrl+s', ed.getLang('save.save_desc'), 'mceSave');
+		},
+
+		getInfo : function() {
+			return {
+				longname : 'Save',
+				author : 'Moxiecode Systems AB',
+				authorurl : 'http://tinymce.moxiecode.com',
+				infourl : 'http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/save',
+				version : tinymce.majorVersion + "." + tinymce.minorVersion
+			};
+		},
+
+		// Private methods
+
+		_nodeChange : function(ed, cm, n) {
+			var ed = this.editor;
+
+			if (ed.getParam('save_enablewhendirty')) {
+				cm.setDisabled('save', !ed.isDirty());
+				cm.setDisabled('cancel', !ed.isDirty());
+			}
+		},
+
+		// Private methods
+
+		_save : function() {
+			var ed = this.editor, formObj, os, i, elementId;
+
+			formObj = tinymce.DOM.get(ed.id).form || tinymce.DOM.getParent(ed.id, 'form');
+
+			if (ed.getParam("save_enablewhendirty") && !ed.isDirty())
+				return;
+
+			tinyMCE.triggerSave();
+
+			// Use callback instead
+			if (os = ed.getParam("save_onsavecallback")) {
+				if (ed.execCallback('save_onsavecallback', ed)) {
+					ed.startContent = tinymce.trim(ed.getContent({format : 'raw'}));
+					ed.nodeChanged();
 				}
 
-				tinyMCE.selectedInstance.formElement.form.submit();
-			} else
-				alert("Error: No form element found.");
+				return;
+			}
 
-			return true;
-	}
-	// Pass to next handler in chain
-	return false;
-}
+			if (formObj) {
+				ed.isNotDirty = true;
+
+				if (formObj.onsubmit == null || formObj.onsubmit() != false)
+					formObj.submit();
+
+				ed.nodeChanged();
+			} else
+				ed.windowManager.alert("Error: No form element found.");
+		},
+
+		_cancel : function() {
+			var ed = this.editor, os, h = tinymce.trim(ed.startContent);
+
+			// Use callback instead
+			if (os = ed.getParam("save_oncancelcallback")) {
+				ed.execCallback('save_oncancelcallback', ed);
+				return;
+			}
+
+			ed.setContent(h);
+			ed.undoManager.clear();
+			ed.nodeChanged();
+		}
+	});
+
+	// Register plugin
+	tinymce.PluginManager.add('save', tinymce.plugins.Save);
+})();

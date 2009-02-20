@@ -24,7 +24,7 @@
  * @author     Jesper Veggerby <pear.nosey@veggerby.dk>
  * @copyright  Copyright (C) 2003, 2004 Jesper Veggerby Hansen
  * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
- * @version    CVS: $Id: Band.php,v 1.11 2005/08/23 21:01:46 nosey Exp $
+ * @version    CVS: $Id: Band.php,v 1.12 2005/11/27 22:21:16 nosey Exp $
  * @link       http://pear.php.net/package/Image_Graph
  * @since      File available since Release 0.3.0dev2
  */
@@ -102,6 +102,10 @@ class Image_Graph_Plot_Band extends Image_Graph_Plot
         $current = array();
 
         $this->_canvas->startGroup(get_class($this) . '_' . $this->_title);
+
+        $this->_clip(true);        
+
+
         $keys = array_keys($this->_dataset);
         foreach ($keys as $key) {
             $dataset =& $this->_dataset[$key];
@@ -189,7 +193,10 @@ class Image_Graph_Plot_Band extends Image_Graph_Plot
         }
         unset($keys);
         $this->_drawMarker();
+        $this->_clip(false);        
+
         $this->_canvas->endGroup();
+
         return true;
     }
 

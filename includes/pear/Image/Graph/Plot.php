@@ -24,7 +24,7 @@
  * @author     Jesper Veggerby <pear.nosey@veggerby.dk>
  * @copyright  Copyright (C) 2003, 2004 Jesper Veggerby Hansen
  * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
- * @version    CVS: $Id: Plot.php,v 1.18 2005/09/30 18:59:19 nosey Exp $
+ * @version    CVS: $Id: Plot.php,v 1.20 2006/02/28 22:33:00 nosey Exp $
  * @link       http://pear.php.net/package/Image_Graph
  */
 
@@ -453,7 +453,7 @@ class Image_Graph_Plot extends Image_Graph_Plotarea_Element
                     $x = $point['X'];
                     $y = $point['Y'];
                     if (((!is_object($this->_dataSelector)) ||
-                        ($this->_dataSelector->_select($point))) && ($point['Y'] != null))
+                        ($this->_dataSelector->_select($point))) && ($point['Y'] !== null))
                     {
 
                         $point = $this->_getMarkerData(
@@ -704,16 +704,22 @@ class Image_Graph_Plot extends Image_Graph_Plotarea_Element
             $dataset->_reset();
             while ($point = $dataset->_next()) {
                 $x = $point['X'];
-                $total['ALL_SUM_Y'] += $point['Y'];
-                if (isset($total['TOTAL_Y'][$x])) {
-                    $total['TOTAL_Y'][$x] += $point['Y'];
-                } else {
-                    $total['TOTAL_Y'][$x] = $point['Y'];
+                
+                if (is_numeric($point['Y'])) {
+                    $total['ALL_SUM_Y'] += $point['Y'];
+                    if (isset($total['TOTAL_Y'][$x])) {
+                        $total['TOTAL_Y'][$x] += $point['Y'];
+                    } else {
+                        $total['TOTAL_Y'][$x] = $point['Y'];
+                    }
                 }
-                if (isset($total['TOTAL_X'][$x])) {
-                    $total['TOTAL_X'][$x] += $point['X'];
-                } else {
-                    $total['TOTAL_X'][$x] = $point['X'];
+                
+                if (is_numeric($point['X'])) {
+                    if (isset($total['TOTAL_X'][$x])) {
+                        $total['TOTAL_X'][$x] += $point['X'];
+                    } else {
+                        $total['TOTAL_X'][$x] = $point['X'];
+                    }
                 }
             }
         }

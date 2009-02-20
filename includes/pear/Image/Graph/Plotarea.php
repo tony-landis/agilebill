@@ -24,7 +24,7 @@
  * @author     Jesper Veggerby <pear.nosey@veggerby.dk>
  * @copyright  Copyright (C) 2003, 2004 Jesper Veggerby Hansen
  * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
- * @version    CVS: $Id: Plotarea.php,v 1.21 2005/10/05 20:51:21 nosey Exp $
+ * @version    CVS: $Id: Plotarea.php,v 1.23 2006/02/28 22:48:07 nosey Exp $
  * @link       http://pear.php.net/package/Image_Graph
  */
 
@@ -133,7 +133,7 @@ class Image_Graph_Plotarea extends Image_Graph_Layout
     {
         parent::Image_Graph_Layout();
 
-        $this->_padding = 5;
+        $this->_padding = array('left' => 5, 'top' => 5, 'right' => 5, 'bottom' => 5);;
 
         include_once 'Image/Graph.php';
 
@@ -616,19 +616,21 @@ class Image_Graph_Plotarea extends Image_Graph_Layout
      * @access private
      */
     function _updateCoords()
-    {       
+    {               
         if (is_array($this->_elements)) {
             $keys = array_keys($this->_elements);
             foreach ($keys as $key) {
                 $element =& $this->_elements[$key];
-                if (is_a($element, 'Image_Graph_Plot')) {
+                if (is_a($element, 'Image_Graph_Plot')) { 
                     if (((is_a($element, 'Image_Graph_Plot_Bar')) ||
                         (is_a($element, 'Image_Graph_Plot_Step')) ||
                         (is_a($element, 'Image_Graph_Plot_Dot')) ||
                         (is_a($element, 'Image_Graph_Plot_CandleStick')) ||
                         (is_a($element, 'Image_Graph_Plot_BoxWhisker')) ||
                         (is_a($element, 'Image_Graph_Plot_Impulse'))) &&
-                        ($this->_axisX != null))
+                        ($this->_axisX != null) &&
+                        (strtolower(get_class($this->_axisX)) != 'image_graph_axis') // do not push plot if x-axis is linear
+                        )
                     {
                        $this->_axisX->_pushValues();
                     }
@@ -643,10 +645,10 @@ class Image_Graph_Plotarea extends Image_Graph_Layout
         $pctWidth = (int) ($this->width() * 0.05);
         $pctHeight = (int) ($this->height() * 0.05);
 
-        $left = $this->_left + $this->_padding;
-        $top = $this->_top + $this->_padding;
-        $right = $this->_right - $this->_padding;
-        $bottom = $this->_bottom - $this->_padding;
+        $left = $this->_left + $this->_padding['left'];
+        $top = $this->_top + $this->_padding['top'];
+        $right = $this->_right - $this->_padding['right'];
+        $bottom = $this->_bottom - $this->_padding['bottom'];
         
         // temporary place holder for axis point calculations
         $axisPoints['x'] = array($left, $top, $right, $bottom);

@@ -27,8 +27,16 @@ class voip_prepaid
 		$db =& DB();
 		$rs = $db->Execute(sqlSelect($db,"voip","prepaid_low_balance","id=::".DEFAULT_SITE."::"));
 		
-		# e-mail user's once when balance reaches this amount:
-		$this->lowBalance = $rs->fields[0];
+		if ($rs && $rs->RecordCount() > 0)
+		{
+			# e-mail user's once when balance reaches this amount:
+			$this->lowBalance = $rs->fields[0];
+		}
+		else
+		{
+			$this->lowBalance = false;
+		}
+
 		$this->pinLenth = 10; 		// up to 10
 
 		# name of this module:
@@ -74,6 +82,10 @@ class voip_prepaid
 	function task($VAR)
 	{
 		include_once(PATH_MODULES.'email_template/email_template.inc.php');
+
+		// do not run task if lowBalance is not set
+		if ($this->lowBalance == false)
+			return;
 
 		// delete expired pins?
 		// $delrs = & $db->Execute(sqlDelete($db,"voip_prepaid"," date_expire <> 0 and date_expire is not null and date_expire > ".time()));

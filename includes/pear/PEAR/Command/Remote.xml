@@ -27,6 +27,10 @@ or the state passed as the second parameter.</doc>
     <doc>specify a channel other than the default channel</doc>
     <arg>CHAN</arg>
    </channel>
+   <channelinfo>
+    <shortopt>i</shortopt>
+    <doc>output fully channel-aware data, even on failure</doc>
+   </channelinfo>
   </options>
   <doc>
 Lists the packages available on the configured server along with the
@@ -42,6 +46,14 @@ latest stable release of each package.</doc>
     <doc>specify a channel other than the default channel</doc>
     <arg>CHAN</arg>
    </channel>
+   <allchannels>
+    <shortopt>a</shortopt>
+    <doc>search packages from all known channels</doc>
+   </allchannels>
+   <channelinfo>
+    <shortopt>i</shortopt>
+    <doc>output fully channel-aware data, even on failure</doc>
+   </channelinfo>
   </options>
   <doc>[packagename] [packageinfo]
 Lists all packages which match the search parameters.  The first
@@ -59,6 +71,10 @@ will be used to match any portion of the summary/description</doc>
     <doc>specify a channel other than the default channel</doc>
     <arg>CHAN</arg>
    </channel>
+   <channelinfo>
+    <shortopt>i</shortopt>
+    <doc>output fully channel-aware data, even on failure</doc>
+   </channelinfo>
   </options>
   <doc>
 Lists the packages available on the configured server along with the

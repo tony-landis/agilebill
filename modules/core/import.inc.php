@@ -62,7 +62,6 @@ class CORE_import
 		}
 
 		# open the file for parsing
-		require_once('includes/pear/Compat/Function/file_get_contents.php');  
 		$data 	= file_get_contents($this->file);
 		$rows 	= explode("\r\n", $data);
 
@@ -142,7 +141,6 @@ class CORE_import
 	{
 		global $C_debug;
 		$this->file = PATH_FILES.$VAR['file'];
-		require_once('includes/pear/Compat/Function/file_get_contents.php');  
 		$data 	= file_get_contents($this->file);
 		$rows 	= explode("\r\n", $data);
 
@@ -242,7 +240,6 @@ class CORE_import
 	{
 		global $C_debug;
 		$this->file = PATH_FILES.$VAR['file'];
-		require_once('includes/pear/Compat/Function/file_get_contents.php');  
 		$data 	= file_get_contents($this->file);
 		$rows 	= explode("\r\n", $data);
 

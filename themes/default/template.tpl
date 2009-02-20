@@ -44,6 +44,7 @@
 		{if $smarty.const.SHOW_CONTACT_LINK} | <a href="?_page=staff:staff">{translate}contact{/translate}</a> {/if}   
 		{if $smarty.const.SHOW_AFFILIATE_LINK} | <a href="?_page=affiliate:affiliate">{translate}affiliates{/translate}</a> {/if} 
 		{if $smarty.const.SHOW_TICKET_LINK} | <a href="?_page=ticket:ticket">{translate}tickets{/translate}</a> {/if} 
+		 | <a href="?_page=faq:faq">{translate}faqs{/translate}</a>
 		
 		{if $SESS_LOGGED}
 		| <a href="?_page=account:account">{translate}account{/translate}</a>

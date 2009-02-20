@@ -94,7 +94,6 @@ class module
 		global $C_auth;
 		if(!$C_auth->auth_method_by_name("module","upgrade")) return false;
 
-		require_once('includes/pear/Compat/Function/file_get_contents.php');  
 		if(is_file(PATH_AGILE.'Version.txt'))
 		$f['version']=trim(file_get_contents(PATH_AGILE.'Version.txt'));
 		else
@@ -114,9 +113,6 @@ class module
 	### Get remote hash file and check for inconsitancys in local files
 	function remote_update($VAR)
 	{
-		## Load file_get_contents function for older versions:
-		require_once('includes/pear/Compat/Function/file_get_contents.php');  	
-
 		$ver = $VAR['ver']; 				
 		$mis=0;
 		$md5=0;

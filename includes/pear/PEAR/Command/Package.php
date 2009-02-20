@@ -16,9 +16,9 @@
  * @author     Stig Bakken <ssb@php.net>
  * @author     Martin Jansen <mj@php.net>
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    CVS: $Id: Package.php,v 1.114 2005/10/26 19:14:14 cellog Exp $
+ * @version    CVS: $Id: Package.php,v 1.128 2008/03/29 21:06:58 dufuz Exp $
  * @link       http://pear.php.net/package/PEAR
  * @since      File available since Release 0.1
  */
@@ -36,7 +36,7 @@ require_once 'PEAR/Command/Common.php';
  * @author     Stig Bakken <ssb@php.net>
  * @author     Martin Jansen <mj@php.net>
  * @author     Greg Beaver <cellog@php.net>
- * @copyright  1997-2005 The PHP Group
+ * @copyright  1997-2008 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
  * @version    Release: @package_version@
  * @link       http://pear.php.net/package/PEAR
@@ -185,13 +185,18 @@ release), pass them as additional parameters.
             'shortcut' => 'pd',
             'options' => array(),
             'doc' => '
-List all depencies the package has.'
+List all dependencies the package has.'
             ),
         'sign' => array(
             'summary' => 'Sign a package distribution file',
             'function' => 'doSign',
             'shortcut' => 'si',
-            'options' => array(),
+            'options' => array(
+                'verbose' => array(
+                    'shortopt' => 'v',
+                    'doc' => 'Display GnuPG output',
+                    ),
+            ),
             'doc' => '<package-file>
 Signs a package distribution (.tar or .tgz) file with GnuPG.',
             ),
@@ -296,7 +301,7 @@ used for automated conversion or learning the format.
         if (!class_exists('PEAR_Common')) {
             require_once 'PEAR/Common.php';
         }
-        if (!class_exists('PEAR/PackageFile.php')) {
+        if (!class_exists('PEAR_PackageFile')) {
             require_once 'PEAR/PackageFile.php';
         }
         $a = &new PEAR_PackageFile($config, $debug, $tmpdir);
@@ -369,10 +374,9 @@ used for automated conversion or learning the format.
         } else {
             $valid = $info->validate(PEAR_VALIDATE_PACKAGING);
         }
-        $err = array();
-        $warn = array();
-        if (!$valid) {
-            foreach ($info->getValidationWarnings() as $error) {
+        $err = $warn = array();
+        if ($errors = $info->getValidationWarnings()) {
+            foreach ($errors as $error) {
                 if ($error['level'] == 'warning') {
                     $warn[] = $error['message'];
                 } else {
@@ -511,8 +515,11 @@ used for automated conversion or learning the format.
         $cmd .= ' diff';
         // the rest of the options are passed right on to "cvs diff"
         foreach ($options as $option => $optarg) {
-            $arg = @$this->commands[$command]['options'][$option]['arg'];
-            $short = @$this->commands[$command]['options'][$option]['shortopt'];
+            $arg = $short = false;
+            if (isset($this->commands[$command]['options'][$option])) {
+                $arg = $this->commands[$command]['options'][$option]['arg'];
+                $short = $this->commands[$command]['options'][$option]['shortopt'];
+            }
             $cmd .= $short ? " -$short" : " --$option";
             if ($arg && $optarg) {
                 $cmd .= ($short ? '' : '=') . escapeshellarg($optarg);
@@ -689,10 +696,8 @@ used for automated conversion or learning the format.
         }
         $tar = new Archive_Tar($params[0]);
         $tmpdir = System::mktemp('-d pearsign');
-        if (!$tar->extractList('package2.xml package.sig', $tmpdir)) {
-            if (!$tar->extractList('package.xml package.sig', $tmpdir)) {
-                return $this->raiseError("failed to extract tar file");
-            }
+        if (!$tar->extractList('package2.xml package.xml package.sig', $tmpdir)) {
+            return $this->raiseError("failed to extract tar file");
         }
         if (file_exists("$tmpdir/package.sig")) {
             return $this->raiseError("package already signed");
@@ -701,11 +706,22 @@ used for automated conversion or learning the format.
         if (file_exists("$tmpdir/package2.xml")) {
             $packagexml = 'package2.xml';
         }
-        @unlink("$tmpdir/package.sig");
+        if (file_exists("$tmpdir/package.sig")) {
+            unlink("$tmpdir/package.sig");
+        }
+        if (!file_exists("$tmpdir/$packagexml")) {
+            return $this->raiseError("Extracted file $tmpdir/$packagexml not found.");
+        }
         $input = $this->ui->userDialog($command,
                                        array('GnuPG Passphrase'),
                                        array('password'));
-        $gpg = popen("gpg --batch --passphrase-fd 0 --armor --detach-sign --output $tmpdir/package.sig $tmpdir/$packagexml 2>/dev/null", "w");
+        if (!isset($input[0])) {
+            //use empty passphrase
+            $input[0] = '';
+        }
+
+        $devnull = (isset($options['verbose'])) ? '' : ' 2>/dev/null';
+        $gpg = popen("gpg --batch --passphrase-fd 0 --armor --detach-sign --output $tmpdir/package.sig $tmpdir/$packagexml" . $devnull, "w");
         if (!$gpg) {
             return $this->raiseError("gpg command failed");
         }
@@ -713,7 +729,11 @@ used for automated conversion or learning the format.
         if (pclose($gpg) || !file_exists("$tmpdir/package.sig")) {
             return $this->raiseError("gpg sign failed");
         }
-        $tar->addModify("$tmpdir/package.sig", '', $tmpdir);
+        if (!$tar->addModify("$tmpdir/package.sig", '', $tmpdir)) {
+            return $this->raiseError('failed adding signature to file');
+        }
+
+        $this->ui->outputData("Package signed.", $command);
         return true;
     }
 
@@ -731,355 +751,45 @@ used for automated conversion or learning the format.
         return $a;
     }
 
+    /**
+     * For unit testing purposes
+     */
+    function &getCommandPackaging(&$ui, &$config)
+    {
+        if (!class_exists('PEAR_Command_Packaging')) {
+            if ($fp = @fopen('PEAR/Command/Packaging.php', 'r', true)) {
+                fclose($fp);
+                include_once 'PEAR/Command/Packaging.php';
+            }
+        }
+
+        if (class_exists('PEAR_Command_Packaging')) {
+            $a = &new PEAR_Command_Packaging($ui, $config);
+        } else {
+            $a = null;
+        }
+        return $a;
+    }
+
     // {{{ doMakeRPM()
-
-    /*
-
-    (cox)
-
-    TODO:
-        - Fill the rpm dependencies in the template file.
-
-    IDEAS:
-        - Instead of mapping the role to rpm vars, perhaps it's better
-          to use directly the pear cmd to install the files by itself
-          in %postrun so:
-          pear -d php_dir=%{_libdir}/php/pear -d test_dir=.. <package>
-    */
 
     function doMakeRPM($command, $options, $params)
     {
-        require_once 'System.php';
-        require_once 'Archive/Tar.php';
-        if (sizeof($params) != 1) {
-            return $this->raiseError("bad parameter(s), try \"help $command\"");
-        }
-        if (!file_exists($params[0])) {
-            return $this->raiseError("file does not exist: $params[0]");
-        }
-        $reg = &$this->config->getRegistry();
-        $pkg = &$this->getPackageFile($this->config, $this->_debug);
-        $pf = &$pkg->fromAnyFile($params[0], PEAR_VALIDATE_NORMAL);
-        if (PEAR::isError($pf)) {
-            $u = $pf->getUserinfo();
-            if (is_array($u)) {
-                foreach ($u as $err) {
-                    if (is_array($err)) {
-                        $err = $err['message'];
-                    }
-                    $this->ui->outputData($err);
-                }
-            }
-            return $this->raiseError("$params[0] is not a valid package");
-        }
-        $tmpdir = System::mktemp(array('-d', 'pear2rpm'));
-        $instroot = System::mktemp(array('-d', 'pear2rpm'));
-        $tmp = $this->config->get('verbose');
-        $this->config->set('verbose', 0);
-        $installer = $this->getInstaller($this->ui);
-        require_once 'PEAR/Downloader/Package.php';
-        $pack = new PEAR_Downloader_Package($installer);
-        $pack->setPackageFile($pf);
-        $params[0] = &$pack;
-        $installer->setOptions(array('installroot' => $instroot,
-                                          'nodeps' => true, 'soft' => true));
-        $installer->setDownloadedPackages($params);
-        $info = $installer->install($params[0],
-                                    array('installroot' => $instroot,
-                                          'nodeps' => true, 'soft' => true));
-        $pkgdir = $pf->getPackage() . '-' . $pf->getVersion();
-        $info['rpm_xml_dir'] = '/var/lib/pear';
-        $this->config->set('verbose', $tmp);
-        if (isset($options['spec-template'])) {
-            $spec_template = $options['spec-template'];
-        } else {
-            $spec_template = '@DATA-DIR@/PEAR/template.spec';
-        }
-        $info['possible_channel'] = '';
-        $info['extra_config'] = '';
-        if (isset($options['rpm-pkgname'])) {
-            $rpm_pkgname_format = $options['rpm-pkgname'];
-        } else {
-            if ($pf->getChannel() == 'pear.php.net' || $pf->getChannel() == 'pecl.php.net') {
-                $alias = 'PEAR';
-            } else {
-                $chan = &$reg->getChannel($pf->getChannel());
-                $alias = $chan->getAlias();
-                $alias = strtoupper($alias);
-                $info['possible_channel'] = $pf->getChannel() . '/';
-            }
-            $rpm_pkgname_format = $alias . '::%s';
-        }
 
-        $info['extra_headers'] = '';
-        $info['doc_files'] = '';
-        $info['files'] = '';
-        $info['package2xml'] = '';
-        $info['rpm_package'] = sprintf($rpm_pkgname_format, $pf->getPackage());
-        $srcfiles = 0;
-        foreach ($info['filelist'] as $name => $attr) {
-            if (!isset($attr['role'])) {
-                continue;
-            }
-            $name = preg_replace('![/:\\\\]!', '/', $name);
-            if ($attr['role'] == 'doc') {
-                $info['doc_files'] .= " $name";
-            // Map role to the rpm vars
-            } else {
-                $c_prefix = '%{_libdir}/php/pear';
-                switch ($attr['role']) {
-                    case 'php':
-                        $prefix = $c_prefix;
-                    break;
-                    case 'ext':
-                        $prefix = '%{_libdir}/php';
-                    break; // XXX good place?
-                    case 'src':
-                        $srcfiles++;
-                        $prefix = '%{_includedir}/php';
-                    break; // XXX good place?
-                    case 'test':
-                        $prefix = "$c_prefix/tests/" . $pf->getPackage();
-                    break;
-                    case 'data':
-                        $prefix = "$c_prefix/data/" . $pf->getPackage();
-                    break;
-                    case 'script':
-                        $prefix = '%{_bindir}';
-                    break;
-                    default: // non-standard roles
-                        $prefix = "$c_prefix/$attr[role]/" . $pf->getPackage();
-                        $info['extra_config'] .=
-                        "\n        -d {$attr[role]}_dir=$c_prefix/{$attr[role]} \\";
-                        $this->ui->outputData('WARNING: role "' . $attr['role'] . '" used, ' .
-                            'and will be installed in "' . $c_prefix . '/' . $attr['role'] .
-                            '/' . $pf->getPackage() .
-                            ' - hand-edit the final .spec if this is wrong', $command);
-                    break;
-                }
-                $name = str_replace('\\', '/', $name);
-                $info['files'] .= "$prefix/$name\n";
-            }
-        }
-        if ($srcfiles > 0) {
-            require_once 'OS/Guess.php';
-            $os = new OS_Guess;
-            $arch = $os->getCpu();
+        // Check to see if PEAR_Command_Packaging is installed, and
+        // transparently switch to use the "make-rpm-spec" command from it
+        // instead, if it does. Otherwise, continue to use the old version
+        // of "makerpm" supplied with this package (PEAR).
+        $packaging_cmd = $this->getCommandPackaging($this->ui, $this->config);
+        if ($packaging_cmd !== null) {
+            $this->ui->outputData('PEAR_Command_Packaging is installed; using '.
+                'newer "make-rpm-spec" command instead');
+            return $packaging_cmd->run('make-rpm-spec', $options, $params);
         } else {
-            $arch = 'noarch';
+            $this->ui->outputData('WARNING: "pear makerpm" is no longer available; an '.
+              'improved version is available via "pear make-rpm-spec", which '.
+              'is available by installing PEAR_Command_Packaging');
         }
-        $cfg = array('master_server', 'php_dir', 'ext_dir', 'doc_dir',
-                     'bin_dir', 'data_dir', 'test_dir');
-        foreach ($cfg as $k) {
-            if ($k == 'master_server') {
-                $chan = $reg->getChannel($pf->getChannel());
-                $info[$k] = $chan->getServer();
-                continue;
-            }
-            $info[$k] = $this->config->get($k);
-        }
-        $info['arch'] = $arch;
-        $fp = @fopen($spec_template, "r");
-        if (!$fp) {
-            return $this->raiseError("could not open RPM spec file template $spec_template: $php_errormsg");
-        }
-        $info['package'] = $pf->getPackage();
-        $info['version'] = $pf->getVersion();
-        $info['release_license'] = $pf->getLicense();
-        if ($pf->getDeps()) {
-            if ($pf->getPackagexmlVersion() == '1.0') {
-                $requires = $conflicts = array();
-                foreach ($pf->getDeps() as $dep) {
-                    if (isset($dep['optional']) && $dep['optional'] == 'yes') {
-                        continue;
-                    }
-                    if ($dep['type'] != 'pkg') {
-                        continue;
-                    }
-                    if (isset($dep['channel']) && $dep['channel'] != 'pear.php.net' &&
-                          $dep['channel'] != 'pecl.php.net') {
-                        $chan = &$reg->getChannel($dep['channel']);
-                        $package = strtoupper($chan->getAlias()) . '::' . $dep['name'];
-                    } else {
-                        $package = 'PEAR::' . $dep['name'];
-                    }
-                    $trans = array(
-                        '>' => '>',
-                        '<' => '<',
-                        '>=' => '>=',
-                        '<=' => '<=',
-                        '=' => '=',
-                        'gt' => '>',
-                        'lt' => '<',
-                        'ge' => '>=',
-                        'le' => '<=',
-                        'eq' => '=',
-                    );
-                    if ($dep['rel'] == 'has') {
-                        $requires[] = $package;
-                    } elseif ($dep['rel'] == 'not') {
-                        $conflicts[] = $package;
-                    } elseif ($dep['rel'] == 'ne') {
-                        $conflicts[] = $package . ' = ' . $dep['version'];
-                    } elseif (isset($trans[$dep['rel']])) {
-                        $requires[] = $package . ' ' . $trans[$dep['rel']] . ' ' . $dep['version'];
-                    }
-                }
-                if (count($requires)) {
-                    $info['extra_headers'] .= 'Requires: ' . implode(', ', $requires) . "\n";
-                }
-                if (count($conflicts)) {
-                    $info['extra_headers'] .= 'Conflicts: ' . implode(', ', $conflicts) . "\n";
-                }
-            } else {
-                $info['package2xml'] = '2'; // tell the spec to use package2.xml
-                $requires = $conflicts = array();
-                $deps = $pf->getDeps(true);
-                if (isset($deps['required']['package'])) {
-                    if (!isset($deps['required']['package'][0])) {
-                        $deps['required']['package'] = array($deps['required']['package']);
-                    }
-                    foreach ($deps['required']['package'] as $dep) {
-                        if ($dep['channel'] != 'pear.php.net' &&  $dep['channel'] != 'pecl.php.net') {
-                            $chan = &$reg->getChannel($dep['channel']);
-                            $package = strtoupper($chan->getAlias()) . '::' . $dep['name'];
-                        } else {
-                            $package = 'PEAR::' . $dep['name'];
-                        }
-                        if (isset($dep['conflicts']) && (isset($dep['min']) ||
-                              isset($dep['max']))) {
-                            $deprange = array();
-                            if (isset($dep['min'])) {
-                                $deprange[] = array($dep['min'],'>=');
-                            }
-                            if (isset($dep['max'])) {
-                                $deprange[] = array($dep['max'], '<=');
-                            }
-                            if (isset($dep['exclude'])) {
-                                if (!is_array($dep['exclude']) ||
-                                      !isset($dep['exclude'][0])) {
-                                    $dep['exclude'] = array($dep['exclude']);
-                                }
-                                if (count($deprange)) {
-                                    $excl = $dep['exclude'];
-                                    // change >= to > if excluding the min version
-                                    // change <= to < if excluding the max version
-                                    for($i = 0; $i < count($excl); $i++) {
-                                        if (isset($deprange[0]) &&
-                                              $excl[$i] == $deprange[0][0]) {
-                                            $deprange[0][1] = '<';
-                                            unset($dep['exclude'][$i]);
-                                        }
-                                        if (isset($deprange[1]) &&
-                                              $excl[$i] == $deprange[1][0]) {
-                                            $deprange[1][1] = '>';
-                                            unset($dep['exclude'][$i]);
-                                        }
-                                    }
-                                }
-                                if (count($dep['exclude'])) {
-                                    $dep['exclude'] = array_values($dep['exclude']);
-                                    $newdeprange = array();
-                                    // remove excludes that are outside the existing range
-                                    for ($i = 0; $i < count($dep['exclude']); $i++) {
-                                        if ($dep['exclude'][$i] < $dep['min'] ||
-                                              $dep['exclude'][$i] > $dep['max']) {
-                                            unset($dep['exclude'][$i]);
-                                        }
-                                    }
-                                    $dep['exclude'] = array_values($dep['exclude']);
-                                    usort($dep['exclude'], 'version_compare');
-                                    // take the remaining excludes and
-                                    // split the dependency into sub-ranges
-                                    $lastmin = $deprange[0];
-                                    for ($i = 0; $i < count($dep['exclude']) - 1; $i++) {
-                                        $newdeprange[] = '(' .
-                                            $package . " {$lastmin[1]} {$lastmin[0]} and " .
-                                            $package . ' < ' . $dep['exclude'][$i] . ')';
-                                        $lastmin = array($dep['exclude'][$i], '>');
-                                    }
-                                    if (isset($dep['max'])) {
-                                        $newdeprange[] = '(' . $package .
-                                            " {$lastmin[1]} {$lastmin[0]} and " .
-                                            $package . ' < ' . $dep['max'] . ')';
-                                    }
-                                    $conflicts[] = implode(' or ', $deprange);
-                                } else {
-                                    $conflicts[] = $package .
-                                        " {$deprange[0][1]} {$deprange[0][0]}" .
-                                        (isset($deprange[1]) ? 
-                                        " and $package {$deprange[1][1]} {$deprange[1][0]}"
-                                        : '');
-                                }
-                            }
-                            continue;
-                        }
-                        if (!isset($dep['min']) && !isset($dep['max']) &&
-                              !isset($dep['exclude'])) {
-                            if (isset($dep['conflicts'])) {
-                                $conflicts[] = $package;
-                            } else {
-                                $requires[] = $package;
-                            }
-                        } else {
-                            if (isset($dep['min'])) {
-                                $requires[] = $package . ' >= ' . $dep['min'];
-                            }
-                            if (isset($dep['max'])) {
-                                $requires[] = $package . ' <= ' . $dep['max'];
-                            }
-                            if (isset($dep['exclude'])) {
-                                $ex = $dep['exclude'];
-                                if (!is_array($ex)) {
-                                    $ex = array($ex);
-                                }
-                                foreach ($ex as $ver) {
-                                    $conflicts[] = $package . ' = ' . $ver;
-                                }
-                            }
-                        }
-                    }
-                    require_once 'Archive/Tar.php';
-                    $tar = new Archive_Tar($pf->getArchiveFile());
-                    $tar->pushErrorHandling(PEAR_ERROR_RETURN);
-                    $a = $tar->extractInString('package2.xml');
-                    $tar->popErrorHandling();
-                    if ($a === null || PEAR::isError($a)) {
-                        $info['package2xml'] = '';
-                        // this doesn't have a package.xml version 1.0
-                        $requires[] = 'PEAR::PEAR >= ' .
-                            $deps['required']['pearinstaller']['min'];
-                    }
-                    if (count($requires)) {
-                        $info['extra_headers'] .= 'Requires: ' . implode(', ', $requires) . "\n";
-                    }
-                    if (count($conflicts)) {
-                        $info['extra_headers'] .= 'Conflicts: ' . implode(', ', $conflicts) . "\n";
-                    }
-                }
-            }
-        }
-
-        // remove the trailing newline
-        $info['extra_headers'] = trim($info['extra_headers']);
-        if (function_exists('file_get_contents')) {
-            fclose($fp);
-            $spec_contents = preg_replace('/@([a-z0-9_-]+)@/e', '$info["\1"]',
-                file_get_contents($spec_template));
-        } else {
-            $spec_contents = preg_replace('/@([a-z0-9_-]+)@/e', '$info["\1"]',
-                fread($fp, filesize($spec_template)));
-            fclose($fp);
-        }
-        $spec_file = "$info[rpm_package]-$info[version].spec";
-        $wp = fopen($spec_file, "wb");
-        if (!$wp) {
-            return $this->raiseError("could not write RPM spec file $spec_file: $php_errormsg");
-        }
-        fwrite($wp, $spec_contents);
-        fclose($wp);
-        $this->ui->outputData("Wrote RPM spec file $spec_file", $command);
-
         return true;
     }
 

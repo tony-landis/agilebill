@@ -18,7 +18,7 @@
  * @author      Andrew Morton <drewish@katherinehouse.com>
  * @copyright   2003-2005 The PHP Group
  * @license     http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version     CVS: $Id: Color.php,v 1.15 2005/09/12 19:12:02 drewish Exp $
+ * @version     CVS: $Id: Color.php,v 1.17 2008/10/26 18:27:10 clockwerx Exp $
  * @link        http://pear.php.net/package/Image_Color
  */
 
@@ -213,24 +213,28 @@ class Image_Color
         $color2 =& $this->color2;
 
         for ($x = 0; $x < 3; $x++) {
-            if (($color1[$x] + $degree) < 256) {
-                if (($color1[$x] + $degree) > -1) {
-                    $color1[$x] += $degree;
+            if (isset($color1[$x])) {
+                if (($color1[$x] + $degree) < 256) {
+                    if (($color1[$x] + $degree) > -1) {
+                        $color1[$x] += $degree;
+                    } else {
+                        $color1[$x] = 0;
+                    }
                 } else {
-                    $color1[$x] = 0;
+                    $color1[$x] = 255;
                 }
-            } else {
-                $color1[$x] = 255;
             }
 
-            if (($color2[$x] + $degree) < 256) {
-                if (($color2[$x] + $degree) > -1) {
-                    $color2[$x] += $degree;
+            if (isset($color2[$x])) {
+                if (($color2[$x] + $degree) < 256) {
+                    if (($color2[$x] + $degree) > -1) {
+                        $color2[$x] += $degree;
+                    } else {
+                        $color2[$x] = 0;
+                    }
                 } else {
-                    $color2[$x] = 0;
+                    $color2[$x] = 255;
                 }
-            } else {
-                $color2[$x] = 255;
             }
         }
     }
@@ -432,7 +436,7 @@ class Image_Color
                     break;
             }
         }
-        return $this->rgb2hex(array($r, $g, $b));
+        return Image_Color::rgb2hex(array($r, $g, $b));
     }
 
     /**

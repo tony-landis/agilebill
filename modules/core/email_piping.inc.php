@@ -154,7 +154,6 @@ class email_piping
    		$filecontent = imap_fetchbody($mbox,$msg,$file+2);
    		if(empty($filecontent)) return false;  
    		$tmp = PATH_FILES.'/'. md5('piping'.$filename.microtime());
-   		require_once('includes/pear/Compat/Function/file_put_contents.php'); 
    		file_put_contents($tmp,$filecontent);    
    		$this->attachments[$msg][] = Array('tmp'=>$tmp, 'file'=>$filename, 'type'=> $filetype);
     }	
