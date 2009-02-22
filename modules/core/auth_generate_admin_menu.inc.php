@@ -22,7 +22,7 @@
 function auth_generate_admin_menu($menu_obj)
 {                   
 	$menu_obj->auth_update();
-	global $C_translate, $smarty, $C_list;                    
+	global $C_translate, $smarty, $C_list;
 
 	$i=1;
 	$js='';

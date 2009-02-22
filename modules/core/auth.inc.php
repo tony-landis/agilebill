@@ -55,69 +55,63 @@ class CORE_auth
 			$this->account = FORCE_SESS_ACCOUNT;
 			$this->logged  = TRUE;
 		} 
-
+        $this->auth_update();
 		if (  isset($VAR['_logout']) ||
 			  isset($VAR['_login'])  ||
 			  isset($VAR['lid'])     ||
 			  $force == true         ||
 			  CACHE_SESSIONS != "1") {
-			$this->auth_update();
-			return;
-		} else {
-			if($this->session_auth_cache_retrieve())
-			{
-				$this->module_count = count($this->module);
-				return;
-			}
+        return;
+	} else {
+            if($this->session_auth_cache_retrieve())
+            {
+                $this->module_count = count($this->module);
+                return;
+            }
 		}
-		$this->auth_update();
 	}
 
 
 	function auth_update() {
-
-		if(!$this->account) {
-			$this->group = Array("0");
-			$this->module = Array("0");
-		} else {
-			$this->group_list($this->account); 
+	    $this->group = array('0');
+		$this->module = array('0');
+	    
+		if($this->account) {
+			$this->group_list($this->account);
 			if (!$this->group) {
-				$this->group = array ('0');
-				$this->module = array ('0');
 				return;
 			}
-		$db = &DB();
-		$p = AGILE_DB_PREFIX;
-		$sql="SELECT DISTINCT MM.module_id, GM.method_id, GM.group_id,  
-			M.name AS module_name, M.parent_id AS module_parent_id, M.menu_display AS module_display, 
-			MM.name AS method_name, MM.page AS method_page, MM.menu_display AS method_display
-			FROM {$p}group_method as GM 
-			LEFT JOIN {$p}module as M on (GM.module_id=M.id and M.site_id=".DEFAULT_SITE.")
-			LEFT JOIN {$p}module_method as MM on (GM.method_id=MM.id and MM.site_id=".DEFAULT_SITE.") "; 
-		for($i=0; $i<count($this->group); $i++)
-		if($i==0) $sql .= "WHERE (GM.group_id={$this->group[$i]} ";
-		else      $sql .= "OR GM.group_id={$this->group[$i]} "; 
-		$sql .= ") AND GM.site_id=".DEFAULT_SITE." ORDER BY M.name,MM.name";
-		$result=$db->Execute($sql); 
+    		$db = &DB();
+    		$p = AGILE_DB_PREFIX;
+    		$sql="SELECT DISTINCT MM.module_id, GM.method_id, GM.group_id,  
+    			M.name AS module_name, M.parent_id AS module_parent_id, M.menu_display AS module_display, 
+    			MM.name AS method_name, MM.page AS method_page, MM.menu_display AS method_display
+    			FROM {$p}group_method as GM 
+    			LEFT JOIN {$p}module as M on (GM.module_id=M.id and M.site_id=".DEFAULT_SITE.")
+    			LEFT JOIN {$p}module_method as MM on (GM.method_id=MM.id and MM.site_id=".DEFAULT_SITE.") "; 
+    		for($i=0; $i<count($this->group); $i++)
+    		if($i==0) $sql .= "WHERE (GM.group_id={$this->group[$i]} ";
+    		else      $sql .= "OR GM.group_id={$this->group[$i]} "; 
+    		$sql .= ") AND GM.site_id=".DEFAULT_SITE." ORDER BY M.name,MM.name";
+    		$result=$db->Execute($sql);
 			if($result === false)
 			{
 				global $C_debug;
 				$C_debug->error('core:auth.inc.php','auth_update', $db->ErrorMsg() . '<br><br>' .$q);
-				return;        			
-			} 
+				return;
+			}
 			while (!$result->EOF) {
-
 				$module_name 	= $result->fields["module_name"];
 				$method_name	= $result->fields["method_name"];
 
 				if(empty($this->module[$module_name])) {        			
-					$this->module[$module_name] = 			  Array($result->fields["module_id"],
+					$this->module[$module_name] = 			  array($result->fields["module_id"],
 																	$result->fields["module_parent_id"], 
 																	$result->fields["module_display"]);
 				}
 
 				if(empty($this->module[$module_name][$method_name])) {
-					$this->module[$module_name][$method_name] = Array($result->fields["method_id"],
+					$this->module[$module_name][$method_name] = array($result->fields["method_id"],
 																	  $result->fields["method_display"], 
 																	  $result->fields["method_page"]);
 				} 
@@ -202,7 +196,7 @@ class CORE_auth
 			AND ( g.date_start IS NULL   OR g.date_start <= $time ) 
 			AND ( g.date_expire IS NULL  OR g.date_expire = 0 OR g.date_expire > $time ) 									
 			AND ag.active=1 AND g.status=1 
-			AND ag.site_id=".DEFAULT_SITE; 
+			AND ag.site_id=".DEFAULT_SITE;
 		$result = $db->Execute($q); 
 		if ($result === false) {
 			global $C_debug;
@@ -233,7 +227,7 @@ class CORE_auth
 					if($do) $this->group[] = $arr[$i]["parent_id"];
 				} 
 			}
-		}   
+		}
 		if($account != SESS_ACCOUNT) return $this->group;
 	} 
 
