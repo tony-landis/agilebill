@@ -77,7 +77,7 @@ class CORE_theme
 						$i++;
 					}
 				}
-				$url = ereg_replace('tid=default_admin', '', $url);
+				$url = preg_replace('/tid=default_admin/', '', $url);
 				$smarty->assign('mainFrameUrl', $url);
 				$this_template = 'file:'.PATH_THEMES.''.THEME_NAME.'/template.tpl';
 				$smarty->display($this_template);

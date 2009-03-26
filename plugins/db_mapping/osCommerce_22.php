@@ -187,7 +187,7 @@ class map_OSCOMMERCE_22
         function sync($id, $file)
         {
             $db_map = new db_mapping;
-            $this   = $db_map->MAP_sync ($id, $file, $this);
+            $db_map->MAP_sync ($id, $file, $this);
         }
 
 

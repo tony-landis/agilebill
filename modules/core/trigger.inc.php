@@ -40,12 +40,12 @@ class CORE_trigger
    function run_triggers($trigger)
    {
 	   global $C_method;
-	   $triggers = split(',', $trigger);
+	   $triggers = explode(',', $trigger);
 	   for($i=0; $i<count($triggers); $i++)
 	   {
 		   if(isset($triggers[$i]))
 		   {
-			   $triggerss = split(':',$triggers[$i]);
+			   $triggerss = explode(':',$triggers[$i]);
 			   # added to remove php error: Undefined offset
 			   if(isset($triggerss) && count($triggerss) > 1)
 			   {
