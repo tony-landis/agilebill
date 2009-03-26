@@ -15,7 +15,7 @@
  * @license http://www.agileco.com/agilebill/license1-4.txt
  * @author Tony Landis <tony@agileco.com> 
  * @package AgileBill
- * @version 1.4.93
+ * @version 1.4.94
  */
 	
 function CORE_database_add($VAR, $construct, $type)
@@ -153,8 +153,8 @@ function CORE_database_add($VAR, $construct, $type)
 				$insert_value = $validate->convert($field_name, $insert_value, $construct->field["$value"]["convert"]);
 
 				# create the sql statement
-										if(!empty($insert_value))
-										  $field_list .= ", " . $value . "=" . $db->qstr($insert_value, get_magic_quotes_gpc());
+				if(!is_null($insert_value))
+				  $field_list .= ", " . $value . "=" . $db->qstr($insert_value, get_magic_quotes_gpc());
 			}					
 		}
 
