@@ -95,7 +95,7 @@
         </session_ip_match>
         <error_reporting>
             <type>C(16)</type>
-            <default>0</default>
+            <default>1</default>
         </error_reporting>
         <site_name>
             <type>X</type>

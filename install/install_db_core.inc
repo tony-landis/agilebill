@@ -158,7 +158,7 @@ class install_db
 
 				if(ereg('[(]',$t_s))
 				{
-					$ts = split('[(]',$t_s);
+					$ts = preg_split('/[(]/',$t_s);
 					$type = $ts[0];
 					$size = ereg_replace('[)]', '', $ts[1]);
 					$flds[] = Array($field, $type, $size); 
@@ -423,7 +423,7 @@ class install_db
 
 				if(ereg('[(]',$t_s))
 				{
-					$ts = split('[(]',$t_s);
+					$ts = preg_split('/[(]/',$t_s);
 					$type = $ts[0];
 					$size = ereg_replace('[)]', '', $ts[1]);
 					$flds[] = Array($field, $type, $size); 

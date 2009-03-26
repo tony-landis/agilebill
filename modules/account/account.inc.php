@@ -212,7 +212,7 @@ class account
 		####################################################################
 
 		$type = 'add';
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = preg_split("/,/", $this->method["$type"]);
 		$arr = $this->method["$type"];
 		include_once(PATH_CORE . 'validate.inc.php');
 		$validate = new CORE_validate;		
@@ -644,7 +644,7 @@ class account
 
 		### Retrieve the record:
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->view($VAR, $this, $type);
 
@@ -843,7 +843,7 @@ class account
 		### Update the record
 		$this->account_construct();
 		$type = "update";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->update($VAR, $this, $type);
 

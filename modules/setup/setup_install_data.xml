@@ -27,7 +27,7 @@
        <date_format><![CDATA[a:4:{i:0;s:1:"m";i:1;s:1:"d";i:2;s:1:"Y";i:3;s:1:"-";}]]></date_format>
        <date_time_format><![CDATA[a:1:{i:0;s:0:"";}]]></date_time_format>
        <decimal_place>2</decimal_place>
-       <debug>0</debug>
+       <debug>1</debug>
        <login_attempt_try>10</login_attempt_try>
        <login_attempt_time>60</login_attempt_time>
        <login_attempt_lock>60</login_attempt_lock>

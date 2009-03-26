@@ -75,7 +75,7 @@ class setup
 	function view($VAR)
 	{	
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->view($VAR, $this, $type);
 	}		
