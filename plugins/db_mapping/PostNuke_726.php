@@ -198,7 +198,7 @@ class map_POSTNUKE_726
         function sync($id, $file)
         {
             $db_map = new db_mapping;
-            $this   = $db_map->MAP_sync ($id, $file, $this);
+            $this   &= $db_map->MAP_sync ($id, $file, $this);
         }
         
 
