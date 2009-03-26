@@ -204,9 +204,9 @@ class pdf_invoice_overview extends pdf_invoice_base
 		$val = $line['name'];
 		if (strlen($line['attr'])) {
 			$val = "";
-			$atrs = split("\r\n", str_replace('\r\n',"\r\n",$line['attr']));
+			$atrs = preg_split("/\r\n/", str_replace('\r\n',"\r\n",$line['attr']));
 			foreach ($atrs as $a) {
-				$parts = split("==", $a);
+				$parts = preg_split("/==/", $a);
 				switch ($parts[0]) {
 					case "Destination":
 						$this->SetX(75);
@@ -229,9 +229,9 @@ class pdf_invoice_overview extends pdf_invoice_base
 					case "parent_service_id":
 						$sql = sqlSelect($db,"service","prod_attr","id=::".$parts[1]."::");
 						$rstmp = $db->Execute($sql);
-						$atrs2 = split("\r\n", $rstmp->fields['prod_attr']);
+						$atrs2 = preg_split("/\r\n/", $rstmp->fields['prod_attr']);
 						foreach ($atrs2 as $a2) {
-							$parts2 = split("==", $a2);
+							$parts2 = preg_split("/==/", $a2);
 							switch ($parts2[0]) {
 								case "station":
 								case "ported":

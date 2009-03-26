@@ -45,7 +45,7 @@ function CORE_database_view($VAR, &$construct, $type)
 
 	if(isset($VAR["id"]))
 	{
-		$id = split(',',$VAR["id"]);
+		$id = explode(',',$VAR["id"]);
 		for($i=0; $i<count($id); $i++)
 		{
 			if($id[$i] != '')
