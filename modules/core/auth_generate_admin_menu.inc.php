@@ -47,7 +47,7 @@ function auth_generate_admin_menu($menu_obj)
 						if(empty($meth_arr[2]))
 							$page = $module.':'.$method;
 						else
-							$page = eregi_replace('%%', $module, $meth_arr[2]);
+							$page = preg_replace('/%%/', $module, $meth_arr[2]);
 
 						$module_arr[$i]["methods"][] = Array('name' => $method_name, 'page' => $page);
 
@@ -71,7 +71,7 @@ function auth_generate_admin_menu($menu_obj)
 										if(empty($meth_arr[2]))
 											$page = $module.':'.$method;
 										else
-											$page = eregi_replace('%%', $module, $meth_arr[2]);
+											$page = preg_replace('/%%/', $module, $meth_arr[2]);
 										$module_arr[$i]["sub_methods"][$ii][] = Array('name' => $method_name, 'page' => $page);
 									}
 								}

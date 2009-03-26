@@ -356,7 +356,7 @@ class db_mapping
 		$this->construct();
 
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->view($VAR, $this, $type);
 
@@ -624,7 +624,7 @@ class db_mapping
 		{
 			if($file_name != '..' && $file_name != '.')
 			{
-				$result[$count]['name'] = eregi_replace('.php', '', $file_name);
+				$result[$count]['name'] = preg_replace('/.php/', '', $file_name);
 				$result[$count]['id']   = $count;
 
 				### Get the status of this plugin:

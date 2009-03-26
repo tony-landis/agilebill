@@ -484,7 +484,7 @@ function setMenuStructureFile($tree_file)
 */
 function setMenuStructureString($tree_string)
 {
-	$this->menuStructure = ereg_replace(chr(13), '', $tree_string);	// Microsoft Stupidity Suppression
+	$this->menuStructure = preg_replace("/".chr(13)."/", '', $tree_string);	// Microsoft Stupidity Suppression
 	if ($this->menuStructure == '') {
 		$this->error('setMenuStructureString: empty string.');
 		return false;
@@ -790,7 +790,7 @@ function _postParse(
 	for ($cnt=$this->_firstItem[$menu_name]; $cnt<=$this->_lastItem[$menu_name]; $cnt++) {	// this counter scans all nodes of the new menu
 		$this->tree[$cnt]['child_of_root_node'] = ($this->tree[$cnt]['level'] == 1);
 		$this->tree[$cnt]['parsed_text'] = stripslashes($this->tree[$cnt]['text']);
-		$this->tree[$cnt]['parsed_href'] = (ereg_replace(' ', '', $this->tree[$cnt]['href']) == '') ? '#' : $this->prependedUrl . $this->tree[$cnt]['href'];
+		$this->tree[$cnt]['parsed_href'] = (preg_replace('/ /', '', $this->tree[$cnt]['href']) == '') ? '#' : $this->prependedUrl . $this->tree[$cnt]['href'];
 		$this->tree[$cnt]['parsed_title'] = ($this->tree[$cnt]['title'] == '') ? '' : ' title="' . stripslashes($this->tree[$cnt]['title']) . '"';
 		$fooimg = $this->icondir . $this->tree[$cnt]['icon'];
 		if ($this->tree[$cnt]['icon'] != '' && (substr($this->tree[$cnt]['icon'], 0, 7) == 'http://' || substr($this->tree[$cnt]['icon'], 0, 8) == 'https://')) {
