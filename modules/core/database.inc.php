@@ -159,7 +159,7 @@ function sqlConditions( &$db, $Conditions=false, $Tables=false )
 	$where = " WHERE ";
 
 	if($Conditions) {
-		if(ereg('::', $Conditions) ) {
+		if(preg_match('/::/', $Conditions) ) {
 			$s = explode('::', $Conditions);
 			$ii=1;
 			$Conditions = '';

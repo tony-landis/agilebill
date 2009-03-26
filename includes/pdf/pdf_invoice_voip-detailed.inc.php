@@ -276,9 +276,9 @@ class pdf_invoice_overview extends pdf_invoice_base
 		$val = $line['name'];
 		if (strlen($line['attr'])) {
 			$val = "";
-			$atrs = split("\r\n", str_replace('\r\n',"\r\n",$line['attr']));
+			$atrs = preg_split("/\r\n/", str_replace('\r\n',"\r\n",$line['attr']));
 			foreach ($atrs as $a) {
-				$parts = split("==", $a);
+				$parts = preg_split("/==/", $a);
 				switch ($parts[0]) {
 					case "Destination":
 						$this->SetX(69);

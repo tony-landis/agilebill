@@ -187,14 +187,14 @@ class CORE_session
 				$server = getallheaders();
 				$domain = $server['Host']; 
 			} 
-			$domain = '.'.eregi_replace('^www.', '', $domain);
+			$domain = '.'.preg_replace('/^www./', '', $domain);
 		}			    
 
 		if(COOKIE_EXPIRE == 0 )
 		$cookie_expire = (time() + 86400*365);
 		else
 		$cookie_expire = (time() + (COOKIE_EXPIRE*60));
-		if(empty($domain) || eregi('localhost', $domain))
+		if(empty($domain) || preg_match('/localhost/', $domain))
 		setcookie(COOKIE_NAME,$this->id,$cookie_expire,'/');  
 		else
 		setcookie(COOKIE_NAME,$this->id,$cookie_expire,'/', $domain);      
