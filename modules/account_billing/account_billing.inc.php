@@ -46,7 +46,7 @@ class account_billing
 		if(!empty($VAR['account_id']) && $C_auth->auth_method_by_name('checkout','admin_checkoutnow')) $account_id=$VAR['account_id']; else $account_id=SESS_ACCOUNT;
 		if(empty($VAR['option'])) return false; else $checkout_plugin_id=$VAR['option'];
 		$db=&DB();
-		$year  = ereg_replace("^20", "", date("Y")); 
+		$year  = preg_replace("/^20/", "", date("Y")); 
 		$result = $db->Execute($sql=sqlSelect($db,"account_billing","id,card_type,card_num4,card_exp_month,card_exp_year", 
 		"(card_exp_year>=::$year:: or card_type='eft') AND account_id=::$account_id:: AND checkout_plugin_id=::$checkout_plugin_id::"));
 		$arr = $this->cardMenuArr($result);	
@@ -214,7 +214,7 @@ class account_billing
 
 		$this->construct();
 		$type 		= "add";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db 		= new CORE_database;
 		$db->add($VAR, $this, $type);
 	}
@@ -224,7 +224,7 @@ class account_billing
 		global $C_debug, $C_translate;
 		$this->construct();
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->view($VAR, $this, $type);
 	}
@@ -309,7 +309,7 @@ class account_billing
 	function search_form($VAR) {
 		$this->construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search_form($VAR, $this, $type);
 	}
@@ -317,7 +317,7 @@ class account_billing
 	function search($VAR) {
 		$this->construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search($VAR, $this, $type);
 	}
@@ -331,7 +331,7 @@ class account_billing
 
 		$this->construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search($VAR, $this, $type);
 	}
@@ -339,7 +339,7 @@ class account_billing
 	function search_show($VAR) {
 		$this->construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search_show($VAR, $this, $type);
 	}
@@ -349,7 +349,7 @@ class account_billing
 		if(!SESS_LOGGED) return false; 
 		$this->construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search_show($VAR, $this, $type);
 	}
@@ -366,7 +366,7 @@ class account_billing
 
 		$this->construct();
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->view($VAR, $this, $type);
 	}

@@ -50,7 +50,7 @@ class host_registrar_plugin
 	function add($VAR)
 	{
 		$type 		= "add";
-		$this->method["$type"] = split(",", $this->method["$type"]);    		
+		$this->method["$type"] = explode(",", $this->method["$type"]);    		
 		$db 		= new CORE_database;
 		$db->add($VAR, $this, $type);
 	}
@@ -61,7 +61,7 @@ class host_registrar_plugin
 	function view($VAR)
 	{	
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->view($VAR, $this, $type);
 	}		
@@ -72,7 +72,7 @@ class host_registrar_plugin
 	function update($VAR)
 	{
 		$type = "update";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->update($VAR, $this, $type);
 	}
@@ -92,7 +92,7 @@ class host_registrar_plugin
 	function search_form($VAR)
 	{
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->search_form($VAR, $this, $type);
 	}

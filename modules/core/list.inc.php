@@ -342,7 +342,7 @@ class CORE_list
 		$auth = Array('product:top', 'account_admin:top', 'affiliate:top', 'invoice:compare');
 		for($i=0; $i<count($auth); $i++) {
 			if($auth[$i] == $VAR['graph']) {
-				$m = split(':', $VAR['graph']);
+				$m = explode(':', $VAR['graph']);
 				$C_method->exe_noauth($m[0], $m[1]);
 				exit;
 			}

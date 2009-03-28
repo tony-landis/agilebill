@@ -191,7 +191,7 @@ class htaccess
 	function add($VAR)
 	{
 		$type 		= "add";
-		$this->method["$type"] = split(",", $this->method["$type"]);    		
+		$this->method["$type"] = explode(",", $this->method["$type"]);    		
 		$db 		= new CORE_database;
 		$id = $db->add($VAR, $this, $type);
 
@@ -236,7 +236,7 @@ require_once(PATH_MODULES. "htaccess/mod_auth_remote.inc.php");
 	function view($VAR)
 	{	
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->view($VAR, $this, $type);
 	}		
@@ -247,7 +247,7 @@ require_once(PATH_MODULES. "htaccess/mod_auth_remote.inc.php");
 	function update($VAR)
 	{
 		$type = "update";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$result = $db->update($VAR, $this, $type); 
 
@@ -295,9 +295,9 @@ require_once(PATH_MODULES. "htaccess/mod_auth_remote.inc.php");
 
 		### Get the array
 		if(isset($VAR["delete_id"]))
-		$id = split(',', $VAR["delete_id"]);
+		$id = explode(',', $VAR["delete_id"]);
 		elseif (isset($VAR["id"]))
-		$id = split(',', $VAR["id"]);
+		$id = explode(',', $VAR["id"]);
 
 		### Load class for deleting sub-dirs.
 		include_once ( PATH_MODULES .'htaccess_dir/htaccess_dir.inc.php' );
@@ -341,7 +341,7 @@ require_once(PATH_MODULES. "htaccess/mod_auth_remote.inc.php");
 	function search($VAR)
 	{	
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->search($VAR, $this, $type);
 	}
@@ -353,7 +353,7 @@ require_once(PATH_MODULES. "htaccess/mod_auth_remote.inc.php");
 	function search_show($VAR)
 	{	
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->search_show($VAR, $this, $type);
 	}	

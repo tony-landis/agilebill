@@ -87,7 +87,7 @@ class CORE_database
 	 * @return array
 	 */
 	function ignore_fields($ignore_fields,$construct_fields) {
-		if(!is_array($construct_fields)) $fields = split(",", $construct_fields); else $fields = $construct_fields;
+		if(!is_array($construct_fields)) $fields = explode(",", $construct_fields); else $fields = $construct_fields;
 		foreach($fields as $id=>$fld) {
 			if(in_array($fld,$ignore_fields)) {
 				unset($fields[$id]);

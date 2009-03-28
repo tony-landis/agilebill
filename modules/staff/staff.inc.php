@@ -232,10 +232,10 @@ class staff
 			} 
 
 			if($setup_email->fields['cc_list'] != '')
-				$E['cc_list']   = split(',', $setup_email->fields['cc_list']);
+				$E['cc_list']   = explode(',', $setup_email->fields['cc_list']);
 
 			if($setup_email->fields['bcc_list'] != '')
-				$E['bcc_list']  = split(',', $setup_email->fields['bcc_list']);
+				$E['bcc_list']  = explode(',', $setup_email->fields['bcc_list']);
 
 
 			### Call the mail() or smtp() function to send
@@ -275,7 +275,7 @@ class staff
 	function add($VAR)
 	{
 		$type 		= "add";
-		$this->method["$type"] = split(",", $this->method["$type"]);    		
+		$this->method["$type"] = explode(",", $this->method["$type"]);    		
 		$db 		= new CORE_database;
 		$db->add($VAR, $this, $type);
 	}
@@ -286,7 +286,7 @@ class staff
 	function view($VAR)
 	{	
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->view($VAR, $this, $type);
 	}		
@@ -297,7 +297,7 @@ class staff
 	function update($VAR)
 	{
 		$type = "update";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->update($VAR, $this, $type);
 	}
@@ -317,7 +317,7 @@ class staff
 	function search_form($VAR)
 	{
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search_form($VAR, $this, $type);
 	}
@@ -328,7 +328,7 @@ class staff
 	function search($VAR)
 	{	
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search($VAR, $this, $type);
 	}
@@ -340,7 +340,7 @@ class staff
 	function search_show($VAR)
 	{	
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search_show($VAR, $this, $type);
 	}	

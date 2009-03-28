@@ -85,10 +85,10 @@ class plg_chout_NETBILLING extends base_checkout_plugin
 			$ret['status'] = 1;
 		} elseif (eregi("RET_STATUS=0",$response)) {
 			$ret['status'] = 0;
-			$mydata = split("\&",$response);
+			$mydata = explode("\&",$response);
 			foreach($mydata as $key=>$value)
 			{
-				$newdata = split('=', $value);
+				$newdata = explode('=', $value);
 				$ret[$newdata[0]] = $newdata[1];
 			}
 			$reason = urldecode($ret['RET_AUTH_MSG']);

@@ -254,14 +254,14 @@ class CORE_search
 				$ii=0;
 				if(ereg(" AND ", $sql))
 				{
-					$sql = split(" AND ",$sql);
+					$sql = explode(" AND ",$sql);
 					$this_fields = count($sql);
 
 					# loop
 					for($count=0; $count < $this_fields; $count++)
 					{
 						# do each field
-						$sqls = split("==",$sql[$count]);
+						$sqls = explode("==",$sql[$count]);
 						$field[$count][name]  = $sqls[0];
 						$field[$count][value] = ereg_replace("'","",$sqls[1]);
 						$field[$count][value] = ereg_replace("=","",$field[$count][value]);
@@ -293,7 +293,7 @@ class CORE_search
 					$this_fields = 1;
 
 					# do this one field
-					$sqls = split("==",$sql);
+					$sqls = explode("==",$sql);
 					$field[name]  = $sqls[0];
 					$field[value] = ereg_replace("'","",$sqls[1]);
 					$field[value] = ereg_replace("=","",$field[value]);
@@ -492,14 +492,14 @@ class CORE_search
 				$ii=0;
 				if(ereg(" AND ", $sql))
 				{
-					$sql = split(" AND ",$sql);
+					$sql = explode(" AND ",$sql);
 					$this_fields = count($sql);
 
 					# loop
 					for($count=0; $count < $this_fields; $count++)
 					{
 						# do each field
-						$sqls = split("==",$sql[$count]);
+						$sqls = explode("==",$sql[$count]);
 						$field[$count][name]  = $sqls[0];
 						$field[$count][value] = ereg_replace("'","",$sqls[1]);
 						$field[$count][value] = ereg_replace("=","",$field[$count][value]);
@@ -530,7 +530,7 @@ class CORE_search
 					$this_fields = 1;
 
 					# do this one field
-					$sqls = split("==",$sql);
+					$sqls = explode("==",$sql);
 					$field[name]  = $sqls[0];
 					$field[value] = ereg_replace("'","",$sqls[1]);
 					$field[value] = ereg_replace("=","",$field[value]);

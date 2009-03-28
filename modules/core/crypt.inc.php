@@ -163,7 +163,7 @@ class CORE_RSA
 	}
 
 	function rsa_decrypt($c, $d, $n) { 
-		$decryptarray = split(" ", $c);
+		$decryptarray = explode(" ", $c);
 		for ($u=0; $u<count ($decryptarray); $u++) {
 			if ($decryptarray[$u] == "") {
 				array_splice($decryptarray, $u, 1);

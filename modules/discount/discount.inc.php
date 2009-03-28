@@ -383,7 +383,7 @@ class discount
 		$VAR['discount_avail_account_id'] = SESS_ACCOUNT; 
 		$this->discount_construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search($VAR, $this, $type);
 	}
@@ -395,7 +395,7 @@ class discount
 		} 
 		$this->discount_construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search_show($VAR, $this, $type);
 	}
@@ -403,7 +403,7 @@ class discount
 	function add($VAR) {
 		$this->discount_construct();
 		$type 		= "add";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db 		= new CORE_database;
 		$db->add($VAR, $this, $type);
 	}
@@ -411,7 +411,7 @@ class discount
 	function view($VAR) {
 		$this->discount_construct();
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->view($VAR, $this, $type);
 	}
@@ -419,7 +419,7 @@ class discount
 	function update($VAR) {
 		$this->discount_construct();
 		$type = "update";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->update($VAR, $this, $type);
 	}
@@ -433,7 +433,7 @@ class discount
 	function search_form($VAR) {
 		$this->discount_construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search_form($VAR, $this, $type);
 	}
@@ -441,7 +441,7 @@ class discount
 	function search($VAR) {
 		$this->discount_construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search($VAR, $this, $type);
 	}
@@ -449,7 +449,7 @@ class discount
 	function search_show($VAR) {
 		$this->discount_construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$dbc = new CORE_database;
 		$smart = $dbc->search_show($VAR, $this, $type); 
 		$db = &DB(); 

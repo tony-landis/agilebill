@@ -67,7 +67,7 @@ class affiliate
 			$where = "{$p}affiliate.id LIKE ".$db->qstr($VAR['search']."%") ;   
 			$type = 1;            
 		} elseif (eregi(" ", $VAR['affiliate_search'])) {
-			$arr = split(" ", $VAR['affiliate_search']);
+			$arr = explode(" ", $VAR['affiliate_search']);
 			$where = "{$p}account.first_name =    ".$db->qstr($arr[0])." AND ".
 					 "{$p}account.last_name LIKE  ".$db->qstr($arr[1].'%') ;
 			$type = 2;        
@@ -741,7 +741,7 @@ class affiliate
 		}
 
 		$type = "user_update";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->update($VAR, $this, $type);
 
@@ -861,14 +861,14 @@ class affiliate
 	function view($VAR)
 	{	
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 
 		# set the field list for this method:
 		$db = &DB();
 		$arr = $this->method[$type];				
 		if(isset($VAR["id"]))
 		{
-			$id = split(',',$VAR["id"]);
+			$id = explode(',',$VAR["id"]);
 			for($i=0; $i<count($id); $i++)
 			{
 				if($id[$i] != '')
@@ -1102,7 +1102,7 @@ class affiliate
 		}
 
 		$type = "update";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->update($VAR, $this, $type);
 
@@ -1126,11 +1126,11 @@ class affiliate
 
 		if(isset($VAR["delete_id"]))
 		{
-			$id = split(',',$VAR["delete_id"]);
+			$id = explode(',',$VAR["delete_id"]);
 		}
 		elseif (isset($VAR["id"]))
 		{
-			$id = split(',',$VAR["id"]);
+			$id = explode(',',$VAR["id"]);
 		}
 
 		for($i=0; $i<count($id); $i++)
@@ -1201,7 +1201,7 @@ class affiliate
 	   if($VAR["format"] == "excel")
 	   {
 		   $type = "export_excel";
-		   $this->method["$type"] = split(",", $this->method["$type"]);
+		   $this->method["$type"] = explode(",", $this->method["$type"]);
 		   $export = new CORE_export;
 			$export->search_excel($VAR, $this, $type);
 	   }
@@ -1209,7 +1209,7 @@ class affiliate
 	   else if ($VAR["format"] == "pdf")
 	   {
 		   $type = "export_pdf";
-		   $this->method["$type"] = split(",", $this->method["$type"]);
+		   $this->method["$type"] = explode(",", $this->method["$type"]);
 		   $export = new CORE_export;
 			$export->search_pdf($VAR, $this, $type);
 	   }
@@ -1217,7 +1217,7 @@ class affiliate
 	   else if ($VAR["format"] == "xml")
 	   {
 		   $type = "export_xml";
-		   $this->method["$type"] = split(",", $this->method["$type"]);
+		   $this->method["$type"] = explode(",", $this->method["$type"]);
 		   $export = new CORE_export;
 			$export->search_xml($VAR, $this, $type);
 	   }
@@ -1225,7 +1225,7 @@ class affiliate
 	   else if ($VAR["format"] == "csv")
 	   {
 		   $type = "export_csv";
-		   $this->method["$type"] = split(",", $this->method["$type"]);
+		   $this->method["$type"] = explode(",", $this->method["$type"]);
 		   $export = new CORE_export;
 			$export->search_csv($VAR, $this, $type);
 	   }
@@ -1233,7 +1233,7 @@ class affiliate
 	   else if ($VAR["format"] == "tab")
 	   {
 		   $type = "export_tab";
-		   $this->method["$type"] = split(",", $this->method["$type"]);
+		   $this->method["$type"] = explode(",", $this->method["$type"]);
 		   $export = new CORE_export;
 			$export->search_tab($VAR, $this, $type);
 	   }
@@ -1247,7 +1247,7 @@ class affiliate
 	function search_form($VAR)
 	{
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->search_form($VAR, $this, $type);
 	}
@@ -1258,7 +1258,7 @@ class affiliate
 	function search($VAR)
 	{	 
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 
 		$db = &DB();	
 
@@ -1552,7 +1552,7 @@ class affiliate
 	function search_show($VAR)
 	{	         	
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 
 		# set the field list for this method:
 		$arr = $this->method[$type];

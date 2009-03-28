@@ -152,7 +152,7 @@ class campaign
 
 		## Attempt to add the record: 
 		$type 		= "add";
-		$this->method["$type"] = split(",", $this->method["$type"]);    		
+		$this->method["$type"] = explode(",", $this->method["$type"]);    		
 		$db 		= new CORE_database;
 		$campaign_id = $db->add($VAR, $this, $type);
 
@@ -181,7 +181,7 @@ class campaign
 	function view($VAR)
 	{	
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$smart = $db->view($VAR, $this, $type);
 
@@ -366,7 +366,7 @@ class campaign
 	function affiliate($VAR)
 	{	
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->view($VAR, $this, $type);
 	}	    		
@@ -386,7 +386,7 @@ class campaign
 
 		# Store the record
 		$type = "update";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$rs = $db->update($VAR, $this, $type);
 
@@ -446,11 +446,11 @@ class campaign
 
 		if(isset($VAR["delete_id"]))
 		{
-			$id = split(',',$VAR["delete_id"]);
+			$id = explode(',',$VAR["delete_id"]);
 		}
 		elseif (isset($VAR["id"]))
 		{
-			$id = split(',',$VAR["id"]);
+			$id = explode(',',$VAR["id"]);
 		}
 
 		for($i=0; $i<count($id); $i++)
@@ -525,7 +525,7 @@ class campaign
 	function search_form($VAR)
 	{
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->search_form($VAR, $this, $type);
 	}
@@ -536,7 +536,7 @@ class campaign
 	function search($VAR)
 	{	
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->search($VAR, $this, $type);
 	}
@@ -548,7 +548,7 @@ class campaign
 	function search_show($VAR)
 	{	
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$smart = $db->search_show($VAR, $this, $type);
 
@@ -660,7 +660,7 @@ class campaign
 	   if($VAR["format"] == "excel")
 	   {
 		   $type = "export_excel";
-		   $this->method["$type"] = split(",", $this->method["$type"]);
+		   $this->method["$type"] = explode(",", $this->method["$type"]);
 		   $export = new CORE_export;
 			$export->search_excel($VAR, $this, $type);    	
 	   }
@@ -668,7 +668,7 @@ class campaign
 	   else if ($VAR["format"] == "pdf")
 	   {
 		   $type = "export_pdf";
-		   $this->method["$type"] = split(",", $this->method["$type"]);
+		   $this->method["$type"] = explode(",", $this->method["$type"]);
 		   $export = new CORE_export;
 			$export->search_pdf($VAR, $this, $type);      	
 	   }
@@ -676,7 +676,7 @@ class campaign
 	   else if ($VAR["format"] == "xml")
 	   {
 		   $type = "export_xml";
-		   $this->method["$type"] = split(",", $this->method["$type"]);
+		   $this->method["$type"] = explode(",", $this->method["$type"]);
 		   $export = new CORE_export;
 			$export->search_xml($VAR, $this, $type);
 	   }
@@ -684,7 +684,7 @@ class campaign
 	   else if ($VAR["format"] == "csv")
 	   {
 		   $type = "export_csv";
-		   $this->method["$type"] = split(",", $this->method["$type"]);
+		   $this->method["$type"] = explode(",", $this->method["$type"]);
 		   $export = new CORE_export;
 			$export->search_csv($VAR, $this, $type);
 	   }
@@ -692,7 +692,7 @@ class campaign
 	   else if ($VAR["format"] == "tab")
 	   {
 		   $type = "export_tab";
-		   $this->method["$type"] = split(",", $this->method["$type"]);
+		   $this->method["$type"] = explode(",", $this->method["$type"]);
 		   $export = new CORE_export;
 			$export->search_tab($VAR, $this, $type);
 	   }                                           	
