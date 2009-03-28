@@ -118,8 +118,8 @@ class plg_chout_SWREG_ADVANCED extends base_checkout_plugin
 			echo '<script language=Javascript>alert(\'SSL Failed!\') </script>';
 			return false;
 		} else  {
-			foreach(split("&",$response) as $pair) {
-				list($key,$val)=split("=",$pair);
+			foreach(explode("&",$response) as $pair) {
+				list($key,$val)=explode("=",$pair);
 				$swreg[$key]=$val;
 			}
 		}

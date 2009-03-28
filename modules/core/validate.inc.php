@@ -79,8 +79,8 @@ class CORE_validate
 		if($date == '0' || $date == '')
 		  return '';
 
-		$Arr_format = split(DEFAULT_DATE_DIVIDER, UNIX_DATE_FORMAT);
-		$Arr_date   = split(DEFAULT_DATE_DIVIDER, $date);
+		$Arr_format = explode(DEFAULT_DATE_DIVIDER, UNIX_DATE_FORMAT);
+		$Arr_date   = explode(DEFAULT_DATE_DIVIDER, $date);
 
 		for($i=0; $i<3; $i++)
 		{
@@ -104,8 +104,8 @@ class CORE_validate
 		if($date == '0' || $date == '')
 		  return '';
 
-		$Arr_format = split(DEFAULT_DATE_DIVIDER, UNIX_DATE_FORMAT);
-		$Arr_date   = split(DEFAULT_DATE_DIVIDER, $date);
+		$Arr_format = explode(DEFAULT_DATE_DIVIDER, UNIX_DATE_FORMAT);
+		$Arr_date   = explode(DEFAULT_DATE_DIVIDER, $date);
 
 		for($i=0; $i<3; $i++) {
 			if($Arr_format[$i] == 'd') if(!empty($Arr_date[$i])) $day = $Arr_date[$i];
@@ -357,8 +357,8 @@ class CORE_validate
 			return false;
 		}
 
-		$Arr_format = split(DEFAULT_DATE_DIVIDER, UNIX_DATE_FORMAT);
-		$Arr_date   = split(DEFAULT_DATE_DIVIDER, $data);
+		$Arr_format = explode(DEFAULT_DATE_DIVIDER, UNIX_DATE_FORMAT);
+		$Arr_date   = explode(DEFAULT_DATE_DIVIDER, $data);
 
 		if(!gettype($Arr_date) == 'array'  ||  count($Arr_date) != 3)
 		{
@@ -589,7 +589,7 @@ class CORE_validate
 		}
 		else if ($card_type == "mc" || !$card_type) {
 			// MC
-			if ( ereg("^5[1-5][0-9]{14}$", $ccNum) )  {
+			if ( preg_match("/^5[1-5][0-9]{14}$/", $ccNum) )  {
 				$v_ccNum = true;
 				$c_type  = 'mc';
 			}
@@ -737,8 +737,8 @@ class CORE_validate
 
 	function DateToEpoch($format,$date)
 	{
-		$Arr_format = split(DEFAULT_DATE_DIVIDER, UNIX_DATE_FORMAT);
-		$Arr_date   = split(DEFAULT_DATE_DIVIDER, $date);
+		$Arr_format = explode(DEFAULT_DATE_DIVIDER, UNIX_DATE_FORMAT);
+		$Arr_date   = explode(DEFAULT_DATE_DIVIDER, $date);
 		for($i=0; $i<3; $i++)
 		{
 			if($Arr_format[$i] == 'd') $day = $Arr_date[$i];

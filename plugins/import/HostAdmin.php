@@ -976,7 +976,7 @@ class import_plugin extends import
 			
 			$term   = $rs->fields['domain_years'];
 			$domain_name = strtolower($rs->fields['domain_name']);
-			$arr = split('\.', $domain_name);
+			$arr = explode('\.', $domain_name);
 			$tld = '';
 			$domain =  $arr[0];
 			for($i=0; $i<count($arr); $i++)  {

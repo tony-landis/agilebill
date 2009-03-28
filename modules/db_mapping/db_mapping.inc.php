@@ -149,7 +149,7 @@ class db_mapping
 		global $C_translate;
 
 		$type 		= "add";
-		$this->method["$type"] = split(",", $this->method["$type"]);   
+		$this->method["$type"] = explode(",", $this->method["$type"]);   
 
 		# set the field list for this method:
 		$arr = $this->method["$type"];
@@ -537,7 +537,7 @@ class db_mapping
 	{
 		$this->construct();
 		$type = "update";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->update($VAR, $this, $type);
 	}
@@ -1490,7 +1490,7 @@ function MAP_sync ($id, $file, $MAP_this)
 
 		$fld = $MAP_this->map['account_fields']['first_name']['map_field'];
 		@$first_name     = $result->fields[$fld];
-		@$name_arr       = split(' ', $first_name);
+		@$name_arr       = explode(' ', $first_name);
 
 		if ( !$MAP_this->map['account_fields']['last_name']['map_field'] )
 		{

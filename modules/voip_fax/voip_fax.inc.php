@@ -91,7 +91,7 @@ class voip_fax
 			unset($db);
 			$VAR['voip_fax_account_id'] = SESS_ACCOUNT;	 
 			$type = "search";
-			$this->method["$type"] = split(",", $this->method["$type"]);
+			$this->method["$type"] = explode(",", $this->method["$type"]);
 			$db = new CORE_database;
 			$db->search($VAR, $this, $type); 
 		} else {
@@ -130,7 +130,7 @@ class voip_fax
 
 	function add($VAR) {
 		$type 		= "add";
-		$this->method["$type"] = split(",", $this->method["$type"]);    		
+		$this->method["$type"] = explode(",", $this->method["$type"]);    		
 		$db 		= new CORE_database;
 		$db->add($VAR, $this, $type);
 	}      
@@ -140,7 +140,7 @@ class voip_fax
 		$this->associated_DELETE[] = Array( 'table' => 'voip_fax_data', 'field' => 'fax_id');
 
 		$type = "update";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->update($VAR, $this, $type);
 	}
@@ -152,14 +152,14 @@ class voip_fax
 
 	function search_form($VAR) {
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search_form($VAR, $this, $type);
 	}
 
 	function search($VAR) {	
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search($VAR, $this, $type);
 	}
@@ -184,7 +184,7 @@ class voip_fax
 			unset($db);
 		}
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search_show($VAR, $this, $type);
 	} 

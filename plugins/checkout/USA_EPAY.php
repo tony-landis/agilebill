@@ -469,7 +469,7 @@ class umTransaction {
 		}
 
 		// result will be on the last line of the return
-		$tmp=split("\n",$result);
+		$tmp=explode("\n",$result);
 		$result=$tmp[count($tmp)-1];
 
 		// result is in urlencoded format, parse into an array

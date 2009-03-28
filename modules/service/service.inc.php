@@ -1160,7 +1160,7 @@ class service
 
 		### loop through the field list to validate the required fields
 		$type = 'add';
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$arr = $this->method["$type"];
 		include_once(PATH_CORE . 'validate.inc.php');
 		$validate = new CORE_validate;
@@ -1477,7 +1477,7 @@ class service
 		global $smarty,$C_auth;
 		$this->construct();
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$smart = $db->view($VAR, $this, $type);
 
@@ -1647,7 +1647,7 @@ class service
 
 		# update record
 		$type = "update";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->update($VAR, $this, $type);
 
@@ -1665,9 +1665,9 @@ class service
 
 		### Get the array
 		if(isset($VAR["delete_id"]))
-		$id = split(',', $VAR["delete_id"]);
+		$id = explode(',', $VAR["delete_id"]);
 		elseif (isset($VAR["id"]))
-		$id = split(',', $VAR["id"]);
+		$id = explode(',', $VAR["id"]);
 
 		### Loop:
 		for($i=0; $i<count($id); $i++)
@@ -1721,7 +1721,7 @@ class service
 	function search_form($VAR) {
 		$this->construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search_form($VAR, $this, $type);
 	}
@@ -1729,7 +1729,7 @@ class service
 	function search($VAR)   {
 		$this->construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search($VAR, $this, $type);
 	}
@@ -1737,7 +1737,7 @@ class service
 	function search_show($VAR)  {
 		$this->construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$dba = new CORE_database;
 		$smart = $dba->search_show($VAR, $this, $type);
 
@@ -1799,7 +1799,7 @@ class service
 		$VAR['service_account_id'] = SESS_ACCOUNT;
 		$this->construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search($VAR, $this, $type);
 	}
@@ -1811,7 +1811,7 @@ class service
 		}
 		$this->construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search_show($VAR, $this, $type);
 	}
@@ -1843,7 +1843,7 @@ class service
 		if($VAR["format"] == "excel")
 		{
 			$type = "export_excel";
-			$this->method["$type"] = split(",", $this->method["$type"]);
+			$this->method["$type"] = explode(",", $this->method["$type"]);
 			$export = new CORE_export;
 			$export->search_excel($VAR, $this, $type);
 		}
@@ -1854,21 +1854,21 @@ class service
 		else if ($VAR["format"] == "xml")
 		{
 			$type = "export_xml";
-			$this->method["$type"] = split(",", $this->method["$type"]);
+			$this->method["$type"] = explode(",", $this->method["$type"]);
 			$export = new CORE_export;
 			$export->search_xml($VAR, $this, $type);
 		}
 		else if ($VAR["format"] == "csv")
 		{
 			$type = "export_csv";
-			$this->method["$type"] = split(",", $this->method["$type"]);
+			$this->method["$type"] = explode(",", $this->method["$type"]);
 			$export = new CORE_export;
 			$export->search_csv($VAR, $this, $type);
 		}
 		else if ($VAR["format"] == "tab")
 		{
 			$type = "export_tab";
-			$this->method["$type"] = split(",", $this->method["$type"]);
+			$this->method["$type"] = explode(",", $this->method["$type"]);
 			$export = new CORE_export;
 			$export->search_tab($VAR, $this, $type);
 		}

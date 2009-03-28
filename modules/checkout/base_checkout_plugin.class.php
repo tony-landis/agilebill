@@ -118,7 +118,7 @@ class base_checkout_plugin
 		// validate actual credit card details
 		include_once(PATH_CORE . 'validate.inc.php');
 		$validate = new CORE_validate;
-		$this->billing["cc_no"] == ereg_replace('^[0-9]', '', $this->billing["cc_no"]);
+		$this->billing["cc_no"] == preg_replace('/^[0-9]/', '', $this->billing["cc_no"]);
 		if (!$validate->validate_cc( $this->billing["cc_no"], false, $this->billing["card_type"], $this->cfg['card_type'] )) {
 			$ret['status'] = 0;
 			global $C_translate;

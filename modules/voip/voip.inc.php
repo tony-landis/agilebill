@@ -1764,7 +1764,7 @@ class voip
 				} else if ($r['type'] == 'regular' || $r['type'] == 'default') {
 					#echo "src=".$rs1->fields['src']."\n";
 					#echo "dst=".$rs1->fields['dst']."\n";
-					$pats = split(";", $r['pattern']);
+					$pats = explode(";", $r['pattern']);
 					$search = $rs1->fields['dst'];
 					foreach ($pats as $pattern) {
 						#echo "Matching against: $pattern\n";

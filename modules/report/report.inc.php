@@ -287,8 +287,8 @@ class report
 		if($date == '0' || $date == '')
 		return '';
 
-		$Arr_format = split(DEFAULT_DATE_DIVIDER, UNIX_DATE_FORMAT);
-		$Arr_date   = split(DEFAULT_DATE_DIVIDER, $date);
+		$Arr_format = explode(DEFAULT_DATE_DIVIDER, UNIX_DATE_FORMAT);
+		$Arr_date   = explode(DEFAULT_DATE_DIVIDER, $date);
 
 		for($i=0; $i<3; $i++)
 		{

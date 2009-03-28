@@ -513,8 +513,8 @@ class checkout
 	*/
 	function getInputDate($date) { 
 	 
-  		$Arr_format = split(DEFAULT_DATE_DIVIDER, UNIX_DATE_FORMAT);
-        $Arr_date   = split(DEFAULT_DATE_DIVIDER, $date);
+  		$Arr_format = explode(DEFAULT_DATE_DIVIDER, UNIX_DATE_FORMAT);
+        $Arr_date   = explode(DEFAULT_DATE_DIVIDER, $date);
         for($i=0; $i<3; $i++)
         {
             if($Arr_format[$i] == 'd') $day = $Arr_date[$i];
@@ -844,7 +844,7 @@ class checkout
 	function add($VAR) {
 		$this->checkout_construct();
 		$type 		= "add";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db 		= new CORE_database;
 		$db->add($VAR, $this, $type);
 	}
@@ -852,7 +852,7 @@ class checkout
 	function view($VAR) {
 		$this->checkout_construct();
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->view($VAR, $this, $type);
 	}
@@ -860,7 +860,7 @@ class checkout
 	function update($VAR) {
 		$this->checkout_construct();
 		$type = "update";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->update($VAR, $this, $type);
 	}
@@ -874,7 +874,7 @@ class checkout
 	function search($VAR) {
 		$this->checkout_construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search($VAR, $this, $type);
 	}
@@ -882,7 +882,7 @@ class checkout
 	function search_show($VAR) {
 		$this->checkout_construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search_show($VAR, $this, $type);
 	}
