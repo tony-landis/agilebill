@@ -143,9 +143,6 @@
                   </select></td>
                   <td>{translate module=checkout} exp_year {/translate} </td>
                   <td><select name="checkout_plugin_data[exp_year]" >
-                    <option value="06" {if $VAR.exp_year == "6"}selected{/if}>2006</option>
-                    <option value="07" {if $VAR.exp_year == "7"}selected{/if}>2007</option>
-                    <option value="08" {if $VAR.exp_year == "8"}selected{/if}>2008</option>
                     <option value="09" {if $VAR.exp_year == "9"}selected{/if}>2009</option>
                     <option value="10" {if $VAR.exp_year == "10"}selected{/if}>2010</option>
                     <option value="11" {if $VAR.exp_year == "11"}selected{/if}>2011</option>
@@ -154,6 +151,11 @@
                     <option value="14" {if $VAR.exp_year == "14"}selected{/if}>2014</option>
                     <option value="15" {if $VAR.exp_year == "15"}selected{/if}>2015</option>
                     <option value="15" {if $VAR.exp_year == "16"}selected{/if}>2016</option>
+                    <option value="15" {if $VAR.exp_year == "16"}selected{/if}>2017</option>
+                    <option value="15" {if $VAR.exp_year == "16"}selected{/if}>2018</option>
+                    <option value="15" {if $VAR.exp_year == "16"}selected{/if}>2019</option>
+                    <option value="15" {if $VAR.exp_year == "16"}selected{/if}>2020</option>
+                    <option value="15" {if $VAR.exp_year == "16"}selected{/if}>2021</option>
                   </select></td>
                   <td width="17%"><a href="javascript:NewWindow('ccv_help','','{$SSL_URL}?_page=checkout:ccv_help&_escape=1');"> 
                     </a><a href="javascript:NewWindow('ccv_help','','{$SSL_URL}?_page=checkout:ccv_help&_escape=1');">{translate module=checkout} ccv {/translate} </a></td>
