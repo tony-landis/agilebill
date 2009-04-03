@@ -243,10 +243,10 @@ class plgn_voip_did_DIDX
 			global $C_debug;
 			$C_debug->error('DIDX.php', 'refresh', 'Could not acquire information from DIDx.org');
 		} else {
-			$entries = split("\r\n", $this->country_area);
+			$entries = explode("\r\n", $this->country_area);
 			foreach ($entries as $entry) {
-				$eparts = split(":", $entry);
-				$areas = split(",", $eparts[1]);
+				$eparts = explode(":", $entry);
+				$areas = explode(",", $eparts[1]);
 				$bDelete = true;
 				foreach ($areas as $area) {
 					$params = array(

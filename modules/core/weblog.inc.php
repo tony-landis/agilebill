@@ -45,7 +45,7 @@ class CORE_weblog
 		}
 		else
 		{
-			@$pagearr = split(':', $VAR['_page']);
+			@$pagearr = explode(':', $VAR['_page']);
 			@$page = $pagearr["1"];
 		}
 

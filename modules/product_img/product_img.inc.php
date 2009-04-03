@@ -93,7 +93,7 @@ class product_img
 		}
 
 		$type 		= "add";
-		$this->method["$type"] = split(",", $this->method["$type"]);    		
+		$this->method["$type"] = explode(",", $this->method["$type"]);    		
 		$db 		= new CORE_database;
 		$result 	= $db->add($VAR, $this, $type);
 
@@ -111,7 +111,7 @@ class product_img
 	function view($VAR)
 	{	
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->view($VAR, $this, $type);
 	}		
@@ -127,11 +127,11 @@ class product_img
 		### Delete any saved images:
 		if(isset($VAR["delete_id"]))
 		{
-			$id = split(',',$VAR["delete_id"]);
+			$id = explode(',',$VAR["delete_id"]);
 		}
 		elseif (isset($VAR["id"]))
 		{
-			$id = split(',',$VAR["id"]);
+			$id = explode(',',$VAR["id"]);
 		}
 
 		for($i=0; $i<count($id); $i++)
@@ -174,7 +174,7 @@ class product_img
 	function search($VAR)
 	{	
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->search($VAR, $this, $type);
 	}
@@ -186,7 +186,7 @@ class product_img
 	function search_show($VAR)
 	{	
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->search_show($VAR, $this, $type);
 	}	

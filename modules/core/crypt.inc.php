@@ -163,7 +163,7 @@ class CORE_RSA
 	}
 
 	function rsa_decrypt($c, $d, $n) { 
-		$decryptarray = split(" ", $c);
+		$decryptarray = explode(" ", $c);
 		for ($u=0; $u<count ($decryptarray); $u++) {
 			if ($decryptarray[$u] == "") {
 				array_splice($decryptarray, $u, 1);
@@ -183,7 +183,7 @@ class CORE_RSA
 
 
 function CORE_encrypt($data)  {
-	if(LICENSE_KEY == '') return false;  
+	if(LICENSE_KEY == '') return $data; // provide a license key in the setup area to enable encryption
 	$rsa 		= new CORE_RSA;
 	$keys 		= explode('-', LICENSE_KEY); 
 	$rsa_data   = $rsa->rsa_encrypt($data, $keys[1], $keys[0]);  
@@ -194,7 +194,7 @@ function CORE_encrypt($data)  {
 
 
 function CORE_decrypt($data)  {
-	if(LICENSE_KEY == '') return false;  
+	if(LICENSE_KEY == '') return $data;  // provide a license key in the setup area to enable encryption
 	$rc4_key	= do_rc4(LICENSE_KEY, 'en', false);    
 	$rc4_data 	= do_rc4($data, 'de', $rc4_key);  
 	$rsa 		= new CORE_RSA;

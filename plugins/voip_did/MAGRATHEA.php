@@ -155,10 +155,10 @@ class plgn_voip_did_MAGRATHEA
 		$voip = new voip;
     	
     	$db =& DB();
-		$entries = split("\r\n", $this->country_area);
+		$entries = explode("\r\n", $this->country_area);
 		foreach ($entries as $entry) {
-			$eparts = split(":", $entry);
-			$areas = split(",", $eparts[1]);
+			$eparts = explode(":", $entry);
+			$areas = explode(",", $eparts[1]);
 			$bDelete = false;
 			foreach ($areas as $area) {
 

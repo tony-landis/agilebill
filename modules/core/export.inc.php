@@ -401,11 +401,11 @@ function search_excel($VAR, $construct, $type)
 		$pdf->AddPage();
 
 		# Determine the number of columns and width for each one...	
-		$SetWidths = split(",",$width_list);
+		$SetWidths = explode(",",$width_list);
 		$pdf->SetWidths($SetWidths);	
 
 		# Define the table heading	
-		$TableHeading =  split(",",$heading_list);			
+		$TableHeading =  explode(",",$heading_list);			
 
 		# Define the Properties for the table heading cells:			
 		# set the font:
@@ -573,7 +573,7 @@ function search_excel($VAR, $construct, $type)
 				}
 				$i++;
 			}		
-			$ThisRow =  split("::",$CurrRow);			
+			$ThisRow =  explode("::",$CurrRow);			
 
 			# set the colors & fonts
 			if($BackAlt)
