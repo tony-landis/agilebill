@@ -30,11 +30,11 @@ function CORE_database_mass_delete($VAR, &$construct, $type)
 
 	if(isset($VAR["delete_id"]))
 	{
-		$id = split(',',$VAR["delete_id"]);
+		$id = explode(',',$VAR["delete_id"]);
 	}
 	elseif (isset($VAR["id"]))
 	{
-		$id = split(',',$VAR["id"]);
+		$id = explode(',',$VAR["id"]);
 	}
 
 	for($i=0; $i<count($id); $i++)

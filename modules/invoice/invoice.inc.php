@@ -2969,7 +2969,7 @@ class invoice
 		if(empty($invoice) || eregi(",", $invoice)) { 
 			$id_list='';
 			if(!empty($invoice)) {
-				$id = split(',', $invoice);
+				$id = explode(',', $invoice);
 				for($i=0; $i<count($id); $i++) {
 					if($id[$i] != '') {
 						if($i == 0) {
@@ -3290,7 +3290,7 @@ class invoice
 		global $C_translate, $C_list;
 		$this->invoice_construct();
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 
 		$db = &DB();
 
@@ -3317,7 +3317,7 @@ class invoice
 
 		if(isset($VAR["id"]))
 		{
-			$id = split(',',$VAR["id"]);
+			$id = explode(',',$VAR["id"]);
 			for($i=0; $i<count($id); $i++)
 			{
 				if($id[$i] != '')
@@ -3650,7 +3650,7 @@ class invoice
 	{
 		$this->invoice_construct();
 		$type = "update";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->update($VAR, $this, $type);
 	}
@@ -3665,9 +3665,9 @@ class invoice
 
 		### Get the array
 		if(isset($VAR["delete_id"]))
-		$id = split(',', $VAR["delete_id"]);
+		$id = explode(',', $VAR["delete_id"]);
 		elseif (isset($VAR["id"]))
-		$id = split(',', $VAR["id"]);
+		$id = explode(',', $VAR["id"]);
 
 		### Load the service module
 		include_once(PATH_MODULES.'service/service.inc.php');
@@ -3712,7 +3712,7 @@ class invoice
 	{
 		$this->invoice_construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search_form($VAR, $this, $type);
 	}
@@ -3723,7 +3723,7 @@ class invoice
 	{
 		$this->invoice_construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 
 		$db = &DB();
 
@@ -4068,7 +4068,7 @@ class invoice
 	{
 		$this->invoice_construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 
 		# set the field list for this method:
 		$arr = $this->method[$type];
@@ -4261,7 +4261,7 @@ class invoice
 		$VAR['invoice_account_id'] = SESS_ACCOUNT;
 		$this->invoice_construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search($VAR, $this, $type);
 	}
@@ -4273,7 +4273,7 @@ class invoice
 		if(!SESS_LOGGED) return false;
 		$this->invoice_construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search_show($VAR, $this, $type);
 	}
@@ -4288,7 +4288,7 @@ class invoice
 		// verify the account_id for this order is the SESS_ACCOUNT
 		if ( $C_auth->auth_method_by_name('invoice','view') == false)
 		{
-			$id = split(',',$VAR['id']);
+			$id = explode(',',$VAR['id']);
 			$db = &DB();
 			$q = "SELECT account_id FROM ".AGILE_DB_PREFIX."invoice WHERE
 	        			id = ".$db->qstr($id[0])." AND
@@ -4317,7 +4317,7 @@ class invoice
 		if($VAR["format"] == "excel")
 		{
 			$type = "export_excel";
-			$this->method["$type"] = split(",", $this->method["$type"]);
+			$this->method["$type"] = explode(",", $this->method["$type"]);
 			$export = new CORE_export;
 			$export->search_excel($VAR, $this, $type);
 		}
@@ -4325,7 +4325,7 @@ class invoice
 		else if ($VAR["format"] == "pdf")
 		{
 			$type = "export_pdf";
-			$this->method["$type"] = split(",", $this->method["$type"]);
+			$this->method["$type"] = explode(",", $this->method["$type"]);
 			$export = new CORE_export;
 			$export->pdf_invoice($VAR, $this, $type);
 		}
@@ -4333,7 +4333,7 @@ class invoice
 		else if ($VAR["format"] == "xml")
 		{
 			$type = "export_xml";
-			$this->method["$type"] = split(",", $this->method["$type"]);
+			$this->method["$type"] = explode(",", $this->method["$type"]);
 			$export = new CORE_export;
 			$export->search_xml($VAR, $this, $type);
 		}
@@ -4341,7 +4341,7 @@ class invoice
 		else if ($VAR["format"] == "csv")
 		{
 			$type = "export_csv";
-			$this->method["$type"] = split(",", $this->method["$type"]);
+			$this->method["$type"] = explode(",", $this->method["$type"]);
 			$export = new CORE_export;
 			$export->search_csv($VAR, $this, $type);
 		}
@@ -4349,7 +4349,7 @@ class invoice
 		else if ($VAR["format"] == "tab")
 		{
 			$type = "export_tab";
-			$this->method["$type"] = split(",", $this->method["$type"]);
+			$this->method["$type"] = explode(",", $this->method["$type"]);
 			$export = new CORE_export;
 			$export->search_tab($VAR, $this, $type);
 		}

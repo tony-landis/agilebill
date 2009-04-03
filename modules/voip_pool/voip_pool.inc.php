@@ -143,7 +143,7 @@ class voip_pool
 	function add($VAR)
 	{
 		$type 		= "add";
-		$this->method["$type"] = split(",", $this->method["$type"]);    		
+		$this->method["$type"] = explode(",", $this->method["$type"]);    		
 		$db 		= new CORE_database;
 		$db->add($VAR, $this, $type);
 	}
@@ -154,7 +154,7 @@ class voip_pool
 	function view($VAR)
 	{	
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->view($VAR, $this, $type);
 	}		
@@ -165,7 +165,7 @@ class voip_pool
 	function update($VAR)
 	{
 		$type = "update";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->update($VAR, $this, $type);
 	}
@@ -185,7 +185,7 @@ class voip_pool
 	function search_form($VAR)
 	{
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->search_form($VAR, $this, $type);
 	}
@@ -196,7 +196,7 @@ class voip_pool
 	function search($VAR)
 	{	
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->search($VAR, $this, $type);
 	}
@@ -208,7 +208,7 @@ class voip_pool
 	function search_show($VAR)
 	{	
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->search_show($VAR, $this, $type);
 	}	
@@ -225,7 +225,7 @@ class voip_pool
 	   if($VAR["format"] == "excel")
 	   {
 		   $type = "export_excel";
-		   $this->method["$type"] = split(",", $this->method["$type"]);
+		   $this->method["$type"] = explode(",", $this->method["$type"]);
 		   $export = new CORE_export;
 			$export->search_excel($VAR, $this, $type);    	
 	   }
@@ -233,7 +233,7 @@ class voip_pool
 	   else if ($VAR["format"] == "pdf")
 	   {
 		   $type = "export_pdf";
-		   $this->method["$type"] = split(",", $this->method["$type"]);
+		   $this->method["$type"] = explode(",", $this->method["$type"]);
 		   $export = new CORE_export;
 			$export->search_pdf($VAR, $this, $type);      	
 	   }
@@ -241,7 +241,7 @@ class voip_pool
 	   else if ($VAR["format"] == "xml")
 	   {
 		   $type = "export_xml";
-		   $this->method["$type"] = split(",", $this->method["$type"]);
+		   $this->method["$type"] = explode(",", $this->method["$type"]);
 		   $export = new CORE_export;
 			$export->search_xml($VAR, $this, $type);
 	   }
@@ -249,7 +249,7 @@ class voip_pool
 	   else if ($VAR["format"] == "csv")
 	   {
 		   $type = "export_csv";
-		   $this->method["$type"] = split(",", $this->method["$type"]);
+		   $this->method["$type"] = explode(",", $this->method["$type"]);
 		   $export = new CORE_export;
 			$export->search_csv($VAR, $this, $type);
 	   }
@@ -257,7 +257,7 @@ class voip_pool
 	   else if ($VAR["format"] == "tab")
 	   {
 		   $type = "export_tab";
-		   $this->method["$type"] = split(",", $this->method["$type"]);
+		   $this->method["$type"] = explode(",", $this->method["$type"]);
 		   $export = new CORE_export;
 			$export->search_tab($VAR, $this, $type);
 	   }                                           	

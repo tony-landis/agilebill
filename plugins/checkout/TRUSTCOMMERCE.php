@@ -90,13 +90,13 @@ class plg_chout_TRUSTCOMMERCE extends base_checkout_plugin
 			echo '<script language=Javascript>alert(\'SSL Failed!\') </script>';
 			return false;
 		} else  {
-			$response = split("\n", trim($return));
+			$response = explode("\n", trim($return));
 			for($i=0; $i<count($response); $i++)
 			{
 				if(!empty($response[$i]))
 				{
 					unset($thisone);
-					$thisone = split("=", $response[$i]);
+					$thisone = explode("=", $response[$i]);
 					$varr[$thisone[0]] = $thisone[1];
 				}
 			}

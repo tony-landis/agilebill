@@ -53,7 +53,7 @@ class newsletter
 	{
 		$this->newsletter_construct();
 		$type 		= "add";
-		$this->method["$type"] = split(",", $this->method["$type"]);    		
+		$this->method["$type"] = explode(",", $this->method["$type"]);    		
 		$db 		= new CORE_database;
 		$db->add($VAR, $this, $type);
 	}
@@ -65,7 +65,7 @@ class newsletter
 	{	
 		$this->newsletter_construct();
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->view($VAR, $this, $type);
 	}	
@@ -78,7 +78,7 @@ class newsletter
 	{	
 		$this->newsletter_construct();
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->view($VAR, $this, $type);
 	}	        	
@@ -90,7 +90,7 @@ class newsletter
 	{
 		$this->newsletter_construct();
 		$type = "update";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->update($VAR, $this, $type);
 	}
@@ -112,7 +112,7 @@ class newsletter
 	{
 		$this->newsletter_construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search_form($VAR, $this, $type);
 	}
@@ -124,7 +124,7 @@ class newsletter
 	{	
 		$this->newsletter_construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search($VAR, $this, $type);
 	}
@@ -137,7 +137,7 @@ class newsletter
 	{	
 		$this->newsletter_construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search_show($VAR, $this, $type);
 	}
@@ -179,10 +179,10 @@ class newsletter
 		$E['from_email']    = $setup_email->fields['from_email'];
 
 		if($setup_email->fields['cc_list'] != '')
-			$E['cc_list']   = split(',', $setup_email->fields['cc_list']);
+			$E['cc_list']   = explode(',', $setup_email->fields['cc_list']);
 
 		if($setup_email->fields['bcc_list'] != '')
-			$E['bcc_list']  = split(',', $setup_email->fields['bcc_list']);
+			$E['bcc_list']  = explode(',', $setup_email->fields['bcc_list']);
 
 
 		#####################################################

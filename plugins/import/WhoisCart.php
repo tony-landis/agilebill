@@ -814,7 +814,7 @@ class import_plugin extends import
  		 			
 				# Determine the domain TLD & Name:
 				$domain_name = $rs->fields['domain'];
-				$arr = split('\.', $domain_name);
+				$arr = explode('\.', $domain_name);
 				$tld = '';
 				$domain =  $arr[0];
 				for($i=0; $i<count($arr); $i++)  {
@@ -1066,7 +1066,7 @@ class import_plugin extends import
 			  
 			# Determine the domain TLD & Name:
 			$domain_name = $rs->fields['target'];
-			$arr = split('\.', $domain_name);
+			$arr = explode('\.', $domain_name);
 			$tld = '';
 			$domain = $arr[0];
 			for($i=0; $i<count($arr); $i++)  {

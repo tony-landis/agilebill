@@ -799,7 +799,7 @@ class ticket
 		$VAR['ticket_status'] = "0";
 
 		$type 		= "add";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db 		= new CORE_database;
 		$this->record_id = $db->add($VAR, $this, $type);
 
@@ -904,14 +904,14 @@ class ticket
 
 
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = &DB();
 
 		# set the field list for this method:
 		$arr = $this->method[$type];
 		if(isset($VAR["id"]))
 		{
-			$id = split(',',$VAR["id"]);
+			$id = explode(',',$VAR["id"]);
 			for($i=0; $i<count($id); $i++)
 			{
 				if($id[$i] != '')
@@ -1129,7 +1129,7 @@ class ticket
 		@$old_ticket_department_id = $rs->fields[0];
 
 		$type = "update";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->update($VAR, $this, $type);
   
@@ -1223,7 +1223,7 @@ class ticket
 	{
 		$this->construct();
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search_form($VAR, $this, $type);
 	}
@@ -1258,7 +1258,7 @@ class ticket
 		}
 
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 
 		$db = &DB();
 
@@ -1583,7 +1583,7 @@ class ticket
 
 
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 
 		# set the field list for this method:
 		$arr = $this->method[$type];

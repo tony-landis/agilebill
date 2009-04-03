@@ -388,7 +388,7 @@ function mail_co_uk($account,$domain) {
 
 
 	$name		= 	trim($name);
-	$fullname 	= 	split(" ",$name);
+	$fullname 	= 	explode(" ",$name);
 	$count		= 	count($fullname) - 1;
 	$l_name  	=   $fullname[$count];
 	$f_name	 	=	$fullname[0];
@@ -540,7 +540,7 @@ function mail_c_n_o($account,$domain) {
 
 
 	$name		= 	trim($name);
-	$fullname 	= 	split(" ",$name);
+	$fullname 	= 	explode(" ",$name);
 	$count		= 	count($fullname) - 1;
 	$l_name  	=   $fullname[$count];
 	$f_name	 	=	$fullname[0];
@@ -677,7 +677,7 @@ function mail_info_biz($account,$domain) {
 	$country = $dbc->f("country_2_code");
 
 	$name		= 	trim($name);
-	$fullname 	= 	split(" ",$name);
+	$fullname 	= 	explode(" ",$name);
 	$count		= 	count($fullname) - 1;
 	$l_name  	=   $fullname[$count];
 	$f_name	 	=	$fullname[0];
@@ -859,7 +859,7 @@ function mail_name($account,$domain) {
 
 
 	$name		= 	trim($name);
-	$fullname 	= 	split(" ",$name);
+	$fullname 	= 	explode(" ",$name);
 	$count		= 	count($fullname) - 1;
 	$l_name  	=   $fullname[$count];
 	$f_name	 	=	$fullname[0];
@@ -1029,7 +1029,7 @@ function mail_us($account,$domain) {
 
 
 	$name		= 	trim($name);
-	$fullname 	= 	split(" ",$name);
+	$fullname 	= 	explode(" ",$name);
 	$count		= 	count($fullname) - 1;
 	$l_name  	=   $fullname[$count];
 	$f_name	 	=	$fullname[0];

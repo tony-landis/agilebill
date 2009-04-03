@@ -288,7 +288,7 @@ class module
 		$post= new CORE_post;
 		$result = $post->post_data($host, $form, $pass);
 		$pat = "\n";
-		$arr = split($pat, $result);
+		$arr = explode($pat, $result);
 
 		$ret='';
 		for($i=0; $i<count($arr); $i++)
@@ -304,7 +304,7 @@ class module
 	function add($VAR)
 	{
 		$type 		= "add";
-		$this->method["$type"] = split(",", $this->method["$type"]);    		
+		$this->method["$type"] = explode(",", $this->method["$type"]);    		
 		$db 		= new CORE_database;
 		$db->add($VAR, $this, $type);
 	}
@@ -315,7 +315,7 @@ class module
 	function view($VAR)
 	{	
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->view($VAR, $this, $type);
 	}		
@@ -326,7 +326,7 @@ class module
 	function update($VAR)
 	{
 		$type = "update";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->update($VAR, $this, $type);
 	}
@@ -340,9 +340,9 @@ class module
 		$core = $this->core_mods;
 
 		if(isset($VAR["delete_id"]))
-			$id = split(',',$VAR["delete_id"]);
+			$id = explode(',',$VAR["delete_id"]);
 		elseif (isset($VAR["id"]))
-			$id = split(',',$VAR["id"]);
+			$id = explode(',',$VAR["id"]);
 
 		for($i=0; $i<count($id); $i++)
 		{
@@ -433,7 +433,7 @@ class module
 	function search_form($VAR)
 	{
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->search_form($VAR, $this, $type);
 	}
@@ -444,7 +444,7 @@ class module
 	function search($VAR)
 	{	
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->search($VAR, $this, $type);
 	}
@@ -456,7 +456,7 @@ class module
 	function search_show($VAR)
 	{	
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->search_show($VAR, $this, $type);
 	}	
@@ -556,7 +556,7 @@ class module
 		if($dependancy)
 		{
 			if(ereg(',', $dependancy))
-				$depend = split(',', $dependancy);
+				$depend = explode(',', $dependancy);
 			else
 				$depend[0] = $dependancy;
 
@@ -685,7 +685,7 @@ class module
 
 				if(ereg('[(]',$t_s))
 				{
-					$ts = split('[(]',$t_s);
+					$ts = explode('[(]',$t_s);
 					$type = $ts[0];
 					$size = ereg_replace('[)]', '', $ts[1]); 
 					$flds[] = Array($field, $type, $size); 
@@ -966,7 +966,7 @@ class module
 				$arr_sub = $this->install["install"]["module_properties"]["sub_modules"];
 
 				if(ereg(',', $arr_sub))
-					$arr_s = split(',', $arr_sub);
+					$arr_s = explode(',', $arr_sub);
 				else
 					$arr_s[] = $arr_sub;
 
@@ -1166,7 +1166,7 @@ class module
 							$t_s  = $arr_field["$key"]["type"]; 
 							if(ereg('[(]',$t_s))
 							{
-								$ts = split('[(]',$t_s);
+								$ts = explode('[(]',$t_s);
 								$type = $ts[0];
 								$size = ereg_replace(')', '', $ts[1]);
 								$flds[] = Array($field, $type, $size); 

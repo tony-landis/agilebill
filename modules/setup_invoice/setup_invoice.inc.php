@@ -39,7 +39,7 @@ class setup_invoice
 	function search($VAR)
 	{
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search($VAR, $this, $type);
 	}
@@ -47,7 +47,7 @@ class setup_invoice
 	function search_show($VAR)
 	{
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search_show($VAR, $this, $type);
 	}
@@ -55,7 +55,7 @@ class setup_invoice
 	function view($VAR)
 	{
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->view($VAR, $this, $type);
 	}
@@ -63,7 +63,7 @@ class setup_invoice
 	function update($VAR)
 	{
 		$type = "update";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$rs = $db->update($VAR, $this, $type);
 	}

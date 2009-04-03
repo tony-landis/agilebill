@@ -189,8 +189,8 @@ class account_admin
 		if($date == '0' || $date == '')
 		  return '';
 
-		$Arr_format = split(DEFAULT_DATE_DIVIDER, UNIX_DATE_FORMAT);
-		$Arr_date   = split(DEFAULT_DATE_DIVIDER, $date);
+		$Arr_format = explode(DEFAULT_DATE_DIVIDER, UNIX_DATE_FORMAT);
+		$Arr_date   = explode(DEFAULT_DATE_DIVIDER, $date);
 
 		for($i=0; $i<3; $i++)
 		{
@@ -235,7 +235,7 @@ class account_admin
 			$where = "id LIKE ".$db->qstr($VAR['account_search']."%");               
 			$type = 1;
 		} elseif (eregi(" ", $VAR['account_search'])) {
-			$arr = split(" ", $VAR['account_search']);
+			$arr = explode(" ", $VAR['account_search']);
 			$where = "first_name =    ".$db->qstr($arr[0])." AND ".
 					 "last_name LIKE  ".$db->qstr($arr[1].'%') ;
 			$type = 2;
@@ -363,7 +363,7 @@ class account_admin
 		if (empty($VAR['search'])) {
 		   $where = '';
 		} elseif (eregi(" ", $VAR['search'])) {
-			$arr = split(" ", $VAR['search']);
+			$arr = explode(" ", $VAR['search']);
 			$where = "first_name =    ".$db->qstr($arr[0])." AND ".
 					 "last_name LIKE  ".$db->qstr('%'.$arr[1].'%')." AND ";
 		} else {
@@ -676,10 +676,10 @@ class account_admin
 			$E['from_email']    = $setup_email->fields['from_email'];
 
 			if($setup_email->fields['cc_list'] != '')
-				$E['cc_list']   = split(',', $setup_email->fields['cc_list']);
+				$E['cc_list']   = explode(',', $setup_email->fields['cc_list']);
 
 			if($setup_email->fields['bcc_list'] != '')
-				$E['bcc_list']  = split(',', $setup_email->fields['bcc_list']);
+				$E['bcc_list']  = explode(',', $setup_email->fields['bcc_list']);
 
 
 			### Call the mail class
@@ -919,7 +919,7 @@ class account_admin
 		####################################################################
 
 		$type = 'add';
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$arr = $this->method["$type"];
 		include_once(PATH_CORE . 'validate.inc.php');
 		$validate = new CORE_validate;		
@@ -1204,14 +1204,14 @@ class account_admin
 		global $C_auth;
 
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 
 		# set the field list for this method:
 		$db = &DB();
 		$arr = $this->method[$type];				
 		if(isset($VAR["id"]))
 		{
-			$id = split(',',$VAR["id"]);
+			$id = explode(',',$VAR["id"]);
 			for($i=0; $i<count($id); $i++)
 			{
 				if($id[$i] != '')
@@ -1494,7 +1494,7 @@ class account_admin
 
 		### Update the record
 		$type = "update";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$ok = $db->update($VAR, $this, $type);        		
 
@@ -1693,11 +1693,11 @@ class account_admin
 
 		if(isset($VAR["delete_id"]))
 		{
-			$id = split(',',$VAR["delete_id"]);
+			$id = explode(',',$VAR["delete_id"]);
 		}
 		elseif (isset($VAR["id"]))
 		{
-			$id = split(',',$VAR["id"]);
+			$id = explode(',',$VAR["id"]);
 		}
 
 		for($i=0; $i<count($id); $i++)
@@ -1879,7 +1879,7 @@ class account_admin
 	function search_form($VAR)
 	{
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->search_form($VAR, $this, $type);
 	}
@@ -1894,7 +1894,7 @@ class account_admin
 	function search($VAR)
 	{
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 
 		$db = &DB();	
 
@@ -2205,7 +2205,7 @@ class account_admin
 	function search_show($VAR)
 	{
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 
 		# set the field list for this method:
 		$arr = $this->method[$type];
@@ -2401,7 +2401,7 @@ class account_admin
 	   if($VAR["format"] == "excel")
 	   {
 		   $type = "export_excel";
-		   $this->method["$type"] = split(",", $this->method["$type"]);
+		   $this->method["$type"] = explode(",", $this->method["$type"]);
 		   $export = new CORE_export;
 		   $export->search_excel($VAR, $this, $type);
 	   }
@@ -2409,7 +2409,7 @@ class account_admin
 	   else if ($VAR["format"] == "pdf")
 	   {
 		   $type = "export_pdf";
-		   $this->method["$type"] = split(",", $this->method["$type"]);
+		   $this->method["$type"] = explode(",", $this->method["$type"]);
 		   $export = new CORE_export;
 		   $export->search_pdf($VAR, $this, $type);      	
 	   }
@@ -2417,7 +2417,7 @@ class account_admin
 	   else if ($VAR["format"] == "xml")
 	   {
 		   $type = "export_xml";
-		   $this->method["$type"] = split(",", $this->method["$type"]);
+		   $this->method["$type"] = explode(",", $this->method["$type"]);
 		   $export = new CORE_export;
 		   $export->search_xml($VAR, $this, $type);
 	   }
@@ -2425,7 +2425,7 @@ class account_admin
 	   else if ($VAR["format"] == "csv")
 	   {
 		   $type = "export_csv";
-		   $this->method["$type"] = split(",", $this->method["$type"]);
+		   $this->method["$type"] = explode(",", $this->method["$type"]);
 		   $export = new CORE_export;
 		   $export->search_csv($VAR, $this, $type);
 	   }
@@ -2433,7 +2433,7 @@ class account_admin
 	   else if ($VAR["format"] == "tab")
 	   {
 		   $type = "export_tab";
-		   $this->method["$type"] = split(",", $this->method["$type"]);
+		   $this->method["$type"] = explode(",", $this->method["$type"]);
 		   $export = new CORE_export;
 		   $export->search_tab($VAR, $this, $type);
 	   }

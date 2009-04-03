@@ -51,7 +51,7 @@ class group
 	function add($VAR)
 	{
 		$type 		= "add";
-		$this->method["$type"] = split(",", $this->method["$type"]);    		
+		$this->method["$type"] = explode(",", $this->method["$type"]);    		
 		$db 		= new CORE_database;
 		$group_id   = $db->add($VAR, $this, $type);
 
@@ -88,7 +88,7 @@ class group
 	function view($VAR)
 	{	
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->view($VAR, $this, $type);
 	}		
@@ -102,9 +102,9 @@ class group
 		global $C_debug, $C_auth;	
 		$id_list = '';		
 		if(isset($VAR["delete_id"])) 
-			$id = split(',',$VAR["delete_id"]); 
+			$id = explode(',',$VAR["delete_id"]); 
 		elseif (isset($VAR["id"])) 
-			$id = split(',',$VAR["id"]);  
+			$id = explode(',',$VAR["id"]);  
 
 		for($i=0; $i<count($id); $i++) 
 		{
@@ -127,7 +127,7 @@ class group
 		} 
 
 		$type = "update";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->update($VAR, $this, $type);
 	}
@@ -146,9 +146,9 @@ class group
 		global $C_debug;	
 		$id_list = '';		
 		if(isset($VAR["delete_id"])) 
-			$id = split(',',$VAR["delete_id"]); 
+			$id = explode(',',$VAR["delete_id"]); 
 		elseif (isset($VAR["id"])) 
-			$id = split(',',$VAR["id"]);  
+			$id = explode(',',$VAR["id"]);  
 
 		for($i=0; $i<count($id); $i++) 
 		{
@@ -181,7 +181,7 @@ class group
 	function search_form($VAR)
 	{
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->search_form($VAR, $this, $type);
 	}
@@ -192,7 +192,7 @@ class group
 	function search($VAR)
 	{	
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->search($VAR, $this, $type);
 	}
@@ -204,7 +204,7 @@ class group
 	function search_show($VAR)
 	{	
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->search_show($VAR, $this, $type);
 	}	

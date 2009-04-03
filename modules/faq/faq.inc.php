@@ -208,7 +208,7 @@ class faq
 	function add($VAR)
 	{
 		$type 		= "add";
-		$this->method["$type"] = split(",", $this->method["$type"]);    		
+		$this->method["$type"] = explode(",", $this->method["$type"]);    		
 		$db 		= new CORE_database;
 		$id = $db->add($VAR, $this, $type);
 
@@ -237,7 +237,7 @@ class faq
 	function view($VAR)
 	{	
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->view($VAR, $this, $type);
 	}		
@@ -248,7 +248,7 @@ class faq
 	function update($VAR)
 	{
 		$type = "update";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->update($VAR, $this, $type);
 	}
@@ -274,7 +274,7 @@ class faq
 	function search_form($VAR)
 	{
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search_form($VAR, $this, $type);
 	}
@@ -285,7 +285,7 @@ class faq
 	function search($VAR)
 	{	
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search($VAR, $this, $type);
 	}
@@ -297,7 +297,7 @@ class faq
 	function search_show($VAR)
 	{	
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search_show($VAR, $this, $type);
 	}	

@@ -256,8 +256,8 @@ class import_plugin extends import
 				# Get a local account_billing id
 				$bill_id = $db->GenID($p.'account_billing_id');	
 				
-				$type = split("-", $rs->fields['billing_cc_type']);
-				$exp = split("/", $rs->fields['billing_cc_exp']);
+				$type = explode("-", $rs->fields['billing_cc_type']);
+				$exp = explode("/", $rs->fields['billing_cc_exp']);
 
 				# the modernbill encryption method is unknown, so we have no way to decrypt the cc details
 				# we will create a blank CC record that the user or admin can manually update...		 
@@ -1013,7 +1013,7 @@ class import_plugin extends import
  
 			# Determine the domain TLD & Name:
 			$domain_name = $rs->fields['domain_name'];
-			$arr = split('\.', $domain_name);
+			$arr = explode('\.', $domain_name);
 			$tld = '';
 			$domain =  $arr[0];
 			for($i=0; $i<count($arr); $i++)  {
@@ -1216,7 +1216,7 @@ class import_plugin extends import
 			  
 			# Determine the domain TLD & Name:
 			$domain_name = $rs->fields['target'];
-			$arr = split('\.', $domain_name);
+			$arr = explode('\.', $domain_name);
 			$tld = '';
 			$domain = $arr[0];
 			for($i=0; $i<count($arr); $i++)  {

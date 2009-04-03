@@ -143,7 +143,7 @@ class voip_rate
 	function add($VAR)
 	{
 		$type 		= "add";
-		$this->method["$type"] = split(",", $this->method["$type"]);    		
+		$this->method["$type"] = explode(",", $this->method["$type"]);    		
 		$db 		= new CORE_database;
 		$db->add($VAR, $this, $type);
 	}
@@ -154,7 +154,7 @@ class voip_rate
 	function view($VAR)
 	{	
 		$type = "view";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		 $db->view($VAR, $this, $type);
 	}		
@@ -165,7 +165,7 @@ class voip_rate
 	function update($VAR)
 	{
 		$type = "update";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->update($VAR, $this, $type);
 	}
@@ -185,7 +185,7 @@ class voip_rate
 	function search_form($VAR)
 	{
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search_form($VAR, $this, $type);
 	}
@@ -196,7 +196,7 @@ class voip_rate
 	function search($VAR)
 	{	
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search($VAR, $this, $type);
 	}
@@ -207,7 +207,7 @@ class voip_rate
 	function search_show($VAR)
 	{	
 		$type = "search";
-		$this->method["$type"] = split(",", $this->method["$type"]);
+		$this->method["$type"] = explode(",", $this->method["$type"]);
 		$db = new CORE_database;
 		$db->search_show($VAR, $this, $type);
 	} 
