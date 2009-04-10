@@ -16,7 +16,6 @@ class plgn_voip_did_DEFAULT
 	var $plugin;				// The plugin name
 	var $reserve=24;			// Number of hours reserved 
 	var $name='DEFAULT';		// Plugin name
-	var $release_minutes;		// From the plugin settings
 	var $avail_countries;		// Available countries array 
 
 	/** Get the plugin settings from the database */
