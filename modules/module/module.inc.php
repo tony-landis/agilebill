@@ -685,7 +685,7 @@ class module
 
 				if(ereg('[(]',$t_s))
 				{
-					$ts = explode('[(]',$t_s);
+					$ts = explode('(',$t_s);
 					$type = $ts[0];
 					$size = ereg_replace('[)]', '', $ts[1]); 
 					$flds[] = Array($field, $type, $size); 

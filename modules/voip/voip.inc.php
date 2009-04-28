@@ -1727,7 +1727,7 @@ class voip
 		while ($rs1 && !$rs1->EOF) {
 			
 			$calltype = 0;
-			if(strlen($this->voip_intrastate))
+			if(is_array($this->voip_intrastate))
 				$calltype = $this->isIntrastateCall($rs1->fields['src'], $rs1->fields['dst']);
 			$slotMatched = 0; $unit = 0; $quan = 0; $amount = 0;
 			$isInbound = $this->in_did_array($rs1->fields['dst'], $dids);
