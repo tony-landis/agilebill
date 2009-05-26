@@ -129,11 +129,17 @@ class CORE_session
 			" . AGILE_DB_PREFIX . "session.id = " . $db->qstr($session_id) . "
 			AND
 			" . AGILE_DB_PREFIX . "session.site_id = " . $db->qstr(DEFAULT_SITE) . "		
+			AND ((
+			" . AGILE_DB_PREFIX . "account.site_id = " . $db->qstr(DEFAULT_SITE) . "
 			AND
-			" . AGILE_DB_PREFIX . "account.site_id = " . $db->qstr(DEFAULT_SITE) . "	        		    
+			" . AGILE_DB_PREFIX . "session.account_id IS NOT NULL
+			) OR (
+		    " . AGILE_DB_PREFIX . "account.site_id IS NULL
+			AND
+			" . AGILE_DB_PREFIX . "session.account_id IS NULL
+			))	        		    
 			AND
 			" . AGILE_DB_PREFIX . "session_auth_cache.site_id = " . $db->qstr(DEFAULT_SITE);
-
 		$result = $db->Execute($q);
 		if ($result === false) {
 			$C_debug->error('session.inc.php','validate', $db->ErrorMsg());
