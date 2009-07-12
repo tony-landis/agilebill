@@ -42,7 +42,6 @@
             <min_len>1</min_len>
             <max_len>128</max_len>
             <validate>any</validate>
-            <convert/>
             <unique>1</unique>
         </name>
         <description>
