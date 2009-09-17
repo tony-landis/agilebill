@@ -96,7 +96,19 @@ class didArea
 				AND A.nxx = " . $db->qstr($this->data['nxx']) . "
 				AND A.voip_did_plugin_id in (".join(",",$plugins).")
 				AND A.site_id=".DEFAULT_SITE."  
-				LIMIT 0,50";  	
+				LIMIT 0,50";
+		} elseif($this->data['country_code'] == 61) {
+			$sql = "select distinct A.country_code,A.npa,A.nxx,A.station
+				FROM {$p}voip_pool AS A
+				left join {$p}voip_npa_nxx AS B
+				on (A.npa=B.npa and A.nxx=B.nxx AND B.country_code='1')
+				WHERE (A.account_id IS NULL OR A.account_id = 0)
+				AND (A.date_reserved IS NULL OR A.date_reserved = 0)
+				AND A.npa = " . $db->qstr($this->data['npa']) . "
+				AND A.nxx = " . $db->qstr($this->data['nxx']) . "
+				AND A.voip_did_plugin_id in (".join(",",$plugins).")
+				AND A.site_id=".DEFAULT_SITE."
+				LIMIT 0,50";
 		} else {
 			$sql = "select distinct A.country_code,A.areacode as npa,A.nxx,A.station
 				FROM {$p}voip_pool AS A
@@ -108,7 +120,7 @@ class didArea
 				AND A.voip_did_plugin_id in (".join(",",$plugins).")
 				AND A.site_id=".DEFAULT_SITE."  
 				LIMIT 0,50";
-			$pre = "011";  			
+			$pre = "011";
 		}
 		#echo "document.write('".str_replace("'","\\'",str_replace("\n","",$sql))."');"; return;
 		$rs = $db->Execute($sql);
@@ -116,6 +128,9 @@ class didArea
 			$i = 0;
 			while(!$rs->EOF) {
 				if ($rs->fields['country_code'] == '1') {
+					$dids[$i][0] = $pre.$rs->fields['country_code'].$rs->fields['npa'].$rs->fields['nxx'].$rs->fields['station'];
+					$dids[$i++][1] = $rs->fields['country_code']." ".$rs->fields['npa'].$rs->fields['nxx'].$rs->fields['station'];
+				} elseif($rs->fields['country_code'] == '61') {
 					$dids[$i][0] = $pre.$rs->fields['country_code'].$rs->fields['npa'].$rs->fields['nxx'].$rs->fields['station'];
 					$dids[$i++][1] = $rs->fields['country_code']." ".$rs->fields['npa'].$rs->fields['nxx'].$rs->fields['station'];
 				} else {
@@ -140,7 +155,19 @@ class didAreas
 		$this->cc = $cc;
 		$p = AGILE_DB_PREFIX;
 		$db =& DB();
-		if($cc!=1) {
+		if($cc==61) {
+			$sql = "select distinct A.npa,A.nxx,B.locName 
+				from {$p}voip_pool AS A 
+				inner join {$p}voip_npa_nxx AS B 
+				on (A.npa=B.npa and A.country_code=".$db->qstr($cc)." AND 
+				B.country_code=".$db->qstr($cc).") 
+				WHERE (A.account_id IS NULL OR A.account_id = 0) AND 
+				(A.date_reserved IS NULL OR A.date_reserved = 0) AND ";
+			if(is_array($plugins))
+				$sql .= "A.voip_did_plugin_id in (".join(",",$plugins).") AND ";
+			$sql .= "A.site_id=".DEFAULT_SITE." ORDER BY B.locName";
+		}
+		elseif($cc!=1) {
 			$sql = "select distinct A.areacode,B.locName 
 				from {$p}voip_pool AS A 
 				inner join {$p}voip_npa_nxx AS B 
@@ -493,6 +520,14 @@ class voip
 			# USA Call without the country code selection
 			$e164 = "+1".$number;
 		}
+		/* Aus specific hack */
+		if (!strncmp($number, "61", 2)) {
+			$e164 = "+011" . $number;
+			// print $e164;
+			$npa = substr($e164, 6, 2);
+			$nxx = substr($e164, 8, 4);
+		}
+		/* End Aus specific hack */
 		if ($e164 == "") {
 			$e164 = "+".$number;
 		}
@@ -526,7 +561,6 @@ class voip
     $numdigs = 2;
     $d1 = substr($e164, 4, 1);
     $d2 = substr($e164, 5, 1);
-
 		switch ($d1) {
 			case '1':
 			case '7':
@@ -1040,7 +1074,10 @@ class voip
 		$js .= "menuAppendOption('voip_location', '', '-- Select A Location --');";
 		$count = 0; 
 		while($area = $areas->getArea()) {		
-			if($cc!=1) {		
+			if($cc==61) {
+				$js .= "menuAppendOption('voip_location', '{$cc}:".$area->getNpa()."-".$area->getNxx()."', '".$area->getName()." (".$area->getNpa()."-".$area->getNxx().")');";
+			}
+			elseif($cc!=1) {
 				$js .= "menuAppendOption('voip_location', '{$cc}:".$area->getAreacode()."', '".$area->getName()." (".$area->getAreacode().")');";
 			} else if($area->data['locState']==$VAR['state']) {
 				$js .= "menuAppendOption('voip_location', '".$area->getNpa()."-".$area->getNxx()."', '".$area->getName()." (".$area->getNpa()."-".$area->getNxx().")');";
@@ -1068,7 +1105,13 @@ class voip
 		if (strchr($l,':')) {
 			$cn = explode(':', $l);
 			$data['country_code'] = $cn[0];
-			$data['areacode'] = $cn[1];			
+			if($cn[0] == '61') {
+				$cn = explode('-', $cn[1]);
+				$data['npa'] = $cn[0];
+				$data['nxx'] = $cn[1];
+			} else {
+				$data['areacode'] = $cn[1];
+			}
 		} else {
 			$cn = explode('-', $l);
 			$data['country_code'] = 1;

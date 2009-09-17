@@ -106,6 +106,8 @@ class voip_pool
 						$fields['nxx'] = $nxx;
 						if ($cc == '1') {
 							$fields['station'] = substr($e164, 8);
+						} elseif($cc == "61") {
+							$fields['station'] = substr($e164, 12);
 						} else {
 							$fields['station'] = substr($e164, 4 + strlen($cc));
 						}
