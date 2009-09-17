@@ -87,6 +87,10 @@ class base_voip_plugin extends base_product_plugin
 				$station = substr($e164, 8);
 				$sql = sqlSelect($db,"voip_pool","*",
 					"(date_reserved IS NULL OR date_reserved=0) AND (account_id IS NULL OR account_id=0) AND country_code=$cc AND npa=$npa AND nxx=$nxx AND station=$station");
+			} elseif ($cc == '61') {
+				$station = substr($e164, 12);
+				$sql = sqlSelect($db,"voip_pool","*",
+					"(date_reserved IS NULL OR date_reserved=0) AND (account_id IS NULL OR account_id=0) AND country_code=$cc AND npa=$npa AND nxx=$nxx AND station=$station");
 			} else {
 				$station = substr($e164, 4 + strlen($cc));
 				$sql = sqlSelect($db,"voip_pool","*",

@@ -105,6 +105,12 @@ class voip_did_plugin
 					date_reserved=".time().", account_id=".intval(SESS_ACCOUNT)."
 					WHERE voip_did_plugin_id=".$voip_did_plugin_id." AND (account_id IS NULL or account_id=0) AND
 					country_code=".$db->qstr($cc)." AND npa=".$db->qstr($npa)." AND nxx=".$db->qstr($nxx)." AND station=".$db->qstr($station)." AND site_id=".DEFAULT_SITE;
+			} elseif($cc == '61') {
+				$station = substr($e164, 12);
+				$sql = "UPDATE ".AGILE_DB_PREFIX."voip_pool SET
+					date_reserved=".time().", account_id=".intval(SESS_ACCOUNT)."
+					WHERE voip_did_plugin_id=".$voip_did_plugin_id." AND (account_id IS NULL or account_id=0) AND
+					country_code=".$db->qstr($cc)." AND npa=".$db->qstr($npa)." AND nxx=".$db->qstr($nxx)." AND station=".$db->qstr($station)." AND site_id=".DEFAULT_SITE;
 			} else {
 				$station = substr($e164, 4 + strlen($cc));
 				$sql = "UPDATE ".AGILE_DB_PREFIX."voip_pool SET
@@ -134,6 +140,12 @@ class voip_did_plugin
 		if ($v->e164($did, $e164, $cc, $npa, $nxx)) {
 			if ($cc == '1') {
 				$station = substr($e164, 8);
+				$sql = "UPDATE ".AGILE_DB_PREFIX."voip_pool SET
+					date_reserved=NULL, account_id=".intval($this->account_id)."
+					WHERE voip_did_plugin_id=".$voip_did_plugin_id." AND
+					country_code=".$db->qstr($cc)." AND npa=".$db->qstr($npa)." AND nxx=".$db->qstr($nxx)." AND station=".$db->qstr($station)." AND site_id=".DEFAULT_SITE;
+			} elseif($cc == '61') {
+				$station = substr($e164, 12);
 				$sql = "UPDATE ".AGILE_DB_PREFIX."voip_pool SET
 					date_reserved=NULL, account_id=".intval($this->account_id)."
 					WHERE voip_did_plugin_id=".$voip_did_plugin_id." AND
@@ -170,6 +182,12 @@ class voip_did_plugin
 				$sql = "UPDATE ".AGILE_DB_PREFIX."voip_pool SET
 					date_reserved=NULL, account_id=NULL
 					WHERE voip_did_plugin_id=".$voip_did_plugin_id." AND 
+					country_code=".$db->qstr($cc)." AND npa=".$db->qstr($npa)." AND nxx=".$db->qstr($nxx)." AND station=".$db->qstr($station)." AND site_id=".DEFAULT_SITE;
+			} elseif($cc == '61'){
+				$station = substr($e164, 12);
+				$sql = "UPDATE ".AGILE_DB_PREFIX."voip_pool SET
+					date_reserved=NULL, account_id=NULL
+					WHERE voip_did_plugin_id=".$voip_did_plugin_id." AND
 					country_code=".$db->qstr($cc)." AND npa=".$db->qstr($npa)." AND nxx=".$db->qstr($nxx)." AND station=".$db->qstr($station)." AND site_id=".DEFAULT_SITE;
 			} else {
 				$station = substr($e164, 4 + strlen($cc));
