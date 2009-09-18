@@ -1234,6 +1234,9 @@ class voip
 			if ($cc == '1') {
 				$station = substr($e164, 8);
 				$where = "country_code=1 and npa=::$npa:: and nxx=::$nxx:: and station=::$station::";
+			} elseif ($cc == '61') {
+				$station = substr($e164, 12);
+				$where = "country_code=61 and npa=::$npa:: and nxx=::$nxx:: and station=::$station::";
 			} else {
 				$station = substr($e164, 4 + strlen($cc));
 				$where = "country_code=::$cc:: and station=::$station::";
