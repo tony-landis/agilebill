@@ -41,7 +41,7 @@ class plg_chout_PAYMATE extends base_checkout_plugin
 
 		if(!$this->validate_currency($currency_iso)) return false;
 
-		$url =	"https://www.paymate.com.au/PayMate/ExpressPayment";
+		$url =	"https://www.paymate.com/PayMate/ExpressPayment";
 		$vals = Array (
 		Array ('mid', 					$this->cfg['mid']),
 		Array ('amt', 					$amount),
