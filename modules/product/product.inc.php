@@ -170,7 +170,7 @@ class product
 	{
 		global $C_auth;
 		$ret['base'] = 0;
-		$rest['setup'] = 0;
+		$ret['setup'] = 0;
 		$product_id = $fields['id'];
 		
 		# Get the vars:
@@ -257,7 +257,7 @@ class product
 		# calculate the prorated recurring amount:
 		if (@$prorate > 0 && $ret["base"] > 0)  $ret["base"] *= $prorate;
 
-		return Array('base' => @$ret["base"], 'setup' => @$ret["setup"]);
+		return Array('base' => @round($ret["base"], 2), 'setup' => @$ret["setup"]);
 	}
                
 	/**
@@ -447,7 +447,7 @@ class product
 			# calculate the prorated recurring amount:
 			if (@$prorate > 0 && $ret["base"] > 0)  $ret["base"] *= $prorate;
 		}
-		return Array('base' => @$ret["base"], 'setup' => @$ret["setup"]);
+		return Array('base' => @round($ret["base"], 2), 'setup' => @$ret["setup"]);
 	}
 	
 	/**
