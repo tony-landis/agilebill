@@ -90,9 +90,9 @@ class plg_chout_WORLDPAY_FUTUREPAY extends base_checkout_plugin
 		if($recurr_bill_arr[0]["recurr_type"] == "1")
 		{
 			# Pro-rate billing:
-			include_once ( PATH_MODULES . 'checkout/checkout.inc.php' );
-			$checkout = new checkout;
-			$arr = $checkout->recurrDates($recurr_bill_arr[0]["recurr_schedule"], $recurr_bill_arr[0]["recurr_weekday"], $recurr_bill_arr[0]["recurr_week"]);
+			include_once ( PATH_MODULES . 'product/product.inc.php' );
+			$product = new product;
+			$arr = $product->recurrDates($recurr_bill_arr[0]["recurr_schedule"], $recurr_bill_arr[0]["recurr_weekday"], $recurr_bill_arr[0]["recurr_week"]);
 			$remain_time = $arr['end'] - time();
 			$period1 	 = round($remain_time/86400);
 			$start_date  = date("Y-m-d", $arr["end"]);

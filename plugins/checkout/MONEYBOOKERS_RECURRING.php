@@ -64,9 +64,9 @@ class plg_chout_MONEYBOOKERS_RECURRING extends base_checkout_plugin
 		if($recurr_bill_arr[0]["recurr_type"] == "1")
 		{
 			# Pro-rate billing:
-			include_once ( PATH_MODULES . 'checkout/checkout.inc.php' );
-			$checkout = new checkout;
-			$arr = $checkout->recurrDates($recurr_bill_arr[0]["recurr_schedule"], $recurr_bill_arr[0]["recurr_weekday"], $recurr_bill_arr[0]["recurr_week"]);
+			include_once ( PATH_MODULES . 'product/product.inc.php' );
+			$product = new product;
+			$arr = $product->recurrDates($recurr_bill_arr[0]["recurr_schedule"], $recurr_bill_arr[0]["recurr_weekday"], $recurr_bill_arr[0]["recurr_week"]);
 			$rec_start_date = date("d/m/Y", $arr["end"]);
 			$end = $arr["end"]+(86400*365*10);
 			$rec_end_date   = date("d/m/Y", $end);
