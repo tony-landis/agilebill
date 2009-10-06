@@ -30,7 +30,7 @@ for FILE in *; do
 	chmod 755 /usr/sbin/${FILE}
 done
 cd ..
-
+echo pwd
 echo "Installing Cron entries..."
 echo "*/15 * * * * root /usr/sbin/agilevoice-export-extensions" >>/etc/crontab
 echo "*/15 * * * * root /usr/sbin/agilevoice-export-sip" >>/etc/crontab
@@ -42,7 +42,7 @@ perl -MCPAN -e "install Text::CSV"
 
 echo "Installing MySQL tables..."
 echo "Installing av-tables.sql"
-mysql -u DB_USER -pDB_PASS < av-tables.sql
+mysql -u ${DB_USER} -p${DB_PASS} ${DB_NAME} < av-tables.sql
 
 
 echo "Complete."
