@@ -13,7 +13,7 @@ use DBI;
 $table_name = "ab_voip_sip";
 # the path to the extensions.conf file
 # WARNING: this file will be substituted by the output of this program
-$sip_conf = "/etc/asterisk/sip_additional.conf.tmp";
+$sip_conf = "/etc/asterisk/sip_agilevoice.conf.tmp";
 # the name of the box the MySQL database is running on
 $hostname = "%%AGILE_DB_HOST%%";
 # the name of the database our tables are kept

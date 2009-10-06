@@ -8,7 +8,7 @@ use DBI;
 $table_name = "ab_voip_iax";
 # the path to the extensions.conf file
 # WARNING: this file will be substituted by the output of this program
-$iax_conf = "/etc/asterisk/iax_additional.conf.tmp";
+$iax_conf = "/etc/asterisk/iax_agilevoice.conf.tmp";
 # the name of the box the MySQL database is running on
 $hostname = "%%AGILE_DB_HOST%%";
 # the name of the database our tables are kept
