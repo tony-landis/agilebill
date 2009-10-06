@@ -1,0 +1,16 @@
+#!/usr/bin/python
+
+import sys
+import posix
+import os
+
+posix.system('/usr/sbin/agilevoice-pro-export-extensions.pl')
+a = posix.system('diff -q /etc/asterisk/extensions_agilevoice.conf.tmp /etc/asterisk/extensions_agilevoice.conf >/dev/null 2>&1')
+if a:
+	try:
+		os.unlink('/etc/asterisk/extensions_agilevoice.conf')
+	except OSError:
+		pass
+	posix.system('mv -f /etc/asterisk/extensions_agilevoice.conf.tmp /etc/asterisk/extensions_agilevoice.conf')
+	posix.system('asterisk -rx "extensions reload" >/dev/null 2>&1')
+

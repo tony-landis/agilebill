@@ -1,0 +1,89 @@
+#!/usr/bin/perl -Tw
+# Retrieves the voicemail entries from the database
+
+use DBI;
+################### BEGIN OF CONFIGURATION ####################
+
+# the name of the extensions table
+$table_name = "ab_voip_vm";
+# the path to the extensions.conf file
+# WARNING: this file will be substituted by the output of this program
+$vm_conf = "/etc/asterisk/voicemail.conf";
+# the name of the box the MySQL database is running on
+$hostname = "%%AGILE_DB_HOST%%";
+# the name of the database our tables are kept
+$database = "%%AGILE_DB_DATABASE%%";
+# username to connect to the database
+$username = "%%AGILE_DB_USERNAME%%";
+# password to connect to the database
+$password = "%%AGILE_DB_PASSWORD%%";
+
+################### END OF CONFIGURATION #######################
+
+open EXTEN, ">$vm_conf" or die "Cannot create/overwrite file: $vm_conf\n";
+
+$dbh = DBI->connect("dbi:mysql:dbname=$database;host=$hostname", "$username", "$password");
+
+# Get the possible contexts available
+$statement = "SELECT DISTINCT context FROM $table_name";
+my $cresult = $dbh->selectall_arrayref($statement);
+unless ($cresult) {
+  # check for errors after every single database call
+  print "dbh->selectall_arrayref($statement) failed!\n";
+  print "DBI::err=[$DBI::err]\n";
+  print "DBI::errstr=[$DBI::errstr]\n";
+  exit;
+}
+
+# Global Voicemail configuration options
+print EXTEN "[general]\n\n";
+print EXTEN "format=wav49|wav\n";
+print EXTEN "operator=yes\n";
+print EXTEN "review=yes\n";
+print EXTEN "serveremail=AgileVoice\n";
+print EXTEN "attach=yes\n";
+print EXTEN "maxmessage=300\n";
+print EXTEN "minmessage=3\n";
+print EXTEN "maxsilence=5\n";
+print EXTEN "pbxskip=yes\n";
+print EXTEN "fromstring=AgileVoice\n";
+print EXTEN 'emailsubject=New voicemail from ${VM_CALLERID}'; print EXTEN "\n";
+print EXTEN 'emailbody=Dear ${VM_NAME}:\n\n\tJust wanted to let you know you were just left a ${VM_DUR} long message (number ${VM_MSGNUM})\nin mailbox ${VM_MAILBOX} from ${VM_CALLERID}, on ${VM_DATE} so you might\nwant to check it when you get a chance.  Thanks!\n'; print EXTEN "\n";
+print EXTEN "mailcmd=/usr/sbin/sendmail -t\n";
+
+print EXTEN "\n[zonemessages]\n";
+print EXTEN "eastern=America/New_York|'vm-received' Q 'digits/at' IMp\n";
+print EXTEN "central=America/Chicago|'vm-received' Q 'digits/at' IMp\n";
+print EXTEN "central24=America/Chicago|'vm-received' q 'digits/at' H 'digits/hundred' M 'hours'\n"; print EXTEN "\n";
+
+
+
+my @cresultSet = @{$cresult};
+if ( $#cresultSet > -1 ) {
+	foreach $crow (@{ $cresult }) {
+		my @cresult = @{ $crow };
+
+		# Print the context out
+		print EXTEN "[".$cresult[0]."]\n";
+
+		$statement = "SELECT context, mailbox, password, fullname, email, pager, options from $table_name WHERE context='".$cresult[0]."'";
+		my $result = $dbh->selectall_arrayref($statement);
+		unless ($result) {
+		  # check for errors after every single database call
+		  print "dbh->selectall_arrayref($statement) failed!\n";
+		  print "DBI::err=[$DBI::err]\n";
+		  print "DBI::errstr=[$DBI::errstr]\n";
+		  exit;
+		}
+		my @resultSet = @{$result};
+		if ( $#resultSet > -1 ) {
+			foreach $row (@{ $result }) {
+				my @result = @{ $row };
+					print EXTEN $result[1]." => ".$result[2].",".$result[3].",".$result[4]."\n";
+			}
+		}
+	}
+}
+
+exit 0;
+
