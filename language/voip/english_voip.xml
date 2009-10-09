@@ -15,7 +15,6 @@
         <field_attributes>Attributes</field_attributes> 
         <field_dst>From</field_dst>
         <field_src>To</field_src>
-        <field_amount>Amount</field_amount>
         <field_duration>Duration</field_duration>
         <field_default_prefix>Default NPA prepended to US 7 digit dialing</field_default_prefix>
         <field_prepaid_low_balance>Amount at which prepaid low balance email notifications are sent</field_prepaid_low_balance>
