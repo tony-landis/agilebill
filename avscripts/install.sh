@@ -1,36 +1,36 @@
 #!/bin/bash
 
 doinstall() {
-	perl -pe "s|%%AGILE_DB_HOST%%|${DB_HOST}|g" $1 | \
-	perl -pe "s|%%AGILE_DB_DATABASE%%|${DB_NAME}|g" | \
-	perl -pe "s|%%AGILE_DB_USERNAME%%|${DB_USER}|g" | \
-	perl -pe "s|%%AGILE_DB_PASSWORD%%|${DB_PASS}|g" > $2 
+	perl -pe "s|%%AGILE_DB_HOST%%|${db_host}|g" $1 | \
+	perl -pe "s|%%AGILE_DB_DATABASE%%|${db_name}|g" | \
+	perl -pe "s|%%AGILE_DB_USERNAME%%|${db_user}|g" | \
+	perl -pe "s|%%AGILE_DB_PASSWORD%%|${db_pass}|g" > $2 
 	echo "Installing to: $2"
 }
 
 echo -n "Enter the database IP address: "
-read DB_HOST
+read db_host
 echo -n "Enter the database name: "
-read DB_NAME
+read db_name
 echo -n "Enter the database username: "
-read DB_USER
+read db_user
 echo -n "Enter the database password: "
-read DB_PASS
-echo
-echo "Installing templated Asterisk configuration files..."
+read db_pass
+# echo
+# echo "Installing templated Asterisk configuration files..."
 
-cd conf
-for FILE in *; do
-	doinstall ${FILE} /etc/asterisk/${FILE}
-done
-cd ..
+# cd conf
+# for FILE in *; do
+#   doinstall ${FILE} /etc/asterisk/${FILE}
+# done
+# cd ..
 cd scripts
 for FILE in *; do
 	doinstall ${FILE} /usr/sbin/${FILE}
 	chmod 755 /usr/sbin/${FILE}
 done
 cd ..
-echo pwd
+
 echo "Installing Cron entries..."
 echo "*/15 * * * * root /usr/sbin/agilevoice-export-extensions" >>/etc/crontab
 echo "*/15 * * * * root /usr/sbin/agilevoice-export-sip" >>/etc/crontab
@@ -42,7 +42,7 @@ perl -MCPAN -e "install Text::CSV"
 
 echo "Installing MySQL tables..."
 echo "Installing av-tables.sql"
-mysql -u ${DB_USER} -p${DB_PASS} ${DB_NAME} < av-tables.sql
+mysql -u ${db_user} -p${db_pass} ${db_name} < av-tables.sql
 
 
 echo "Complete."
