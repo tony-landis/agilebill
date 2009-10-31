@@ -1585,8 +1585,9 @@ class voip
 		echo $debug;
 		ob_end_clean();
 		if (defined('RATING_DEBUG')) {
-			mail("joe@thrallingpenguin.com","Rating Debug For ".URL,$debug);
+			mail("sluther@bitpiston.com","Rating Debug For ".URL,$debug);
 		}
+        exit();
 		return true;
 	}	
 	
