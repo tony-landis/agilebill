@@ -521,13 +521,17 @@ class voip
 			$e164 = "+1".$number;
 		}
 		/* Aus specific hack */
-		if (!strncmp($number, "61", 2)) {
-			$e164 = "+011" . $number;
-			// print $e164;
-			$npa = substr($e164, 6, 2);
-			$nxx = substr($e164, 8, 4);
-		}
-		/* End Aus specific hack */
+        if (!strncmp($number, "61", 2)) {
+            $e164 = "+011" . $number;
+            // print $e164;
+            $npa = substr($e164, 6, 2);
+            $nxx = substr($e164, 8, 4);
+        }
+        // aus interstate call
+        if (!strncmp($number, "0", 1) && strlen($number) ==10) {
+            $e164 = "+01161" . $number;
+        }
+        /* End Aus specific hack */
 		if ($e164 == "") {
 			$e164 = "+".$number;
 		}
@@ -1370,14 +1374,22 @@ class voip
 			$src = $rs->fields['src'];
 			$dst = $rs->fields['dst'];
 
-			$e164 = ""; $cc = ""; $npa = ""; $nxx = "";
-			if (strlen($src)>=$this->normalization_min_len && $this->e164($src, $e164, $cc, $npa, $nxx)) {
-				$src = substr($e164,1);
-			}
-			$e164 = ""; $cc = ""; $npa = ""; $nxx = "";
-			if (strlen($dst)>=$this->normalization_min_len && $this->e164($dst, $e164, $cc, $npa, $nxx)) {
-				$dst = substr($e164,1);
-			}
+            $e164 = ""; $cc = ""; $npa = ""; $nxx = "";
+            if (strlen($src)>=$this->normalization_min_len && $this->e164($src, $e164, $cc, $npa, $nxx)) {
+                if ($cc == 61) {
+                    $src = substr($e164, 6);
+                } else {
+                    $src = substr($e164,1);
+                }
+            }
+            $e164 = ""; $cc = ""; $npa = ""; $nxx = "";
+            if (strlen($dst)>=$this->normalization_min_len && $this->e164($dst, $e164, $cc, $npa, $nxx)) {
+                if ($cc == 61) {
+                    $dst = substr($e164, 6);
+                } else {
+                    $dst = substr($e164,1);
+                }
+            }
 			#echo "src=".$rs->fields['src']." dst=".$rs->fields['dst']."<br>";
 			#echo "esrc=".$src." edst=".$dst."<br><br>";
 			#$f = array('src' => $src, 'dst' => $dst, 'rated' => '2');
@@ -1587,7 +1599,6 @@ class voip
 		if (defined('RATING_DEBUG')) {
 			mail("sluther@bitpiston.com","Rating Debug For ".URL,$debug);
 		}
-        exit();
 		return true;
 	}	
 	
