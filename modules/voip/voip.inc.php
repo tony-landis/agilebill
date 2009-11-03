@@ -1525,6 +1525,13 @@ class voip
 						$dids[$dp]['start'] = $rs->fields['date_last_invoice'] - (MAX_INV_GEN_PERIOD*86400);
 						$dids[$dp]['end']   = $rs->fields['date_next_invoice'] + 86399;
 						$dids[$dp]['did'] = substr($e164,1);
+                    /* begin aus number hack */
+                    } elseif ($cc == '61') {
+                        $dp++;
+                        $dids[$dp]['start'] = $rs->fields['date_last_invoice'];
+                        $dids[$dp]['end']   = $rs->fields['date_next_invoice'] + 86399;
+                        $dids[$dp]['did'] = substr($e164,6);
+                    /* end aus number hack */
 					} else {
 						$dp++;
 						$dids[$dp]['start'] = $rs->fields['date_last_invoice'];
@@ -1567,7 +1574,14 @@ class voip
 											$dids[$dp]['start'] = $rs->fields['date_last_invoice'] - (MAX_INV_GEN_PERIOD*86400);
 											$dids[$dp]['end']   = $rs->fields['date_next_invoice'] + 86399;
 											$dids[$dp]['did'] = substr($e164,1);
+                                        /* begin aus number hack */
+										} elseif ($cc == '61') {
+                                            $dp++;
+                                            $dids[$dp]['start'] = $rs->fields['date_last_invoice'] - (MAX_INV_GEN_PERIOD*86400);
+                                            $dids[$dp]['end']   = $rs->fields['date_next_invoice'] + 86399;
+                                            $dids[$dp]['did'] = substr($e164,6);
 										}
+                                        /* end aus number hack */
 									}
 									echo "Found virtual number: ".$dids[$dp]['did']."\n";
 								} # end test to see if truely virtual
