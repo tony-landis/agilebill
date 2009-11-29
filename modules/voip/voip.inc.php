@@ -531,6 +531,10 @@ class voip
         if (!strncmp($number, "0", 1) && strlen($number) ==10) {
             $e164 = "+01161" . $number;
         }
+		// aus toll free call
+        if ((strncmp($number, "1300", 4) || strncmp($number, "1800", 4)) && strlen($number) == 10) {
+            $e164 = "+01161" . $number;
+        }
         /* End Aus specific hack */
 		if ($e164 == "") {
 			$e164 = "+".$number;
