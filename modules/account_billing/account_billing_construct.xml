@@ -78,14 +78,12 @@
         <eft_trn>
             <type>C(255)</type>
             <convert>encrypt</convert>
-            <validate>numeric</validate>
             <min_len>6</min_len>
             <max_len>16</max_len>            
         </eft_trn>
         <eft_check_acct>
             <type>C(255)</type>
             <convert>encrypt</convert>
-            <validate>numeric</validate>
             <min_len>6</min_len>
             <max_len>16</max_len>            
         </eft_check_acct> 

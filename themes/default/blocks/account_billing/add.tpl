@@ -199,6 +199,47 @@
                     <input type="text" name="account_billing_card_start_year" value="{$VAR.account_billing_card_start_year}"  size="2" maxlength="2">
                     </td>
                 </tr>
+				<tr>
+					<td width="17%">{translate module=account} field_first_name {/translate}{if $VAR.first_name_error}<font color="#FF0000">*</font>{/if}</td>
+					<td width="17%"><input type="text" name="checkout_plugin_data[first_name]"  value="{$VAR.first_name}" size="12"></td>
+				<tr>
+					<td width="16%">{translate module=account} field_last_name {/translate}{if $VAR.last_name_error}<font color="#FF0000">*</font>{/if}</td>
+					<td width="16%"><input type="text" name="checkout_plugin_data[last_name]"  value="{$VAR.last_name}" size="12"></td>
+				</tr>
+				<tr>
+					<td width="17%">{translate module=account} field_company {/translate}</td>
+					<td width="17%"><input type="text" name="checkout_plugin_data[company]"  value="{$VAR.company}" size="20"></td>
+				</tr>
+				<tr>
+					<td width="17%">{translate module=account} field_address1 {/translate}{if $VAR.address1_error}<font color="#FF0000">*</font>{/if}</td>
+					<td width="17%"><input type="text" name="checkout_plugin_data[address1]"  value="{$VAR.address1}" size="12"></td>
+				</tr>
+				<tr>
+					<td width="16%">{translate module=account} field_address2{/translate}</td>
+					<td width="16%"><input type="text" name="checkout_plugin_data[address2]"  value="{$VAR.address2}" size="12"></td>
+				</tr>
+				<tr>
+					<td width="17%">{translate module=account} field_city {/translate}</td>
+					<td width="17%"><input type="text" name="checkout_plugin_data[city]"  value="{$VAR.city}" size="20"></td>
+				</tr>
+				<tr>
+					<td width="17%">{translate module=account} field_state {/translate}{if $VAR.state_error}<font color="#FF0000">*</font>{/if}</td>
+					<td width="17%"><input type="text" name="checkout_plugin_data[state]"  value="{$VAR.state}" size="12"></td>
+				</tr>
+				<tr>
+					<td width="16%">{translate module=account} field_zip{/translate}{if $VAR.zip_error}<font color="#FF0000">*</font>{/if}</td>
+					<td width="16%"><input type="text" name="checkout_plugin_data[zip]"  value="{$VAR.zip}" size="12"></td>
+				</tr>
+				<tr>
+					<td width="17%">{translate module=account} field_country_id{/translate}</td>
+					<td width="17%">
+						{if $VAR.country_id != ""}
+						{ $list->menu("no", "checkout_plugin_data[country_id]", "country", "name", $VAR.country_id, "") }
+						{else}
+						{ $list->menu("no", "checkout_plugin_data[country_id]", "country", "name", $smarty.const.DEFAULT_COUNTRY, "") }
+						{/if}
+					</td>
+				</tr>
                 <tr valign="top"> 
                   <td width="35%"> 
                     {translate module=account_billing}
