@@ -528,7 +528,7 @@ class voip
             $nxx = substr($e164, 8, 4);
         }
         // aus interstate call
-        if (!strncmp($number, "0", 1) && strlen($number) ==10) {
+        if (!strncmp($number, "0", 1) && strlen($number) == 10) {
             $e164 = "+01161" . $number;
         }
 		// aus toll free call
@@ -1402,11 +1402,12 @@ class voip
 				src=".$db->qstr($src).", dst=".$db->qstr($dst).", rated=2
 				WHERE id=".$db->qstr($rs->fields['id']);
 			#echo $sql."<br>";
-			$db->Execute($sql); 
+			$db->Execute($sql);
 			$count++;
 			$rs->MoveNext();
 		}
 		echo "Normalized $count records...\n";
+		
 	}
 		
 	// Call as task - voip:task
@@ -1420,7 +1421,7 @@ class voip
 		global $rate;
 		$rate = array();
 		$db = &DB(); 
-		$rs = & $db->Execute( sqlSelect($db, "product", "id,prod_plugin_data", "prod_plugin_file=::VOIP:: and prod_plugin=1")); 
+		$rs = & $db->Execute( sqlSelect($db, "product", "id,prod_plugin_data", "prod_plugin_file=::VOIP:: and prod_plugin=1"));
 		while (!$rs->EOF) {
 			$pdata = unserialize($rs->fields['prod_plugin_data']);
 			$id = $rs->fields['id'];
@@ -1448,8 +1449,9 @@ class voip
 		if($this->perform_normalization) {
 			$this->normalize($db);
 		}
+//		print 'here!';
 		echo "Finished normalization...\n";
-		
+
 		# rate prepaid cards, non-SIP prepaid
 		$rs =& $db->Execute(sqlSelect($db,"voip_prepaid","pin, account_id, product_id, voip_did_id","(voip_did_id=0 or voip_did_id is null)"));
 		if ($rs && $rs->RecordCount() > 0) {
@@ -1511,6 +1513,10 @@ class voip
 
 			$dids[$dp]['start'] = $rs->fields['date_last_invoice'] - (MAX_INV_GEN_PERIOD*86400);
 			$dids[$dp]['end']   = $rs->fields['date_next_invoice'];
+			
+			echo "Last invoice date: {$rs->fields['date_last_invoice']} \n";
+			echo "Next invoice date: {$rs->fields['date_next_invoice']} \n";
+
 			$dids[$dp]['did'] = @$cart['station'];
 			if (strlen(@$cart['ported']))
 				$dids[0]['did'] = $cart['ported'];
@@ -1524,27 +1530,27 @@ class voip
 						$dp++;
 						$dids[$dp]['start'] = $rs->fields['date_last_invoice'] - (MAX_INV_GEN_PERIOD*86400);
 						$dids[$dp]['end']   = $rs->fields['date_next_invoice'] + 86399;
-						$dids[$dp]['did'] = substr($e164,2);
+						$dids[$dp]['did']   = substr($e164,2);
 						$dp++;
 						$dids[$dp]['start'] = $rs->fields['date_last_invoice'] - (MAX_INV_GEN_PERIOD*86400);
 						$dids[$dp]['end']   = $rs->fields['date_next_invoice'] + 86399;
-						$dids[$dp]['did'] = substr($e164,1);
+						$dids[$dp]['did']   = substr($e164,1);
                     /* begin aus number hack */
                     } elseif ($cc == '61') {
                         $dp++;
-                        $dids[$dp]['start'] = $rs->fields['date_last_invoice'];
+                        $dids[$dp]['start'] = $rs->fields['date_last_invoice'] - (MAX_INV_GEN_PERIOD*86400);
                         $dids[$dp]['end']   = $rs->fields['date_next_invoice'] + 86399;
-                        $dids[$dp]['did'] = substr($e164,6);
+                        $dids[$dp]['did']   = substr($e164,6);
+						var_dump($dids[$dp]);
                     /* end aus number hack */
 					} else {
 						$dp++;
-						$dids[$dp]['start'] = $rs->fields['date_last_invoice'];
+						$dids[$dp]['start'] = $rs->fields['date_last_invoice'] - (MAX_INV_GEN_PERIOD*86400);
 						$dids[$dp]['end']   = $rs->fields['date_next_invoice'] + 86399;
-						$dids[$dp]['did'] = substr($e164,4);
+						$dids[$dp]['did']   = substr($e164,4);
 					}
 					
 				}
-				
 				if (@$cart['parent_service_id'] > 0) {
 					# echo "This is a virtual number, skipping record...";
 					;
@@ -1612,11 +1618,16 @@ class voip
 			$rs->MoveNext();
 		}
 		$debug = ob_get_contents();
-		echo $debug;
 		ob_end_clean();
-		if (defined('RATING_DEBUG')) {
-			mail("sluther@bitpiston.com","Rating Debug For ".URL,$debug);
-		}
+
+		// if (defined('RATING_DEBUG')) {
+		// mail("sluther@bitpiston.com","Rating Debug For c2a.com.au",$debug);
+		// mail("sluther@bitpiston.com","Test!","Test!");
+		// ----
+
+		// ----
+		// }
+		
 		return true;
 	}	
 	
@@ -1792,6 +1803,7 @@ class voip
 				$sql .= "((src='".$d['did']."' or dst='".$d['did']."') and date_orig>='".$d['start']."' and date_orig<='".$d['end']."') OR ";
 			}
 		}
+
 		$sql = substr($sql,0,strlen($sql)-3).")";
 		$callSQL = $sql;
 		$sql = "select * from ".AGILE_DB_PREFIX."voip_cdr where $sql and
@@ -1881,7 +1893,6 @@ class voip
 			if (!$db->Execute($sql)) {
 				echo $db->ErrorMsg()."\n";
 			}
-
 			if ($unit && $postCharges) {
 				$a = 'Source=='.$rs1->fields['src'].'\r\nDestination=='.$rs1->fields['dst'];
 				$a .= '\r\nvoip_cdr_id=='.$rs1->fields['id'].'\r\ndate_orig=='.$rs1->fields['date_orig'];
