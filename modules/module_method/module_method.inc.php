@@ -256,7 +256,9 @@ class module_method
 
 		# get the total pages for this search:
 		$this->pages = 1;
-		if ($search->results % $search->limit) $this->pages++;
+		if(null != $search) {
+			if ($search->results % $search->limit) $this->pages++;
+		}
 		# total pages
 		$smarty->assign('pages', 	$this->pages);
 		# current page
