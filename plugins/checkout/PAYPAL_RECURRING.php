@@ -299,6 +299,7 @@ if(empty($VAR) && empty($VAR['do'])) {
 	require_once(PATH_ADODB  . 'adodb.inc.php');
 	require_once(PATH_CORE   . 'database.inc.php');
 	require_once(PATH_CORE   . 'setup.inc.php'); 
+	require_once(PATH_CORE   . 'xml.inc.php');
 	$C_debug 	= new CORE_debugger;
 	$C_db       = &DB();
 	$C_setup 	= new CORE_setup; 
