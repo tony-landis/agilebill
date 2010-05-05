@@ -288,6 +288,7 @@ class account_admin
 		$display_this=false;
 		if(!empty($VAR['account_id']))
 		{
+//			var_dump($VAR);
 			### Get any authorized groups of the target account
 			$dba = &DB();
 			$sql = 'SELECT group_id FROM ' . AGILE_DB_PREFIX . 'account_group WHERE
@@ -329,7 +330,7 @@ class account_admin
 			$arr['_password'] = $acct->fields['password'];
 			include_once(PATH_CORE.'login.inc.php');
 			$login = new CORE_login_handler;
-			$login->logout($VAR);
+//			$login->logout($VAR);
 			$login->login($arr, $md5=false);
 			define('REDIRECT_PAGE', '?_page=account:account&tid='.DEFAULT_THEME);
 		}
