@@ -469,6 +469,10 @@ class invoice
 				$prod_price  = $productObj->price_prod($product->fields, $recurring_schedule, $this->account_id);
 				$price_base  = $prod_price["base"];
 				$price_setup = $prod_price["setup"];
+				
+				// get the recurring price (do NOT prorate!)
+				$prod_price  = $productObj->price_prod($product->fields, $recurring_schedule, $this->account_id, false);
+				$recur_price  = $prod_price["base"];
 				 			
 				// calculate any product attributes fees
 	 			$attr_price  = $productObj->price_attr($product->fields, $product_attr, $recurring_schedule, $this->account_id);
@@ -508,19 +512,22 @@ class invoice
 		$price_setup *= $quantity;
 		$total_amt = ($price_setup + $price_base);
 		
+		// set the total recurring amount
+		$recur_price *= $quantity;
+		
 		// format product attributes for storage
 		$product_attr_cart=false; 
 		if(($item_type==0 || $item_type>2) && is_array($product_attr)) $product_attr_cart = $this->get_product_attr_cart($product_attr); 
 			 
 		// recurring taxes and arrays
-		if($price_base>0 && $price_type==1) 
+		if($recur_price>0 && $price_type==1) 
 		{		
 			// increment the total invoice recurring amount
-			$this->recur_amt += $price_base;
+			$this->recur_amt += $recur_price;
 							
 			// determine taxes for the recurring amount
-			if($this->tax && $taxable && $price_base>0 && $this->account_id) { 
-				$recur_tax_arr = $taxObj->calculate($price_base, $this->country_id, $this->state);				   
+			if($this->tax && $taxable && $recur_price>0 && $this->account_id) { 
+				$recur_tax_arr = $taxObj->calculate($recur_price, $this->country_id, $this->state);				   
 				if(is_array($recur_tax_arr)) foreach($recur_tax_arr as $tx) $this->recur_amt += $tx['rate'];
 			}			
  
@@ -528,7 +535,7 @@ class invoice
 			if($product && $product->RecordCount()) {
 				$this->price_arr["$this->item_id"] = $productObj->price_recurr_arr($product->fields, $this->account_id);  
 				$this->recur_arr[] = Array (
-					'price' 		 => $price_base*$quantity,
+					'price' 		 => $recur_price,
 					'recurr_schedule'=> $recurring_schedule,
 					'recurr_type' 	 => $product->fields['price_recurr_type'],
 					'recurr_weekday' => $product->fields['price_recurr_weekday'],
