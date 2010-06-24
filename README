@@ -9,11 +9,14 @@ Development began as early as 2002, and initially released commercially in 2004.
 
 The project was released to open source in November 26, 2008.
 
+For support, the community group is located at:
+	http://groups.google.com/group/agilebilloss
+
 The project homepage is located here:
 	http://agileco.com/agilebill-open-source-billing-software.htm
 
 The bug tracking and feature requests are located here:
-	http://tony_landis.lighthouseapp.com/projects/20914-agilebill/tickets
+	http://github.com/tony-landis/agilebill/issues
 
 The developer's personal website is:
 	http://www.tonylandis.com
@@ -21,7 +24,7 @@ The developer's personal website is:
 For a full list of features, see these version release announcement: 
 	http://forum.agileco.com/forumdisplay.php?s=&f=26&page=1&pp=20&sort=lastpost&order=desc&daysprune=-1
 
-The user community is located at:
+An archive of the old user community is located at:
 	http://forum.agileco.com
 
 This software includes the functionality the two projects AgileVoice and AgileISP, websites:
