@@ -96,9 +96,10 @@ _username	 Yes
 	Pass a username that is authorized for the Charge API 
 _password	 Yes 	 
 	Pass the password for the username you passed
-				account_id (or) service_id	 Yes 	 Either one of these parameters must be passed, but NOT both. 
-				If using the account_id parameter, the value passed must be either the unique id or username in the account table.
-				If using the service_id parameter, the value passed must be the unique id in the service table.
+account_id (or) service_id	 Yes 	 
+	Either one of these parameters must be passed, but NOT both. 
+	If using the account_id parameter, the value passed must be either the unique id or username in the account table.
+	If using the service_id parameter, the value passed must be the unique id in the service table.
 amount	 Yes 	 
 	Pass the amount per unit to be billed, accurate up to 6 decimal places.
 sweep_type	 Yes 	 
@@ -170,7 +171,3 @@ Command: charge:sweep_daily
 Minutes: 0
 Hour: 1
 Month Day, Month, and Week Day: *
-
-
-
-
