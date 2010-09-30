@@ -185,16 +185,14 @@ class CORE_list
 		if($default == 'now') $default = date(UNIX_DATE_FORMAT, time());
 		echo '
 			<select name="field_option['.$field.'][0]">
-			  <option value=">">></option>
-			  <option value=">">></option>
+			   <option value=">">></option>
 			  <option value="<="><=</option>
 			  <option value=">=">>=</option>
 			  <option value="!=">!=</option>
 			</select>&nbsp;&nbsp;'; 
 		$this->calender_view($field.'[0]', $default, $css, 1);
 		echo '<BR>
-			<select name="field_option['.$field.'][1]"> 
-			  <option value="<"><</option>
+			<select name="field_option['.$field.'][1]">
 			  <option value="<"><</option> 
 			  <option value="<="><=</option>
 			  <option value=">=">>=</option>
