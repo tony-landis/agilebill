@@ -960,7 +960,7 @@ class service
 			$this->bind   = '1';
 
 			# Determine the next invoice date:
-			$this->next_invoice = $this->calcNextInvoiceDate(	$service['date_next_invoice'],
+			$this->next_invoice = $this->calcNextInvoiceDate(	time(),
 			$this->recurring_schedule,
 			$prod->fields['price_recurr_type'],
 			$prod->fields['price_recurr_weekday'],
@@ -980,7 +980,6 @@ class service
 			$prorated = $old_unit * $daysLeft;
 			$daysDiff = ceil($prorated / $new_unit);
 			//echo "daysLeft=$daysLeft prorated=$prorated daysDiff=$daysDiff <br>";
-
 			//echo "dt=". date("d-m-Y", $this->next_invoice)."<br>";
 			$this->next_invoice += ($daysDiff * 86400);
 			//echo "final dt=". date("d-m-Y", $this->next_invoice) ."<br>";
