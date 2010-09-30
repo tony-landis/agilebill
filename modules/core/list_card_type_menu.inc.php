@@ -54,7 +54,7 @@ function list_card_type_menu($default_selected, $checkout_id, $field, $class)
 		$data .=  '<option value="'.$accepted_arr[$i].'"';
 		if($default_selected == $accepted_arr[$i])
 		$data .=   ' selected';			
-		$data .=   '">'.
+		$data .=   '>'.
 				   $C_translate->translate('card_type_'. $accepted_arr[$i],'checkout','');
 				   '</option>
 				   ';
