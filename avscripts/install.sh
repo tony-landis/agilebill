@@ -32,11 +32,11 @@ done
 cd ..
 
 echo "Installing Cron entries..."
-echo "*/15 * * * * root /usr/sbin/agilevoice-export-extensions" >>/etc/crontab
-echo "*/15 * * * * root /usr/sbin/agilevoice-export-sip" >>/etc/crontab
-echo "*/15 * * * * root /usr/sbin/agilevoice-export-iax" >>/etc/crontab
-echo "*/15 * * * * root /usr/sbin/agilevoice-export-vm" >>/etc/crontab
-echo "*/30 * * * * root /usr/sbin/cdr_import_agilevoice" >>/etc/crontab
+echo "*/15 * * * * asterisk /usr/sbin/agilevoice-export-extensions" >>/etc/crontab
+echo "*/15 * * * * asterisk /usr/sbin/agilevoice-export-sip" >>/etc/crontab
+echo "*/15 * * * * asterisk /usr/sbin/agilevoice-export-iax" >>/etc/crontab
+echo "*/15 * * * * asterisk /usr/sbin/agilevoice-export-vm" >>/etc/crontab
+echo "*/30 * * * * asterisk /usr/sbin/cdr_import_agilevoice" >>/etc/crontab
 
 perl -MCPAN -e "install Text::CSV"
 
@@ -46,4 +46,3 @@ mysql -u ${db_user} -p${db_pass} ${db_name} < av-tables.sql
 
 
 echo "Complete."
-
