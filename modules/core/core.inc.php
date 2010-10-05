@@ -176,7 +176,7 @@ class core
                 $table = $rs->fields['name'];
                 $sql = "CHECK TABLE ".AGILE_DB_PREFIX.$table;
                 $rscheck = $db->Execute($sql);
-                if ($rscheck && $rscheck->fields['Msg_type'] == 'status' && $rscheck->fields['Msg_text'] == 'ok') {
+                if ($rscheck && $rscheck->fields['Msg_type'] == 'status' && $rscheck->fields['Msg_text'] == 'OK') {
 					$sql = "ANALYZE TABLE ".AGILE_DB_PREFIX.$table;
 					$db->Execute($sql);
 				} else {   
