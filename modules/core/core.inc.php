@@ -175,13 +175,17 @@ class core
             {
                 $table = $rs->fields['name'];
                 $sql = "CHECK TABLE ".AGILE_DB_PREFIX.$table;
-                $db->Execute($sql);
+                $rscheck = $db->Execute($sql);
+                if ($rscheck && $rscheck->fields['Msg_type'] == 'status' && $rscheck->fields['Msg_text'] == 'ok') {
+					$sql = "ANALYZE TABLE ".AGILE_DB_PREFIX.$table;
+					$db->Execute($sql);
+				} else {   
+                    $sql = "REPAIR TABLE ".AGILE_DB_PREFIX.$table;
+                    $db->Execute($sql);
 
-                $sql = "REPAIR TABLE ".AGILE_DB_PREFIX.$table;
-                $db->Execute($sql);
-
-                $sql = "OPTIMIZE TABLE ".AGILE_DB_PREFIX.$table;
-                $db->Execute($sql);
+                    $sql = "OPTIMIZE TABLE ".AGILE_DB_PREFIX.$table;
+                    $db->Execute($sql);
+                }
 
                 $rs->MoveNext();
             }
