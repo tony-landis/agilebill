@@ -471,14 +471,13 @@ class affiliate
 			{
 				$where=' WHERE ';	
 				$num=0;			
-				for ($i=0; $i<count($campaigns); $i++) 
-				{
-					if(!empty($campaigns[$i]))
+				foreach($campaigns as $i) {
+					if(!empty($i))
 					{
-						if($i > 0) $where = " OR ";
-						$where .= " id = ". $db->qstr($campaigns[$i]);
-						$num++;
+						if($num > 0) $where .= " OR ";
+						$where .= " id = ". $db->qstr($i);
 					}
+					$num++;
 				}
 
 				if($num > 0)
