@@ -96,7 +96,7 @@ class discount
 
 		# Check the supplied discount
 		$db = &DB();
-		$rs = $db->Execute(sqlSelect($db,"discount","*","( date_start IS NULL OR date_start=0 OR date_start<".time().") AND date_expire>=".time()." AND name=::$discount_code::"));		
+		$rs = $db->Execute(sqlSelect($db,"discount","*","( date_start IS NULL OR date_start=0 OR date_start<".time().") AND ( date_expire>=".time()." OR date_expire IS NULL OR date_expire=0 ) AND name=::$discount_code::"));
 		if (!$rs || !$rs->RecordCount() || $rs->fields["status"] != '1') {
 			
 			// local check failed, attempt any discount plugins
