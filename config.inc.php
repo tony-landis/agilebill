@@ -21,7 +21,7 @@
     define ('AGILE_DB_PCONNECT',    false); 
 
     # No need to change anything after this line!
-    define ('DEFAULT_SITE',         '');
+    define ('DEFAULT_SITE',         '1');
     define ('DEF_THEME_N',          'default');
     define ('PATH_CORE',            PATH_AGILE . 'modules/core/');
     define ('PATH_MODULES',         PATH_AGILE . 'modules/');
