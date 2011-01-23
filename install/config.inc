@@ -1,6 +1,6 @@
 <?php
 
-    # Main path settings, iclude trailing slashes!
+    # Main path settings, include trailing slashes!
     define ('PATH_AGILE',           '%%PATH_AGILE%%');
     
     # Base site for cookies, example: '.domain.com'
