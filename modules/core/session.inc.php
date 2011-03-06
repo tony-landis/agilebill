@@ -209,7 +209,7 @@ class CORE_session
 		if(!empty($this->sess_affiliate_id)) {
 			$aid_expire = time()+86400*720;
 			$aid_cookie_name = COOKIE_NAME . 'aid';
-			if(empty($domain) || eregi('localhost', $domain))
+			if(empty($domain) || preg_match('/localhost/i', $domain))
 			setcookie($aid_cookie_name, $this->sess_affiliate_id, $aid_expire,'/');
 			else
 			setcookie($aid_cookie_name, $this->sess_affiliate_id, $aid_expire,'/', $domain); 
@@ -219,7 +219,7 @@ class CORE_session
 		if(!empty($this->sess_campaign_id)) { 
 			$cid_expire = time()+86400*720;
 			$cid_cookie_name = COOKIE_NAME . 'caid';
-			if(empty($domain) || eregi('localhost', $domain))
+			if(empty($domain) || preg_match('/localhost/i', $domain))
 			setcookie($cid_cookie_name, $this->sess_campaign_id, $cid_expire,'/');
 			else
 			setcookie($cid_cookie_name, $this->sess_campaign_id, $cid_expire,'/', $domain);            

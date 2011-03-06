@@ -56,11 +56,11 @@ class WEBMIN
 		$ret  = $this->connect($cgi,$post);					  		
 		preg_match ("/(edit_domain.cgi\?dom=).([0-9]{1,})('>$this->domain<)/i", $ret, $arr); 			 
 		if(is_array($arr) && count($arr) > 0) {
-			$id = ereg_replace("('>$this->domain<)", "", ereg_replace("(edit_domain.cgi\?dom=)","", $arr[0]));
+			$id = preg_replace("/('>$this->domain<)/", "", preg_replace("/(edit_domain.cgi\?dom=)/","", $arr[0]));
 		} else { 
 			preg_match ("/(edit_domain.cgi\?dom=).([0-9]{1,})('><i>$this->domain<\/i><)/i", $ret, $arr); 			 
 			if(is_array($arr) && count($arr) > 0)
-				$id = ereg_replace("('><i>$this->domain</i><)", "", ereg_replace("(edit_domain.cgi\?dom=)","", $arr[0]));
+				$id = preg_replace("/('><i>$this->domain</i><)/", "", preg_replace("/(edit_domain.cgi\?dom=)/","", $arr[0]));
 			else
 				$id = false;				
 		} 
@@ -88,7 +88,7 @@ class WEBMIN
 		$ret  = $this->connect($cgi,$post);		 
 		if($this->debug) echo "<br><br>{$cgi}?{$post}<br><textarea cols=100 rows=20>$ret</textarea>";
 
-		if(!eregi("Failed", $ret))	 
+		if(!preg_match("/Failed/i", $ret))	 
 		return true;	 
 		else
 		return false;
@@ -142,7 +142,7 @@ class WEBMIN
 		$ret  = $this->connect($cgi,$post);	 
 		if($this->debug) echo "<br><br>{$cgi}?{$post}<br><textarea cols=100 rows=20>$ret</textarea>";		
 
-		if(!eregi("Failed", $ret))	 
+		if(!preg_match("/Failed/i", $ret))	 
 		return true;	 
 		else
 		return false;
@@ -165,7 +165,7 @@ class WEBMIN
 		$ret  = $this->connect($cgi,$post);	 
 		if($this->debug) echo "<br><br>{$cgi}?{$post}<br><textarea cols=100 rows=20>$ret</textarea>";		
 
-		if(!eregi("Failed", $ret))	 
+		if(!preg_match("/Failed/i", $ret))	 
 		return true;	 
 		else
 		return false;	   	   
@@ -188,7 +188,7 @@ class WEBMIN
 		$ret  = $this->connect($cgi,$post);	 
 		if($this->debug) echo "<br><br>{$cgi}?{$post}<br><textarea cols=100 rows=20>$ret</textarea>";		
 
-		if(!eregi("Failed", $ret))	 
+		if(!preg_match("/Failed/i", $ret))	 
 		return true;	 
 		else
 		return false;

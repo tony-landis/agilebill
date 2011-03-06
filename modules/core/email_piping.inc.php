@@ -91,8 +91,8 @@ class email_piping
 				// formatting for from e-mail address
 			   	$from=$val->from;
 			   	$sender=$from=$val->from;
-			   	$from=ereg_replace("\"","",$from);
-			   	if(ereg("<",$from)) {
+			   	$from=preg_replace("/\"/","",$from);
+			   	if(preg_match("/</",$from)) {
 			   		$f=explode("<", $from);
 			   		$sender=$f[0];
 			   		$from=$f[1];
@@ -217,7 +217,7 @@ class email_piping
 	function get_connection_string($type,$host,$port=false,$mbox=false) {
 		 
 		# Determine the path, host, & mbox name:
-		if(ereg(":", $host)) {
+		if(preg_match("/:/", $host)) {
 			$arr = explode(":", $host);
 			
 			# host

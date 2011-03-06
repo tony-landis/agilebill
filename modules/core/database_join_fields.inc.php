@@ -71,7 +71,7 @@ function CORE_database_join_fields($result, $linked)
 			while (!$rss->EOF) {					
 				for ($ii=0; $ii < count($result); $ii++ ) {
 					if($result[$ii][$field] == $rss->fields[id]) {
-						if(ereg(',',$link_field)) {
+						if(preg_match('/,/',$link_field)) {
 							$fields = explode(',',$link_field);
 							for($iii=0; $iii<count($fields); $iii++) {
 								$fieldname = $fields[$iii];

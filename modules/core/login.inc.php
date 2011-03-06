@@ -167,8 +167,8 @@ class CORE_login_handler
 			$date1.= "  ".date(DEFAULT_TIME_FORMAT, $date);
 
 			$message = $C_translate->translate('login_log_success','','');
-			$message = ereg_replace('%date%', $date1, $message);
-			$message = ereg_replace('%ip%', $ip, $message);
+			$message = preg_replace('/%date%/', $date1, $message);
+			$message = preg_replace('/%ip%/', $ip, $message);
 			$C_debug->alert($message);
 		}
 

@@ -113,11 +113,11 @@ class CORE_weblog
 		{
 			if (URL != '')
 			{	
-				if (eregi (URL, $re)) return;
+				if (preg_match ('/'.URL.'/i', $re)) return;
 			}
 			if (SSL_URL != '')	
 			{
-				if (eregi (SSL_URL, $re)) return;
+				if (preg_match ('/'.SSL_URL.'/i', $re)) return;
 			}
 		}
 

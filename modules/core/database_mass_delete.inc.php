@@ -125,7 +125,7 @@ function CORE_database_mass_delete($VAR, &$construct, $type)
 				global $C_debug, $C_translate; 
 				$C_translate->value["CORE"]["module_name"] = $C_translate->translate('name',$construct->module,"");
 				$message = $C_translate->translate('alert_delete_ids',"CORE","");
-				$message = ereg_replace('%%module_name%%','', $message);
+				$message = preg_replace('/%%module_name%%/','', $message);
 				$C_debug->alert($message);	
 			}
 

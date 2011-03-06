@@ -290,7 +290,7 @@ class CORE_validate
 
 	function validate_email($data,$field)
 	{
-		if(eregi("^[a-z0-9\._-]+@+[a-z0-9\._-]+\.+[a-z]{2,4}$", $data)) 
+		if(preg_match("/^[a-z0-9\._-]+@+[a-z0-9\._-]+\.+[a-z]{2,4}$/i", $data)) 
 		{
 			return TRUE; 
 		}
@@ -408,7 +408,7 @@ class CORE_validate
 
 	function validate_address($data,$field)
 	{
-		if(@strlen($data) >= 2 && eregi('[0-9]{1,}', $data) && eregi('[a-z]{1,}', $data)) {
+		if(@strlen($data) >= 2 && preg_match('/[0-9]{1,}/i', $data) && preg_match('/[a-z]{1,}/i', $data)) {
 			return TRUE;
 		} else {
 			global $C_translate;
@@ -420,7 +420,7 @@ class CORE_validate
 
 	function validate_zip($data,$field)
 	{
-		if(@strlen($data) >= 4   &&   eregi('[0-9a-zA-Z-]{4,}', $data))
+		if(@strlen($data) >= 4   &&   preg_match('/[0-9a-zA-Z-]{4,}/i', $data))
 		{
 			return TRUE;
 		}
@@ -435,7 +435,7 @@ class CORE_validate
 
 	function validate_phone($data,$field)
 	{
-		if(@strlen($data) > 9  &&   eregi('[0-9()-]{10,}', $data))
+		if(@strlen($data) > 9  &&   preg_match('/[0-9()-]{10,}/i', $data))
 		{
 			return TRUE;
 		}
@@ -449,7 +449,7 @@ class CORE_validate
 
 	function validate_fax($data,$field)
 	{	
-		if(@strlen($data) > 9  &&   eregi('[0-9()-]{10,}', $data))
+		if(@strlen($data) > 9  &&   preg_match('/[0-9()-]{10,}/i', $data))
 		{
 			return TRUE;
 		}
@@ -469,7 +469,7 @@ class CORE_validate
 
 	function validate_numeric($data,$field)
 	{
-		if(eregi("^[0-9]{1,}$", $data))
+		if(preg_match("/^[0-9]{1,}$/i", $data))
 		{
 			return TRUE;
 		}
@@ -483,7 +483,7 @@ class CORE_validate
 
 	function validate_alphanumeric($data,$field)
 	{
-		if(eregi("^[0-9a-zA-Z-]{1,}$", $data))
+		if(preg_match("/^[0-9a-zA-Z-]{1,}$/i", $data))
 		{
 			return TRUE;
 		}
@@ -497,7 +497,7 @@ class CORE_validate
 
 	function validate_non_numeric($data,$field)
 	{
-		if(!eregi("[0-9]{1,}", $data))
+		if(!preg_match("/[0-9]{1,}/i", $data))
 		{				
 			return TRUE;				
 		}
@@ -511,7 +511,7 @@ class CORE_validate
 
 	function validate_float($data,$field)
 	{
-		if(eregi("^[0-9\.]{1,}$", $data))
+		if(preg_match("/^[0-9\.]{1,}$/i", $data))
 		{
 			return TRUE;
 		}
@@ -565,10 +565,10 @@ class CORE_validate
 
 	function validate_cc_exp($month, $year)
 	{
-		if (eregi_replace("^0", "", $year) > eregi_replace("^0","", date("y")))
+		if (preg_replace("/^0/i", "", $year) > preg_replace("/^0/i","", date("y")))
 		return true;
-		elseif ( eregi_replace("^0","", $year) == eregi_replace("^0","", date("y")) &&
-				 eregi_replace("^0","", $month) >= eregi_replace("^0","", date("m")))
+		elseif ( preg_replace("/^0/i","", $year) == preg_replace("/^0/i","", date("y")) &&
+				 preg_replace("/^0/i","", $month) >= preg_replace("/^0/i","", date("m")))
 		return true;
 		else
 		return false;
@@ -582,7 +582,7 @@ class CORE_validate
 
 		if ($card_type == "visa" || !$card_type) {
 			// VISA
-			if ( ereg("^4[0-9]{12}([0-9]{3})?$", $ccNum) ) {
+			if ( preg_match("/^4[0-9]{12}([0-9]{3})?$/", $ccNum) ) {
 				$v_ccNum = true;
 				$c_type  = 'visa';
 			}
@@ -596,61 +596,61 @@ class CORE_validate
 		}
 		else if ($card_type == "amex" || !$card_type) {
 			// AMEX
-			if ( ereg("^3[47][0-9]{13}$", $ccNum) )  {
+			if ( preg_match("/^3[47][0-9]{13}$/", $ccNum) )  {
 				$v_ccNum = true;
 				$c_type  = 'amex';
 			}
 		}
 		else if ($card_type == "discover" || !$card_type) {
 			// DISCOVER
-			if ( ereg("^6011[0-9]{12}$", $ccNum) )  {
+			if ( preg_match("/^6011[0-9]{12}$/", $ccNum) )  {
 				$v_ccNum = true;
 				$c_type  = 'discover';
 			}
 		}
 		else if ($card_type == "delta" || !$card_type) {
 			// DELTA ?
-			if ( eregi ( "^4(1373[3-7]|462[0-9]{2}|5397[8-9]|".
+			if ( preg_match ( "/^4(1373[3-7]|462[0-9]{2}|5397[8-9]|".
 			"54313|5443[2-5]|54742|567(2[5-9]|3[0-9]|4[0-5])|".
 			"658[3-7][0-9]|659(0[1-9]|[1-4][0-9]|50)|844(09|10)|".
-			"909[6-7][0-9]|9218[1-2]|98824)[0-9]{10}$" ) ) {
+			"909[6-7][0-9]|9218[1-2]|98824)[0-9]{10}$/i" ) ) {
 				$v_ccNum = true;
 				$c_type  = 'delta';
 			}
 		}
 		else if ($card_type == "solo" || !$card_type) {
 			// SOLO  ?
-			if ( ereg("^6(3(34[5-9][0-9])|767[0-9]{2})[0-9]{10}([0-9]{2,3})?$") ) {
+			if ( preg_match("/^6(3(34[5-9][0-9])|767[0-9]{2})[0-9]{10}([0-9]{2,3})?$/") ) {
 				$v_ccNum = true;
 				$c_type  = 'solo';
 			}
 		}
 		else if ($card_type == "switch" || !$card_type) {
 			// SWITCH  ?
-			if ( ereg('^49(03(0[2-9]|3[5-9])|11(0[1-2]|7[4-9]|8[1-2])|36[0-9]{2})[0-9]{10}([0-9]{2,3})?$', $ccNum) ||
-				 ereg('^564182[0-9]{10}([0-9]{2,3})?$', $ccNum) ||
-				 ereg('^6(3(33[0-4][0-9])|759[0-9]{2})[0-9]{10}([0-9]{2,3})?$', $ccNum) )  {
+			if ( preg_match('/^49(03(0[2-9]|3[5-9])|11(0[1-2]|7[4-9]|8[1-2])|36[0-9]{2})[0-9]{10}([0-9]{2,3})?$/', $ccNum) ||
+				 preg_match('/^564182[0-9]{10}([0-9]{2,3})?$/', $ccNum) ||
+				 preg_match('/^6(3(33[0-4][0-9])|759[0-9]{2})[0-9]{10}([0-9]{2,3})?$/', $ccNum) )  {
 					 $v_ccNum = true;
 					 $c_type  = 'switch';
 			}
 		}
 		else if ($card_type == "jcb" || !$card_type) {
 			// JCB
-			if ( ereg("^(3[0-9]{4}|2131|1800)[0-9]{11}$", $ccNum) )  {
+			if ( preg_match("/^(3[0-9]{4}|2131|1800)[0-9]{11}$/", $ccNum) )  {
 				$v_ccNum = true;
 				$c_type  = 'jcb';
 			}
 		}
 		else if ($card_type == "diners" || !$card_type) {
 			// DINERS
-			if ( ereg("^3(0[0-5]|[68][0-9])[0-9]{11}$", $ccNum) ) {
+			if ( preg_match("/^3(0[0-5]|[68][0-9])[0-9]{11}$/", $ccNum) ) {
 				$v_ccNum = true;
 				$c_type  = 'diners';
 			}
 		}
 		else if ($card_type == "carteblanche" || !$card_type) {
 			// CARTEBLANCHE
-			if ( ereg("^3(0[0-5]|[68][0-9])[0-9]{11}$", $ccNum) ) {
+			if ( preg_match("/^3(0[0-5]|[68][0-9])[0-9]{11}$/", $ccNum) ) {
 				$v_ccNum = true;
 				$c_type  = 'carteblanche';
 			}
@@ -686,7 +686,7 @@ class CORE_validate
 	function validate_password($data, $field) {        	
 
 		// force numbers and letters
-		if(!eregi("[0-9]{1,}", $data) || !eregi("[a-z]{1,}", $data)) {
+		if(!preg_match("/[0-9]{1,}/i", $data) || !preg_match("/[a-z]{1,}/i", $data)) {
 			global $C_translate;
 			$this->error[$field] = $C_translate->translate('validate_password','CORE',''); 
 			return false;
@@ -726,7 +726,7 @@ class CORE_validate
 
 		// check against data
 		foreach($exclude as $bad_data) {        	
-			if(!empty($bad_data) && eregi($bad_data,$data)) {  		
+			if(!empty($bad_data) && preg_match('/'.$bad_data.'/i',$data)) {  		
 				global $C_translate;
 				$this->error[$field] = $C_translate->translate('validate_password','CORE','');     
 				return false;   			

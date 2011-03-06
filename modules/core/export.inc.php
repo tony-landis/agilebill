@@ -97,9 +97,9 @@ function pdf_invoice($VAR, $construct, $type)
 
 	# generate the full query
 	$db = &DB();
-	$q = eregi_replace("%%fieldList%%", $field_list, $search->sql);
-	$q = eregi_replace("%%tableList%%", AGILE_DB_PREFIX.$construct->table, $q);
-	$q = eregi_replace("%%whereList%%", "", $q);
+	$q = preg_replace("/%%fieldList%%/i", $field_list, $search->sql);
+	$q = preg_replace("/%%tableList%%/i", AGILE_DB_PREFIX.$construct->table, $q);
+	$q = preg_replace("/%%whereList%%/i", "", $q);
 	$q .= " ".AGILE_DB_PREFIX . "invoice.site_id = '" . DEFAULT_SITE . "'";
 	$q .= $order_by;
 
@@ -253,9 +253,9 @@ function search_excel($VAR, $construct, $type)
 		$sql = explode (" WHERE ", $search->sql);
 
 		# generate the full query
-		$q = eregi_replace("%%fieldList%%", $field_list, $search->sql);
-		$q = eregi_replace("%%tableList%%", AGILE_DB_PREFIX.$construct->table, $q);
-		$q = eregi_replace("%%whereList%%", "", $q);
+		$q = preg_replace("/%%fieldList%%/i", $field_list, $search->sql);
+		$q = preg_replace("/%%tableList%%/i", AGILE_DB_PREFIX.$construct->table, $q);
+		$q = preg_replace("/%%whereList%%/i", "", $q);
 		$q .= " " . AGILE_DB_PREFIX . $construct->table.".site_id = '" . DEFAULT_SITE . "'";
 		$q .= $order_by;
 		$db = &DB();
@@ -506,9 +506,9 @@ function search_excel($VAR, $construct, $type)
 		$sql = explode (" WHERE ", $search->sql);
 
 		# generate the full query
-		$q = eregi_replace("%%fieldList%%", $field_list, $search->sql);
-		$q = eregi_replace("%%tableList%%", AGILE_DB_PREFIX.$construct->table, $q);
-		$q = eregi_replace("%%whereList%%", "", $q);
+		$q = preg_replace("/%%fieldList%%/i", $field_list, $search->sql);
+		$q = preg_replace("/%%tableList%%/i", AGILE_DB_PREFIX.$construct->table, $q);
+		$q = preg_replace("/%%whereList%%/i", "", $q);
 		$q .= " ".AGILE_DB_PREFIX . $construct->table.".site_id = '" . DEFAULT_SITE . "'";
 		$q .= $order_by;
 		$db = &DB();
@@ -721,9 +721,9 @@ function search_csv($VAR, $construct, $type)
 		$sql = explode (" WHERE ", $search->sql);
 
 		# generate the full query
-		$q = eregi_replace("%%fieldList%%", $field_list, $search->sql);
-		$q = eregi_replace("%%tableList%%", AGILE_DB_PREFIX.$construct->table, $q);
-		$q = eregi_replace("%%whereList%%", "", $q);
+		$q = preg_replace("/%%fieldList%%/i", $field_list, $search->sql);
+		$q = preg_replace("/%%tableList%%/i", AGILE_DB_PREFIX.$construct->table, $q);
+		$q = preg_replace("/%%whereList%%/i", "", $q);
 		$q .= " ".AGILE_DB_PREFIX . $construct->table.".site_id = '" . DEFAULT_SITE . "'";
 		$q .= $order_by;
 		$db = &DB();
@@ -910,9 +910,9 @@ function search_tab($VAR, $construct, $type)
 		$sql = explode (" WHERE ", $search->sql);
 
 		# generate the full query
-		$q = eregi_replace("%%fieldList%%", $field_list, $search->sql);
-		$q = eregi_replace("%%tableList%%", AGILE_DB_PREFIX.$construct->table, $q);
-		$q = eregi_replace("%%whereList%%", "", $q);
+		$q = preg_replace("/%%fieldList%%/i", $field_list, $search->sql);
+		$q = preg_replace("/%%tableList%%/i", AGILE_DB_PREFIX.$construct->table, $q);
+		$q = preg_replace("/%%whereList%%/i", "", $q);
 		$q .= " ".AGILE_DB_PREFIX . $construct->table.".site_id = '" . DEFAULT_SITE . "'";
 		$q .= $order_by;
 		$db = &DB();
@@ -1081,9 +1081,9 @@ function search_tab($VAR, $construct, $type)
 		$sql = explode (" WHERE ", $search->sql);
 
 		# generate the full query
-		$q = eregi_replace("%%fieldList%%", $field_list, $search->sql);
-		$q = eregi_replace("%%tableList%%", AGILE_DB_PREFIX.$construct->table, $q);
-		$q = eregi_replace("%%whereList%%", "", $q);
+		$q = preg_replace("/%%fieldList%%/i", $field_list, $search->sql);
+		$q = preg_replace("/%%tableList%%/i", AGILE_DB_PREFIX.$construct->table, $q);
+		$q = preg_replace("/%%whereList%%/i", "", $q);
 		$q .= " ".AGILE_DB_PREFIX . $construct->table.".site_id = '" . DEFAULT_SITE . "'";
 		$q .= $order_by;
 		$db = &DB();

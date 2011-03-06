@@ -90,10 +90,10 @@ class CORE_import
 				$smart[$i]['sample'] = $columns[$i];
 				$this->sbox[] = "Field #$i: ".$columns[$i];
 
-				if($VAR['type'] && ereg("^\"",$smart[$i]['sample']) && ereg("\"$",$smart[$i]['sample']))
+				if($VAR['type'] && preg_match("/^\"/",$smart[$i]['sample']) && preg_match("/\"$/",$smart[$i]['sample']))
 				{
-					$smart[$i]['sample'] = ereg_replace("^\"","",$smart[$i]['sample']);
-					$smart[$i]['sample'] = ereg_replace("\"$","",$smart[$i]['sample']);
+					$smart[$i]['sample'] = preg_replace("/^\"/","",$smart[$i]['sample']);
+					$smart[$i]['sample'] = preg_replace("/\"$/","",$smart[$i]['sample']);
 				}
 			}
 
@@ -183,9 +183,9 @@ class CORE_import
 						$idx = $VAR['import_select'][$fields[$i]['field']];
 						if ($idx > 0) {
 							$record[$fields[$i]['field']] = @$columns[--$idx];
-							if($VAR['type'] && ereg("^\"",$record[$fields[$i]['field']]) && ereg("\"$",$record[$fields[$i]['field']])) {
-								$record[$fields[$i]['field']] = ereg_replace("^\"","",$record[$fields[$i]['field']]);
-								$record[$fields[$i]['field']] = ereg_replace("\"$","",$record[$fields[$i]['field']]);
+							if($VAR['type'] && preg_match("/^\"/",$record[$fields[$i]['field']]) && preg_match("/\"$/",$record[$fields[$i]['field']])) {
+								$record[$fields[$i]['field']] = preg_replace("/^\"/","",$record[$fields[$i]['field']]);
+								$record[$fields[$i]['field']] = preg_replace("/\"$/","",$record[$fields[$i]['field']]);
 							}							
 						} else {
 							$record[$fields[$i]['field']] = @$VAR['import_constant'][$fields[$i]['field']];
@@ -292,10 +292,10 @@ class CORE_import
 					{ 
 						# get the data:
 						$data = $columns[$i];					
-						if($VAR['type'] && ereg("^\"",$data) && ereg("\"$",$data))
+						if($VAR['type'] && preg_match("/^\"/",$data) && preg_match("/\"$/",$data))
 						{
-							$data = ereg_replace("^\"","",$data);
-							$data = ereg_replace("\"$","",$data);
+							$data = preg_replace("/^\"/","",$data);
+							$data = preg_replace("/\"$/","",$data);
 						} 
 
 						# check for relational records:

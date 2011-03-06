@@ -55,7 +55,7 @@ class HELM
 		$ret = $this->connect($url,$post);	
 
 		# logged in ok?
-		if(!eregi("You are now logged in", $ret)) {
+		if(!preg_match("/You are now logged in/i", $ret)) {
 			echo "Login failed";
 			return false;
 		} 
@@ -96,7 +96,7 @@ class HELM
 		preg_match ("/(UserAccNum=$USERNAME&PackageID=)+([0-9]){1,}/i", $ret, $arr); 			 
 		if(is_array($arr) && count($arr) > 0) 
 		{ 
-			$package = ereg_replace("UserAccNum=$USERNAME&PackageID=","", $arr[0]); 
+			$package = preg_replace("/UserAccNum=$USERNAME&PackageID=/","", $arr[0]); 
 		}	
 
 		# Test for package id

@@ -101,7 +101,7 @@ function CORE_database_search_show($VAR, &$construct, $type)
 		$order_by .= ' ASC';
 		$smarty_sort = 'asc=';
 	} else {
-		if (!eregi('date',$smarty_order))      {
+		if (!preg_match('/date/i',$smarty_order))      {
 			$order_by .= ' ASC';
 			$smarty_sort = 'asc=';
 		} else  {
@@ -113,9 +113,9 @@ function CORE_database_search_show($VAR, &$construct, $type)
 
 	# generate the full query
 	$db = &DB();  
-	$q = eregi_replace("%%fieldList%%", $field_list, $search->sql);
-	$q = eregi_replace("%%tableList%%", AGILE_DB_PREFIX.$construct->table, $q);
-	$q = eregi_replace("%%whereList%%", "", $q);
+	$q = preg_replace("/%%fieldList%%/i", $field_list, $search->sql);
+	$q = preg_replace("/%%tableList%%/i", AGILE_DB_PREFIX.$construct->table, $q);
+	$q = preg_replace("/%%whereList%%/i", "", $q);
 	$q .= " site_id = '" . DEFAULT_SITE . "'";
 	$q .= $order_by;
 

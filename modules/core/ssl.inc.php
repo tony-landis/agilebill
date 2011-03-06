@@ -37,10 +37,10 @@ class CORE_ssl
 
 		if ( function_exists('curl_init') && $curl_version = curl_version()) {
 			if ( phpversion() >= 5 ) {
-				if (eregi('openssl', @$curl_version['ssl_version'] )) 
+				if (preg_match('/openssl/i', @$curl_version['ssl_version'] )) 
 					$this->connect_curl_module = true;
 			} else {
-				if (eregi('openssl', curl_version()))
+				if (preg_match('/openssl/i', curl_version()))
 					$this->connect_curl_module = true;
 			}
 		}

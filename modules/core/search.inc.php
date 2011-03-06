@@ -240,19 +240,19 @@ class CORE_search
 
 				# remove the WHERE
 				$sql = trim($sql);
-				$sql = eregi_replace("WHERE","",$sql);
-				$sql = eregi_replace("AND$","",$sql);
+				$sql = preg_replace("/WHERE/i","",$sql);
+				$sql = preg_replace("/AND$/i","",$sql);
 				$sql = trim($sql);
 
 				# replace any sql statements before we split the string
-				$sql = ereg_replace(" = ","===",$sql);
-				$sql = ereg_replace(" LIKE ","===",$sql);
+				$sql = preg_replace("/ = /","===",$sql);
+				$sql = preg_replace("/ LIKE /","===",$sql);
 
 
 				# determine the number of fields
 
 				$ii=0;
-				if(ereg(" AND ", $sql))
+				if(preg_match("/ AND /", $sql))
 				{
 					$sql = explode(" AND ",$sql);
 					$this_fields = count($sql);
@@ -263,8 +263,8 @@ class CORE_search
 						# do each field
 						$sqls = explode("==",$sql[$count]);
 						$field[$count][name]  = $sqls[0];
-						$field[$count][value] = ereg_replace("'","",$sqls[1]);
-						$field[$count][value] = ereg_replace("=","",$field[$count][value]);
+						$field[$count][value] = preg_replace("/'/","",$sqls[1]);
+						$field[$count][value] = preg_replace("/=/","",$field[$count][value]);
 
 						# check that the name & value are both set...
 						if($field[$count][value] != '' && $field[$count][name] != '')
@@ -295,8 +295,8 @@ class CORE_search
 					# do this one field
 					$sqls = explode("==",$sql);
 					$field[name]  = $sqls[0];
-					$field[value] = ereg_replace("'","",$sqls[1]);
-					$field[value] = ereg_replace("=","",$field[value]);
+					$field[value] = preg_replace("/'/","",$sqls[1]);
+					$field[value] = preg_replace("/=/","",$field[value]);
 
 					# check that the name & value are both set...
 					if($field[value] != '' && $field[name] != '')
@@ -478,19 +478,19 @@ class CORE_search
 
 				# remove the WHERE
 				$sql = trim($sql);
-				$sql = eregi_replace("WHERE","",$sql);
-				$sql = eregi_replace("AND$","",$sql);
+				$sql = preg_replace("/WHERE/i","",$sql);
+				$sql = preg_replace("/AND$/i","",$sql);
 				$sql = trim($sql);
 
 				# replace any sql statements before we split the string
-				$sql = ereg_replace(" = ","===",$sql);
-				$sql = ereg_replace(" LIKE ","===",$sql);
+				$sql = preg_replace("/ = /","===",$sql);
+				$sql = preg_replace("/ LIKE /","===",$sql);
 
 
 				# determine the number of fields
 
 				$ii=0;
-				if(ereg(" AND ", $sql))
+				if(preg_match("/ AND /", $sql))
 				{
 					$sql = explode(" AND ",$sql);
 					$this_fields = count($sql);
@@ -501,8 +501,8 @@ class CORE_search
 						# do each field
 						$sqls = explode("==",$sql[$count]);
 						$field[$count][name]  = $sqls[0];
-						$field[$count][value] = ereg_replace("'","",$sqls[1]);
-						$field[$count][value] = ereg_replace("=","",$field[$count][value]);
+						$field[$count][value] = preg_replace("/'/","",$sqls[1]);
+						$field[$count][value] = preg_replace("/=/","",$field[$count][value]);
 
 						# check that the name & value are both set...
 						if($field[$count][value] != '' && $field[$count][name] != '')
@@ -532,8 +532,8 @@ class CORE_search
 					# do this one field
 					$sqls = explode("==",$sql);
 					$field[name]  = $sqls[0];
-					$field[value] = ereg_replace("'","",$sqls[1]);
-					$field[value] = ereg_replace("=","",$field[value]);
+					$field[value] = preg_replace("/'/","",$sqls[1]);
+					$field[value] = preg_replace("/=/","",$field[value]);
 
 					# check that the name & value are both set...
 					if($field[value] != '' && $field[name] != '')

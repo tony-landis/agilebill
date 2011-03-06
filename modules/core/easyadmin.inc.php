@@ -59,7 +59,7 @@ class EASYADMIN
 		$post = "name=$this->user&pass=$this->pass&submit.x=0&submit.y=0";
 		$ret = $this->connect($post);	
 		if($this->debug) echo "<br><br>$this->host?$post<br><textarea cols=100 rows=20>$ret</textarea>";
-		if(empty($ret) || eregi('Username or password incorrect', $ret) || eregi('You have cookies disabled', $ret))
+		if(empty($ret) || preg_match('/Username or password incorrect/i', $ret) || preg_match('/You have cookies disabled/i', $ret))
 			return false;
 		else
 			return true;
@@ -81,8 +81,8 @@ class EASYADMIN
 			preg_match ("/(function=edit&sitenum=)+([0-9]){1,}+(\">www.)+($domain)/i", $ret, $arr); 			 
 			if(is_array($arr) && count($arr) > 0) 
 			{ 
-				$sitenum = ereg_replace("function=edit&sitenum=","", $arr[0]); 					
-				$sitenum = ereg_replace("\">www.$domain","", $sitenum); 
+				$sitenum = preg_replace("/function=edit&sitenum=/","", $arr[0]); 					
+				$sitenum = preg_replace("/\">www.$domain/","", $sitenum); 
 				$this->sitenumber = $sitenum;
 				return $sitenum;
 			}				

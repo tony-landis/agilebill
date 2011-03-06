@@ -258,9 +258,9 @@ class core
 					if(is_file(PATH_AGILE.'upgrades/'.$file_name) && !is_dir(PATH_AGILE.'upgrades/'.$file_name))
 						include_once(PATH_AGILE.'upgrades/'.$file_name); 
 						
-					$function = strtolower(ereg_replace('.php', '', $file_name)); 
+					$function = strtolower(preg_replace('/.php/', '', $file_name)); 
 					
-					if(ereg('^upgrade', $function))
+					if(preg_match('/^upgrade/', $function))
 					{
 						if(is_callable($function)) 
 						{

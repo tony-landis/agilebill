@@ -46,7 +46,7 @@ class file_extensions
 	function content_type($file)
 	{
 		for($i=0; $i<count($this->arr); $i++)		
-			if(eregi($this->arr[$i]['name'].'$', $file))
+			if(preg_match('/'.$this->arr[$i]['name'].'$/i', $file))
 				return $this->arr[$i]['type']; 					
 	}
 	

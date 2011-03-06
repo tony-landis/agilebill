@@ -29,7 +29,7 @@ class CORE_method
 		{
 			if(!empty($VAR['do'][$i]))
 			{
-				if(ereg(":", $VAR['do'][$i]))
+				if(preg_match("/:/", $VAR['do'][$i]))
 				{
 					$identifier = explode(':',$VAR['do'][$i]);
 					$module = $identifier[0];

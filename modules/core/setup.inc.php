@@ -142,9 +142,9 @@ class CORE_setup
 		}
 		$arr = Array('a','A','b','B','d','j','m','u','y','Y');
 		for($i=0; $i<count($arr); $i++)
-		  $format = ereg_replace($arr[$i],'%'.$arr[$i],$format);
+		  $format = preg_replace('/'.$arr[$i].'/','%'.$arr[$i],$format);
 		define ('DEFAULT_DATE_FORMAT', $format);
-		$UNIX_DATE_FORMAT = ereg_replace('%','', DEFAULT_DATE_FORMAT);
+		$UNIX_DATE_FORMAT = preg_replace('/%/','', DEFAULT_DATE_FORMAT);
 		define ('UNIX_DATE_FORMAT', $UNIX_DATE_FORMAT);
 		define ('DEFAULT_DATE_DIVIDER', $divider);	
 	}

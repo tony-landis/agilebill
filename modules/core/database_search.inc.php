@@ -37,10 +37,10 @@ function CORE_database_search($VAR, &$construct, $type)
 			if($value != '')
 			{
 				$pat = "^" . $construct->module . "_";
-				if(eregi($pat, $key))
+				if(preg_match('/'.$pat.'/i', $key))
 				{
-					$field = eregi_replace($pat,"",$key);
-					if(eregi('%',$value))
+					$field = preg_replace('/'.$pat.'/i',"",$key);
+					if(preg_match('/%/',$value))
 					{
 					   # do any data conversion for this field (date, encrypt, etc...)
 					   if(isset($construct->field["$field"]["convert"]))
@@ -106,10 +106,10 @@ function CORE_database_search($VAR, &$construct, $type)
 			if($value != '')
 			{
 				$pat = "^" . $construct->module . "_";
-				if(eregi($pat, $key))
+				if(preg_match('/'.$pat.'/', $key))
 				{
-					$field = eregi_replace($pat,"",$key);
-					if(eregi('%',$value))
+					$field = preg_replace('/'.$pat.'/i',"",$key);
+					if(preg_match('/%/',$value))
 					{
 					   # do any data conversion for this field (date, encrypt, etc...)
 					   if(isset($construct->field["$field"]["convert"]))

@@ -863,7 +863,7 @@ class CORE_static_var
 					{
 						$return = '
 ';
-						$this_html = ereg_replace($return, '<br>', $static_value);
+						$this_html = preg_replace('/'.$return.'/', '<br>', $static_value);
 					}
 				}
 
