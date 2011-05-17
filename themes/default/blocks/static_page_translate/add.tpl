@@ -12,7 +12,7 @@
 		theme_advanced_buttons3_add : "iespell,media,advhr",
 		theme_advanced_toolbar_location : "bottom",
 		theme_advanced_toolbar_align : "center", 
-		content_css : "themes/default/style.css",
+		content_css : "themes/default_admin/style.css",
 	    plugin_insertdate_dateFormat : "%Y-%m-%d",
 	    plugin_insertdate_timeFormat : "%H:%M:%S",
 		extended_valid_elements : "a[name|href|target|title|onclick],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name],hr[class|width|size|noshade],font[face|size|color|style],span[class|align|style]",
