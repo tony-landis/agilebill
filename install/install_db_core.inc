@@ -191,7 +191,7 @@ class install_db
 				### Create the table & colums using the ADODB Data Dictionary functions:
 				$db = &DB();
 				$dict = NewDataDictionary($db);
-				$table_options = array('mysql' => 'TYPE=MyISAM');
+				$table_options = array();
 				$sqlarray = $dict->CreateTableSQL(AGILE_DB_PREFIX.''.$table, $flds, $table_options); 
 				$result = $db->Execute($sqlarray[0]);
 				if ($result === false)
@@ -440,7 +440,7 @@ class install_db
 				### Create the table & colums using the ADODB Data Dictionary functions:
 				$db = &DB();
 				$dict = NewDataDictionary($db);
-				$table_options = array('mysql' => 'TYPE=MyISAM');
+				$table_options = array();
 				$sqlarray = $dict->CreateTableSQL(AGILE_DB_PREFIX.''.$table, $flds, $table_options);
 				$result = $db->Execute($sqlarray[0]);
 				if ($result === false)
