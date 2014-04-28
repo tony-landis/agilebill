@@ -50,15 +50,15 @@ if (extension_loaded('gd'))
 #  SSL 
 
 $sslx = false;				
-if ( function_exists('curl_init') && !eregi('curl_init', $disabled_functions) && $curl_version = curl_version())
+if ( function_exists('curl_init') && !preg_match('/curl_init/i', $disabled_functions) && $curl_version = curl_version())
 {
-	if (eregi('openssl', @$curl_version['ssl_version'] ))
+	if (preg_match('/(securetransport|openssl)/i', @$curl_version['ssl_version'] ))
 	{
 		$sslx = true; 
 	} 
 } else {
 	if ( phpversion() >= '4.3.0' && function_exists("fsockopen") &&
-	!eregi('fsockopen', $disabled_functions) && function_exists("openssl_public_decrypt"))		
+	!preg_match('/fsockopen/i', $disabled_functions) && function_exists("openssl_public_decrypt"))		
 		$sslx = true; 
 }
 
@@ -89,7 +89,7 @@ if(phpversion() >= '5.0' )
 
 ###############################################################
 #  MYSQL 			
-if(is_callable("mysql_connect") && is_callable("mysql_get_client_info") && mysql_get_client_info() >= 4)
+if(is_callable("mysql_connect"))
 {
 	$mysql['font'] = "FFFFFF";
 	$mysql['back'] = "009900";
