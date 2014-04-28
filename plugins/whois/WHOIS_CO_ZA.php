@@ -24,10 +24,10 @@ class plgn_whois_WHOIS_CO_ZA
     {  
     	
         // check the domain validity:
-        if(!eregi('^[a-zA-Z0-9\-]{1,}$', $domain))  return false;
-        if(eregi('[-]{2,}', $domain))               return false;
-        if(eregi('^[-]{1,}', $domain))              return false;
-        if(eregi('[-]{1,}$', $domain))              return false; 
+        if(!preg_match('/^[a-zA-Z0-9\-]{1,}$/i', $domain))  return false;
+        if(preg_match('/[-]{2,}/', $domain))               return false;
+        if(preg_match('/^[-]{1,}/', $domain))              return false;
+        if(preg_match('/[-]{1,}$/', $domain))              return false; 
         if($tld != "co.za") 						return false;
 	 
 		$data = $this->whois( $domain );
@@ -38,10 +38,10 @@ class plgn_whois_WHOIS_CO_ZA
     function check_transfer($domain,$tld,$tld_array)
     { 
         // check the domain validity:
-        if(!eregi('^[a-zA-Z0-9\-]{1,}$', $domain))  return false;
-        if(eregi('[-]{2,}', $domain))               return false;
-        if(eregi('^[-]{1,}', $domain))              return false;
-        if(eregi('[-]{1,}$', $domain))              return false;
+        if(!preg_match('/^[a-zA-Z0-9\-]{1,}$/i', $domain))  return false;
+        if(preg_match('/[-]{2,}/', $domain))               return false;
+        if(preg_match('/^[-]{1,}/', $domain))              return false;
+        if(preg_match('/[-]{1,}$/', $domain))              return false;
 		if($tld != "co.za") 						return false;
 	
 		$data = $this->whois( $domain );
@@ -53,7 +53,7 @@ class plgn_whois_WHOIS_CO_ZA
     {  
 		$lines = file('http://whois.co.za/cgi-bin/whois.sh?Domain='.$domain); 
 		foreach ($lines as $line_num => $line) {
-			if(eregi("Nothing matched", $line)) { 
+			if(preg_match("/Nothing matched/i", $line)) { 
 		   		return true;
 		   }
 		} 

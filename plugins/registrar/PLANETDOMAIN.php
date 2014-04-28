@@ -106,7 +106,7 @@ class plg_reg_PLANETDOMAIN
 
 		# set the username
 		$username = trim($domain);
-		$username = eregi_replace("[-_\.]", "", $username);
+		$username = preg_replace("/[-_\.]/", "", $username);
 		if(strlen($username) < $user_len)
 		{
 			$rand = md5(md5($username).time());
@@ -158,7 +158,7 @@ class plg_reg_PLANETDOMAIN
 
 		preg_match ("/(user.id=)+([a-zA-Z0-9]){1,30}/i", $result, $arr); 			 
 		if(is_array($arr) && count($arr) > 0) {  
-			$id = ereg_replace("user.id=","", $arr[0]);  	 				
+			$id = preg_replace("/user.id=/","", $arr[0]);  	 				
 			if(!is_string($id)) 
 				return false; 
 			else 
@@ -196,7 +196,7 @@ class plg_reg_PLANETDOMAIN
 		}
 
 		### .au parameters
-		elseif (ereg('au', $this->tld))
+		elseif (preg_match('/au/', $this->tld))
 		{
 			$vars[] = Array('au.registrant.name', $this->account['first_name'].' '.$this->account['last_name']); 
 
@@ -221,7 +221,7 @@ class plg_reg_PLANETDOMAIN
 		$this->debug($vars,$result);
 
 		# Result
-		if(eregi('success=TRUE', $result))
+		if(preg_match('/success=TRUE/i', $result))
 			return true;
 		else
 			return false; 	 

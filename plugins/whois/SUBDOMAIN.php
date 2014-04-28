@@ -23,10 +23,10 @@ class plgn_whois_SUBDOMAIN
     function check($domain,$tld,$tld_array)
     {   
         // check the domain validity:
-        if(!eregi('^[a-zA-Z0-9\-]{1,}$', $domain))  return false;
-        if(eregi('[-]{2,}', $domain))               return false;
-        if(eregi('^[-]{1,}', $domain))              return false;
-        if(eregi('[-]{1,}$', $domain))              return false;
+        if(!preg_match('/^[a-zA-Z0-9\-]{1,}$/i', $domain))  return false;
+        if(preg_match('/[-]{2,}/', $domain))               return false;
+        if(preg_match('/^[-]{1,}/', $domain))              return false;
+        if(preg_match('/[-]{1,}$/', $domain))              return false;
   
         $db = &DB();
         $dbm = new CORE_database;

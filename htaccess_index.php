@@ -111,7 +111,7 @@
     if  (file_exists($DOCUMENT_ROOT.$REQUEST_URI) &&
         ($SCRIPT_FILENAME            != $DOCUMENT_ROOT.$REQUEST_URI) &&
         ($REQUEST_URI                != "/") &&
-        (!ereg( '[////]{2,}$', $REQUEST_URI ) ) )
+        (!preg_match( '@[////]{2,}$@', $REQUEST_URI ) ) )
         {
 
         $url = $REQUEST_URI;

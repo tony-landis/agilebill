@@ -24,15 +24,15 @@ class plgn_whois_DEFAULT
     {
         //return true;
         // check the domain validity:
-        if(!eregi('^[a-zA-Z0-9\-]{1,}$', $domain))  return false;
-        if(eregi('[-]{2,}', $domain))               return false;
-        if(eregi('^[-]{1,}', $domain))              return false;
-        if(eregi('[-]{1,}$', $domain))              return false;
+        if(!preg_match('/^[a-zA-Z0-9\-]{1,}$/i', $domain))  return false;
+        if(preg_match('/[-]{2,}/', $domain))               return false;
+        if(preg_match('/^[-]{1,}/', $domain))              return false;
+        if(preg_match('/[-]{1,}$/', $domain))              return false;
 
 	
 		$data = $this->whois($tld_array["whois_server"],$domain . '.' . $tld);
 		if(!$data) return false;
-		if(eregi($tld_array["avail_response"], $data))
+		if(preg_match('/'.$tld_array["avail_response"].'/i', $data))
             return true;
         else
 			return false;
@@ -44,15 +44,15 @@ class plgn_whois_DEFAULT
     {
         //return true;
         // check the domain validity:
-        if(!eregi('^[a-zA-Z0-9\-]{1,}$', $domain))  return false;
-        if(eregi('[-]{2,}', $domain))               return false;
-        if(eregi('^[-]{1,}', $domain))              return false;
-        if(eregi('[-]{1,}$', $domain))              return false;
+        if(!preg_match('/^[a-zA-Z0-9\-]{1,}$/i', $domain))  return false;
+        if(preg_match('/[-]{2,}/', $domain))               return false;
+        if(preg_match('/^[-]{1,}/', $domain))              return false;
+        if(preg_match('/[-]{1,}$/', $domain))              return false;
 
 	
 		$data = $this->whois($tld_array["whois_server"],$domain . '.' . $tld);
 		if(!$data) return false;
-		if(eregi($tld_array["avail_response"], $data))
+		if(preg_match('/'.$tld_array["avail_response"].'/i', $data))
             return false;
         else
 			return true;
