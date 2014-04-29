@@ -88,7 +88,7 @@ class install_db
 									$sqlcount++;
 								}
 								## echo '<BR>' . $sqls. ' ' . $sql;
-								$sql = ereg_replace("site_id = '1',", "site_id = ".DEFAULT_SITE.",",$sql);
+								$sql = preg_replace("/site_id = '1',/", "site_id = ".DEFAULT_SITE.",",$sql);
 								$result = $db->Execute($sqls. ' ' . $sql);
 
 							}
@@ -103,7 +103,7 @@ class install_db
 
 						if ($runsql)
 						{
-							$sql = ereg_replace("site_id = '1',", "site_id = ".DEFAULT_SITE.",",$sql);
+							$sql = preg_replace("/site_id = '1',/", "site_id = ".DEFAULT_SITE.",",$sql);
 							#echo '<BR>' . $sqls. ' ' . $sql;
 							$result = $db->Execute($sqls. ' ' . $sql);
 							if($result === false)
@@ -156,11 +156,11 @@ class install_db
 				$field = $key;
 				$t_s  = $arr_field["$key"]["type"];
 
-				if(ereg('[(]',$t_s))
+				if(preg_match('/[(]/',$t_s))
 				{
 					$ts = preg_split('/[(]/',$t_s);
 					$type = $ts[0];
-					$size = ereg_replace('[)]', '', $ts[1]);
+					$size = preg_replace('/[)]/', '', $ts[1]);
 					$flds[] = Array($field, $type, $size); 
 				}
 				else
@@ -220,7 +220,7 @@ class install_db
 							# create index
 							$dict = NewDataDictionary($db);
 
-							if(eregi("fulltext", $index) && AGILE_DB_TYPE == 'mysql')
+							if(preg_match("/fulltext/i", $index) && AGILE_DB_TYPE == 'mysql')
 								$sqlarray = $dict->CreateIndexSQL($index, AGILE_DB_PREFIX.$table, $fields, array('FULLTEXT'));
 							else
 								$sqlarray = $dict->CreateIndexSQL($index, AGILE_DB_PREFIX.$table, $fields);
@@ -421,11 +421,11 @@ class install_db
 				$t_s  = $arr_field["$key"]["type"];
 
 
-				if(ereg('[(]',$t_s))
+				if(preg_match('/[(]/',$t_s))
 				{
 					$ts = preg_split('/[(]/',$t_s);
 					$type = $ts[0];
-					$size = ereg_replace('[)]', '', $ts[1]);
+					$size = preg_replace('/[)]/', '', $ts[1]);
 					$flds[] = Array($field, $type, $size); 
 				}
 				else
@@ -464,7 +464,7 @@ class install_db
 							# create index
 							$dict = NewDataDictionary($db);
 
-							if(eregi("fulltext", $index) && AGILE_DB_TYPE == 'mysql')
+							if(preg_match("/fulltext/i", $index) && AGILE_DB_TYPE == 'mysql')
 							$sqlarray = $dict->CreateIndexSQL($index, AGILE_DB_PREFIX.$table, $fields, array('FULLTEXT'));
 							else
 							$sqlarray = $dict->CreateIndexSQL($index, AGILE_DB_PREFIX.$table, $fields);

@@ -28,8 +28,8 @@ if (is_file($_SERVER["PATH_TRANSLATED"])) {
 } else {
 	$path = PATH_AGILE;
 }
-$path = eregi_replace('index.php', '', $path);
-$path = eregi_replace("[\\\\]", '/', $path);
+$path = preg_replace('/index.php/i', '', $path);
+$path = preg_replace("/[\\\\]/", '/', $path);
 
 # Get the current IP & Domain 
 if(isset($_SERVER)) {
@@ -270,13 +270,13 @@ function write_config ($VAR)
 		fclose($file);
 
 		# replace the user vars
-		$data = ereg_replace('%%PATH_AGILE%%',         @$VAR['path_agile'],    $data);
-		$data = ereg_replace('%%AGILE_DB_TYPE%%',      @$VAR['db_type'],       $data);
-		$data = ereg_replace('%%AGILE_DB_HOST%%',      @$VAR['db_host'],       $data);
-		$data = ereg_replace('%%AGILE_DB_DATABASE%%',  @$VAR['db_database'],   $data);
-		$data = ereg_replace('%%AGILE_DB_USERNAME%%',  @$VAR['db_username'],   $data);
-		$data = ereg_replace('%%AGILE_DB_PASSWORD%%',  @$VAR['db_password'],   $data);
-		$data = ereg_replace('%%AGILE_DB_PREFIX%%',    @$VAR['db_prefix'],     $data);
+		$data = preg_replace('/%%PATH_AGILE%%/',         @$VAR['path_agile'],    $data);
+		$data = preg_replace('/%%AGILE_DB_TYPE%%/',      @$VAR['db_type'],       $data);
+		$data = preg_replace('/%%AGILE_DB_HOST%%/',      @$VAR['db_host'],       $data);
+		$data = preg_replace('/%%AGILE_DB_DATABASE%%/',  @$VAR['db_database'],   $data);
+		$data = preg_replace('/%%AGILE_DB_USERNAME%%/',  @$VAR['db_username'],   $data);
+		$data = preg_replace('/%%AGILE_DB_PASSWORD%%/',  @$VAR['db_password'],   $data);
+		$data = preg_replace('/%%AGILE_DB_PREFIX%%/',    @$VAR['db_prefix'],     $data);
 
 		if(!defined("DEFAULT_SITE")) define("DEFAULT_SITE", 1);
 		$data = str_replace('%%AGILE_DEFAULT_SITE%%', DEFAULT_SITE, $data); 
@@ -342,7 +342,7 @@ function test_connection()
 	$err        = @$db->ErrorMsg();
 	if(!empty($err) )
 	{
-		if (eregi('No Database Selected', $err) || eregi('Unknown database', $err))
+		if (preg_match('/No Database Selected/i', $err) || preg_match('/Unknown database/i', $err))
 		{
 			# attempt to create the database
 			$result = $db->Execute('CREATE DATABASE '.AGILE_DB_DATABASE);
@@ -353,7 +353,7 @@ function test_connection()
 			else
 				$result = true;
 		}
-		elseif (eregi('Access denied', $err))
+		elseif (preg_match('/Access denied/i', $err))
 		{
 			return  "<br><br><b>Database Problem Detected:</b><br>".
 					"The database `".AGILE_DB_DATABASE."` cannot be accessed with the user user/pass provided. [ERROR-4]";
