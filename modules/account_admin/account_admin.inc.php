@@ -234,12 +234,12 @@ class account_admin
 		} elseif (is_numeric($VAR['account_search'])) {
 			$where = "id LIKE ".$db->qstr($VAR['account_search']."%");               
 			$type = 1;
-		} elseif (eregi(" ", $VAR['account_search'])) {
+		} elseif (preg_match("/ /", $VAR['account_search'])) {
 			$arr = explode(" ", $VAR['account_search']);
 			$where = "first_name =    ".$db->qstr($arr[0])." AND ".
 					 "last_name LIKE  ".$db->qstr($arr[1].'%') ;
 			$type = 2;
-		} elseif (eregi("@", $VAR['account_search'])) { 
+		} elseif (preg_match("/@/", $VAR['account_search'])) { 
 			$where = "email LIKE ".$db->qstr('%'.$VAR['account_search'].'%') ;
 			$type = 3;
 
@@ -363,7 +363,7 @@ class account_admin
 		$db = &DB();
 		if (empty($VAR['search'])) {
 		   $where = '';
-		} elseif (eregi(" ", $VAR['search'])) {
+		} elseif (preg_match("/ /", $VAR['search'])) {
 			$arr = explode(" ", $VAR['search']);
 			$where = "first_name =    ".$db->qstr($arr[0])." AND ".
 					 "last_name LIKE  ".$db->qstr('%'.$arr[1].'%')." AND ";
@@ -743,9 +743,9 @@ class account_admin
 							AGILE_DB_PREFIX."account.first_name,    ".
 							AGILE_DB_PREFIX."account.last_name      ";
 
-			$q = eregi_replace("%%fieldList%%", $field_list, $search->sql);
-			$q = eregi_replace("%%tableList%%", AGILE_DB_PREFIX."account", $q);
-			$q = eregi_replace("%%whereList%%", "", $q);
+			$q = preg_replace("/%%fieldList%%/i", $field_list, $search->sql);
+			$q = preg_replace("/%%tableList%%/i", AGILE_DB_PREFIX."account", $q);
+			$q = preg_replace("/%%whereList%%/i", "", $q);
 			$q .= " ".AGILE_DB_PREFIX."account.site_id = '" . DEFAULT_SITE . "'";
 			$db = &DB();
 			$account = $db->Execute($q);
@@ -1915,10 +1915,10 @@ class account_admin
 				if($value != '')
 				{
 					$pat = "^" . $this->module . "_";
-					if(eregi($pat, $key))
+					if(preg_match('/'.$pat.'/i', $key))
 					{	 				
-						$field = eregi_replace($pat,"",$key);
-						if(eregi('%',$value))
+						$field = preg_replace('/'.$pat.'/i',"",$key);
+						if(preg_match('/%/',$value))
 						{
 						   # do any data conversion for this field (date, encrypt, etc...)
 						   if(isset($this->field["$field"]["convert"]))
@@ -1984,10 +1984,10 @@ class account_admin
 				if($value != '')
 				{
 					$pat = "^" . $this->module . "_";
-					if(eregi($pat, $key))
+					if(preg_match('/'.$pat.'/i', $key))
 					{
-						$field = eregi_replace($pat,"",$key);
-						if(eregi('%',$value))
+						$field = preg_replace('/'.$pat.'/i',"",$key);
+						if(preg_match('/%/',$value))
 						{
 						   # do any data conversion for this field (date, encrypt, etc...)
 						   if(isset($this->field["$field"]["convert"]))
@@ -2096,7 +2096,7 @@ class account_admin
 							AND
 							s{$idx}.site_id = ".$db->qstr(DEFAULT_SITE)."		        				
 							AND";
-					if(ereg("%", $value))
+					if(preg_match("/%/", $value))
 						$join_list .= " s{$idx}.value LIKE ".$db->qstr($VAR["static_relation"]["$idx"]);
 					else
 						$join_list .= " s{$idx}.value = ".$db->qstr($VAR["static_relation"]["$idx"]);
@@ -2275,7 +2275,7 @@ class account_admin
 			$order_by .= ' ASC';
 			$smarty_sort = 'asc=';
 		} else {
-			if (!eregi('date',$smarty_order)) {
+			if (!preg_match('/date/i',$smarty_order)) {
 				$order_by .= ' ASC';
 				$smarty_sort = 'asc=';
 			} else {
@@ -2287,9 +2287,9 @@ class account_admin
 		# generate the full query
 
 		$db = &DB();
-		$q = eregi_replace("%%fieldList%%", $field_list, $search->sql);
-		$q = eregi_replace("%%tableList%%", AGILE_DB_PREFIX.$construct->table, $q);
-		$q = eregi_replace("%%whereList%%", "", $q);
+		$q = preg_replace("/%%fieldList%%/i", $field_list, $search->sql);
+		$q = preg_replace("/%%tableList%%/i", AGILE_DB_PREFIX.$construct->table, $q);
+		$q = preg_replace("/%%whereList%%/i", "", $q);
 		$q .= " ".AGILE_DB_PREFIX . "account."."site_id = " . $db->qstr(DEFAULT_SITE);
 		$q .= $order_by;
 

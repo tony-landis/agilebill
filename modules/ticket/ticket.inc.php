@@ -201,7 +201,7 @@ class ticket
 	##############################
 	function merge_list($VAR)
 	{
-		$id = ereg_replace(',','', $VAR['id']);
+		$id = preg_replace('/,/','', $VAR['id']);
 
 		global $C_translate;
 
@@ -244,7 +244,7 @@ class ticket
 				$subject .= '..';
 
 				$return .= '<option value="' . $result->fields["id"] . '"';
-				$return .= '>' . ereg_replace('%','', date(DEFAULT_DATE_FORMAT, $result->fields["date_orig"])) . ' | ' . $subject . '</option> ';
+				$return .= '>' . preg_replace('/%/','', date(DEFAULT_DATE_FORMAT, $result->fields["date_orig"])) . ' | ' . $subject . '</option> ';
 				$i++;
 				$result->MoveNext();
 			}
@@ -1278,10 +1278,10 @@ class ticket
 				if($value != '')
 				{
 					$pat = "^" . $this->module . "_";
-					if(eregi($pat, $key))
+					if(preg_match('/'.$pat.'/', $key))
 					{
-						$field = eregi_replace($pat,"",$key);
-						if(eregi('%',$value))
+						$field = preg_replace('/'.$pat.'/',"",$key);
+						if(preg_match('/%/',$value))
 						{
 							# do any data conversion for this field (date, encrypt, etc...)
 							if(isset($this->field["$field"]["convert"]))
@@ -1347,10 +1347,10 @@ class ticket
 				if($value != '')
 				{
 					$pat = "^" . $this->module . "_";
-					if(eregi($pat, $key))
+					if(preg_match('/'.$pat.'/', $key))
 					{
-						$field = eregi_replace($pat,"",$key);
-						if(eregi('%',$value))
+						$field = preg_replace('/'.$pat.'/',"",$key);
+						if(preg_match('/%/',$value))
 						{
 							# do any data conversion for this field (date, encrypt, etc...)
 							if(isset($this->field["$field"]["convert"]))
@@ -1472,7 +1472,7 @@ class ticket
 		        				AND
 		        				s{$idx}.site_id = ".$db->qstr(DEFAULT_SITE)."		        				
 		        				AND";
-					if(ereg("%", $value))
+					if(preg_match("/%/", $value))
 					$join_list .= " s{$idx}.value LIKE ".$db->qstr($VAR["static_relation"]["$idx"]);
 					else
 					$join_list .= " s{$idx}.value = ".$db->qstr($VAR["static_relation"]["$idx"]);
@@ -1652,7 +1652,7 @@ class ticket
 			$order_by .= ' ASC';
 			$smarty_sort = 'asc=';
 		} else {
-			if (!eregi('date',$smarty_order)) {
+			if (!preg_match('/date/i',$smarty_order)) {
 				$order_by .= ' ASC';
 				$smarty_sort = 'asc=';
 			} else {
@@ -1665,9 +1665,9 @@ class ticket
 		# generate the full query
 
 		$db = &DB();
-		$q = eregi_replace("%%fieldList%%", $field_list, $search->sql);
-		$q = eregi_replace("%%tableList%%", AGILE_DB_PREFIX.$construct->table, $q);
-		$q = eregi_replace("%%whereList%%", "", $q);
+		$q = preg_replace("/%%fieldList%%/i", $field_list, $search->sql);
+		$q = preg_replace("/%%tableList%%/i", AGILE_DB_PREFIX.$construct->table, $q);
+		$q = preg_replace("/%%whereList%%/i", "", $q);
 		$q .= " ".AGILE_DB_PREFIX . "ticket."."site_id = " . $db->qstr(DEFAULT_SITE);
 		$q .= $order_by;
 
@@ -1780,7 +1780,7 @@ class ticket
 		require_once(PATH_CORE   . 'static_var.inc.php');
 		$static_var = new CORE_static_var;
 
-		if(ereg('search', $VAR['_page']))
+		if(preg_match('/search/', $VAR['_page']))
 		$arr = $static_var->generate_form($this->module, 'user_add', 'search');
 		else
 		$arr = $static_var->generate_form($this->module, 'user_add', 'update');

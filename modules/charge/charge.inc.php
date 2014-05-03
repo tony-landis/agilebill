@@ -446,8 +446,8 @@ class charge
 
 		# attributes
 		if(!empty($VAR['attributes'])) {  
-			@$attributes = ereg_replace("@@", "\r\n", $VAR['attributes']);
-			@$attributes = ereg_replace("--", "==", $attributes);
+			@$attributes = preg_replace("/@@/", "\r\n", $VAR['attributes']);
+			@$attributes = preg_replace("/--/", "==", $attributes);
 		} else {
 			$attributes = false;
 		}
@@ -613,10 +613,10 @@ class charge
 				if($value != '')
 				{
 					$pat = "^" . $this->module . "_";
-					if(eregi($pat, $key))
+					if(preg_match('/'.$pat.'/i', $key))
 					{	 				
-						$field = eregi_replace($pat,"",$key);
-						if(eregi('%',$value))
+						$field = preg_replace('/'.$pat.'/i',"",$key);
+						if(preg_match('/%/',$value))
 						{
 						   # do any data conversion for this field (date, encrypt, etc...)
 						   if(isset($this->field["$field"]["convert"]))
@@ -682,10 +682,10 @@ class charge
 				if($value != '')
 				{
 					$pat = "^" . $this->module . "_";
-					if(eregi($pat, $key))
+					if(preg_match('/'.$pat.'/i', $key))
 					{
-						$field = eregi_replace($pat,"",$key);
-						if(eregi('%',$value))
+						$field = preg_replace('/'.$pat.'/i',"",$key);
+						if(preg_match('/%/',$value))
 						{
 						   # do any data conversion for this field (date, encrypt, etc...)
 						   if(isset($this->field["$field"]["convert"]))
@@ -929,7 +929,7 @@ class charge
 			$order_by .= ' ASC';
 			$smarty_sort = 'asc=';
 		} else {
-			if (!eregi('date',$smarty_order)) {
+			if (!preg_match('/date/i',$smarty_order)) {
 				$order_by .= ' ASC';
 				$smarty_sort = 'asc=';
 			} else {
@@ -940,9 +940,9 @@ class charge
 
 		# generate the full query 
 		$db = &DB();
-		$q = eregi_replace("%%fieldList%%", $field_list, $search->sql);
-		$q = eregi_replace("%%tableList%%", AGILE_DB_PREFIX.$construct->table, $q);
-		$q = eregi_replace("%%whereList%%", "", $q);
+		$q = preg_replace("/%%fieldList%%/i", $field_list, $search->sql);
+		$q = preg_replace("/%%tableList%%/i", AGILE_DB_PREFIX.$construct->table, $q);
+		$q = preg_replace("/%%whereList%%/i", "", $q);
 		$q .= " site_id = " . $db->qstr(DEFAULT_SITE);
 		$q .= $order_by;
 

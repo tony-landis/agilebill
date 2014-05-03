@@ -38,19 +38,19 @@ function smarty_function_html_menu_files($params, &$smarty)
 		{
 			if(!empty($ext))
 			{
-				$cute = eregi_replace($ext.'$', "", $file_name);
-				if(!eregi($ext.'$', $file_name)) $display = false;
+				$cute = preg_replace('/'.$ext.'$/i', "", $file_name);
+				if(!preg_match('/'.$ext.'$/i', $file_name)) $display = false;
 			}
 			if(!empty($pre))
 			{
-				$cute = eregi_replace('^'.$pre, "", $cute);
-				if(!eregi('^'.$pre, $file_name))  $display = false;
+				$cute = preg_replace('/^'.$pre.'/i', "", $cute);
+				if(!preg_match('/^'.$pre.'/', $file_name))  $display = false;
 			}
 			if($display)
 			{
 				$arr[]  = $cute;
-				$cute = eregi_replace("_"," ",$cute);
-				$cute = eregi_replace("-"," ",$cute);
+				$cute = preg_replace("/_/"," ",$cute);
+				$cute = preg_replace("/-/"," ",$cute);
 				
 				if($cap==1) $cute = ucfirst(strtolower($cute));
 				elseif($cap==2) $cute = ucwords(strtolower($cute));

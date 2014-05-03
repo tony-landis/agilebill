@@ -649,7 +649,7 @@ class invoice
 				if (!empty($value)) {
 					if(is_numeric($id)) { 
 						$attr = $db->Execute(sqlSelect($db,"product_attr","name","id=$id"));
-						if ($attr && $attr->RecordCount()) $product_attr .= "{$attr->fields['name']}==".ereg_replace("\r\n", "<br>", $value)."\r\n";
+						if ($attr && $attr->RecordCount()) $product_attr .= "{$attr->fields['name']}==".preg_replace("/\r\n/", "<br>", $value)."\r\n";
 					} else {
 						$product_attr .= "{$id}=={$value}\r\n";
 					}
@@ -712,11 +712,11 @@ class invoice
 		# echo the custom tracking code to the screen:
 		if(!is_file(PATH_FILES.'tracking.txt')) return false;
 		$tracking = file_get_contents(PATH_FILES.'tracking.txt');
-		$tracking = ereg_replace('%%amount%%', "$total_amount", $tracking);
-		$tracking = ereg_replace('%%invoice%%', $invoice, $tracking);
-		$tracking = ereg_replace('%%affiliate%%', SESS_AFFILIATE, $tracking);
-		$tracking = ereg_replace('%%campaign%%', SESS_CAMPAIGN, $tracking);
-		$tracking = ereg_replace('%%account%%', SESS_ACCOUNT, $tracking);
+		$tracking = preg_replace('/%%amount%%/i', "$total_amount", $tracking);
+		$tracking = preg_replace('/%%invoice%%/i', $invoice, $tracking);
+		$tracking = preg_replace('/%%affiliate%%/i', SESS_AFFILIATE, $tracking);
+		$tracking = preg_replace('/%%campaign%%/i', SESS_CAMPAIGN, $tracking);
+		$tracking = preg_replace('/%%account%%/i', SESS_ACCOUNT, $tracking);
 		echo $tracking;
  
 		# Update the record so it is not tracked again
@@ -2973,7 +2973,7 @@ class invoice
 	function multiple_invoice_total($invoice,$account_id=SESS_ACCOUNT) 
 	{
 		$db = &DB();
-		if(empty($invoice) || eregi(",", $invoice)) { 
+		if(empty($invoice) || preg_match("/,/", $invoice)) { 
 			$id_list='';
 			if(!empty($invoice)) {
 				$id = explode(',', $invoice);
@@ -3069,7 +3069,7 @@ class invoice
 		}
 		 
 		$db     = &DB();
-		if(eregi("MULTI-", @$VAR['invoice_id'])) {
+		if(preg_match("/MULTI-/", @$VAR['invoice_id'])) {
 			// get multi-invoice details
 			$total = $this->multiple_invoice_total(@$VAR['invoice_id'],SESS_ACCOUNT);
 			if(!$total) return false;
@@ -3755,10 +3755,10 @@ class invoice
 				if($value != '')
 				{
 					$pat = "^" . $this->module . "_";
-					if(eregi($pat, $key))
+					if(preg_match('/'.$pat.'/', $key))
 					{
-						$field = eregi_replace($pat,"",$key);
-						if(eregi('%',$value))
+						$field = preg_replace('/'.$pat.'/',"",$key);
+						if(preg_match('/%/',$value))
 						{
 							# do any data conversion for this field (date, encrypt, etc...)
 							if(isset($this->field["$field"]["convert"])  && $this->field["$field"]["convert"] != 'array')
@@ -3824,10 +3824,10 @@ class invoice
 				if($value != '')
 				{
 					$pat = "^" . $this->module . "_";
-					if(eregi($pat, $key))
+					if(preg_match('/'.$pat.'/', $key))
 					{
-						$field = eregi_replace($pat,"",$key);
-						if(eregi('%',$value))
+						$field = preg_replace('/'.$pat.'/',"",$key);
+						if(preg_match('/%/',$value))
 						{
 							# do any data conversion for this field (date, encrypt, etc...)
 							if(isset($this->field["$field"]["convert"])  && $this->field["$field"]["convert"] != 'array')
@@ -3960,7 +3960,7 @@ class invoice
 
 				# AND (invoice_item.domain_name)
 				if(!empty($VAR['join_domain_name'])) {
-					if(!ereg('%',$VAR['join_domain_name']) ) $qtype = ' = '; else $qtype = ' LIKE ';
+					if(!preg_match('/%/',$VAR['join_domain_name']) ) $qtype = ' = '; else $qtype = ' LIKE ';
 					$q .= 		" AND {$p}invoice_item.domain_name $qtype " . $db->qstr($VAR['join_domain_name']);
 					$q_save .=	" AND {$p}invoice_item.domain_name $qtype " . $db->qstr($VAR['join_domain_name']);
 
@@ -3968,7 +3968,7 @@ class invoice
 
 				# AND (invoice_item.domain_tld)
 				if(!empty($VAR['join_domain_tld'])) {
-					if(!ereg('%',$VAR['join_domain_tld']) ) $qtype = ' = '; else $qtype = ' LIKE ';
+					if(!preg_match('/%/',$VAR['join_domain_tld']) ) $qtype = ' = '; else $qtype = ' LIKE ';
 					$q .= 		" AND {$p}invoice_item.domain_tld $qtype " . $db->qstr($VAR['join_domain_tld']);
 					$q_save .=	" AND {$p}invoice_item.domain_tld $qtype " . $db->qstr($VAR['join_domain_tld']);
 				}
@@ -4143,7 +4143,7 @@ class invoice
 			$order_by .= ' ASC';
 			$smarty_sort = 'asc=';
 		} else {
-			if (!eregi('date',$smarty_order)) {
+			if (!preg_match('/date/i',$smarty_order)) {
 				$order_by .= ' ASC';
 				$smarty_sort = 'asc=';
 			} else {
@@ -4162,9 +4162,9 @@ class invoice
 		 	  
 		# generate the full query
 		$db = &DB();
-		$q = eregi_replace("%%fieldList%%", $field_list, $search->sql);
-		$q = eregi_replace("%%tableList%%", AGILE_DB_PREFIX.$construct->table, $q);
-		$q = eregi_replace("%%whereList%%", "", $q);
+		$q = preg_replace("/%%fieldList%%/i", $field_list, $search->sql);
+		$q = preg_replace("/%%tableList%%/i", AGILE_DB_PREFIX.$construct->table, $q);
+		$q = preg_replace("/%%whereList%%/i", "", $q);
 		$q .= " ".AGILE_DB_PREFIX . "invoice.site_id = '" . DEFAULT_SITE . "'";
 		$q .= $order_by;
 

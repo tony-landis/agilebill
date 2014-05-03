@@ -268,7 +268,7 @@ class product_cat
 
 		# Get current id
 		if(!empty($VAR['id'])) {
-			$cid = ereg_replace(",","", $VAR['id']);
+			$cid = preg_replace("/,/","", $VAR['id']);
 		} else {
 			$current = '';
 		}
@@ -369,7 +369,7 @@ class product_cat
 
 		# Get current category id
 		if(!empty($VAR['id'])) {
-			$product_id = ereg_replace(",","", $VAR['id']);
+			$product_id = preg_replace("/,/","", $VAR['id']);
 			$sql = $dbc->sql_select("product", "avail_category_id", "id = $product_id","", $db);
 			$product = $db->Execute($sql);
 			$current = unserialize($product->fields['avail_category_id']);

@@ -93,15 +93,15 @@ class setup
 
 		# make sure the index.php file is not included at the end:
 		if(!empty($VAR['setup_ssl_url']))
-			$VAR['setup_ssl_url'] = eregi_replace('index.php', '', $VAR['setup_ssl_url']);
+			$VAR['setup_ssl_url'] = preg_replace('/index.php/', '', $VAR['setup_ssl_url']);
 		if(!empty($VAR['setup_nonssl_url']))
-			$VAR['setup_nonssl_url'] = eregi_replace('index.php', '', $VAR['setup_nonssl_url']);        		
+			$VAR['setup_nonssl_url'] = preg_replace('/index.php/', '', $VAR['setup_nonssl_url']);        		
 
 		# Validate trailing slash is on the end of the URL:
-		if(!empty($VAR['setup_ssl_url']) && !ereg('/$', $VAR['setup_ssl_url']))
+		if(!empty($VAR['setup_ssl_url']) && !preg_match('@/$@', $VAR['setup_ssl_url']))
 			$VAR['setup_ssl_url'] .= '/';		
 		# Validate trailing slash is on the end of the URL:
-		if(!empty($VAR['setup_nonssl_url']) && !ereg('/$', $VAR['setup_nonssl_url']))
+		if(!empty($VAR['setup_nonssl_url']) && !preg_match('@/$@', $VAR['setup_nonssl_url']))
 			$VAR['setup_nonssl_url'] .= '/';	        			
 
 		$type = "update";

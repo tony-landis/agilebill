@@ -1364,7 +1364,7 @@ class service
 		if(empty($VAR['clearall']) && empty($VAR['changeproduct'])) {
 			foreach($VAR as $key => $val) {
 				if(!empty($val)) {
-					$key = ereg_replace('^product_','', $key);
+					$key = preg_replace('/^product_/','', $key);
 					if(is_array($val))
 					$fields["$key"] = serialize($val);
 					else
