@@ -176,13 +176,13 @@ class plg_reg_ONLINENIC
 			$i ++;
 			$line = fgets($fp, 2);
 			@$result .= $line;
-			if(ereg("</epp>$", $result))
+			if(preg_match("@</epp>$@", $result))
 			{
 				break;
 			}
 			if ($i > 5000) break;
 		} 
-		if(ereg("</greeting></epp>$", $result))
+		if(preg_match("@</greeting></epp>$@", $result))
 		{
 			return true;
 		}else {
@@ -200,7 +200,7 @@ class plg_reg_ONLINENIC
 			$i ++;
 			$line = fgets($fp, 2);
 			@$result .= $line;
-			if(ereg("</epp>$", $result))
+			if(preg_match("@</epp>$@", $result))
 			{
 				break;
 			}

@@ -126,7 +126,7 @@ class plg_reg_DIRECTI
 		#Debug
 		if($DEBUG) echo $result;
 
-		if(ereg("REGISTER SUCCESS!", $result)) 
+		if(preg_match("/REGISTER SUCCESS!/i", $result)) 
 		return true;
 		else
 		return false;

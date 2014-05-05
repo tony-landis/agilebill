@@ -143,7 +143,7 @@ class plg_reg_NAMES4EVER
 		#if($this->registrar['debug'] == 1)
 		#echo "<textarea>$response</textarea>";
 
-		if(eregi('<status code="0">', $response))  
+		if(preg_match('@<status code="0">@', $response))  
 		return TRUE;
 		else
 		return FALSE; 

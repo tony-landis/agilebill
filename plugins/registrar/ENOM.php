@@ -127,7 +127,7 @@ class plg_reg_ENOM
 			echo "<BR><u>Result:</u>  $result	<BR>";
 
 		# Get results
-		if(eregi("Command completed successfully", $result)) {
+		if(preg_match("/Command completed successfully/i", $result)) {
 			return TRUE;
 		} else {
 			return FALSE;

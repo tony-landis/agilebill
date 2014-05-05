@@ -46,7 +46,7 @@ class plgn_prov_WHM
  			
 			# set the username
 			$username = trim($domain);
-			$username = eregi_replace("[-_\.]", "", $username);
+			$username = preg_replace("/[-_\.]/", "", $username);
 			if(strlen($username) < $user_len)
 			{
 				$rand = md5(md5($username).time());
@@ -84,7 +84,7 @@ class plgn_prov_WHM
                                 $this->plugin_data['plan']);	  
         if($this->server['debug']) echo "<pre> $result </pre>";
         
-        if(!eregi("Account Creation Complete",@$result)) {
+        if(!preg_match("/Account Creation Complete/i",@$result)) {
 			return false;  
 		} else {					
 			$db 	= &DB();
@@ -128,7 +128,7 @@ class plgn_prov_WHM
                                 $this->service['host_username'] );
 
         if($this->server['debug']) echo "<pre> $result </pre>";
-        if(eregi("account has been suspended",@$result))
+        if(preg_match("/account has been suspended/i",@$result))
         return true;
         else
         return false;
@@ -145,7 +145,7 @@ class plgn_prov_WHM
                                 $this->service['host_username'] );
 
         if($this->server['debug']) echo "<pre> $result </pre>";
-        if(eregi("account is now active",@$result))
+        if(preg_match("/account is now active/i",@$result))
         return true;
         else
         return false;
@@ -162,7 +162,7 @@ class plgn_prov_WHM
                                 $this->service['host_username'] );
                                                                 
         if($this->server['debug']) echo "<pre> $result </pre>";
-        if(eregi("done",@$result))
+        if(preg_match("/done/i",@$result))
         return true;
         else
         return false;
