@@ -70,7 +70,7 @@ class plg_chout_VERISIGN_PFPRO extends base_checkout_plugin
 		'ACCT'	 	=>	$this->billing["cc_no"],
 		'EXPDATE' 	=>	$this->billing["exp_month"] . '' . $this->billing["exp_year"],
 		'CCV2'   	=> 	$this->billing["ccv"],
-		'STREET' 	=>	ereg_replace("'", "", $this->account["address1"] . ' ' . $this->account["address2"]),
+		'STREET' 	=>	preg_replace("/'/", "", $this->account["address1"] . ' ' . $this->account["address2"]),
 		'CITY' 		=>	$this->account["city"],
 		'STATE' 	=>	$this->account["state"],
 		'ZIP' 		=>	$this->account["zip"],

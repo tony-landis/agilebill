@@ -150,7 +150,7 @@ class ReportParser extends XML_Parser
 				if(strpos(strtoupper($ucd[1]),'NULL') !== false) {
 					$sql .= $field." ".$ucd[1];
 				} else {
-					if(ereg("^[0-9]+$",$ucd[2]))
+					if(preg_match("/^[0-9]+$/",$ucd[2]))
 						$sql .= $field." ".$ucd[1]." ".$ucd[2];
 					else
 						$sql .= $field." ".$ucd[1]." ".$db->qstr($ucd[2]);

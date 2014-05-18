@@ -135,7 +135,7 @@ class radius
 	 * validate mac id
 	 */
 	function validate_wireless($user) { 
-		if(ereg("^([0-9A-Z]{2}) ([0-9A-Z]{2}) ([0-9A-Z]{2}) ([0-9A-Z]{2}) ([0-9A-Z]{2}) ([0-9A-Z]{2})$",$user)) return $user;
+		if(preg_match("/^([0-9A-Z]{2}) ([0-9A-Z]{2}) ([0-9A-Z]{2}) ([0-9A-Z]{2}) ([0-9A-Z]{2}) ([0-9A-Z]{2})$/",$user)) return $user;
 		return false;
 	}
 	
@@ -144,8 +144,8 @@ class radius
 	 */
 	function validate_login($user,$pass) {
 	 
-		if(!ereg("$this->user_regex", $pass)) return false;
-		if(!ereg("$this->pass_regex", $pass)) return false;
+		if(!preg_match(",$this->user_regex,i", $pass)) return false;
+		if(!preg_match(",$this->pass_regex,", $pass)) return false;
 		return true;
 	}
 	

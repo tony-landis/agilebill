@@ -81,7 +81,7 @@ class plg_chout_PSIGATE extends base_checkout_plugin
 
 
 		# Transaction Status:
-		if (!eregi('ErrMsg=', $response) && eregi('TranID=', $response))
+		if (!preg_match('/ErrMsg=/i', $response) && preg_match('/TranID=/i', $response))
 		$ret['status'] = 1;
 		else
 		$ret['status'] = 0;

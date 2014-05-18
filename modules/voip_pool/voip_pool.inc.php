@@ -97,7 +97,7 @@ class voip_pool
 				$counter = 0; $skipped = 0;
 				while (!feof($fp)) {
 					$line = fgets($fp,128);
-					$line = ereg_replace("[^0-9]", "", $line);
+					$line = preg_replace("/[^0-9]/", "", $line);
 					$cc = ""; $npa = ""; $nxx = ""; $e164 = "";
 					if ($v->e164($line, $e164, $cc, $npa, $nxx)) {
 						$fields['voip_did_plugin_id'] = $VAR['voip_did_plugin_id']; 			/* DEFAULT plugin */

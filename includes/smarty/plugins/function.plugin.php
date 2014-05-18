@@ -53,10 +53,10 @@ function smarty_function_plugin($params, &$smarty)
 	}								
 		 
 	// check if file exists:
-	$_template_full = PATH_THEMES.DEF_THEME_N."/blocks/". ereg_replace(":", "/", $_tpl).".tpl";
+	$_template_full = PATH_THEMES.DEF_THEME_N."/blocks/". preg_replace("/:/", "/", $_tpl).".tpl";
  
 	if(!is_file($_template_full)) {
-		$_template_full = PATH_THEMES."default/blocks/". ereg_replace(":", "/", $_tpl).".tpl";
+		$_template_full = PATH_THEMES."default/blocks/". preg_replace("/:/", "/", $_tpl).".tpl";
 		if(!is_file($_template_full)) {
 			if($debug) echo "Error loading plugin template: $_template_full";
 			return;	

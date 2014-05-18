@@ -203,7 +203,7 @@ class import
 		chdir(PATH_PLUGINS . 'import');
 		$dir = opendir(PATH_PLUGINS . 'import');
 		while ($file_name = readdir($dir)) {
-			if($file_name != '..' && $file_name != '.' && !eregi("^_", $file_name) && eregi(".php$", $file_name)) { 
+			if($file_name != '..' && $file_name != '.' && !preg_match("/^_/", $file_name) && preg_match("/.php$/i", $file_name)) { 
 				$count++;
 			}
 		}
@@ -254,8 +254,8 @@ class import
 		chdir(PATH_PLUGINS . 'import');
 		$dir = opendir(PATH_PLUGINS . 'import');
 		while ($file_name = readdir($dir)) {
-			if($file_name != '..' && $file_name != '.' && !eregi("^_", $file_name) && eregi(".php$", $file_name) ) {
-				$result[$count]['name'] = eregi_replace('.php', '', $file_name);
+			if($file_name != '..' && $file_name != '.' && !preg_match("/^_/", $file_name) && preg_match("/.php$/i", $file_name) ) {
+				$result[$count]['name'] = preg_replace('/.php/i', '', $file_name);
 				$result[$count]['id']   = $count; 
 				$count++;
 			}

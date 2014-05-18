@@ -353,24 +353,24 @@ class newsletter
 				if($arr_s["$key"]["html"] == '1')
 				{
 					### replace %name%, %email%, and %remove% with correct vars: (for html)
-					$E['body_html'] = eregi_replace('%name%',   $arr_s["$key"]["fName"], $body_html);
-					$E['body_html'] = eregi_replace('%email%',  $key,                    $E['body_html']);
-					$E['body_html'] = eregi_replace('%remove%', $remove,                 $E['body_html']);
+					$E['body_html'] = preg_replace('/%name%/i',   $arr_s["$key"]["fName"], $body_html);
+					$E['body_html'] = preg_replace('/%email%/i',  $key,                    $E['body_html']);
+					$E['body_html'] = preg_replace('/%remove%/i', $remove,                 $E['body_html']);
 					$E['html'] = '1';
 				}
 				else
 				{
 					### replace %name%, %email%, and %remove% with correct vars: (for text)
-					$E['body_text'] = eregi_replace('%name%',   $arr_s["$key"]["fName"], $body_text);
-					$E['body_text'] = eregi_replace('%email%',  $key,                    $E['body_text']);
-					$E['body_text'] = eregi_replace('%remove%', $remove,                 $E['body_text']);
+					$E['body_text'] = preg_replace('/%name%/i',   $arr_s["$key"]["fName"], $body_text);
+					$E['body_text'] = preg_replace('/%email%/i',  $key,                    $E['body_text']);
+					$E['body_text'] = preg_replace('/%remove%/i', $remove,                 $E['body_text']);
 					$E['html'] = false;
 				}
 
 
 				### replace %name%, %email%, and %remove% with correct vars: (for subject)
-				$E['subject'] = eregi_replace('%name%',         $arr_s["$key"]["fName"],   $subject);
-				$E['subject'] = eregi_replace('%email%',        $key,                      $E['subject']);
+				$E['subject'] = preg_replace('/%name%/i',         $arr_s["$key"]["fName"],   $subject);
+				$E['subject'] = preg_replace('/%email%/i',        $key,                      $E['subject']);
 
 
 				if($type == 0)
@@ -644,7 +644,7 @@ class newsletter
 				if(isset($VAR['newsletter_type']))
 				{
 					$error1 = $C_translate->translate("subscribe_spam_limit","newsletter","");
-					$error = ereg_replace('%limit%', "$LIMIT_SECONDS", $error1);
+					$error = preg_replace('/%limit%/i', "$LIMIT_SECONDS", $error1);
 					$C_debug->alert( $error );
 				}
 				return;
@@ -698,10 +698,10 @@ class newsletter
 		$E['body_text'] = $C_translate->translate('subscribe_body','newsletter','');
 		$E['subject']   = $C_translate->translate('subscribe_subj','newsletter','');
 
-		$E['body_text'] = eregi_replace('%name%', $first_name, $E['body_text']);
-		$E['body_text'] = eregi_replace('%email%', $email, $E['body_text']);
-		$E['body_text'] = eregi_replace('%confirm_url%', URL.'?_page=newsletter:subscribe_confirm&email='.$email.'&validate='.$now, $E['body_text']);
-		$E['body_text'] = eregi_replace('%site_name%', SITE_NAME, $E['body_text']);
+		$E['body_text'] = preg_replace('/%name%/i', $first_name, $E['body_text']);
+		$E['body_text'] = preg_replace('/%email%/i', $email, $E['body_text']);
+		$E['body_text'] = preg_replace('/%confirm_url%/i', URL.'?_page=newsletter:subscribe_confirm&email='.$email.'&validate='.$now, $E['body_text']);
+		$E['body_text'] = preg_replace('/%site_name%/i', SITE_NAME, $E['body_text']);
 
 
 		#####################################################
@@ -781,7 +781,7 @@ class newsletter
 		{
 			### ERROR: bad link....
 			$url = '<br><a href="'. URL . '?_page=newsletter:subscribe">' . $C_translate->translate('submit','CORE','') . '</a>';
-			$message = eregi_replace('%here%', $url, $C_translate->translate('subscribe_confirm_fail','newsletter',''));
+			$message = preg_replace('/%here%/i', $url, $C_translate->translate('subscribe_confirm_fail','newsletter',''));
 			echo $message;
 			return;
 		}
@@ -803,7 +803,7 @@ class newsletter
 			{
 				### ERROR: no match for submitted link, invalid or expired.
 				$url = '<br><a href="'. URL . '?_page=newsletter:subscribe">' . $C_translate->translate('submit','CORE','') . '</a>';
-				$message = eregi_replace('%here%', $url, $C_translate->translate('subscribe_confirm_fail','newsletter',''));
+				$message = preg_replace('/%here%/i', $url, $C_translate->translate('subscribe_confirm_fail','newsletter',''));
 				echo $message;
 				return;
 			}

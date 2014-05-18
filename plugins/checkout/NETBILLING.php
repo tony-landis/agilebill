@@ -81,9 +81,9 @@ class plg_chout_NETBILLING extends base_checkout_plugin
 		$response = $n->connect($this->host, $this->url, $vars, true, 1);
 
 		# Transaction Status:
-		if (eregi("RET_STATUS=1", $response)) {
+		if (preg_match("/RET_STATUS=1/i", $response)) {
 			$ret['status'] = 1;
-		} elseif (eregi("RET_STATUS=0",$response)) {
+		} elseif (preg_match("/RET_STATUS=0/i",$response)) {
 			$ret['status'] = 0;
 			$mydata = explode("\&",$response);
 			foreach($mydata as $key=>$value)

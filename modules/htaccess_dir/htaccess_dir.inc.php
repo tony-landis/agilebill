@@ -69,10 +69,10 @@ class htaccess_dir
 			$VAR['htaccess_dir_path'] = trim ( $VAR['htaccess_dir_path'] );
 
 			# replace all forward slashes with back slashes
-			$VAR['htaccess_dir_path'] = ereg_replace('\\\\', '/', $VAR['htaccess_dir_path']);
+			$VAR['htaccess_dir_path'] = preg_replace('/\\\\/', '/', $VAR['htaccess_dir_path']);
 
 			# add the final trailing slash if missing
-			if ( !ereg ('[/]$', $VAR['htaccess_dir_path'] ) )
+			if ( !preg_match('@[/]$@', $VAR['htaccess_dir_path'] ) )
 			$VAR['htaccess_dir_path'] = $VAR['htaccess_dir_path'] . '/';
 		}
 
@@ -205,10 +205,10 @@ class htaccess_dir
 			$VAR['htaccess_dir_path'] = trim ( $VAR['htaccess_dir_path'] );
 
 			# replace all forward slashes with back slashes
-			$VAR['htaccess_dir_path'] = ereg_replace('\\\\', '/', $VAR['htaccess_dir_path']);
+			$VAR['htaccess_dir_path'] = preg_replace('/\\\\/', '/', $VAR['htaccess_dir_path']);
 
 			# add the final trailing slash if missing
-			if ( !ereg ('[/]$', $VAR['htaccess_dir_path'] ) )
+			if ( !preg_match('@[/]$@', $VAR['htaccess_dir_path'] ) )
 			$VAR['htaccess_dir_path'] = $VAR['htaccess_dir_path'] . '/';
 		}
 

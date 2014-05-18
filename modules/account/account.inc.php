@@ -957,7 +957,7 @@ class account
 			if($limit > time())
 			{
 				$error1 = $C_translate->translate("password_reset_spam_limit","account","");
-				$error = ereg_replace('%limit%', "$LIMIT_SECONDS", $error1);
+				$error = preg_replace('/%limit%/', "$LIMIT_SECONDS", $error1);
 				$C_debug->alert( $error );
 				return;
 			}
@@ -1312,7 +1312,7 @@ class account
 		$static_var = new CORE_static_var;
 
 
-		if(ereg('search', $VAR['_page']))
+		if(preg_match('/search/', $VAR['_page']))
 		$arr = $static_var->generate_form('account', 'add', 'search');
 		else
 		$arr = $static_var->generate_form('account', 'add', 'update');

@@ -295,7 +295,7 @@ class umTransaction {
 					if(!$this->exp) return "Expiration Date is required";
 				}
 			}
-			$this->amount=ereg_replace("[^[:digit:].]","",$this->amount);
+			$this->amount=preg_replace("/[^[:digit:].]/","",$this->amount);
 			if(!$this->amount) return "Amount is required";
 			if(!$this->invoice && !$this->orderid) return "Invoice number or Order ID is required";
 			if(!$this->magstripe) {
@@ -542,8 +542,8 @@ function umVerifyCreditCardNumber($ccnum)
 	$ccnum=str_replace(" ","",$ccnum);
 	$ccnum=str_replace("/","",$ccnum);
 
-	if(!ereg("^[[:digit:]]{1,200}$", $ccnum)) {$umErrStr="Cardnumber contains characters that are not numbers";  return 0;}
-	if(!ereg("^[[:digit:]]{13,16}$", $ccnum)) {$umErrStr="Cardnumber is not between 13 and 16 digits long";  return 0;}
+	if(!preg_match("/^[[:digit:]]{1,200}$/", $ccnum)) {$umErrStr="Cardnumber contains characters that are not numbers";  return 0;}
+	if(!preg_match("/^[[:digit:]]{13,16}$/", $ccnum)) {$umErrStr="Cardnumber is not between 13 and 16 digits long";  return 0;}
 
 
 	// Run Luhn Mod-10 to ensure proper check digit

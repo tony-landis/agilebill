@@ -128,7 +128,7 @@ class plg_chout_OPTIMALPAYMENTS extends base_checkout_plugin
 			echo '<script language=Javascript>alert(\'SSL Failed!\') </script>';
 			return false;
 		} else  {
-			$response = ereg_replace('\+', ' ', $response);
+			$response = preg_replace('/\+/', ' ', $response);
 			$response = explode('&', $response);
 			foreach($response as $var)
 			$item[] = explode("=", $var);

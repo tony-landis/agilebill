@@ -136,8 +136,8 @@ class module
 				@$ar['name'] = $rx[1];
 				@$ar['md5'] = $rx[0]; 
 				if(!empty($ar['name']) && !empty($ar['md5']) && 
-					!ereg("^install/", $ar['name']) &&
-					!ereg("^test.php", $ar['name']))
+					!preg_match("@^install/@", $ar['name']) &&
+					!preg_match("/^test.php/", $ar['name']))
 				{
 					if(!is_file(PATH_AGILE.$ar["name"]))
 					{
@@ -555,7 +555,7 @@ class module
 
 		if($dependancy)
 		{
-			if(ereg(',', $dependancy))
+			if(preg_match('/,/', $dependancy))
 				$depend = explode(',', $dependancy);
 			else
 				$depend[0] = $dependancy;
@@ -683,11 +683,11 @@ class module
 					$index_flds .= ','.$key;
 				}
 
-				if(ereg('[(]',$t_s))
+				if(preg_match('/[(]/',$t_s))
 				{
 					$ts = explode('(',$t_s);
 					$type = $ts[0];
-					$size = ereg_replace('[)]', '', $ts[1]); 
+					$size = preg_replace('/[)]/', '', $ts[1]); 
 					$flds[] = Array($field, $type, $size); 
 				}
 				else
@@ -721,7 +721,7 @@ class module
 					while (list ($index, $fields) = each($new_indexes))
 					{   
 						$dict = NewDataDictionary($db); 
-						if(eregi("fulltext", $index) && AGILE_DB_TYPE == 'mysql')
+						if(preg_match("/fulltext/i", $index) && AGILE_DB_TYPE == 'mysql')
 							$sqlarray = $dict->CreateIndexSQL($index, AGILE_DB_PREFIX.$table, $fields, array('FULLTEXT'));
 						else
 							$sqlarray = $dict->CreateIndexSQL($index, AGILE_DB_PREFIX.$table, $fields);
@@ -965,7 +965,7 @@ class module
 				### Check Each Sub-module:
 				$arr_sub = $this->install["install"]["module_properties"]["sub_modules"];
 
-				if(ereg(',', $arr_sub))
+				if(preg_match('/,/', $arr_sub))
 					$arr_s = explode(',', $arr_sub);
 				else
 					$arr_s[] = $arr_sub;
@@ -1164,11 +1164,11 @@ class module
 							$fields_new_count++;
 
 							$t_s  = $arr_field["$key"]["type"]; 
-							if(ereg('[(]',$t_s))
+							if(preg_match('/[(]/',$t_s))
 							{
 								$ts = explode('(',$t_s);
 								$type = $ts[0];
-								$size = ereg_replace(')', '', $ts[1]);
+								$size = preg_replace('/[)]/', '', $ts[1]);
 								$flds[] = Array($field, $type, $size); 
 							}
 							else
@@ -1262,7 +1262,7 @@ class module
 									# create index
 									$dict = NewDataDictionary($db); 
 
-									if(eregi("fulltext", $index) && AGILE_DB_TYPE == 'mysql')                  
+									if(preg_match("/fulltext/i", $index) && AGILE_DB_TYPE == 'mysql')                  
 										$sqlarray = $dict->CreateIndexSQL($index, AGILE_DB_PREFIX.$table, $fields, array('FULLTEXT')); 
 									else 
 										$sqlarray = $dict->CreateIndexSQL($index, AGILE_DB_PREFIX.$table, $fields); 				                        
@@ -1274,7 +1274,7 @@ class module
 								# index does not exist - create!
 								$dict = NewDataDictionary($db);
 
-								if(eregi("fulltext", $index) && AGILE_DB_TYPE == 'mysql')                  
+								if(preg_match("/fulltext/i", $index) && AGILE_DB_TYPE == 'mysql')                  
 									$sqlarray = $dict->CreateIndexSQL($index, AGILE_DB_PREFIX.$table, $fields, array('FULLTEXT')); 
 								else 	                        		
 									$sqlarray = $dict->CreateIndexSQL($index, AGILE_DB_PREFIX.$table, $fields); 

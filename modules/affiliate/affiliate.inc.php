@@ -66,12 +66,12 @@ class affiliate
 		} elseif (is_numeric($VAR['affiliate_search'])) {
 			$where = "{$p}affiliate.id LIKE ".$db->qstr($VAR['search']."%") ;   
 			$type = 1;            
-		} elseif (eregi(" ", $VAR['affiliate_search'])) {
+		} elseif (preg_match("/ /", $VAR['affiliate_search'])) {
 			$arr = explode(" ", $VAR['affiliate_search']);
 			$where = "{$p}account.first_name =    ".$db->qstr($arr[0])." AND ".
 					 "{$p}account.last_name LIKE  ".$db->qstr($arr[1].'%') ;
 			$type = 2;        
-		} elseif (eregi("@", $VAR['affiliate_search'])) { 
+		} elseif (preg_match("/@/", $VAR['affiliate_search'])) { 
 			$where = "{$p}account.email LIKE ".$db->qstr('%'.$VAR['affiliate_search'].'%') ;
 			$type = 3;                         
 		} else {
@@ -308,9 +308,9 @@ class affiliate
 			# generate the full query
 			$field_list =   AGILE_DB_PREFIX."affiliate.account_id";
 
-			$q = eregi_replace("%%fieldList%%", $field_list, $search->sql);
-			$q = eregi_replace("%%tableList%%", AGILE_DB_PREFIX."affiliate", $q);
-			$q = eregi_replace("%%whereList%%", "", $q);
+			$q = preg_replace("/%%fieldList%%/", $field_list, $search->sql);
+			$q = preg_replace("/%%tableList%%/", AGILE_DB_PREFIX."affiliate", $q);
+			$q = preg_replace("/%%whereList%%/", "", $q);
 			$q .= " site_id = '" . DEFAULT_SITE . "'";
 
 			$db = &DB();
@@ -631,7 +631,7 @@ class affiliate
 			$static_var->add($VAR, $this->module, $this->record_id);
 
 			## Load the affiliate plugin and run the "Add" method:
-			$file = strtoupper(eregi_replace('[^0-9a-z_-]{1,}', '', @$VAR['affiliate_affiliate_plugin']));
+			$file = strtoupper(preg_replace('/[^0-9a-z_-]{1,}/i', '', @$VAR['affiliate_affiliate_plugin']));
 
 			$pluginfile = PATH_PLUGINS . 'affiliate/' . $file . '.php';
 			if(@include_once($pluginfile))
@@ -1277,10 +1277,10 @@ class affiliate
 				if($value != '')
 				{
 					$pat = "^" . $this->module . "_";
-					if(eregi($pat, $key))
+					if(preg_match('@'.$pat.'@', $key))
 					{	 				
-						$field = eregi_replace($pat,"",$key);
-						if(eregi('%',$value))
+						$field = preg_replace('@'.$pat.'@',"",$key);
+						if(preg_match('/%/',$value))
 						{
 						   # do any data conversion for this field (date, encrypt, etc...)
 						   if(isset($this->field["$field"]["convert"]))
@@ -1346,10 +1346,10 @@ class affiliate
 				if($value != '')
 				{
 					$pat = "^" . $this->module . "_";
-					if(eregi($pat, $key))
+					if(preg_match('@'.$pat.'@', $key))
 					{
-						$field = eregi_replace($pat,"",$key);
-						if(eregi('%',$value))
+						$field = preg_replace('@'.$pat.'@',"",$key);
+						if(preg_match('/%/',$value))
 						{
 						   # do any data conversion for this field (date, encrypt, etc...)
 						   if(isset($this->field["$field"]["convert"]))
@@ -1465,7 +1465,7 @@ class affiliate
 							AND
 							s{$idx}.site_id = ".$db->qstr(DEFAULT_SITE)."		        				
 							AND";
-					if(ereg("%", $value))
+					if(preg_match("/%/", $value))
 						$join_list .= " s{$idx}.value LIKE ".$db->qstr($VAR["static_relation"]["$idx"]);
 					else
 						$join_list .= " s{$idx}.value = ".$db->qstr($VAR["static_relation"]["$idx"]);
@@ -1620,7 +1620,7 @@ class affiliate
 			$order_by .= ' ASC';
 			$smarty_sort = 'asc=';
 		} else {
-			if (!eregi('date',$smarty_order)) {
+			if (!preg_match('/date/i',$smarty_order)) {
 				$order_by .= ' ASC';
 				$smarty_sort = 'asc=';
 			} else {
@@ -1631,9 +1631,9 @@ class affiliate
 
 		# generate the full query 
 		$db = &DB();
-		$q = eregi_replace("%%fieldList%%", $field_list, $search->sql);
-		$q = eregi_replace("%%tableList%%", AGILE_DB_PREFIX.$construct->table, $q);
-		$q = eregi_replace("%%whereList%%", "", $q);
+		$q = preg_replace("/%%fieldList%%/", $field_list, $search->sql);
+		$q = preg_replace("/%%tableList%%/", AGILE_DB_PREFIX.$construct->table, $q);
+		$q = preg_replace("/%%whereList%%/", "", $q);
 		$q .= " ".AGILE_DB_PREFIX . "affiliate."."site_id = " . $db->qstr(DEFAULT_SITE);
 		$q .= $order_by;
 
@@ -1782,7 +1782,7 @@ class affiliate
 		require_once(PATH_CORE   . 'static_var.inc.php');
 		$static_var = new CORE_static_var;
 
-		if(ereg('search', $VAR['_page']))
+		if(preg_match('/search/i', $VAR['_page']))
 		$arr = $static_var->generate_form($this->module, 'add', 'search');
 		else
 		$arr = $static_var->generate_form($this->module, 'add', 'update'); 

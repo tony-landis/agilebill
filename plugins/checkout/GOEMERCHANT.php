@@ -68,13 +68,13 @@ class plg_chout_GOEMERCHANT extends base_checkout_plugin
 
 		# Get the card type, apparently goemerchant does not know how to do
 		# this on their end. Woe is me! (Visa, Amex, Discover, MasterCard)
-		if (ereg ('^4(.{12}|.{15})$', $cc_no))
+		if (preg_match('/^4(.{12}|.{15})$/', $cc_no))
 		$cardname = 'Visa';
-		elseif (ereg ('^5[1-5].{14}$', $cc_no))
+		elseif (preg_match('/^5[1-5].{14}$/', $cc_no))
 		$cardname = 'MasterCard';
-		elseif (ereg ('^3[47].{13}$', $cc_no))
+		elseif (preg_match('/^3[47].{13}$/', $cc_no))
 		$cardname = 'Amex';
-		elseif (ereg ('^6011.{12}$', $cc_no))
+		elseif (preg_match('/^6011.{12}$/', $cc_no))
 		$cardname = 'Discover';
 
 		# Set the post vars:

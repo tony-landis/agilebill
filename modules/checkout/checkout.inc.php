@@ -574,7 +574,7 @@ class checkout
 		if(empty($arr['transaction_id'])) return false; 
 		if(empty($arr['amount'])) return false;
 		
-		if(eregi("MULTI-", $arr['invoice_id'])) {
+		if(preg_match("/MULTI-/i", $arr['invoice_id'])) {
 			$this->postback_multiple($arr);
 			return;
 		}

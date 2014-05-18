@@ -116,7 +116,7 @@ class WEBMIN
 		if($this->debug) echo "<br><br>{$cgi}?{$post}<br><textarea cols=100 rows=20>$ret</textarea>";		
 
 
-		if(!eregi("Failed", $ret))	 
+		if(!preg_match("/Failed/i", $ret))	 
 		return true;	 
 		else
 		return false;	

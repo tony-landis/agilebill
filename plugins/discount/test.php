@@ -42,7 +42,7 @@ class plgn_discount_test
 	 * @return string Return false or $this->discount_code if success
 	 */
 	function validate($discount) {  
-		if(eregi("^test", $discount))
+		if(preg_match("/^test/i", $discount))
 			return $this->discount_code; // success
 		else
 			return false; // validation failed

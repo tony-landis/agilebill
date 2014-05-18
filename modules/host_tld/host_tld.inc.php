@@ -125,7 +125,7 @@ class host_tld
 			for($i=0; $i<count($arr); $i++)
 			{
 				# check for correct structure:
-				if(ereg('\.', $arr[$i]))
+				if(preg_match('/\./', $arr[$i]))
 				{
 					# split domain & tld
 					$dt = explode('.', $arr[$i]);

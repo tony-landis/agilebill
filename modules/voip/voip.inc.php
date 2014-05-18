@@ -1149,7 +1149,7 @@ class voip
 		{
 			
 			$l = $VAR['location']; 
-			if(eregi(':', $l)) 			// passed country_code:region
+			if(preg_match('/:/', $l)) 			// passed country_code:region
 			{									
 				$cn = explode(':', $l);
 				$ccode = $cn[0];
@@ -1437,7 +1437,7 @@ class voip
 		# Load configuration
 		$sql = sqlSelect($db, "voip", "voip_intrastate, voip_default_prefix, perform_normalization, normalization_min_len", "");
 		$rs = $db->Execute($sql);
-		$this->voip_intrastate = explode(",",ereg_replace("[[:space:]]","",$rs->fields['voip_intrastate']));
+		$this->voip_intrastate = explode(",",preg_replace("/[[:space:]]/","",$rs->fields['voip_intrastate']));
 		$this->voip_default_prefix = $rs->fields['voip_default_prefix'];
 		$this->normalization_min_len = $rs->fields['normalization_min_len'];
 		$this->perform_normalization = $rs->fields['perform_normalization'];
@@ -1671,7 +1671,7 @@ class voip
 		$i = 0;
 		while (!$rs->EOF) {
 			$rate[$i] = $rs->fields;
-			$rate[$i]['pattern'] = str_replace("\r","",str_replace("\n","",ereg_replace("[^0-9;]","",$rs->fields['pattern'])));
+			$rate[$i]['pattern'] = str_replace("\r","",str_replace("\n","",preg_replace("/[^0-9;]/","",$rs->fields['pattern'])));
 			$rate[$i]['perCall'] = intval($rs->fields['perCall']);
 			switch ($rs->fields['type']) {
 			case 0:
@@ -1856,7 +1856,7 @@ class voip
 					$search = $rs1->fields['dst'];
 					foreach ($pats as $pattern) {
 						#echo "Matching against: $pattern\n";
-						#if (ereg("^".$pattern, $search) || $r['type'] == 'default') {
+						#if (preg_match("@^".$pattern.'@', $search) || $r['type'] == 'default') {
 						if ((strncmp($pattern, $search, strlen($pattern))==0 && strlen($pattern)) || $r['type'] == 'default') {
 							echo "src=".$rs1->fields['src']."\n";
 							echo "dst=".$rs1->fields['dst']."\n";

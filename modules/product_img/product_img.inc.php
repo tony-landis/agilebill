@@ -59,7 +59,7 @@ class product_img
 		{
 			for($i=0; $i<count($imgarr); $i++)
 			{
-				if(eregi($imgarr[$i].'$', $_FILES['upload_file1']['name']))
+				if(preg_match('@'.$imgarr[$i].'$@i', $_FILES['upload_file1']['name']))
 				{
 					$filename = $imgarr[$i];
 					$i = 10;

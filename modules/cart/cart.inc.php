@@ -116,7 +116,7 @@ class cart
 		}
   
 		# update the quantity:
-		if(!eregi("^[0-9]{1,5}$",$qty)) $qty = 1;
+		if(!preg_match("/^[0-9]{1,5}$/",$qty)) $qty = 1;
 		if($qty < 1) $qty = 1;
 		 
 		if(!$this->admin) $sql_extra = " AND session_id=::$this->session_id::"; else $sql_extra='';

@@ -166,7 +166,7 @@ class voip_vm
 	{  
 		if ($dh = @opendir($path)) {
 			while (($file = readdir($dh)) !== false) {
-				if(ereg("^msg.*\.txt",$file)) {
+				if(preg_match("/^msg.*\.txt/i",$file)) {
 					$msgs[] = $file;
 				}
 			}
@@ -185,7 +185,7 @@ class voip_vm
 						$ret[$cnt]['date'] = date('M d, Y g:i:s a',$parts[1]);
 					}
 				}
-				$ret[$cnt]['id'] = ereg_replace("[a-zA-Z\.]","",$msg);
+				$ret[$cnt]['id'] = preg_replace("/[a-zA-Z\.]/","",$msg);
 				$ret[$cnt]['size'] = number_format(filesize($path.$ret[$cnt]['file'])/1024,0);
 				$cnt++;
 			}

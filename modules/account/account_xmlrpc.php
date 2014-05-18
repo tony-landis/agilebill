@@ -100,7 +100,7 @@ class AccountServer extends IXR_Server {
     	$rs=$db->Execute($sql);
     	if($rs &&$rs->RecordCount()) {
     		while(!$rs->EOF) {
-    			$fld = substr(strtolower(ereg_replace(" ",'_', $rs->fields['name'])),0,32);
+    			$fld = substr(strtolower(preg_replace("/ /",'_', $rs->fields['name'])),0,32);
     			@$ret["$fld"]=$rs->fields['value'];
     			$rs->MoveNext();
     		}

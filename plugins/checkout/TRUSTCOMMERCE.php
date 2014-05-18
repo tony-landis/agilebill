@@ -55,7 +55,7 @@ class plg_chout_TRUSTCOMMERCE extends base_checkout_plugin
 		$country = $this->getCountry('name', $this->account["country_id"]);
 
 		# Test Transaction
-		if(ereg('100', $this->cfg['mode']))
+		if(preg_match('/100/', $this->cfg['mode']))
 		$demo = "n";
 		else
 		$demo = "y";

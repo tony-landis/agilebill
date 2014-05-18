@@ -337,7 +337,7 @@ class PEAR_PackageFile_Parser_v1
                 $this->current_maintainer['role'] = $data;
                 break;
             case 'version':
-                //$data = ereg_replace ('[^a-zA-Z0-9._\-]', '_', $data);
+                //$data = preg_replace ('/[^a-zA-Z0-9._\-]/', '_', $data);
                 if ($this->in_changelog) {
                     $this->current_release['version'] = $data;
                 } else {

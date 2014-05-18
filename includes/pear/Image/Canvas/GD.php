@@ -1770,7 +1770,7 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
             $php_info = ob_get_contents();
             ob_end_clean();
 
-            if (ereg("<td[^>]*>GD Version *<\/td><td[^>]*>([^<]*)<\/td>",
+            if (preg_match("@<td[^>]*>GD Version *<\/td><td[^>]*>([^<]*)<\/td>@",
                 $php_info, $result))
             {
                 $version = $result[1];
@@ -1779,9 +1779,9 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
             }
         }
 
-        if (ereg('1\.[0-9]{1,2}', $version)) {
+        if (preg_match('/1\.[0-9]{1,2}/', $version)) {
             return 1;
-        } elseif (ereg('2\.[0-9]{1,2}', $version)) {
+        } elseif (preg_match('/2\.[0-9]{1,2}/', $version)) {
             return 2;
         } else {
             return 0;

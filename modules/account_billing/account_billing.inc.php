@@ -140,7 +140,7 @@ class account_billing
 		for($i=1; $i<3; $i++) {
 			$exp = mktime(0,0,0,date('m')+$i,date('d'),date('Y'));
 			$month = date("m",$exp);
-			$year  = ereg_replace("^20", "", date("Y",$exp));
+			$year  = preg_replace("/^20/", "", date("Y",$exp));
 			if(!empty($sql)) $sql .= " OR ";
 			$sql .= " ( card_exp_month = '$month' AND card_exp_year = '$year' ) ";
 		}

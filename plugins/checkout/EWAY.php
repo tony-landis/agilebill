@@ -94,7 +94,7 @@ class plg_chout_EWAY extends base_checkout_plugin
 		}
 
 		# Transaction Status:
-		if (eregi('<ewayTrxnStatus>True</ewayTrxnStatus>', $response))  {
+		if (preg_match('@<ewayTrxnStatus>True</ewayTrxnStatus>@i', $response))  {
 			$ret['status'] = 1;
 		}
 		else

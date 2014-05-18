@@ -70,19 +70,19 @@ class email_queue
 				$sql3 = $rs->fields['sql3'];
 
 				if(!empty($sql1)) {
-					if(ereg("^a:", $sql1) && is_array(unserialize($sql1)))  $sql1 = unserialize($sql1); 
+					if(preg_match("/^a:/", $sql1) && is_array(unserialize($sql1)))  $sql1 = unserialize($sql1); 
 				} else {
 					$sql1 = false;
 				}
 
 				if(!empty($sql2)) {
-					if(ereg("^a:", $sql2) && is_array(unserialize($sql2)))  $sql2 = unserialize($sql2); 
+					if(preg_match("/^a:/", $sql2) && is_array(unserialize($sql2)))  $sql2 = unserialize($sql2); 
 				} else {
 					$sql2 = false;
 				}
 
 				if(!empty($sql3)) {
-					if(ereg("^a:", $sql3) && is_array(unserialize($sql3)))  $sql3 = unserialize($sql3); 
+					if(preg_match("/^a:/", $sql3) && is_array(unserialize($sql3)))  $sql3 = unserialize($sql3); 
 				} else {
 					$sql3 = false;
 				}    				 

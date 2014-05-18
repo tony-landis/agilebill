@@ -127,9 +127,9 @@ class plg_chout_NOCHEXS extends base_checkout_plugin
 				$n = new CORE_ssl;
 				$response = $n->connect($this->host, $this->url, $vars, true, 1);
 
-				if(empty($response) || eregi("DECLINED", $response)) {
+				if(empty($response) || preg_match("/DECLINED/i", $response)) {
 					$do = false;
-				} elseif (eregi("AUTHORISED", $response)) {
+				} elseif (preg_match("/AUTHORISED/i", $response)) {
 					$do = true;
 				} else {
 					$do = false;

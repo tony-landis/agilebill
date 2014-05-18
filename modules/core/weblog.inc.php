@@ -139,32 +139,32 @@ class CORE_weblog
 		if(@$HTTP_USER_AGENT  == "") @$HTTP_USER_AGENT = $_SERVER['HTTP_USER_AGENT'];
 
 		$browser=array();
-		if(@eregi("(opera) ([0-9]{1,2}.[0-9]{1,3}){0,1}",$HTTP_USER_AGENT,$match) || @eregi("(opera/)([0-9]{1,2}.[0- 9]{1,3}){0,1}",$HTTP_USER_AGENT,$match))
+		if(@preg_match("@(opera) ([0-9]{1,2}.[0-9]{1,3}){0,1}@i",$HTTP_USER_AGENT,$match) || @preg_match("@(opera/)([0-9]{1,2}.[0- 9]{1,3}){0,1}@i",$HTTP_USER_AGENT,$match))
 		{
 			$browser['type']= "Opera";
 			$browser['ver']=$match[2];
-		} elseif(eregi("(konqueror)/([0-9]{1,2}.[0-9]{1,3})",$HTTP_USER_AGENT,$match)) {
+		} elseif(preg_match("@(konqueror)/([0-9]{1,2}.[0-9]{1,3})@i",$HTTP_USER_AGENT,$match)) {
 			$browser['type'] = "Konqueror";
 			$browser['ver']=$match[2];
-		} elseif(eregi("(lynx)/([0-9]{1,2}.[0-9]{1,2}.[0-9]{1,2})",$HTTP_USER_AGENT,$match)) {
+		} elseif(preg_match("@(lynx)/([0-9]{1,2}.[0-9]{1,2}.[0-9]{1,2})@i",$HTTP_USER_AGENT,$match)) {
 			$browser['type'] = "Lynx";
 			$browser['ver']=$match[2];
-		} elseif(eregi("(links) \(([0-9]{1,2}.[0-9]{1,3})",$HTTP_USER_AGENT,$match)) {
+		} elseif(preg_match("@(links) \(([0-9]{1,2}.[0-9]{1,3})@i",$HTTP_USER_AGENT,$match)) {
 			$browser['type'] = "Links";
 			$browser['ver']=$match[2];
-		} elseif(eregi("(msie) ([0-9]{1,2}.[0-9]{1,3})",$HTTP_USER_AGENT,$match)) {
+		} elseif(preg_match("@(msie) ([0-9]{1,2}.[0-9]{1,3})@i",$HTTP_USER_AGENT,$match)) {
 			$browser['type'] = "MSIE";
 			$browser['ver']=$match[2];
-		} elseif(eregi("(netscape6)/(6.[0-9]{1,3})",$HTTP_USER_AGENT,$match)) {
+		} elseif(preg_match("@(netscape6)/(6.[0-9]{1,3})@i",$HTTP_USER_AGENT,$match)) {
 			$browser['type'] = "Netscape";
 			$browser['ver']=$match[2];
-		} elseif(eregi("mozilla/5",$HTTP_USER_AGENT)) {
+		} elseif(preg_match("@mozilla/5@i",$HTTP_USER_AGENT)) {
 			$browser['type'] = "Mozilla";
 			$browser['ver']="Unknown";
-		} elseif(eregi("(mozilla)/([0-9]{1,2}.[0-9]{1,3})",$HTTP_USER_AGENT,$match)) {
+		} elseif(preg_match("@(mozilla)/([0-9]{1,2}.[0-9]{1,3})@i",$HTTP_USER_AGENT,$match)) {
 			$browser['type'] = "Netscape ";
 			$browser['ver']=$match[2];
-		} elseif(eregi("w3m",$HTTP_USER_AGENT)) {
+		} elseif(preg_match("/w3m/i",$HTTP_USER_AGENT)) {
 			$browser['type'] = "w3m";
 			$browser['ver']="Unknown";
 		} else {
@@ -186,36 +186,36 @@ class CORE_weblog
 
 		if(@$HTTP_USER_AGENT  == "") @$HTTP_USER_AGENT = $_SERVER['HTTP_USER_AGENT'];
 
-		if(eregi("linux",$HTTP_USER_AGENT))
+		if(preg_match("/linux/i",$HTTP_USER_AGENT))
 		{
 			$return = "Linux";
-		} elseif(eregi("win32",$HTTP_USER_AGENT)) {
+		} elseif(preg_match("/win32/i",$HTTP_USER_AGENT)) {
 			$return = "Windows";
-		} elseif((eregi("(win)([0-9]{2})",$HTTP_USER_AGENT,$match)) || (eregi("(windows) ([0-9]{2})",$HTTP_USER_AGENT,$match))) {
+		} elseif((preg_match("@(win)([0-9]{2})@i",$HTTP_USER_AGENT,$match)) || (eregi("(windows) ([0-9]{2})",$HTTP_USER_AGENT,$match))) {
 			$return = "Windows $match[2]";
-		} elseif(eregi("(winnt)([0-9]{1,2}.[0-9]{1,2}){0,1}",$HTTP_USER_AGENT,$match)) {
+		} elseif(preg_match("@(winnt)([0-9]{1,2}.[0-9]{1,2}){0,1}@i",$HTTP_USER_AGENT,$match)) {
 			$return = "Windows NT $match[2]";
-		} elseif(eregi("(windows nt)( ){0,1}([0-9]{1,2}.[0-9]{1,2}){0,1}",$HTTP_USER_AGENT,$match)) {
+		} elseif(preg_match("@(windows nt)( ){0,1}([0-9]{1,2}.[0-9]{1,2}){0,1}@i",$HTTP_USER_AGENT,$match)) {
 			$return = "Windows NT $match[3]";
-		} elseif(eregi("mac",$HTTP_USER_AGENT)) {
+		} elseif(preg_match("/mac/i",$HTTP_USER_AGENT)) {
 			$return = "Macintosh";
-		} elseif(eregi("(sunos) ([0-9]{1,2}.[0-9]{1,2}){0,1}",$HTTP_USER_AGENT,$match)) {
+		} elseif(preg_match("@(sunos) ([0-9]{1,2}.[0-9]{1,2}){0,1}@i",$HTTP_USER_AGENT,$match)) {
 			$return = "SunOS $match[2]";
-		} elseif(eregi("(beos) r([0-9]{1,2}.[0-9]{1,2}){0,1}",$HTTP_USER_AGENT,$match)) {
+		} elseif(preg_match("@(beos) r([0-9]{1,2}.[0-9]{1,2}){0,1}@i",$HTTP_USER_AGENT,$match)) {
 			$return = "BeOS $match[2]";
-		} elseif(eregi("freebsd",$HTTP_USER_AGENT)) {
+		} elseif(preg_match("/freebsd/i",$HTTP_USER_AGENT)) {
 			$return = "FreeBSD";
-		} elseif(eregi("openbsd",$HTTP_USER_AGENT)) {
+		} elseif(preg_match("/openbsd/i",$HTTP_USER_AGENT)) {
 			$return = "OpenBSD";
-		} elseif(eregi("irix",$HTTP_USER_AGENT)) {
+		} elseif(preg_match("/irix/i",$HTTP_USER_AGENT)) {
 			$return = "IRIX";
-		} elseif(eregi("os/2",$HTTP_USER_AGENT)) {
+		} elseif(preg_match("@os/2@i",$HTTP_USER_AGENT)) {
 			$return = "AGILE_OS/2";
-		} elseif(eregi("plan9",$HTTP_USER_AGENT)) {
+		} elseif(preg_match("/plan9/i",$HTTP_USER_AGENT)) {
 			$return = "Plan9";
-		} elseif(eregi("unix",$HTTP_USER_AGENT) || eregi("hp-ux",$HTTP_USER_AGENT)) {
+		} elseif(preg_match("/unix/i",$HTTP_USER_AGENT) || preg_match("/hp-ux/i",$HTTP_USER_AGENT)) {
 			$return = "Unix";
-		} elseif(eregi("osf",$HTTP_USER_AGENT)) {
+		} elseif(preg_match("/osf/i",$HTTP_USER_AGENT)) {
 			$return = "OSF";
 		} else {
 			$return = "Unknown";

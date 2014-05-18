@@ -135,7 +135,7 @@ class product
 						$tarr[] = Array ('name' => '', 'base' => 0, 'setup' => 0);
 					} else {
 						# populated line, determine base/setup price:
-						if(ereg('==', $marr[$ii])) {
+						if(preg_match('/==/', $marr[$ii])) {
 							# Use custom prices
 							$marrp = explode("==", $marr[$ii]);
 							$tarr[] = Array ('name' => @$marrp[0], 'base' =>  @$marrp[1], 'setup' =>  @$marrp[2]);
@@ -205,9 +205,9 @@ class product
 						# Loop through each menu option
 						for($ii=0;$ii<count($marr); $ii++) {
 							# Check if current menu item matches the one selected
-							if(!empty($marr[$ii]) && $marr[$ii] != '*' && ereg("^$val", $marr[$ii])) {
+							if(!empty($marr[$ii]) && $marr[$ii] != '*' && preg_match("@^$val@", $marr[$ii])) {
 								# populated line, determine base/setup price:
-								if(ereg('==', $marr[$ii])) {
+								if(preg_match('/==/', $marr[$ii])) {
 									# Use custom prices
 									$marrp = explode("==", $marr[$ii]); 
 									@$ret['base']  += @$marrp[1];
@@ -635,9 +635,9 @@ class product
 		{
 			for($i=0; $i<count($imgarr); $i++)
 			{
-				if(eregi($imgarr[$i].'$', $_FILES['upload_file1']['name']))
+				if(preg_match('@'.$imgarr[$i].'$@i', $_FILES['upload_file1']['name']))
 				{
-					$filename = eregi_replace(',', '', 'prod_thmb_' . @$VAR["id"] . "." . $imgarr[$i]);
+					$filename = preg_replace('/,/', '', 'prod_thmb_' . @$VAR["id"] . "." . $imgarr[$i]);
 					$i = 10;
 				}
 			}

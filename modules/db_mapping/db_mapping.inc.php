@@ -1038,13 +1038,13 @@ function MAP_sync ($id, $file, $MAP_this)
 
 			if($rs2->RecordCount() == 0) {
 				# Account does not exist: ADD IT
-				if(!eregi('admin', $user) && !eregi('administrator', $user)) {
+				if(!preg_match('/admin/i', $user) && !preg_match('/administrator/i', $user)) {
 					$MAP_this->account_add($account_id);
 					$count_exp++;
 				}
 			} else {
 				# Account exist: UPDATE IT - Skip if user is 'admin' or 'administrator'
-				if(!eregi('admin', $user) && !eregi('administrator', $user)) {
+				if(!preg_match('/admin/i', $user) && !preg_match('/administrator/i', $user)) {
 					$MAP_this->account_edit($account_id, $user);
 					$count_upd++;
 				}
@@ -1095,7 +1095,7 @@ function MAP_sync ($id, $file, $MAP_this)
 			} 
 			if($db2->RecordCount() == 0) {
 				#  Account does not exist: ADD IT - Skip if user is 'admin' or 'administrator'
-				if(!eregi('admin', $user) && !eregi('administrator', $user))
+				if(!preg_match('/admin/i', $user) && !preg_match('/administrator/i', $user))
 				$MAP_this->account_import($account_id);
 				$count_imp++;
 			}

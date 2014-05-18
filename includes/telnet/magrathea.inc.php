@@ -96,7 +96,7 @@ class magrathea extends telnet {
 		if ($this->parse_response($r, $code, $msg)) {
 			if ($code == 0) {
 				# got a number
-				$ret = ereg_replace("[^0-9]","",$msg);
+				$ret = preg_replace("/[^0-9]/","",$msg);
 			} else {
 				# Log an error!
 				global $C_debug;

@@ -313,7 +313,7 @@ class import_plugin extends import
 					$card_num = CORE_encrypt ($cc_num_plain);
 							 		
 					# get the last 4 digits:
-					$last_four = eregi_replace('^............', '', $cc_num_plain);
+					$last_four = preg_replace('/^............/', '', $cc_num_plain);
 					 
 					# Identify the card type:
 					$card_type = $this->cc_identify($cc_num_plain);
@@ -411,11 +411,11 @@ class import_plugin extends import
 			$db->StartTrans();
 			
 			# Determine the plugin type
-			if(eregi("ENSIM", $rs->fields['plugin_name'])) {
+			if(preg_match("/ENSIM/i", $rs->fields['plugin_name'])) {
 				$plugin = 'ENSIM_LINUX_3';
-			} else if(eregi("WHM", $rs->fields['plugin_name'])) {
+			} else if(preg_match("/WHM/i", $rs->fields['plugin_name'])) {
 				$plugin = 'WHM';
-			} else if(eregi("PLESK", $rs->fields['plugin_name'])) {
+			} else if(preg_match("/PLESK/i", $rs->fields['plugin_name'])) {
 				$plugin = 'PLESK_LINUX_6'; 
 			} else {
 				$plugin = 'MANUAL';				
@@ -1260,22 +1260,22 @@ class import_plugin extends import
 	
 	// DETERMINE CREDIT CARD TYPE
 	function cc_identify($cc_no)     {
-         $cc_no = ereg_replace ('[^0-9]+', '', $cc_no);
+         $cc_no = preg_replace ('/[^0-9]+/', '', $cc_no);
 
         // Get card type based on prefix and length of card number
-        if (ereg ('^4(.{12}|.{15})$', $cc_no)) {
+        if (preg_match ('/^4(.{12}|.{15})$/', $cc_no)) {
             return 'visa';
-        } elseif (ereg ('^5[1-5].{14}$', $cc_no)) {
+        } elseif (preg_match ('/^5[1-5].{14}$/', $cc_no)) {
             return 'mc';
-        } elseif (ereg ('^3[47].{13}$', $cc_no)) {
+        } elseif (preg_match ('/^3[47].{13}$/', $cc_no)) {
             return 'amex';
-        } elseif (ereg ('^3(0[0-5].{11}|[68].{12})$', $cc_no)) {
+        } elseif (preg_match ('/^3(0[0-5].{11}|[68].{12})$/', $cc_no)) {
             return 'diners';
-        } elseif (ereg ('^6011.{12}$', $cc_no)) {
+        } elseif (preg_match ('/^6011.{12}$/', $cc_no)) {
             return 'discover';
-        } elseif (ereg ('^(3.{15}|(2131|1800).{11})$', $cc_no)) {
+        } elseif (preg_match ('/^(3.{15}|(2131|1800).{11})$/', $cc_no)) {
             return 'jcb';
-        } elseif (ereg ('^2(014|149).{11})$', $cc_no)) {
+        } elseif (preg_match ('/^2(014|149).{11})$/', $cc_no)) {
             return 'enrout';
        } else {
  		 return "";

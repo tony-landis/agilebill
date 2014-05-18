@@ -303,10 +303,10 @@ class file
 				$headers = stream_get_meta_data($fp); 
 				$headers = $headers['wrapper_data']; 
 				for($i=0;$i<count($headers); $i++) {
-					if(eregi('^Content-Type:', $headers[$i]))
-						$VAR['file_type'] = eregi_replace('Content-Type: ', '', $headers[$i]);
-					elseif(eregi('^Content-Length:', $headers[$i]))
-						$VAR['file_size'] = eregi_replace('Content-Length: ', '', $headers[$i]);
+					if(preg_match('/^Content-Type:/i', $headers[$i]))
+						$VAR['file_type'] = preg_replace('/Content-Type: /i', '', $headers[$i]);
+					elseif(preg_match('/^Content-Length:/i', $headers[$i]))
+						$VAR['file_size'] = preg_replace('/Content-Length: /i', '', $headers[$i]);
 				}  
 			}
 		}
@@ -318,9 +318,9 @@ class file
 			@$file = $VAR['local_file'];
 			if(is_file($file) && is_readable($file))
 			{
-				if(ereg("/", $file))
+				if(preg_match("@/@", $file))
 					$fn = explode("/", $file); 
-				else if(ereg("\\", $file))
+				else if(preg_match("@\\@", $file))
 					$fn = explode("\\", $file);
 				else 
 					$fn[0] = $file;

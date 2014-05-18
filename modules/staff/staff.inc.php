@@ -166,7 +166,7 @@ class staff
 							$rs = $db->Execute($sql);
 							$name = $rs->fields['name'];
 
-							$ul = eregi_replace(".", "-", $name);											
+							$ul = preg_replace("/\./", "-", $name);											
 							$VAR['mail_message'] .= "\r\n\r\n";
 							$VAR['mail_message'] .= "$ul";
 							$VAR['mail_message'] .= "\r\n";								

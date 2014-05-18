@@ -106,8 +106,8 @@ $ret = '
     {
         $field = $VAR["f"]["$i"];
         $type = $VAR["field"]["$field"]["field_type"];
-        $this_content = eregi_replace('%%field%%', $field, $field_type["$type"]);
-        if($type == 'menu') $this_content = eregi_replace('%%table%%', $VAR["field"]["$field"]["asso_table"], $this_content);
+        $this_content = preg_replace('/%%field%%/', $field, $field_type["$type"]);
+        if($type == 'menu') $this_content = preg_replace('/%%table%%/', $VAR["field"]["$field"]["asso_table"], $this_content);
         
         if(isset($VAR["field"]["$field"]["page_add"]["include"]))
         {
@@ -191,8 +191,8 @@ return $ret;
                                 {
                                 	if($value != '' && !is_integer($field))
                                 	{
-	                                    if( ereg('<', $value) || ereg('>', $value) || ereg('&', $value) || ereg('\'', $value) || ereg('"', $value) ) {
-	                                        $value = ereg_replace('&amp;', '&', $value);
+	                                    if( preg_match('/</', $value) || preg_match('/>/', $value) || preg_match('/&/', $value) || preg_match('/\'/', $value) || preg_match('/"/', $value) ) {
+	                                        $value = preg_replace('/&amp;/', '&', $value);
 	                                        $data = '       <'.$field.'><![CDATA[' . $value . ']]></'. $field . '>';
 	                                        $xml .= $data . '' . $rt;
 	                                    } else  {
@@ -327,7 +327,7 @@ return $ret;
             $method  = $result->fields['name'];
             $display = $result->fields['menu_display'];
             $notes   = $result->fields['notes'];
-            $page    = trim(ereg_replace('&amp;', '&', $result->fields['page'] ) );
+            $page    = trim(preg_replace('/&amp;/', '&', $result->fields['page'] ) );
             
             $install_xml .= 
                 "{$t}{$t}{$t}<{$method}>".$n.
@@ -454,8 +454,8 @@ $field_type['bool'] =           '{ $list->bool("' . $VAR['module'] . '_%%field%%
     {
         $field = $VAR["f"]["$i"];
         $type = $VAR["field"]["$field"]["field_type"];
-        $this_content = eregi_replace('%%field%%', $field, $field_type["$type"]);
-        if($type == 'menu') $this_content = eregi_replace('%%table%%', $VAR["field"]["$field"]["asso_table"], $this_content);
+        $this_content = preg_replace('/%%field%%/', $field, $field_type["$type"]);
+        if($type == 'menu') $this_content = preg_replace('/%%table%%/', $VAR["field"]["$field"]["asso_table"], $this_content);
 
         if(isset($VAR["field"]["$field"]["page_view"]["include"]))
         {
@@ -598,8 +598,8 @@ $field_type['bool']         = '{ $list->bool("' . $VAR['module'] . '_%%field%%",
     {
         $field = $VAR["f"]["$i"];
         $type = $VAR["field"]["$field"]["field_type"];
-        $this_content = eregi_replace('%%field%%', $field, $field_type["$type"]);
-        if($type == 'menu') $this_content = eregi_replace('%%table%%', $VAR["field"]["$field"]["asso_table"], $this_content);
+        $this_content = preg_replace('/%%field%%/i', $field, $field_type["$type"]);
+        if($type == 'menu') $this_content = preg_replace('/%%table%%/i', $VAR["field"]["$field"]["asso_table"], $this_content);
 
         if(isset($VAR["field"]["$field"]["page_search_form"]["include"]))
         {
@@ -1402,7 +1402,7 @@ return $construct_xml;
                 $display = '';
             }
             
-            $page = eregi_replace('&','&amp;', $page);
+            $page = preg_replace('/&/','&amp;', $page);
             
             $install_xml .= '
                 <' . $method . '>

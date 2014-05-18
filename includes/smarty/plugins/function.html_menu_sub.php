@@ -22,7 +22,7 @@ function smarty_function_html_menu_sub($params, &$smarty)
 	$result	= $db->Execute( sqlSelect($db,$assoc_table,"id,$parent_id,".$assoc_field, $conditions, "$parent_id,$assoc_field"));
  
 	# Get current id
-	if(!empty($VAR['id'])) $cid = ereg_replace(",","", $VAR['id']); else $current = '';
+	if(!empty($VAR['id'])) $cid = preg_replace("/,/","", $VAR['id']); else $current = '';
 	  
 	# Loop and put in array
 	while(!$result->EOF) {

@@ -152,9 +152,9 @@ class email_template
 
 		# Send to admin only? 
 		$admin_only = false;
-		if(eregi('admin->', $template)) {
+		if(preg_match('/admin->/i', $template)) {
 			$admin_only = true;
-			$template = eregi_replace('admin->', '', $template);
+			$template = preg_replace('/admin->/i', '', $template);
 		}  
 
 
@@ -375,12 +375,12 @@ class email_template
 		### Get the SQL1 Query/Arrays 
 		if(!empty($template->fields["sql_1"]) && !empty($sql1) &&!is_array($sql1))
 		{ 
-			$sql    = eregi_replace('%DB_PREFIX%', AGILE_DB_PREFIX, $template->fields["sql_1"]);
-			$sql    = eregi_replace('%SQL1%', $db->qstr($sql1), $sql);
+			$sql    = preg_replace('/%DB_PREFIX%/', AGILE_DB_PREFIX, $template->fields["sql_1"]);
+			$sql    = preg_replace('/%SQL1%/', $db->qstr($sql1), $sql);
 			if(!is_array($sql2)) 
-			$sql    = eregi_replace('%SQL2%', $db->qstr($sql2), $sql);
+			$sql    = preg_replace('/%SQL2%/', $db->qstr($sql2), $sql);
 			if(!is_array($sql3)) 
-			$sql    = eregi_replace('%SQL3%', $db->qstr($sql3), $sql);
+			$sql    = preg_replace('/%SQL3%/', $db->qstr($sql3), $sql);
 			$sql   .= " AND site_id     = ".  $db->qstr(DEFAULT_SITE);
 			$SQL_1  = $db->Execute($sql);
 
@@ -415,12 +415,12 @@ class email_template
 		### Get the SQL2 Query/Arrays 
 		if(!empty($template->fields["sql_2"]) && !empty($sql2) &&!is_array($sql2))
 		{
-			$sql = eregi_replace('%DB_PREFIX%', AGILE_DB_PREFIX, $template->fields["sql_2"]);
-			$sql = eregi_replace('%SQL1%', $db->qstr($sql1), $sql);
+			$sql = preg_replace('/%DB_PREFIX%/', AGILE_DB_PREFIX, $template->fields["sql_2"]);
+			$sql = preg_replace('/%SQL1%/', $db->qstr($sql1), $sql);
 			if(!is_array($sql2)) 
-			$sql = eregi_replace('%SQL2%', $db->qstr($sql2), $sql);
+			$sql = preg_replace('/%SQL2%/', $db->qstr($sql2), $sql);
 			if(!is_array($sql3)) 
-			$sql = eregi_replace('%SQL3%', $db->qstr($sql3), $sql);
+			$sql = preg_replace('/%SQL3%/', $db->qstr($sql3), $sql);
 			$sql .= " AND site_id     = ".$db->qstr(DEFAULT_SITE);
 			$SQL_2     = $db->Execute($sql);
 			if($SQL_2 == false)
@@ -454,12 +454,12 @@ class email_template
 		### Get the SQL3 Query/Arrays 
 		if(!empty($template->fields["sql_3"]) && !empty($sql3) &&!is_array($sql3))
 		{
-			$sql = eregi_replace('%DB_PREFIX%', AGILE_DB_PREFIX, $template->fields["sql_3"]);
-			$sql = eregi_replace('%SQL1%', $db->qstr($sql1), $sql);
+			$sql = preg_replace('/%DB_PREFIX%/i', AGILE_DB_PREFIX, $template->fields["sql_3"]);
+			$sql = preg_replace('/%SQL1%/i', $db->qstr($sql1), $sql);
 			if(!is_array($sql2)) 
-			$sql = eregi_replace('%SQL2%', $db->qstr($sql2), $sql);
+			$sql = preg_replace('/%SQL2%/i', $db->qstr($sql2), $sql);
 			if(!is_array($sql3)) 
-			$sql = eregi_replace('%SQL3%', $db->qstr($sql3), $sql);
+			$sql = preg_replace('/%SQL3%/i', $db->qstr($sql3), $sql);
 			$sql .= " AND site_id     = ".$db->qstr(DEFAULT_SITE);
 			$SQL_3          = $db->Execute($sql);
 			if($SQL_3 == false)
@@ -491,17 +491,17 @@ class email_template
 		### Replace the $replace vars in the body and subject
 		while(list($key, $value) = each($replace))
 		{
-			$E['subject']   = eregi_replace($key, $value, $E['subject']);
-			$E['body_text'] = eregi_replace($key, $value, $E['body_text']);
+			$E['subject']   = preg_replace('@'.$key.'@i', $value, $E['subject']);
+			$E['body_text'] = preg_replace('@'.$key.'@i', $value, $E['body_text']);
 			if(!empty($E['body_html']))
-			$E['body_html'] = eregi_replace($key, $value, $E['body_html']);
+			$E['body_html'] = preg_replace('@'.$key.'@i', $value, $E['body_html']);
 		}
 
 		### Remove any unparsed vars from the body text and html:  
-		if(!empty($E['body_html']) && ereg('%',$E['body_html']))
-		@$E['body_html'] = ereg_replace("%[a-zA-Z0-9_]{1,}%", '', $E['body_html']); 
-		if(!empty($E['body_text']) && ereg("%",$E['body_text']))
-		@$E['body_text'] = ereg_replace("%[a-zA-Z0-9_]{1,}%", '', $E['body_text']);            
+		if(!empty($E['body_html']) && preg_match('/%/',$E['body_html']))
+		@$E['body_html'] = preg_replace("@%[a-zA-Z0-9_]{1,}%@", '', $E['body_html']); 
+		if(!empty($E['body_text']) && preg_match("/%/",$E['body_text']))
+		@$E['body_text'] = preg_replace("@%[a-zA-Z0-9_]{1,}%@", '', $E['body_text']);            
 
 		### Set any attachments (not currently supported)
 		$E['attatchments']  = '';

@@ -96,7 +96,7 @@ class tax
 					 					
 			if(!empty($rs->fields['tax_id_regex'])) {
 				$regex=$rs->fields['tax_id_regex'];
-				if(!ereg("$regex", trim($tax_id))) return false;
+				if(!preg_match(",$regex,", trim($tax_id))) return false;
 			}
 		}
 		return true;

@@ -71,8 +71,8 @@ class faq
 		if (@$result != false && $result->RecordCount() > 0)  { 
 			$i=0;  
 			while(!$result->EOF && $i < 10)  { 
-				echo '<li><div class="name"><b>' .  stripcslashes( substr( ereg_replace("\r\n", " ",  $result->fields['question']), 0, 65 ) ). '</b></div>'.
-					'<div class="email"><span class="informal">' . stripcslashes( substr( ereg_replace("\r\n", " ",  $result->fields['answer']),0, 75 ) ) . '</span></div>'.
+				echo '<li><div class="name"><b>' .  stripcslashes( substr( preg_replace("/\r\n/", " ",  $result->fields['question']), 0, 65 ) ). '</b></div>'.
+					'<div class="email"><span class="informal">' . stripcslashes( substr( preg_replace("/\r\n/", " ",  $result->fields['answer']),0, 75 ) ) . '</span></div>'.
 					'<div class="index" style="display:none">'. stripcslashes( $result->fields['answer'].'</div></li>'). "\r\n"; 
 				$result->MoveNext();
 				$i++;
@@ -113,8 +113,8 @@ class faq
 			$C_translate = new CORE_translate;  
 			echo $C_translate->translate('no_faqs','faq');
 		} else {
-			echo '<p><u>' . ereg_replace("\r\n", "<BR>", stripcslashes( htmlentities( $rs->fields['question']) ) ). '</u></p>' .
-				 '<p>' 	  . ereg_replace("\r\n", "<BR>", $this->linkalize(stripcslashes( htmlentities( $rs->fields['answer']) ) ) ). '</p>';             		
+			echo '<p><u>' . preg_replace("/\r\n/", "<BR>", stripcslashes( htmlentities( $rs->fields['question']) ) ). '</u></p>' .
+				 '<p>' 	  . preg_replace("/\r\n/", "<BR>", $this->linkalize(stripcslashes( htmlentities( $rs->fields['answer']) ) ) ). '</p>';             		
 		}
 	}  
 
@@ -151,7 +151,7 @@ class faq
 			while(!$result->EOF)  {  
 				global $C_auth;
 				if( $C_auth->auth_group_by_id( unserialize($result->fields['group_avail'] ))) {
-					echo '<li><div><a href="?_page=faq:faq&id='.$result->fields['faq_id'].'">' . stripcslashes( htmlentities(  ereg_replace("\r\n", " ",  $result->fields['question']) ) ). '</a></div> </li>'. "\r\n"; 
+					echo '<li><div><a href="?_page=faq:faq&id='.$result->fields['faq_id'].'">' . stripcslashes( htmlentities(  preg_replace("/\r\n/", " ",  $result->fields['question']) ) ). '</a></div> </li>'. "\r\n"; 
 					$i++;
 				} 
 				$result->MoveNext();  

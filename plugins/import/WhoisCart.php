@@ -826,10 +826,10 @@ class import_plugin extends import
 				}
 				
 				# Determine the domain type (DOMAIN-REGISTER or DOMAIN-TRANSFER or DOMAIN-PARK)
-				if(!empty ($rs->fields['domain_list']) && ereg($domain, $rs->fields['domain_list'])) {
+				if(!empty ($rs->fields['domain_list']) && preg_match('@'.$domain.'@', $rs->fields['domain_list'])) {
 					$sku = 'DOMAIN-REGISTER';
 					$domain_type = 'register';
-				} elseif(!empty($rs->fields['transfer_list']) && ereg($domain, $rs->fields['transfer_list'])) {
+				} elseif(!empty($rs->fields['transfer_list']) && preg_match('@'.$domain.'@', $rs->fields['transfer_list'])) {
 					$sku = 'DOMAIN-TRANSFER';
 					$domain_type = 'transfer';
 				} else {

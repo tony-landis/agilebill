@@ -320,9 +320,9 @@ class import_plugin extends import
 			
 			# Determine the recurring schedule:
 			$data = unserialize($rs->fields['data']); 
-			if(ereg("y$", $data['expire_days']))
+			if(preg_match("/y$/i", $data['expire_days']))
 			{
-				$years 	= ereg_replace("y$", "", $data['expire_days']);
+				$years 	= preg_replace("/y$/i", "", $data['expire_days']);
 				switch ($years) {
 					case '1':
 						$price_recurr_schedule = "4";
@@ -335,9 +335,9 @@ class import_plugin extends import
 				}									
 					 
 			}
-			else if(ereg("m$", $data['expire_days']))
+			else if(preg_match("/m$/", $data['expire_days']))
 			{
-				$months = ereg_replace("m$", "", $data['expire_days']);
+				$months = preg_replace("/m$/", "", $data['expire_days']);
 				switch ($months) {
 					case '1':
 						$price_recurr_schedule = "1";
@@ -780,22 +780,22 @@ class import_plugin extends import
 	
 	// DETERMINE CREDIT CARD TYPE
 	function cc_identify($cc_no)     {
-         $cc_no = ereg_replace ('[^0-9]+', '', $cc_no);
+         $cc_no = preg_replace ('/[^0-9]+/', '', $cc_no);
 
         // Get card type based on prefix and length of card number
-        if (ereg ('^4(.{12}|.{15})$', $cc_no)) {
+        if (preg_match('/^4(.{12}|.{15})$/', $cc_no)) {
             return 'visa';
-        } elseif (ereg ('^5[1-5].{14}$', $cc_no)) {
+        } elseif (preg_match('/^5[1-5].{14}$/', $cc_no)) {
             return 'mc';
-        } elseif (ereg ('^3[47].{13}$', $cc_no)) {
+        } elseif (preg_match('/^3[47].{13}$/', $cc_no)) {
             return 'amex';
-        } elseif (ereg ('^3(0[0-5].{11}|[68].{12})$', $cc_no)) {
+        } elseif (preg_match('/^3(0[0-5].{11}|[68].{12})$/', $cc_no)) {
             return 'diners';
-        } elseif (ereg ('^6011.{12}$', $cc_no)) {
+        } elseif (preg_match('/^6011.{12}$/', $cc_no)) {
             return 'discover';
-        } elseif (ereg ('^(3.{15}|(2131|1800).{11})$', $cc_no)) {
+        } elseif (preg_match('/^(3.{15}|(2131|1800).{11})$/', $cc_no)) {
             return 'jcb';
-        } elseif (ereg ('^2(014|149).{11})$', $cc_no)) {
+        } elseif (preg_match('/^2(014|149).{11})$/', $cc_no)) {
             return 'enrout';
        } else {
  		 return "";

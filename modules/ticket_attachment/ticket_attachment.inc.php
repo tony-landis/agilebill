@@ -44,7 +44,7 @@ class ticket_attachment
 			  
 			if (empty($type)) {
 				echo imap_qprint($rs->fields['content']);
-			} elseif(eregi("^text", $type)) { 
+			} elseif(preg_match("/^text/i", $type)) { 
 				echo imap_base64($rs->fields['content']);
 			} else {
 				echo imap_base64($rs->fields['content']);

@@ -34,9 +34,9 @@ function smarty_function_html_link($params, &$smarty)
    	$t = 0;
    	if($hide) {
    		$e = 'Fade'; 
-   		if(ereg(',', $hide)) $hides = explode(',', $hide); else $hides = Array($hide); 
+   		if(preg_match('/,/', $hide)) $hides = explode(',', $hide); else $hides = Array($hide); 
    		foreach($hides as $element) {
-   			if(ereg('\|', $element)) {
+   			if(preg_match('@\|@', $element)) {
    				$el = explode('|', $element);  
    				$action .= " new Effect.{$el[2]}('{$el[0]}', {duration: {$el[1]}}); ";
    			} else {
@@ -48,9 +48,9 @@ function smarty_function_html_link($params, &$smarty)
    	# change state(s) (show)
    	if($show) {
    		$e = 'Appear';
-   		if(ereg(',', $show)) $shows = explode(',', $show); else $shows = Array($show);
+   		if(preg_match('/,/', $show)) $shows = explode(',', $show); else $shows = Array($show);
    		foreach($shows as $element) {
-   			if(ereg('\|', $element)) {
+   			if(preg_match('@\|@', $element)) {
    				$el = explode('|', $element);  
    				$action .= " new Effect.{$el[2]}('{$el[0]}', {duration: {$el[1]}}); ";
    			} else {

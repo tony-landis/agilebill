@@ -65,7 +65,7 @@ class plgn_prov_PLESK_8
 
 		# set the username
 		$username = trim($domain);
-		$username = eregi_replace("[-_\.]", "", $username);
+		$username = preg_replace("/[-_\.]/", "", $username);
 		if(strlen($username) < $user_len)
 		{
 			$rand = md5(md5($username).time());
@@ -680,7 +680,7 @@ EOF;
 	{
 		preg_match ("/(<id>)+([0-9]){1,99}/i", $result, $arr);
 		if(is_array($arr) && count($arr) > 0) {
-			$id = ereg_replace("<id>","", $arr[0]);
+			$id = preg_replace("/<id>/","", $arr[0]);
 			if(!is_numeric($id))
 				return false;
 			else

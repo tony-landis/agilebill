@@ -251,7 +251,7 @@ class voip_provisioning
 		$this->load_config();
 		switch ($this->voip_secret_gen) {
 			case 0:
-				$secret = substr(ereg_replace("[^0-9]","",microtime()),0,7);
+				$secret = substr(preg_replace("/[^0-9]/","",microtime()),0,7);
 				break;
 			case 1:
 				$secret = strrev($didClass->getDID());

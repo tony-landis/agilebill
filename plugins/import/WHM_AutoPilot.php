@@ -603,12 +603,12 @@ class import_plugin extends import
 					}
 					$domain_sku = $sku;
 					
-					$domain = ereg_replace("^www.", "", $rs2->fields['domain_name']); 					
-					$parking=ereg("(\.)([a-zA-Z0-9.-]+)", $domain, $ret);
+					$domain = preg_replace("/^www\./", "", $rs2->fields['domain_name']); 					
+					$parking=preg_replace("/(\.)([a-zA-Z0-9.-]+)/", $domain, $ret);
 					 
-					$tld=ereg_replace("^\.", "", $ret[0]);
-					$domain = ereg_replace("$tld$", "", $domain);
-					$domain = ereg_replace("\.", "", $domain);
+					$tld=preg_replace("/^\./", "", $ret[0]);
+					$domain = preg_replace(",$tld$,", "", $domain);
+					$domain = preg_replace("/\./", "", $domain);
 					 
 					$domain_host_tld_id=0;
 					$tldrs = $db->Execute(sqlSelect($db,"host_tld","id","name='$tld'"));	 

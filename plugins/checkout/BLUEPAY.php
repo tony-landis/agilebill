@@ -88,7 +88,7 @@ class plg_chout_BLUEPAY extends base_checkout_plugin
 		$response = $n->connect($this->host, $this->url, $vars, true, 1);
  
 		# Transaction Status:
-		if (eregi("Result=APPROVED", $response)) {
+		if (preg_match("/Result=APPROVED/i", $response)) {
 			$ret['status'] = 1;
 			$ret['msg'] = 'Approved!';
 		} else {

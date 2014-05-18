@@ -43,10 +43,10 @@ class report
 		$count = 0;
 		while ($file_name = readdir($dir))
 		{
-			if(  $file_name != '..' && $file_name != '.' && !ereg(".xml", $file_name) && !ereg(".php", $file_name))
+			if(  $file_name != '..' && $file_name != '.' && !preg_match("/.xml/i", $file_name) && !preg_match("/.php/i", $file_name))
 			{
 				$name = $C_translate->translate('menu', $file_name, '');
-				if(empty($name) && eregi("^[a-zA-Z0-9\-\_]{1,}", $file_name)) $name = strtoupper($file_name);
+				if(empty($name) && preg_match("/^[a-zA-Z0-9\-\_]{1,}/", $file_name)) $name = strtoupper($file_name);
 				if(!empty($name))
 				{
 					$return .= "<option value=\"{$file_name}\"";
@@ -96,7 +96,7 @@ class report
 		$count = 0;
 		while ($file_name = readdir($dir))
 		{
-			if($file_name != '..' && $file_name != '.' && ereg(".xml$", $file_name)) { 
+			if($file_name != '..' && $file_name != '.' && preg_match("/.xml$/i", $file_name)) { 
 				$template = $C_xml->xml_to_array($path.$file_name); 
 				$name = $template['report']['title'];
 				 
