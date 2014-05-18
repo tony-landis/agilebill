@@ -86,7 +86,7 @@
   <tr>
     <td><div id="copywrite">		
 		<a href="http://www.agileco.com">Billing Software</a> Powered by AgileBill.
-		Copyright 2004-2009 <a href="http://www.agileco.com/">Agileco, LLC</a>
+		Copyright 2004-2014 <a href="http://www.agileco.com/">Agileco, LLC</a>
 	</div></td>
   </tr>
 </table>
